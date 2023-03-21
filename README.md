@@ -1,4 +1,13 @@
 # Nitrozen-SwiftUI
 
-A description of this package.
+## Example Preview
+![Preview](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Example-Preview-1.gif)
+
+
+
+## Elements
+1. Button (will add code snippet here)
+2. Text/Label (will add code snippet here)
+3. TextField (coming soon...)
+
 
