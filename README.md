@@ -1,7 +1,8 @@
 # Nitrozen-SwiftUI
 
 ## Example Preview
-![Preview](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Example-Preview-1.mp4)
+![Preview](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Example-Preview-1.mp4)
+
 
 
 ## Elements
