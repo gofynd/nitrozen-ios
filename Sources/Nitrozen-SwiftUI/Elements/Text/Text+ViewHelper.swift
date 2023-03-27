@@ -10,34 +10,34 @@ import SwiftUI
 //MARK: Text Helper -> Public APIs
 public extension View {
 	
-	func headingXS(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.shared.headingXS)
+	func headingXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.headingXS) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: appearance)
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func headingXXS(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.shared.headingXXS)
+	func headingXXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.headingXXS) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: appearance)
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func subHeadingS(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.shared.subHeadingS)
+	func subHeadingS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.subHeadingS) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: appearance)
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func bodyXS(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.shared.bodyXS)
+	func bodyXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.bodyXS) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: appearance)
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func labelXXS(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.shared.labelXXS)
+	func labelXXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.labelXXS) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: appearance)
 		return self.loading(isLoading: isLoading, style: style)
 	}
 }
 
 fileprivate extension View {
-	func nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.TextLable) -> NitrozenTextStyle {
+	func nitrozenTextLabelStyle(forAppearance: NitrozenAppearance.TextLabel) -> NitrozenTextStyle {
 		return NitrozenTextStyle(
 			textColor: forAppearance.titleColor,
 			font: forAppearance.font,

@@ -33,6 +33,17 @@ struct TextLabels: View {
 			}
 			
 			Section {
+				Text("Custom Appearance")
+				
+				Text("This is text/label with purple title color and custom font \n- headingXS")
+					.headingXS(appearance: NitrozenAppearance.shared
+						.headingXS.copy
+						.titleColor(.purple)
+						.font(SystemFont.subheadline)
+					)
+			}
+			
+			Section {
 				
 				HStack{
 					Text("Loading")

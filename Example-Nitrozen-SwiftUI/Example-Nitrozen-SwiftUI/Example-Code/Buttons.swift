@@ -243,7 +243,7 @@ struct Buttons: View {
 				}
 				.borderedButton(
 					appearance: NitrozenAppearance.shared
-						.borderedButton
+						.borderedButton.copy
 						.font(.system(size: 10).italic())
 				)
 			}
@@ -259,7 +259,7 @@ struct Buttons: View {
 				}
 				.borderedButton(
 					appearance: NitrozenAppearance.shared
-						.borderedButton
+						.borderedButton.copy
 						.font(.system(size: 10).italic())
 						.titleColor(.blue)
 				)
@@ -277,13 +277,12 @@ struct Buttons: View {
 				}
 				.borderedButton(
 					appearance: NitrozenAppearance.shared
-						.borderedButton
+						.borderedButton.copy
 						.font(.system(size: 10).italic())
 						.titleColor(.purple),
 					viewPadding: .custom(paddingToAdd: .init(top: 20, leading: 40, bottom: 20, trailing: 40))
 				)
 			}
-			
 		}
 	}
 	
@@ -329,7 +328,7 @@ struct Buttons: View {
 				}
 				.tertiaryButton(
 					appearance: NitrozenAppearance.shared
-						.tertiaryButton
+						.tertiaryButton.copy
 						.font(.system(size: 10).italic())
 				)
 			}
@@ -345,7 +344,7 @@ struct Buttons: View {
 				}
 				.tertiaryButton(
 					appearance: NitrozenAppearance.shared
-						.tertiaryButton
+						.tertiaryButton.copy
 						.font(.system(size: 10).italic())
 						.titleColor(.blue)
 				)

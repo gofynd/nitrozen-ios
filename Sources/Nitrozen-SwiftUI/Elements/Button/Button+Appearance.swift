@@ -21,15 +21,15 @@ public extension NitrozenAppearance {
 		var borderWidth: Double
 		
 		init(styleUseCase: StyleUseCase,
-			 title: SystemColor, titleDisabled: SystemColor,
-			 background: SystemColor, backgroundDisabled: SystemColor,
+			 titleColor: SystemColor, titleColorDisabled: SystemColor,
+			 backgroundColor: SystemColor, backgroundColorDisabled: SystemColor,
 			 font: SystemFont, borderWidth: Double) {
 			
 			self.styleUseCase = styleUseCase
-			self.titleColor = title
-			self.titleColorDisabled = titleDisabled
-			self.backgroundColor = background
-			self.backgroundColorDisabled = backgroundDisabled
+			self.titleColor = titleColor
+			self.titleColorDisabled = titleColorDisabled
+			self.backgroundColor = backgroundColor
+			self.backgroundColorDisabled = backgroundColorDisabled
 			self.font = font
 			self.borderWidth = borderWidth
 		}
@@ -55,4 +55,18 @@ public extension NitrozenAppearance.Button {
 	
 	@discardableResult
 	func borderWidth(_ borderWidth: Double) -> Self { self.borderWidth = borderWidth; return self }
+}
+
+//MARK: Copy Support
+public extension NitrozenAppearance.Button {
+	var copy: NitrozenAppearance.Button {
+		.init(styleUseCase: self.styleUseCase,
+			  titleColor: self.titleColor,
+			  titleColorDisabled: self.titleColorDisabled,
+			  backgroundColor: self.backgroundColor,
+			  backgroundColorDisabled: self.backgroundColorDisabled,
+			  font: self.font,
+			  borderWidth: self.borderWidth
+		)
+	}
 }
