@@ -16,6 +16,8 @@ public class ColorProvider {
 	init(primary: SystemColor) {
 		self.primary = primary
 	}
+	
+	
 }
 
 public extension ColorProvider {
@@ -29,4 +31,11 @@ public extension ColorProvider {
 public extension ColorProvider {
 	@discardableResult
 	func primary(_ primary: SystemColor) -> Self { self.primary = primary; return self }
+}
+
+//MARK: Copy Support
+public extension ColorProvider {
+	var copy: ColorProvider {
+		ColorProvider(primary: self.primary)
+	}
 }

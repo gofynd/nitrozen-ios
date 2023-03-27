@@ -58,3 +58,16 @@ public extension FontProvider {
 	@discardableResult
 	func labelXXS(_ labelXXS: SystemFont) -> Self { self.labelXXS = labelXXS; return self }
 }
+
+//MARK: Copy Support
+public extension FontProvider {
+	var copy: FontProvider {
+		FontProvider(
+			headingXS: self.headingXS,
+			headingXXS: self.headingXXS,
+			subHeadingS: self.subHeadingS,
+			bodyXS: self.bodyXS,
+			labelXXS: self.labelXXS
+		)
+	}
+}

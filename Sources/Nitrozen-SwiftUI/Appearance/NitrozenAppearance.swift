@@ -17,11 +17,11 @@ public class NitrozenAppearance {
 		borderedButton: NitrozenAppearance.Button,
 		tertiaryButton: NitrozenAppearance.Button,
 		
-		headingXS: NitrozenAppearance.TextLable,
-		headingXXS: NitrozenAppearance.TextLable,
-		subHeadingS: NitrozenAppearance.TextLable,
-		bodyXS: NitrozenAppearance.TextLable,
-		labelXXS: NitrozenAppearance.TextLable
+		headingXS: NitrozenAppearance.TextLabel,
+		headingXXS: NitrozenAppearance.TextLabel,
+		subHeadingS: NitrozenAppearance.TextLabel,
+		bodyXS: NitrozenAppearance.TextLabel,
+		labelXXS: NitrozenAppearance.TextLabel
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -46,11 +46,11 @@ public class NitrozenAppearance {
 	public var tertiaryButton: NitrozenAppearance.Button
 	
 	//MARK: public properties
-	public var headingXS: NitrozenAppearance.TextLable
-	public var headingXXS: NitrozenAppearance.TextLable
-	public var subHeadingS: NitrozenAppearance.TextLable
-	public var bodyXS: NitrozenAppearance.TextLable
-	public var labelXXS: NitrozenAppearance.TextLable
+	public var headingXS: NitrozenAppearance.TextLabel
+	public var headingXXS: NitrozenAppearance.TextLabel
+	public var subHeadingS: NitrozenAppearance.TextLabel
+	public var bodyXS: NitrozenAppearance.TextLabel
+	public var labelXXS: NitrozenAppearance.TextLabel
 	
 }
 
@@ -69,18 +69,18 @@ public extension NitrozenAppearance {
 			fontProvider: fontProvider,
 			
 			primaryButton: .init(styleUseCase: .primary,
-								 title: .white, titleDisabled: .white.opacity(disableOpacity),
-								 background: colorProvider.primary, backgroundDisabled: colorProvider.primary.opacity(disableOpacity),
+								 titleColor: .white, titleColorDisabled: .white.opacity(disableOpacity),
+								 backgroundColor: colorProvider.primary, backgroundColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								 font: font, borderWidth: 0.0),
 			
 			borderedButton: .init(styleUseCase: .bordered,
-								  title: colorProvider.primary, titleDisabled: colorProvider.primary.opacity(disableOpacity),
-								  background: .clear, backgroundDisabled: .clear,
+								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
+								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font, borderWidth: 1.0),
 			
 			tertiaryButton: .init(styleUseCase: .tertiary,
-								  title: colorProvider.primary, titleDisabled: colorProvider.primary.opacity(disableOpacity),
-								  background: .clear, backgroundDisabled: .clear,
+								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
+								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font, borderWidth: 1.0),
 			
 			headingXS: .init(titleColor: .black, font: fontProvider.headingXS),
@@ -91,4 +91,22 @@ public extension NitrozenAppearance {
 			
 		)
 	}()
+}
+
+//MARK: Copy Support
+public extension NitrozenAppearance {
+	var copy: NitrozenAppearance {
+		return .init(
+			colorProvider: self.colorProvider.copy,
+			fontProvider: self.fontProvider.copy,
+			primaryButton: self.primaryButton.copy,
+			borderedButton: self.borderedButton.copy,
+			tertiaryButton: self.tertiaryButton.copy,
+			headingXS: self.headingXS.copy,
+			headingXXS: self.headingXXS.copy,
+			subHeadingS: self.subHeadingS.copy,
+			bodyXS: self.bodyXS.copy,
+			labelXXS: self.labelXXS.copy
+		)
+	}
 }
