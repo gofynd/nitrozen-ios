@@ -121,10 +121,10 @@ struct Buttons: View {
 		Section {
 			
 			Text("Image and Title Buttons ")
-//				.largeTitle(weight: .bold)
+			//				.largeTitle(weight: .bold)
 			
 			Text("With image")
-//				.secondaryTitle(weight: .regular)
+			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				HStack{
 					Image(systemName: "paperplane.fill")
@@ -134,7 +134,7 @@ struct Buttons: View {
 			.primaryButton()
 			
 			Text("Disable with image")
-//				.secondaryTitle(weight: .regular)
+			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				HStack{
 					Image(systemName: "paperplane.fill")
@@ -145,22 +145,75 @@ struct Buttons: View {
 			.primaryButton()
 			
 			Text("With only image")
-//				.secondaryTitle(weight: .regular)
+			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				Image(systemName: "paperplane.fill")
 			}
 			.primaryButton(shape: .circle)
+		}
+			
+		Section {
+			
+			Text("Custom appearance")
+
+			
+			VStack {
+				Text("Custom font")
+				
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.primaryButton(
+					appearance: NitrozenAppearance.shared
+						.primaryButton
+						.font(.system(size: 10).italic())
+				)
+			}
+			
+			VStack {
+				Text("Custom font and color")
+				
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.primaryButton(
+					appearance: NitrozenAppearance.shared
+						.primaryButton
+						.font(.system(size: 10).italic())
+						.titleColor(.white)
+						.backgroundColor(.black)
+				)
+			}
+			
+			VStack {
+				Text("Custom padding, font, color")
+				
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.primaryButton(
+					appearance: NitrozenAppearance.shared
+						.primaryButton
+						.font(.system(size: 10).italic())
+						.titleColor(.white)
+						.backgroundColor(.black),
+					viewPadding: .custom(paddingToAdd: .init(top: 20, leading: 80, bottom: 20, trailing: 80))
+				)
+			}
 		}
 	}
 	
 	@ViewBuilder func borderedButtons() -> some View {
 		Section {
 			Text("Bordered Buttons")
-//				.largeTitle(weight: .bold)
-			
 			
 			Text("Enabled Button")
-//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				Text("Click me")
 			}
@@ -168,12 +221,69 @@ struct Buttons: View {
 			
 			
 			Text("Disabled Button")
-//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				Text("Click me")
 			}
 			.disabled(true)
 			.borderedButton()
+		}
+		
+		Section {
+	
+			Text("Custom appearance")
+			
+			HStack {
+				Text("Custom font")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Click me")
+					}
+				}
+				.borderedButton(
+					appearance: NitrozenAppearance.shared
+						.borderedButton
+						.font(.system(size: 10).italic())
+				)
+			}
+			
+			HStack {
+				Text("Custom font and color")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.borderedButton(
+					appearance: NitrozenAppearance.shared
+						.borderedButton
+						.font(.system(size: 10).italic())
+						.titleColor(.blue)
+				)
+			}
+
+			
+			HStack {
+				Text("Custom padding, font, color")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.borderedButton(
+					appearance: NitrozenAppearance.shared
+						.borderedButton
+						.font(.system(size: 10).italic())
+						.titleColor(.purple),
+					viewPadding: .custom(paddingToAdd: .init(top: 20, leading: 40, bottom: 20, trailing: 40))
+				)
+			}
+			
 		}
 	}
 	
@@ -181,11 +291,10 @@ struct Buttons: View {
 		Section {
 			
 			Text("Tertiary Buttons")
-//				.largeTitle(weight: .bold)
 			
 			HStack {
 				Text("Enabled Button")
-//					.secondaryTitle(weight: .regular)
+				
 				Spacer()
 				Button(action: {}) {
 					Text("Click me")
@@ -195,13 +304,51 @@ struct Buttons: View {
 			
 			HStack {
 				Text("Disabled Button")
-//					.secondaryTitle(weight: .regular)
+				
 				Spacer()
 				Button(action: {}) {
 					Text("Click me")
 				}
 				.disabled(true)
 				.tertiaryButton()
+			}
+		}
+		
+		Section {
+			
+			Text("Custom appearance")
+			
+			HStack {
+				Text("Custom font")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Click me")
+					}
+				}
+				.tertiaryButton(
+					appearance: NitrozenAppearance.shared
+						.tertiaryButton
+						.font(.system(size: 10).italic())
+				)
+			}
+			
+			HStack {
+				Text("Custom font and color")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Custom font")
+					}
+				}
+				.tertiaryButton(
+					appearance: NitrozenAppearance.shared
+						.tertiaryButton
+						.font(.system(size: 10).italic())
+						.titleColor(.blue)
+				)
 			}
 		}
 	}

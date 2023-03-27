@@ -10,21 +10,21 @@ import SwiftUI
 //MARK: Button Helper -> Public APIs
 public extension View {
 	
-	func primaryButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule) -> some View {
-		var style = nitrozenButtonStyle(forAppearance: NitrozenAppearance.shared.primaryButton, withShape: shape)
-		style.padding(self.buttonPadding(shape: shape))
+	func primaryButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule, appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.primaryButton, viewPadding: ViewPadding? = nil) -> some View {
+		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: shape)
+		style.padding(viewPadding.or(self.buttonPadding(shape: shape)))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func borderedButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule) -> some View {
-		var style = nitrozenButtonStyle(forAppearance: NitrozenAppearance.shared.borderedButton, withShape: shape)
-		style.padding(self.buttonPadding(shape: shape))
+	func borderedButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule, appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.borderedButton, viewPadding: ViewPadding? = nil) -> some View {
+		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: shape)
+		style.padding(viewPadding.or(self.buttonPadding(shape: shape)))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func tertiaryButton(isLoading: Binding<Bool> = .constant(false)) -> some View {
-		var style = nitrozenButtonStyle(forAppearance: NitrozenAppearance.shared.tertiaryButton, withShape: .none)
-		style.padding(self.buttonPadding(shape: .none))
+	func tertiaryButton(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.tertiaryButton, viewPadding: ViewPadding? = nil) -> some View {
+		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: .none)
+		style.padding(viewPadding.or(self.buttonPadding(shape: .none)))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 }
