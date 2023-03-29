@@ -8,11 +8,12 @@
 import Foundation
 
 public extension NitrozenAppearance {
+	//TODO: define protocol textApperancable for titleColor and font
 	class TextLabel {
-		var titleColor: SystemColor
-		var font: SystemFont
+		public var titleColor: SystemColor
+		public var font: SystemFont
 		
-		init(titleColor: SystemColor, font: SystemFont) {
+		public init(titleColor: SystemColor, font: SystemFont) {
 			self.titleColor = titleColor
 			self.font = font
 		}
