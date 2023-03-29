@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+public typealias ElementTap = () -> ()
+
 //base protocol
 protocol NitrozenElementStyle { }
 
