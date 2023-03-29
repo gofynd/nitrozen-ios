@@ -6,12 +6,65 @@
 //
 
 import SwiftUI
+import Nitrozen_SwiftUI
+import FloatingTextField_SwiftUI
 
 @main
 struct Example_Nitrozen_SwiftUIApp: App {
+	
+	init() {
+		self.setupNitrozenAppearance()
+	}
+	
+	
     var body: some Scene {
         WindowGroup {
 			UIElementsList()
         }
     }
+	
+	func setupNitrozenAppearance(){
+		
+		let primaryColor = SystemColor.purple
+		let font = SystemFont.title
+		let disabledButtonOpacity: Double = 0.3
+		
+		NitrozenAppearance.shared.colorProvider
+			.primary(primaryColor)
+		
+		NitrozenAppearance.shared.primaryButton
+			.backgroundColor(primaryColor)
+			.backgroundColorDisabled(primaryColor.opacity(disabledButtonOpacity))
+			.titleColor(.white)
+			.titleColorDisabled(.white.opacity(disabledButtonOpacity))
+			.font(font)
+			.borderWidth(0.0)
+		
+		NitrozenAppearance.shared.borderedButton
+			.backgroundColor(.clear)
+			.backgroundColorDisabled(.clear)
+			.titleColor(primaryColor)
+			.titleColorDisabled(primaryColor.opacity(disabledButtonOpacity))
+			.font(font)
+			.borderWidth(1.0)
+		
+		NitrozenAppearance.shared.tertiaryButton
+			.backgroundColor(.clear)
+			.backgroundColorDisabled(.clear)
+			.titleColor(primaryColor)
+			.titleColorDisabled(primaryColor.opacity(disabledButtonOpacity))
+			.font(font)
+			.borderWidth(0.0)
+		
+		NitrozenAppearance.shared.textField
+			.titleColor(.black)
+			.font(.body)
+			.errorInfo(NitrozenAppearance.shared.textField.err)
+			.borderAppearance(
+				.init()
+				.borderColor(.gray)
+				.borderWidth(1.0)
+				.borderPadding(6)
+			)
+	}
 }

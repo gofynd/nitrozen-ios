@@ -8,6 +8,24 @@
         "revision" : "9970fd0bb7a05dad0b6566ae1f56937716686b24",
         "version" : "1.1.1"
       }
+    },
+    {
+      "identity" : "floatingtextfield-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hitendradeveloper/FloatingTextField-SwiftUI",
+      "state" : {
+        "branch" : "v1.3.3",
+        "revision" : "cd5e54a747302b79d3b58220f94e23f64ac6c3c8"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect",
+      "state" : {
+        "revision" : "c18951c747ab62af7c15e17a81bd37d4fd5a9979",
+        "version" : "0.2.3"
+      }
     }
   ],
   "version" : 2

@@ -67,7 +67,6 @@ public extension FontProvider {
 			headingXXS: self.headingXXS,
 			subHeadingS: self.subHeadingS,
 			bodyXS: self.bodyXS,
-			labelXXS: self.labelXXS
-		)
+			labelXXS: self.labelXXS)
 	}
 }

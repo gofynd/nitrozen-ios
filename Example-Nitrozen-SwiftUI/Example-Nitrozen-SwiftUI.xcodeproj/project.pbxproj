@@ -12,7 +12,7 @@
 		E345E33729C5931D00B239FE /* TextLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33629C5931D00B239FE /* TextLabels.swift */; };
 		E376041E29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376041D29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift */; };
 		E376042229C459EB000D28DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E376042129C459EB000D28DC /* Assets.xcassets */; };
-		E376043029C45ACE000D28DC /* ElementsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376042F29C45ACE000D28DC /* ElementsListView.swift */; };
+		E376043029C45ACE000D28DC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376042F29C45ACE000D28DC /* TextFields.swift */; };
 		E3C240C829C468E40090F59A /* Nitrozen-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E3C240C729C468E40090F59A /* Nitrozen-SwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +23,7 @@
 		E376041A29C459EA000D28DC /* Example-Nitrozen-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-Nitrozen-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E376041D29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_Nitrozen_SwiftUIApp.swift; sourceTree = "<group>"; };
 		E376042129C459EB000D28DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E376042F29C45ACE000D28DC /* ElementsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementsListView.swift; sourceTree = "<group>"; };
+		E376042F29C45ACE000D28DC /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		E376043329C460DF000D28DC /* Nitrozen-SwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Nitrozen-SwiftUI"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				E376041D29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift */,
-				E376042F29C45ACE000D28DC /* ElementsListView.swift */,
+				E376042F29C45ACE000D28DC /* TextFields.swift */,
 				E345E33429C484DC00B239FE /* Buttons.swift */,
 				E345E33629C5931D00B239FE /* TextLabels.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
@@ -168,7 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
-				E376043029C45ACE000D28DC /* ElementsListView.swift in Sources */,
+				E376043029C45ACE000D28DC /* TextFields.swift in Sources */,
 				E376041E29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift in Sources */,
 				E345E33729C5931D00B239FE /* TextLabels.swift in Sources */,
 			);
