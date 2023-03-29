@@ -2,7 +2,7 @@
 //  TextFields.swift
 //  Example-Nitrozen-SwiftUI
 //
-//  Created by Hitendra Solanki on 28/12/22.
+//  Created by Hitendra Solanki on 27/03/23.
 //
 
 import SwiftUI
@@ -13,9 +13,9 @@ struct TextFields: View {
 	@State var textField1: String = ""
 	@State var textField2: String = ""
 	@State var textField3: String = ""
-	@State var textField4: String = ""
-	@State var textField5: String = ""
-	@State var textField6: String = ""
+	@State var textField4: String = "lorem ipsum text by user"
+	@State var textField5: String = "lorem ipsum text by user"
+	@State var textField6: String = "lorem ipsum text by user"
 	
 	var body: some View {
 		List{
@@ -98,42 +98,5 @@ struct TextFields: View {
 				)
 			}
 		}
-	}
-}
-
-struct UIElementsList: View {
-	
-	var body: some View {
-		NavigationStack {
-			List {
-				NavigationLink {
-					Buttons()
-				} label: {
-					Text("Buttons")
-				}
-				
-				NavigationLink {
-					TextFields()
-				} label: {
-					Text("Textfields")
-				}
-				
-				NavigationLink {
-					TextLabels()
-				} label: {
-					Text("TextLabels")
-				}
-
-			}
-			.navigationTitle("Nitrozen Elements")
-		}
-
-	}
-}
-
-struct UIElementsList_Preview: PreviewProvider {
-	static var previews: some View {
-		UIElementsList()
-			.previewDevice(PreviewDevice.init(stringLiteral: "iPhone 14 Pro"))
 	}
 }

@@ -28,6 +28,9 @@ public class NitrozenAppearance {
 	//Appearance.Textfield
 	public var textField: NitrozenAppearance.TextField
 	
+	//Appearance.DropDownTextfield
+	public var dropDownTextField: NitrozenAppearance.TextField
+	
 	init(
 		colorProvider: ColorProvider,
 		fontProvider: FontProvider,
@@ -42,7 +45,8 @@ public class NitrozenAppearance {
 		bodyXS: NitrozenAppearance.TextLabel,
 		labelXXS: NitrozenAppearance.TextLabel,
 		
-		textField: NitrozenAppearance.TextField
+		textField: NitrozenAppearance.TextField,
+		dropDownTextField: NitrozenAppearance.TextField
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -57,6 +61,7 @@ public class NitrozenAppearance {
 		self.labelXXS = labelXXS
 		
 		self.textField = textField
+		self.dropDownTextField = dropDownTextField
 	}
 }
 
@@ -105,6 +110,18 @@ public extension NitrozenAppearance {
 					.borderColor(.gray)
 					.borderWidth(1.0)
 					.borderPadding(6)
+			),
+			
+			dropDownTextField: .init(
+				titleColor: colorProvider.primary, font: .body,
+				topInfo: .init(titleColor: .gray, font: .caption),
+				sucessInfo: .init(titleColor: .green, font: .callout),
+				errorInfo: .init(titleColor: .red, font: .callout),
+				
+				borderAppearance: .init()
+					.borderColor(.purple)
+					.borderWidth(1.0)
+					.borderPadding(6)
 			)
 			
 		)
@@ -125,7 +142,8 @@ public extension NitrozenAppearance {
 			subHeadingS: self.subHeadingS.copy,
 			bodyXS: self.bodyXS.copy,
 			labelXXS: self.labelXXS.copy,
-			textField: self.textField.copy
+			textField: self.textField.copy,
+			dropDownTextField: self.dropDownTextField.copy
 		)
 	}
 }

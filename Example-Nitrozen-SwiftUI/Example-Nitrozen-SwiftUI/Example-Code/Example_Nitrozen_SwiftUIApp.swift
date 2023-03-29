@@ -59,7 +59,8 @@ struct Example_Nitrozen_SwiftUIApp: App {
 		NitrozenAppearance.shared.textField
 			.titleColor(.black)
 			.font(.body)
-			.errorInfo(NitrozenAppearance.shared.textField.err)
+			.errorInfo(.init(titleColor: .red.opacity(0.85), font: .caption))
+			.sucessInfo(.init(titleColor: .green.opacity(0.85), font: .caption))
 			.borderAppearance(
 				.init()
 				.borderColor(.gray)
