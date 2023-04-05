@@ -10,28 +10,27 @@ import SwiftUI
 //MARK: Text Helper -> Public APIs
 public extension View {
 	
-	func headingXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.headingXS) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: appearance)
+	func heading(isLoading: Binding<Bool> = .constant(false),
+				 size: NitrozenFont.Size,
+				 color: SystemColor = .black
+	) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: .init(titleColor: color, font: .nitrozen(.heading(size: size))))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func headingXXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.headingXXS) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: appearance)
+	
+	func body(isLoading: Binding<Bool> = .constant(false),
+			  size: NitrozenFont.Size, weight: NitrozenFont.Weight,
+			  color: SystemColor = .black
+	) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: .init(titleColor: color, font: .nitrozen(.body(size: size, weight: weight))))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 	
-	func subHeadingS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.subHeadingS) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: appearance)
-		return self.loading(isLoading: isLoading, style: style)
-	}
-	
-	func bodyXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.bodyXS) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: appearance)
-		return self.loading(isLoading: isLoading, style: style)
-	}
-	
-	func labelXXS(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.TextLabel = NitrozenAppearance.shared.labelXXS) -> some View {
-		let style = nitrozenTextLabelStyle(forAppearance: appearance)
+	func listTitle(isLoading: Binding<Bool> = .constant(false),
+			  color: SystemColor = .black
+	) -> some View {
+		let style = nitrozenTextLabelStyle(forAppearance: .init(titleColor: color, font: .nitrozen(.listTitle)))
 		return self.loading(isLoading: isLoading, style: style)
 	}
 }

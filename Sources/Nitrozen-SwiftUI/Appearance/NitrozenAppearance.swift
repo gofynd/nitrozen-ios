@@ -18,18 +18,12 @@ public class NitrozenAppearance {
 	public var borderedButton: NitrozenAppearance.Button
 	public var tertiaryButton: NitrozenAppearance.Button
 	
-	//Appearance.TextLabel
-	public var headingXS: NitrozenAppearance.TextLabel
-	public var headingXXS: NitrozenAppearance.TextLabel
-	public var subHeadingS: NitrozenAppearance.TextLabel
-	public var bodyXS: NitrozenAppearance.TextLabel
-	public var labelXXS: NitrozenAppearance.TextLabel
-	
 	//Appearance.Textfield
 	public var textField: NitrozenAppearance.TextField
 	
 	//Appearance.DropDownTextfield
 	public var dropDownTextField: NitrozenAppearance.TextField
+	
 	
 	init(
 		colorProvider: ColorProvider,
@@ -39,12 +33,6 @@ public class NitrozenAppearance {
 		borderedButton: NitrozenAppearance.Button,
 		tertiaryButton: NitrozenAppearance.Button,
 		
-		headingXS: NitrozenAppearance.TextLabel,
-		headingXXS: NitrozenAppearance.TextLabel,
-		subHeadingS: NitrozenAppearance.TextLabel,
-		bodyXS: NitrozenAppearance.TextLabel,
-		labelXXS: NitrozenAppearance.TextLabel,
-		
 		textField: NitrozenAppearance.TextField,
 		dropDownTextField: NitrozenAppearance.TextField
 	) {
@@ -53,12 +41,6 @@ public class NitrozenAppearance {
 		self.primaryButton = primaryButton
 		self.borderedButton = borderedButton
 		self.tertiaryButton = tertiaryButton
-		
-		self.headingXS = headingXS
-		self.headingXXS = headingXXS
-		self.subHeadingS = subHeadingS
-		self.bodyXS = bodyXS
-		self.labelXXS = labelXXS
 		
 		self.textField = textField
 		self.dropDownTextField = dropDownTextField
@@ -74,6 +56,8 @@ public extension NitrozenAppearance {
 		
 		
 		let font: SystemFont = fontProvider.headingXS
+		
+		FontRegistar.registerJIOFonts()
 		
 		return .init(
 			colorProvider: ColorProvider.shared,
@@ -93,12 +77,6 @@ public extension NitrozenAppearance {
 								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font, borderWidth: 1.0),
-			
-			headingXS: .init(titleColor: .black, font: fontProvider.headingXS),
-			headingXXS: .init(titleColor: .black, font: fontProvider.headingXXS),
-			subHeadingS: .init(titleColor: .black, font: fontProvider.subHeadingS),
-			bodyXS: .init(titleColor: .gray, font: fontProvider.bodyXS),
-			labelXXS: .init(titleColor: .gray, font: fontProvider.labelXXS),
 			
 			textField: .init(
 				titleColor: colorProvider.primary, font: .body,
@@ -137,11 +115,6 @@ public extension NitrozenAppearance {
 			primaryButton: self.primaryButton.copy,
 			borderedButton: self.borderedButton.copy,
 			tertiaryButton: self.tertiaryButton.copy,
-			headingXS: self.headingXS.copy,
-			headingXXS: self.headingXXS.copy,
-			subHeadingS: self.subHeadingS.copy,
-			bodyXS: self.bodyXS.copy,
-			labelXXS: self.labelXXS.copy,
 			textField: self.textField.copy,
 			dropDownTextField: self.dropDownTextField.copy
 		)
