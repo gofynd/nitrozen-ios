@@ -24,6 +24,9 @@ public class NitrozenAppearance {
 	//Appearance.DropDownTextfield
 	public var dropDownTextField: NitrozenAppearance.TextField
 	
+	//check box
+	public var checkbox: NitrozenAppearance.Checkbox
+	
 	
 	init(
 		colorProvider: ColorProvider,
@@ -34,7 +37,9 @@ public class NitrozenAppearance {
 		tertiaryButton: NitrozenAppearance.Button,
 		
 		textField: NitrozenAppearance.TextField,
-		dropDownTextField: NitrozenAppearance.TextField
+		dropDownTextField: NitrozenAppearance.TextField,
+		
+		checkbox: NitrozenAppearance.Checkbox
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -44,6 +49,8 @@ public class NitrozenAppearance {
 		
 		self.textField = textField
 		self.dropDownTextField = dropDownTextField
+		
+		self.checkbox = checkbox
 	}
 }
 
@@ -100,6 +107,17 @@ public extension NitrozenAppearance {
 					.borderColor(.purple)
 					.borderWidth(1.0)
 					.borderPadding(6)
+			),
+			
+			checkbox: .init(
+				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
+				deSelectedTitle: .init(titleColor: .gray, font: .title),
+				selectedColor: colorProvider.primary, deselectedColor: .gray.opacity(0.5),
+				selectedBorderWidth: 0, deselectedBorderWidth: 1,
+				size: .init(width: 32, height: 32),
+				selectedImage: AnyView(
+					Image(systemName: "checkmark.square.fill").resizable().scaledToFit()
+				)
 			)
 			
 		)
@@ -116,7 +134,8 @@ public extension NitrozenAppearance {
 			borderedButton: self.borderedButton.copy,
 			tertiaryButton: self.tertiaryButton.copy,
 			textField: self.textField.copy,
-			dropDownTextField: self.dropDownTextField.copy
+			dropDownTextField: self.dropDownTextField.copy,
+			checkbox: self.checkbox.copy
 		)
 	}
 }
