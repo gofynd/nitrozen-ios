@@ -30,6 +30,8 @@ public class NitrozenAppearance {
 	
 	//Appearance.DropDownTextfield
 	public var dropDownTextField: NitrozenAppearance.TextField
+    
+    public var radioButton: NitrozenAppearance.RadioButton
 	
 	init(
 		colorProvider: ColorProvider,
@@ -46,7 +48,9 @@ public class NitrozenAppearance {
 		labelXXS: NitrozenAppearance.TextLabel,
 		
 		textField: NitrozenAppearance.TextField,
-		dropDownTextField: NitrozenAppearance.TextField
+		dropDownTextField: NitrozenAppearance.TextField,
+        radioButton: NitrozenAppearance.RadioButton
+        
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -62,6 +66,7 @@ public class NitrozenAppearance {
 		
 		self.textField = textField
 		self.dropDownTextField = dropDownTextField
+        self.radioButton = radioButton
 	}
 }
 
@@ -122,7 +127,18 @@ public extension NitrozenAppearance {
 					.borderColor(.purple)
 					.borderWidth(1.0)
 					.borderPadding(6)
-			)
+            ),
+            
+            radioButton: .init(
+                selectedBorderColor: .blue,
+                deSelectedBorderColor: .black,
+                selectedBorderWidth: 5.0,
+                deSelectedBorderWidth: 1.0,
+                selectedTitle: .init(titleColor: .black, font: .body),
+                deSelectedTitle: .init(titleColor: .gray, font: .caption),
+                selectedSubTitle: .init(titleColor: .black, font: .body),
+                deSelectedSubTitle: .init(titleColor: .gray, font: .caption)
+            )
 			
 		)
 	}()
@@ -143,7 +159,8 @@ public extension NitrozenAppearance {
 			bodyXS: self.bodyXS.copy,
 			labelXXS: self.labelXXS.copy,
 			textField: self.textField.copy,
-			dropDownTextField: self.dropDownTextField.copy
+            dropDownTextField: self.dropDownTextField.copy,
+            radioButton: self.radioButton.copy
 		)
 	}
 }
