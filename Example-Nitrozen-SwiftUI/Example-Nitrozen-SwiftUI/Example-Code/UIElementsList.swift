@@ -33,7 +33,13 @@ struct UIElementsList: View {
 				NavigationLink {
 					TextLabels()
 				} label: {
-					Text("TextLabels")
+					Text("Fonts + Text Labels")
+				}
+				
+				NavigationLink {
+					Checkboxes()
+				} label: {
+					Text("CheckBoxes")
 				}
                 
                 NavigationLink {

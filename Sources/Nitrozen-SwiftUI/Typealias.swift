@@ -10,6 +10,7 @@ import SwiftUI
 
 public typealias SystemColor = SwiftUI.Color
 public typealias SystemFont = SwiftUI.Font
+public typealias SystemImage = SwiftUI.Image
 
 
 
