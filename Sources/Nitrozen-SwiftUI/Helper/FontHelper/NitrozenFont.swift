@@ -52,7 +52,7 @@ public struct NitrozenFont {
 		case .heading(let size):
 			let pointSize: CGFloat = {
 				switch size {
-				case .xl: return 65
+				case .xl: return 64
 				case .l: return 48
 				case .m: return 40
 				case .s: return 32

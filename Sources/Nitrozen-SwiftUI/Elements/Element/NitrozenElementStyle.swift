@@ -25,6 +25,10 @@ protocol NitrozenElementLoadingStyle: NitrozenElementStyle {
 	mutating func isLoading(_ isLoading: Bool) -> Self
 }
 
+public protocol NitrozenElementStringSelectableStyle {
+	var selectionTitle: String { get }
+}
+
 extension View {
 	func apply(elementStyle: NitrozenElementStyle) -> some View {
 		Group {

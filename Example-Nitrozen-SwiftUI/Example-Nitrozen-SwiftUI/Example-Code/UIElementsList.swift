@@ -35,6 +35,12 @@ struct UIElementsList: View {
 				} label: {
 					Text("Fonts + Text Labels")
 				}
+				
+				NavigationLink {
+					Checkboxes()
+				} label: {
+					Text("CheckBoxes")
+				}
 
 			}
 			.navigationTitle("Nitrozen Elements")
