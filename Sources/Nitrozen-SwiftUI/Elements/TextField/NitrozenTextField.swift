@@ -34,6 +34,9 @@ public struct NitrozenTextField: View {
 	var placeHolder: String
 	var infos: [Info] = []
 	
+	var borderedAppearance: FloatingTextField_SwiftUI.Modifiers.Rounded.Configuration
+	var textFieldAppearance: FloatingTextField_SwiftUI.Modifiers.Floating.Configuration
+	
 	var leftView: AnyView? = nil
 	var rightView: AnyView? = nil
 	
@@ -41,6 +44,8 @@ public struct NitrozenTextField: View {
 		binding: Binding<String>, placeHolder: String,
 		infos: [Info],
 		isSecure: Bool = false,
+		borderedAppearance: FloatingTextField_SwiftUI.Modifiers.Rounded.Configuration? = nil,
+		textFieldAppearance: FloatingTextField_SwiftUI.Modifiers.Floating.Configuration? = nil,
 		leftView: AnyView? = nil, rightView: AnyView? = nil
 	) {
 		self.isSecure = isSecure
@@ -49,13 +54,23 @@ public struct NitrozenTextField: View {
 		self.infos = infos
 		self.leftView = leftView
 		self.rightView = rightView
+		self.borderedAppearance = borderedAppearance.or(NitrozenAppearance.shared.textField.borderAppearance)
+		self.textFieldAppearance = textFieldAppearance.or(
+			.init()
+				.textFieldFont(NitrozenAppearance.shared.textField.font)
+				.textFieldColor(NitrozenAppearance.shared.textField.titleColor)
+				.allowsFloatingPlaceholder(false)
+				.leftView(AnyView(self.leftView.convertToView{ $0 }))
+				.rightView(AnyView(self.rightView.convertToView{ $0 }))
+		)
 	}
 	
 	public var body: some View {
-		VStack {
+		VStack(spacing: 4) {
 			infoView()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			textField()
+				
 			errorView()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			successView()
@@ -63,33 +78,18 @@ public struct NitrozenTextField: View {
 		}
 	}
 	
-	var borderedConfiguration: FloatingTextField_SwiftUI.Modifiers.Rounded.Configuration {
-		return NitrozenAppearance.shared
-			.textField
-			.borderAppearance
-	}
-	
-	var floatingConfiguration: FloatingTextField_SwiftUI.Modifiers.Floating.Configuration {
-		return .init()
-			.textFieldFont(NitrozenAppearance.shared.textField.font)
-			.textFieldColor(NitrozenAppearance.shared.textField.titleColor)
-			.leftView(AnyView(self.leftView.convertToView{ $0 }))
-			.rightView(AnyView(self.rightView.convertToView{ $0 }))
-	}
 	
 	@ViewBuilder
 	func textField() -> some View {
 		Group {
 			if self.isSecure {
 				SecureField(placeHolder, text: binding)
-					.floatingRounded(borderedConfiguration)
-					.floating(floatingConfiguration)
 			} else {
 				TextField(placeHolder, text: binding)
-					.floatingRounded(borderedConfiguration)
-					.floating(floatingConfiguration)
 			}
 		}
+		.floatingRounded(self.borderedAppearance)
+		.floating(self.textFieldAppearance)
 	}
 	
 	@ViewBuilder
