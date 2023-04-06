@@ -119,7 +119,6 @@ public extension NitrozenAppearance {
 					Image(systemName: "checkmark.square.fill").resizable().scaledToFit()
 				)
 			)
-			
 		)
 	}()
 }

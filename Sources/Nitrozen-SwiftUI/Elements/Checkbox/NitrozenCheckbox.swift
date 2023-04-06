@@ -61,15 +61,15 @@ public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStri
 }
 
 //MARK: NitrozenCheckboxItem
-struct NitrozenCheckboxItem: View {
+public struct NitrozenCheckboxItem: View {
 	
 	var isSelected: Bool
-	var title: String
+	var title: String?
 	var appearance: NitrozenAppearance.Checkbox
 	
 	public init(
 		isSelected: Bool,
-		title: String,
+		title: String?,
 		appearance: NitrozenAppearance.Checkbox? = nil
 	) {
 		self.isSelected = isSelected
@@ -97,10 +97,10 @@ struct NitrozenCheckboxItem: View {
 			}
 			.frame(width: self.appearance.size.width, height: self.appearance.size.height)
 			
-			Text(self.title)
-				.font(self.appearance.selectedTitle.font)
-				.foregroundColor(self.appearance.selectedTitle.titleColor)
-				.frame(maxWidth: .infinity, alignment: .leading)
+			self.title.convertToView { title in
+				titleView(title: title, font: self.appearance.selectedTitle.font, color: self.appearance.selectedTitle.titleColor)
+			}
+			
 		}
 	}
 	
@@ -111,10 +111,17 @@ struct NitrozenCheckboxItem: View {
 				.stroke(style: .init(lineWidth: self.appearance.deselectedBorderWidth))
 				.frame(width: self.appearance.size.width, height: self.appearance.size.height)
 			
-			Text(self.title)
-				.font(self.appearance.deSelectedTitle.font)
-				.foregroundColor(self.appearance.deSelectedTitle.titleColor)
-				.frame(maxWidth: .infinity, alignment: .leading)
+			self.title.convertToView { title in
+				titleView(title: title, font: self.appearance.deSelectedTitle.font, color: self.appearance.deSelectedTitle.titleColor)
+			}
 		}
+	}
+	
+	@ViewBuilder
+	func titleView(title: String, font: SystemFont, color: SystemColor) -> some View {
+		Text(title)
+			.font(font)
+			.foregroundColor(color)
+			.frame(maxWidth: .infinity, alignment: .leading)
 	}
 }
