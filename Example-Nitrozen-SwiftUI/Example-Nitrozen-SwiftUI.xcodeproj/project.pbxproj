@@ -16,6 +16,7 @@
 		E3C240C829C468E40090F59A /* Nitrozen-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E3C240C729C468E40090F59A /* Nitrozen-SwiftUI */; };
 		E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */; };
 		E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94429D46C5900AEE07E /* UIElementsList.swift */; };
+		FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76C0A129DAE0E9001FB759 /* RadioButton.swift */; };
 		E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		E376043329C460DF000D28DC /* Nitrozen-SwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Nitrozen-SwiftUI"; path = ../..; sourceTree = "<group>"; };
 		E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		E3CBE94429D46C5900AEE07E /* UIElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsList.swift; sourceTree = "<group>"; };
+		FA76C0A129DAE0E9001FB759 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkboxes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				E376041D29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift */,
+				FA76C0A129DAE0E9001FB759 /* RadioButton.swift */,
 				E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */,
 				E376042F29C45ACE000D28DC /* TextFields.swift */,
 				E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */,
@@ -182,6 +185,7 @@
 				E376041E29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift in Sources */,
 				E345E33729C5931D00B239FE /* TextLabels.swift in Sources */,
 				E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */,
+				FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */,
 				E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

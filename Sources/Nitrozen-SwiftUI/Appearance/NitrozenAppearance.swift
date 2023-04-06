@@ -24,6 +24,8 @@ public class NitrozenAppearance {
 	//Appearance.DropDownTextfield
 	public var dropDownTextField: NitrozenAppearance.TextField
 	
+	public var radioButton: NitrozenAppearance.RadioButton
+	
 	//check box
 	public var checkbox: NitrozenAppearance.Checkbox
 	
@@ -38,7 +40,7 @@ public class NitrozenAppearance {
 		
 		textField: NitrozenAppearance.TextField,
 		dropDownTextField: NitrozenAppearance.TextField,
-		
+		radioButton: NitrozenAppearance.RadioButton,
 		checkbox: NitrozenAppearance.Checkbox
 	) {
 		self.colorProvider = colorProvider
@@ -49,7 +51,7 @@ public class NitrozenAppearance {
 		
 		self.textField = textField
 		self.dropDownTextField = dropDownTextField
-		
+		self.radioButton = radioButton
 		self.checkbox = checkbox
 	}
 }
@@ -58,7 +60,7 @@ public extension NitrozenAppearance {
 	static var shared: NitrozenAppearance = {
 		let colorProvider = ColorProvider.shared
 		let fontProvider = FontProvider.shared
-
+		
 		let disableOpacity: Double = 0.3
 		
 		
@@ -109,6 +111,17 @@ public extension NitrozenAppearance {
 					.borderPadding(6)
 			),
 			
+			radioButton: .init(
+				selectedBorderColor: .blue,
+				deSelectedBorderColor: .black,
+				selectedBorderWidth: 5.0,
+				deSelectedBorderWidth: 1.0,
+				selectedTitle: .init(titleColor: .black, font: .body),
+				deSelectedTitle: .init(titleColor: .gray, font: .body),
+				selectedSubTitle: .init(titleColor: .gray, font: .caption),
+				deSelectedSubTitle: .init(titleColor: .gray, font: .caption)
+			),
+			
 			checkbox: .init(
 				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
 				deSelectedTitle: .init(titleColor: .gray, font: .title),
@@ -134,7 +147,10 @@ public extension NitrozenAppearance {
 			tertiaryButton: self.tertiaryButton.copy,
 			textField: self.textField.copy,
 			dropDownTextField: self.dropDownTextField.copy,
+			radioButton: self.radioButton.copy,
 			checkbox: self.checkbox.copy
 		)
 	}
 }
+
+
