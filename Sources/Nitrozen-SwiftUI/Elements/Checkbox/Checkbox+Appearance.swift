@@ -9,8 +9,8 @@ import SwiftUI
 
 public extension NitrozenAppearance {
 	class Checkbox {
-		var selectedTitle: NitrozenAppearance.TextLabel
-		var deSelectedTitle: NitrozenAppearance.TextLabel
+		public var selectedTitle: NitrozenAppearance.TextLabel
+		public var deSelectedTitle: NitrozenAppearance.TextLabel
 		
 		var selectedColor: SystemColor
 		var deselectedColor: SystemColor
