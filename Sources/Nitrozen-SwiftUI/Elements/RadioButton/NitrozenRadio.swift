@@ -10,6 +10,8 @@ import SwiftUI
 
 //MARK: NitrozenCheckbox
 public struct NitrozenRadio<Element>: View where Element: NitrozenElementRadioStringSelectableStyle & Hashable {
+	
+	//TODO: Rushang -- Move this layout type outside to use at multiple places
     public enum Layout {
         case horizontal, verticle
     }
@@ -85,7 +87,7 @@ public struct NitrozenRadioButtonItem: View {
     
     public var body: some View {
         
-        VStack(alignment: .leading,spacing:8) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .center) {
                 radioButton()
                 titleLabel()

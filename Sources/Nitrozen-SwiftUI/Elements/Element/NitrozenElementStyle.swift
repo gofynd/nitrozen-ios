@@ -25,6 +25,7 @@ protocol NitrozenElementLoadingStyle: NitrozenElementStyle {
 	mutating func isLoading(_ isLoading: Bool) -> Self
 }
 
+//TODO: Rushang -- combine NitrozenElementStringSelectableStyle and NitrozenElementRadioStringSelectableStyle with better naming
 public protocol NitrozenElementStringSelectableStyle {
 	var selectionTitle: String { get }
 }

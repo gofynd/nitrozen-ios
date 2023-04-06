@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Radio+Appearance.swift
 //  
 //
 //  Created by Rushang Prajapati on 05/04/23.
@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import FloatingTextField_SwiftUI
 
 public extension NitrozenAppearance {
     
