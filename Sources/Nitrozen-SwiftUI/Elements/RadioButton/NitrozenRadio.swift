@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  NitrozenRadio.swift
+//  Example-Nitrozen-SwiftUI
 //
 //  Created by Rushang Prajapati on 05/04/23.
 //
@@ -8,35 +8,79 @@
 import Foundation
 import SwiftUI
 
-public struct NitrozenRadio: View {
-    var binding: Binding<Bool>
-    var infos: [Info] = []
-    
-    public struct Info {
-        public enum Position: Hashable {  case title, subTitle }
-        var position: Position
-        var text: String
-        var appearance: NitrozenAppearance.TextLabel?
-        
-        public init(
-            position: Position,
-            text: String,
-            appearance: NitrozenAppearance.TextLabel? = nil
-        ){
-            self.position = position
-            self.text = text
-            self.appearance = appearance
-        }
-        
+//MARK: NitrozenCheckbox
+public struct NitrozenRadio<Element>: View where Element: NitrozenElementRadioStringSelectableStyle & Hashable {
+    public enum Layout {
+        case horizontal, verticle
     }
     
+    var options: Array<Element>
+    @Binding var selection: Set<Element>
+    var layout: Layout
+    var appearance: NitrozenAppearance.RadioButton
+    
+    public init(options: Array<Element>, selection: Binding<Set<Element>>,
+                layout: Layout, appearance: NitrozenAppearance.RadioButton? = nil) {
+        self.options = options
+        self._selection = selection
+        self.layout = layout
+        self.appearance = appearance.or(NitrozenAppearance.shared.radioButton)
+    }
+    
+    public var body: some View {
+        switch self.layout {
+        case .horizontal:
+            HStack {
+                listView()
+            }
+        case .verticle:
+            VStack {
+                listView()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func listView() -> some View {
+        ForEach(self.options, id: \.hashValue) { item in
+            
+            NitrozenRadioButtonItem(
+                isSelected: selection.contains(item),
+                title: item.selectionTitleText,
+                subTitle: item.selectionSubTitleText.or(""),
+                appearance:self.appearance
+            )
+            .onTapGesture {
+                withAnimation {
+                    if self.selection.contains(item).isFalse {
+                        self.selection.removeAll()
+                        self.selection.insert(item)
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//MARK: NitrozenCheckboxItem
+public struct NitrozenRadioButtonItem: View {
+    
+    var isSelected: Bool
+    var title: String?
+    var subTitle: String?
+    var appearance: NitrozenAppearance.RadioButton
+    
     public init(
-        binding: Binding<Bool>,
-        infos: [Info]
-        
-    ){
-        self.binding = binding
-        self.infos = infos
+        isSelected: Bool,
+        title: String? = nil,
+        subTitle: String? = nil,
+        appearance: NitrozenAppearance.RadioButton? = nil
+    ) {
+        self.isSelected = isSelected
+        self.title = title
+        self.subTitle = subTitle
+        self.appearance = appearance.or(NitrozenAppearance.shared.radioButton)
     }
     
     public var body: some View {
@@ -47,10 +91,6 @@ public struct NitrozenRadio: View {
                 titleLabel()
             }
             subTitleLabel()
-            
-        }
-        .onTapGesture {
-            self.binding.wrappedValue.toggle()
         }
         
     }
@@ -60,11 +100,11 @@ public struct NitrozenRadio: View {
         ZStack {
             Circle()
                 .fill(.white)
-
+            
             Circle()
                 .strokeBorder(
-                    binding.wrappedValue ? NitrozenAppearance.shared.radioButton.selectedBorderColor : NitrozenAppearance.shared.radioButton.deSelectedBorderColor ,
-                    lineWidth: binding.wrappedValue ? NitrozenAppearance.shared.radioButton.selectedBorderWidth : NitrozenAppearance.shared.radioButton.deSelectedBorderWidth
+                    isSelected ? self.appearance.selectedBorderColor : self.appearance.deSelectedBorderColor ,
+                    lineWidth: isSelected ? self.appearance.selectedBorderWidth : self.appearance.deSelectedBorderWidth
                 )
         }
         .frame(width: 20, height: 20)
@@ -73,42 +113,28 @@ public struct NitrozenRadio: View {
     
     @ViewBuilder
     func titleLabel() -> some View {
-        self.infos.filter { $0.position == .title }
-            .first.convertToView { info in
-                Text(info.text)
-                    .foregroundColor(
-                        binding.wrappedValue ? info.appearance.or(NitrozenAppearance.shared.radioButton.selectedTitle).titleColor : info.appearance.or(NitrozenAppearance.shared.radioButton.selectedTitle).titleColor
-                    )
-                    .font(info.appearance.or(NitrozenAppearance.shared.radioButton.selectedTitle).font)
-                    .multilineTextAlignment(.leading)
-                Spacer()
-            }
+        self.title.convertToView(block: { text in
+            Text(text)
+                .foregroundColor(
+                    isSelected ? self.appearance.selectedTitle.titleColor : self.appearance.deSelectedTitle.titleColor
+                )
+                .font(isSelected ? self.appearance.selectedTitle.font : self.appearance.deSelectedTitle.font)
+                .multilineTextAlignment(.leading)
+            Spacer()
+        })
     }
     
     @ViewBuilder
     func subTitleLabel() -> some View {
-        self.infos.filter { $0.position == .subTitle }
-            .first.convertToView { info in
-                Text(info.text)
-                    .foregroundColor(
-                        binding.wrappedValue ? info.appearance.or(NitrozenAppearance.shared.radioButton.deSelectedTitle).titleColor : info.appearance.or(NitrozenAppearance.shared.radioButton.deSelectedTitle).titleColor
-                    )
-                    .font(info.appearance.or(NitrozenAppearance.shared.radioButton.deSelectedTitle).font)
-                    .multilineTextAlignment(.leading)
-            }
+        self.subTitle.convertToView(block: { text in
+            Text(text)
+                .foregroundColor(
+                    isSelected ? self.appearance.selectedSubTitle.titleColor : self.appearance.deSelectedSubTitle.titleColor
+                )
+                .font(isSelected ? self.appearance.selectedSubTitle.font : self.appearance.deSelectedSubTitle.font)
+                .multilineTextAlignment(.leading)
+        })
+        
     }
     
-    
-}
-
-struct NitrozenRadio_Preview: PreviewProvider {
-    static var previews: some View {
-        NitrozenRadio(
-            binding: .constant(false),
-            infos: [
-                .init(position: .title, text: "This is title"),
-                .init(position: .subTitle, text: "This is subTitle")
-            ]
-        )
-    }
 }

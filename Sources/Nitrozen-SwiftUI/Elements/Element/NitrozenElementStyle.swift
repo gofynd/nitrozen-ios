@@ -29,6 +29,11 @@ public protocol NitrozenElementStringSelectableStyle {
 	var selectionTitle: String { get }
 }
 
+public protocol NitrozenElementRadioStringSelectableStyle {
+	var selectionTitleText: String { get }
+	var selectionSubTitleText: String? { get }
+}
+
 extension View {
 	func apply(elementStyle: NitrozenElementStyle) -> some View {
 		Group {

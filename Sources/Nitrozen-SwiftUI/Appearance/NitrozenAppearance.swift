@@ -117,8 +117,8 @@ public extension NitrozenAppearance {
 				selectedBorderWidth: 5.0,
 				deSelectedBorderWidth: 1.0,
 				selectedTitle: .init(titleColor: .black, font: .body),
-				deSelectedTitle: .init(titleColor: .gray, font: .caption),
-				selectedSubTitle: .init(titleColor: .black, font: .body),
+				deSelectedTitle: .init(titleColor: .gray, font: .body),
+				selectedSubTitle: .init(titleColor: .gray, font: .caption),
 				deSelectedSubTitle: .init(titleColor: .gray, font: .caption)
 			),
 			
