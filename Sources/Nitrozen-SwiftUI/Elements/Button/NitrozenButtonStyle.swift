@@ -97,6 +97,7 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 		.if(self.viewShape == .none, contentTransformer: { view in
 			view
 		})
+		.contentShape(Rectangle()) //for user interaction in all the area
 		
 	}
 }

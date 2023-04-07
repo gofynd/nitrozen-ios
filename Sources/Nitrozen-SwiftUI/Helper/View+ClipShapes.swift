@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
 	
 	func roundedCornerWithBorder(color: Color, radius: CGFloat = 10, lineWidth: CGFloat = 0.0) -> some View {
 		self
@@ -43,7 +43,7 @@ extension View {
 	}
 }
 
-extension View {
+public extension View {
 	func background<T: View>(
 		alignment: Alignment = .center,
 		@ViewBuilder content: () -> T
