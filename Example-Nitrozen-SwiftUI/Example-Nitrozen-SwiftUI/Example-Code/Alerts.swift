@@ -29,7 +29,6 @@ struct Alerts: View {
 						.frame(maxWidth: .infinity)
 				}
 				.primaryButton()
-				
 			}
 			
 			Section {

@@ -1,46 +1,45 @@
 //
-//  Checkbox+Appearance.swift
+//  TagView+Appearance.swift
 //  Nitrozen-SwiftUI
 //
-//  Created by Hitendra Solanki on 05/04/23.
+//  Created by Hitendra Solanki on 08/04/23.
 //
 
 import SwiftUI
 
 public extension NitrozenAppearance {
-	class Checkbox {
+	class TagView {
 		public var selectedTitle: NitrozenAppearance.TextLabel
 		public var deSelectedTitle: NitrozenAppearance.TextLabel
 		
 		var selectedBorderColor: SystemColor
-		var deSelectedBorderColor: SystemColor
+		var deselectedBorderColor: SystemColor
 		
 		var selectedBorderWidth: CGFloat
 		var deselectedBorderWidth: CGFloat
-		var size: CGSize
 		
-		var selectedImage: AnyView
+		var padding: ViewPadding
+		var clearButtonColor: SystemColor
 		
 		init(selectedTitle: NitrozenAppearance.TextLabel, deSelectedTitle: NitrozenAppearance.TextLabel,
-			 selectedBorderColor: SystemColor, deSelectedBorderColor: SystemColor,
+			 selectedBorderColor: SystemColor, deselectedBorderColor: SystemColor,
 			 selectedBorderWidth: CGFloat, deselectedBorderWidth: CGFloat,
-			 size: CGSize,
-			 selectedImage: AnyView
+			 padding: ViewPadding, clearButtonColor: SystemColor
 		) {
 			self.selectedTitle = selectedTitle
 			self.deSelectedTitle = deSelectedTitle
 			self.selectedBorderColor = selectedBorderColor
-			self.deSelectedBorderColor = deSelectedBorderColor
+			self.deselectedBorderColor = deselectedBorderColor
 			self.selectedBorderWidth = selectedBorderWidth
 			self.deselectedBorderWidth = deselectedBorderWidth
-			self.size = size
-			self.selectedImage = selectedImage
+			self.padding = padding
+			self.clearButtonColor = clearButtonColor
 		}
 	}
 }
 
 
-public extension NitrozenAppearance.Checkbox {
+public extension NitrozenAppearance.TagView {
 	@discardableResult
 	func selectedTitle(_ selectedTitle: NitrozenAppearance.TextLabel) -> Self { self.selectedTitle = selectedTitle; return self }
 	
@@ -51,7 +50,7 @@ public extension NitrozenAppearance.Checkbox {
 	func selectedBorderColor(_ selectedBorderColor: SystemColor) -> Self { self.selectedBorderColor = selectedBorderColor; return self }
 	
 	@discardableResult
-	func deselectedBorderColor(_ deSelectedBorderColor: SystemColor) -> Self { self.deSelectedBorderColor = deSelectedBorderColor; return self }
+	func deselectedBorderColor(_ deselectedBorderColor: SystemColor) -> Self { self.deselectedBorderColor = deselectedBorderColor; return self }
 	
 	@discardableResult
 	func selectedBorderWidth(_ selectedBorderWidth: CGFloat) -> Self { self.selectedBorderWidth = selectedBorderWidth; return self }
@@ -60,20 +59,24 @@ public extension NitrozenAppearance.Checkbox {
 	func deselectedBorderWidth(_ deselectedBorderWidth: CGFloat) -> Self { self.deselectedBorderWidth = deselectedBorderWidth; return self }
 	
 	@discardableResult
-	func size(_ size: CGSize) -> Self { self.size = size; return self }
+	func padding(_ padding: ViewPadding) -> Self { self.padding = padding; return self }
 	
 	@discardableResult
-	func selectedImage(_ selectedImage: AnyView) -> Self { self.selectedImage = selectedImage; return self }
+	func clearButtonColor(_ clearButtonColor: SystemColor) -> Self { self.clearButtonColor = clearButtonColor; return self }
 }
 
 //MARK: Copy Support
-public extension NitrozenAppearance.Checkbox {
-	var copy: NitrozenAppearance.Checkbox {
-		.init(selectedTitle: self.selectedTitle.copy, deSelectedTitle: self.deSelectedTitle.copy,
-			  selectedBorderColor: self.selectedBorderColor, deSelectedBorderColor: self.deSelectedBorderColor,
-			  selectedBorderWidth: self.selectedBorderWidth, deselectedBorderWidth: self.deselectedBorderWidth,
-			  size: self.size,
-			  selectedImage: self.selectedImage
+public extension NitrozenAppearance.TagView {
+	var copy: NitrozenAppearance.TagView {
+		.init(
+			selectedTitle: self.selectedTitle.copy,
+			deSelectedTitle: self.deSelectedTitle.copy,
+			selectedBorderColor: self.selectedBorderColor,
+			deselectedBorderColor: self.deselectedBorderColor,
+			selectedBorderWidth: self.selectedBorderWidth,
+			deselectedBorderWidth: self.deselectedBorderWidth,
+			padding: self.padding,
+			clearButtonColor: self.clearButtonColor
 		)
 	}
 }

@@ -65,6 +65,12 @@ struct UIElementsList: View {
 				} label: {
 					Text("PresentSheet")
 				}
+				
+				NavigationLink {
+					TagViews()
+				} label: {
+					Text("TagViews")
+				}
 
 
 			}

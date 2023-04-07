@@ -11,7 +11,7 @@ import SwiftUI
 public struct NitrozenAlert<Actions>: View where Actions: View{
 	
 	//TODO: Hitendra - combine this common usage and change scope to align with Alert and actionSheet in future once other MR merged
-	public enum CustomView {
+	public enum CustomImageView {
 		case nitrozen //default view
 		case systemImage(name: String) //customized image from SFSymbol
 		case assetImage(name: String) //customized image from .xcassets
@@ -23,7 +23,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	var subtitle: String?
 	
 	var topView: AnyView?
-	var closeView: CustomView
+	var closeView: CustomImageView
 	var actionsBuilder: () -> Actions
 	
 	var appearance: NitrozenAppearance.Alert
@@ -31,7 +31,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	public init(
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
-		topView: AnyView?, closeView: CustomView,
+		topView: AnyView?, closeView: CustomImageView,
 		@ViewBuilder actions: @escaping () -> Actions,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
