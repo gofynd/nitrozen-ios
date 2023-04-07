@@ -59,19 +59,11 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	@ViewBuilder
 	func alertView() -> some View {
 		VStack(spacing: 0) {
-			
-			
 			HStack {
 				Spacer()
 				switch self.closeView {
 				case .systemImage(let imageName):
-					Button {
-						self.closeAlert()
-					} label: {
-						Image(systemName: imageName)
-					}
-					.tertiaryButton()
-					.padding([.top, .trailing])
+					systemImageButton(imageName: imageName)
 					
 				case .assetImage(let imageName):
 					Button {
@@ -86,13 +78,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 					customView
 					
 				case .nitrozen:
-					Button {
-						self.closeAlert()
-					} label: {
-						Image(systemName: "xmark")
-					}
-					.tertiaryButton()
-					.padding([.top, .trailing])
+					systemImageButton(imageName: "xmark")
 				}
 			}
 
@@ -102,29 +88,19 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 					.padding(.bottom, 12)
 			}
 			
-			
-			
-			
 			Group {
-				//"Great! Your bank account was added successfully"
 				self.title.convertToView { title in
 					Text(title)
 						.foregroundColor(self.appearance.title.titleColor)
 						.font(self.appearance.title.font)
 						.padding(.bottom, 12)
 				}
-				
-				//"You KYC verification is pending. Check your mailbox to complete the process."
 				self.subtitle.convertToView { subtitle in
 					Text(subtitle)
 						.foregroundColor(NitrozenAppearance.shared.alert.subtitle.titleColor)
 						.font(NitrozenAppearance.shared.alert.subtitle.font)
 						.padding(.bottom, 32)
 				}
-				
-				
-				
-					
 			}
 			.lineLimit(nil)
 			.multilineTextAlignment(.center)
@@ -137,5 +113,16 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 		.background(Color(.systemBackground))
 		.roundedCornerWithBorder(color: .clear, radius: 32, lineWidth: 0.0)
 		.padding(.horizontal, 16)
+	}
+	
+	@ViewBuilder
+	func systemImageButton(imageName: String) -> some View {
+		Button {
+			self.closeAlert()
+		} label: {
+			Image(systemName: imageName)
+		}
+		.tertiaryButton()
+		.padding([.top, .trailing])
 	}
 }
