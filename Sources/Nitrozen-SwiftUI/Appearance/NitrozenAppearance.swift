@@ -43,7 +43,6 @@ public class NitrozenAppearance {
 		
 		textField: NitrozenAppearance.TextField,
 		dropDownTextField: NitrozenAppearance.TextField,
-		checkbox: NitrozenAppearance.Checkbox,
 		radioButton: NitrozenAppearance.RadioButton,
 		checkbox: NitrozenAppearance.Checkbox,
 		alert: NitrozenAppearance.Alert
