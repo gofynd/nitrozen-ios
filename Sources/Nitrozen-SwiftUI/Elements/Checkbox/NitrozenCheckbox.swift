@@ -78,11 +78,14 @@ public struct NitrozenCheckboxItem: View {
 	}
 	
 	public var body: some View {
-		if isSelected {
-			selectedView()
-		} else {
-			deSelectedView()
+		Group {
+			if isSelected {
+				selectedView()
+			} else {
+				deSelectedView()
+			}
 		}
+		.contentShape(Rectangle()) //for user interaction in all the area
 	}
 	
 	@ViewBuilder
