@@ -19,6 +19,9 @@ struct Checkboxes: View {
 	var options3: [User] = User.users
 	@State var selection3: Set<User> = []
 	
+	var options4: [String] = ["Home", "Office", "Shop"]
+	@State var selection4: Set<String> = []
+	
 	var body: some View {
 		List{
 			Section {
@@ -51,7 +54,7 @@ struct Checkboxes: View {
 					appearance:
 						NitrozenAppearance.shared
 						.checkbox.copy
-						.selectedColor(.purple)
+						.selectedBorderColor(.purple)
 						.selectedTitle(NitrozenAppearance.shared.checkbox.selectedTitle.copy.titleColor(.purple))
 				)
 					.frame(maxWidth: .infinity, alignment: .leading)
@@ -63,6 +66,7 @@ struct Checkboxes: View {
 extension String: NitrozenElementStringSelectableStyle {
 	public var selectionTitle: String { return self  }
 }
+
 
 struct User: Hashable {
 	var name: String

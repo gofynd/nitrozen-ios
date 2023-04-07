@@ -96,7 +96,7 @@ public struct NitrozenCheckboxItem: View {
 					.stroke(style: .init(lineWidth: self.appearance.selectedBorderWidth))
 				
 				self.appearance.selectedImage
-					.foregroundColor(self.appearance.selectedColor)
+					.foregroundColor(self.appearance.selectedBorderColor)
 			}
 			.frame(width: self.appearance.size.width, height: self.appearance.size.height)
 			

@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "collectionstack-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hitendradeveloper/CollectionStack-SwiftUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d4c9a91fce3755d051af9e4cbe7ccb8c4ebd1bd8"
+      }
+    },
+    {
       "identity" : "floatingtextfield-swiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hitendradeveloper/FloatingTextField-SwiftUI",

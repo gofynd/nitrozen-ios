@@ -19,11 +19,9 @@ struct Buttons: View {
 		Section {
 				
 			Text("Primary Buttons")
-//				.largeTitle(weight: .bold)
 			
 			VStack {
 				Text("Enabled Button")
-//					.secondaryTitle(weight: .regular)
 				Button(action: {}) {
 					Text("Click me")
 						.frame(maxWidth: .infinity)
@@ -33,7 +31,6 @@ struct Buttons: View {
 			
 			VStack{
 				Text("Disabled Button")
-//					.secondaryTitle(weight: .regular)
 				Button(action: {}) {
 					Text("Click me")
 						.frame(maxWidth: .infinity)
@@ -48,7 +45,6 @@ struct Buttons: View {
 			VStack {
 				HStack{
 					Text("Enable/Disable")
-					//						.secondaryTitle(weight: .regular)
 					Toggle("", isOn: $isButtonEnabled)
 				}
 				
@@ -65,7 +61,6 @@ struct Buttons: View {
 			VStack {
 				HStack{
 					Text("Loading")
-					//						.secondaryTitle(weight: .regular)
 					Toggle("", isOn: $isButtonLoading)
 				}
 				
@@ -83,7 +78,6 @@ struct Buttons: View {
 			Text("Dynamic and Fix sizes")
 			
 			Text("Width  max = .infinity")
-			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				Text("Click me")
 					.frame(maxWidth: .infinity)
@@ -93,7 +87,6 @@ struct Buttons: View {
 			
 			VStack{
 				Text("Width and Height = dynamic, depends on title")
-				//					.secondaryTitle(weight: .regular)
 				
 				Button(action: {}) {
 					Text("M Tap Tap Tap W")
@@ -109,7 +102,6 @@ struct Buttons: View {
 			}
 			
 			Text("Fix height = 60, width = 150")
-			//				.secondaryTitle(weight: .regular)
 			
 			Button(action: {}) {
 				Text("Click me")
@@ -121,10 +113,8 @@ struct Buttons: View {
 		Section {
 			
 			Text("Image and Title Buttons ")
-			//				.largeTitle(weight: .bold)
 			
 			Text("With image")
-			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				HStack{
 					Image(systemName: "paperplane.fill")
@@ -134,7 +124,6 @@ struct Buttons: View {
 			.primaryButton()
 			
 			Text("Disable with image")
-			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				HStack{
 					Image(systemName: "paperplane.fill")
@@ -145,7 +134,6 @@ struct Buttons: View {
 			.primaryButton()
 			
 			Text("With only image")
-			//				.secondaryTitle(weight: .regular)
 			Button(action: {}) {
 				Image(systemName: "paperplane.fill")
 			}
@@ -167,7 +155,7 @@ struct Buttons: View {
 				}
 				.primaryButton(
 					appearance: NitrozenAppearance.shared
-						.primaryButton
+						.primaryButton.copy
 						.font(.system(size: 10).italic())
 				)
 			}
@@ -182,7 +170,7 @@ struct Buttons: View {
 				}
 				.primaryButton(
 					appearance: NitrozenAppearance.shared
-						.primaryButton
+						.primaryButton.copy
 						.font(.system(size: 10).italic())
 						.titleColor(.white)
 						.backgroundColor(.black)
@@ -199,7 +187,7 @@ struct Buttons: View {
 				}
 				.primaryButton(
 					appearance: NitrozenAppearance.shared
-						.primaryButton
+						.primaryButton.copy
 						.font(.system(size: 10).italic())
 						.titleColor(.white)
 						.backgroundColor(.black),
@@ -231,6 +219,24 @@ struct Buttons: View {
 		Section {
 	
 			Text("Custom appearance")
+			
+			HStack {
+				Text("Custom font, border color, border width")
+				
+				Spacer()
+				Button(action: {}) {
+					HStack{
+						Text("Click me")
+					}
+				}
+				.borderedButton(
+					appearance: NitrozenAppearance.shared
+						.borderedButton.copy
+						.font(.nitrozen(.body(size: .l, weight: .bold)))
+						.borderColor(.purple)
+						.borderWidth(4)
+				)
+			}
 			
 			HStack {
 				Text("Custom font")

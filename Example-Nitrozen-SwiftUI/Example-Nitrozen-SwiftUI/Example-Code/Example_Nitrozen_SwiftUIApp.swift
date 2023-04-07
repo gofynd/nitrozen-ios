@@ -26,7 +26,7 @@ struct Example_Nitrozen_SwiftUIApp: App {
 	func setupNitrozenAppearance(){
 		
 		let primaryColor = SystemColor.purple
-		let font = SystemFont.title
+		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
 		let disabledButtonOpacity: Double = 0.3
 		
 		NitrozenAppearance.shared.colorProvider

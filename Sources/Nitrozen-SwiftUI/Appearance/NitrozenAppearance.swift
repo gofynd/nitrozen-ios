@@ -33,7 +33,10 @@ public class NitrozenAppearance {
 
 	//alert
 	public var alert: NitrozenAppearance.Alert
-
+	
+	//tagView
+	
+	public var tagView: NitrozenAppearance.TagView
 
 	init(
 		colorProvider: ColorProvider,
@@ -49,7 +52,9 @@ public class NitrozenAppearance {
 		checkbox: NitrozenAppearance.Checkbox,
 		actionSheet: NitrozenAppearance.ActionSheet,
 		presentSheet: NitrozenAppearance.PresentSheet,
-		alert: NitrozenAppearance.Alert
+		alert: NitrozenAppearance.Alert,
+		
+		tagView: NitrozenAppearance.TagView
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -64,6 +69,8 @@ public class NitrozenAppearance {
 		self.actionSheet = actionSheet
 		self.presentSheet = presentSheet
 		self.alert = alert
+		
+		self.tagView = tagView
 	}
 }
 
@@ -75,7 +82,7 @@ public extension NitrozenAppearance {
 		let disableOpacity: Double = 0.3
 
 
-		let font: SystemFont = fontProvider.headingXS
+		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
 
 		FontRegistar.registerJIOFonts()
 
@@ -139,7 +146,7 @@ public extension NitrozenAppearance {
 			checkbox: .init(
 				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
 				deSelectedTitle: .init(titleColor: .gray, font: .title),
-				selectedColor: colorProvider.primary, deselectedColor: .gray.opacity(0.5),
+				selectedBorderColor: colorProvider.primary, deSelectedBorderColor: .gray.opacity(0.5),
 				selectedBorderWidth: 0, deselectedBorderWidth: 1,
 				size: .init(width: 32, height: 32),
 				selectedImage: AnyView(
@@ -165,6 +172,14 @@ public extension NitrozenAppearance {
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
 				closeButtonColor: colorProvider.primary
+			),
+			
+			tagView: .init(
+				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
+				deSelectedTitle: .init(titleColor: .gray, font: .title),
+				selectedBorderColor: colorProvider.primary, deselectedBorderColor: .gray,
+				selectedBorderWidth: 2, deselectedBorderWidth: 1,
+				padding: .systemDefault, clearButtonColor: colorProvider.primary
 			)
 		)
 	}()
@@ -185,7 +200,8 @@ public extension NitrozenAppearance {
 			checkbox: self.checkbox.copy,
 			actionSheet: self.actionSheet.copy,
 			presentSheet: self.presentSheet.copy,
-			alert: self.alert.copy
+			alert: self.alert.copy,
+			tagView: self.tagView.copy
 		)
 	}
 }
