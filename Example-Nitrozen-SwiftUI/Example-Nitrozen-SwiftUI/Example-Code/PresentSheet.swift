@@ -15,14 +15,14 @@ struct PresentSheet: View {
 	@State var showingRadioButton = false
 	@State var showingActionSheet = false
 	@State var showingCheckBox = false
-
+	
 	var options1: [String] = ["Male", "Female", "Other"]
 	@State var selection1: Set<String> = ["Male"]
 	
 	
 	var options2: [String] = ["L", "XL", "M" , "S" , "XXL"]
 	@State var selection2: Set<String> = []
-
+	
 	
 	var body: some View {
 		List{
@@ -46,13 +46,14 @@ struct PresentSheet: View {
 						self.showingCheckBox.toggle()
 					}
 			}
-
+			
 			
 		}
 		.nitrozenSheet(isPresented: $showingActionSheet, postion: .bottom) {
 			NitrozenActionSheet(
 				title: "Select Profile Picture",
 				isShowing:$showingActionSheet,
+				closeView: NitrozenActionSheet.CustomView.nitrozen,
 				content: {
 					VStack(alignment: .leading, spacing: 12){
 						ForEach(options) { option in
@@ -82,6 +83,7 @@ struct PresentSheet: View {
 				title: "Select Gender",
 				subTitle: "Its not good to ask gender but it would be great if you provide us!! ",
 				isShowing:$showingRadioButton,
+				closeView: NitrozenActionSheet.CustomView.nitrozen,
 				content: {
 					NitrozenRadio(
 						options: self.options1, selection: $selection1,
@@ -107,6 +109,7 @@ struct PresentSheet: View {
 			NitrozenActionSheet(
 				title: "Select Tshirt Size",
 				isShowing:$showingCheckBox,
+				closeView: NitrozenActionSheet.CustomView.nitrozen,
 				content: {
 					NitrozenCheckbox(
 						options: self.options2, selection: $selection2,
@@ -126,7 +129,7 @@ struct PresentSheet: View {
 				})
 			
 		}
-
+		
 		
 	}
 	

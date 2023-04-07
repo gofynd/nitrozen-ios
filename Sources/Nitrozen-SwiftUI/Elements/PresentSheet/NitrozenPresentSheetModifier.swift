@@ -26,7 +26,7 @@ public struct NitrozenPresentSheetModifier: ViewModifier {
 		self.childContent = content
 		self.appearance = appearance.or(NitrozenAppearance.shared.presentSheet)
 	}
-
+	
 	@ViewBuilder
 	public func body(content: Content) -> some View {
 		ZStack{
@@ -36,7 +36,7 @@ public struct NitrozenPresentSheetModifier: ViewModifier {
 					outOfFocusArea
 					childContent
 						.edgesIgnoringSafeArea(.all)
-
+					
 				}
 			}
 		}
@@ -63,5 +63,5 @@ extension View {
 	func nitrozenSheet<Content:View>(isPresented: Binding<Bool>, postion: Alignment, @ViewBuilder content: @escaping () -> Content) -> some View where Content : View{
 		modifier(NitrozenPresentSheetModifier(isPresented: isPresented, postion: postion, content: AnyView(content().body)))
 	}
-
+	
 }

@@ -45,27 +45,28 @@ struct ActionSheet: View {
 			NitrozenActionSheet(
 				title: "Select Profile Picture!!",
 				isShowing:$showingSheet,
+				closeView: NitrozenActionSheet.CustomView.nitrozen,
 				content: {
-				VStack(alignment: .leading, spacing: 12){
-					ForEach(options) { option in
-						HStack(alignment: .top) {
-							Image(systemName: option.icon)
-							Text(option.name)
-								.body(size: .s, weight: .regular)
-								.foregroundColor(.gray)
-							Spacer()
+					VStack(alignment: .leading, spacing: 12){
+						ForEach(options) { option in
+							HStack(alignment: .top) {
+								Image(systemName: option.icon)
+								Text(option.name)
+									.body(size: .s, weight: .regular)
+									.foregroundColor(.gray)
+								Spacer()
+							}
+							.frame(height: 30.0)
+							.padding(0)
 						}
-						.frame(height: 30.0)
-						.padding(0)
+						
 					}
+					.padding([.top,.bottom], 10)
 					
-				}
-				.padding([.top,.bottom], 10)
-				
-			})
+				})
 			
 		})
-
+		
 	}
 	
 }

@@ -11,14 +11,18 @@ public extension NitrozenAppearance {
 	class ActionSheet {
 		public var title: NitrozenAppearance.TextLabel
 		public var subTitle: NitrozenAppearance.TextLabel
-
+		public var closeButtonColor: SystemColor
+		
 		init(
-			title:NitrozenAppearance.TextLabel,
-			subTitle:NitrozenAppearance.TextLabel
+			title: NitrozenAppearance.TextLabel,
+			subTitle: NitrozenAppearance.TextLabel,
+			closeButtonColor: SystemColor
 		) {
 			self.title = title
 			self.subTitle = subTitle
+			self.closeButtonColor = closeButtonColor
 		}
+
 	}
 }
 
@@ -29,6 +33,10 @@ public extension NitrozenAppearance.ActionSheet {
 	
 	@discardableResult
 	func subTitle(_ subTitle: NitrozenAppearance.TextLabel) -> Self { self.subTitle = subTitle; return self }
+	
+	@discardableResult
+	func closeButtonColor(_ closeButtonColor: SystemColor) -> Self { self.closeButtonColor = closeButtonColor; return self }
+
 
 }
 
@@ -37,7 +45,8 @@ public extension NitrozenAppearance.ActionSheet {
 	var copy: NitrozenAppearance.ActionSheet {
 		.init(
 			title: self.title.copy,
-			subTitle: self.subTitle.copy
+			subTitle: self.subTitle.copy,
+			closeButtonColor: self.closeButtonColor
 		)
 	}
 }

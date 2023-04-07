@@ -148,6 +148,7 @@ public extension NitrozenAppearance {
 					titleColor: .gray,
 					font: .nitrozen(.body(size: .s, weight: .regular))
 				)
+				,closeButtonColor: .blue
 			),
 			
 			presentSheet: .init(focusOpacity: 0.5)
