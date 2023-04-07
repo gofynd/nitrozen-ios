@@ -86,17 +86,20 @@ public extension NitrozenAppearance {
 			primaryButton: .init(styleUseCase: .primary,
 								 titleColor: .white, titleColorDisabled: .white.opacity(disableOpacity),
 								 backgroundColor: colorProvider.primary, backgroundColorDisabled: colorProvider.primary.opacity(disableOpacity),
-								 font: font, borderWidth: 0.0),
+								 font: font,
+								 borderWidth: 0.0, borderColor: .clear, borderColorDisabled: .clear),
 
 			borderedButton: .init(styleUseCase: .bordered,
 								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
-								  font: font, borderWidth: 1.0),
+								  font: font,
+								  borderWidth: 1.0, borderColor: .gray, borderColorDisabled: .gray),
 
 			tertiaryButton: .init(styleUseCase: .tertiary,
 								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
-								  font: font, borderWidth: 1.0),
+								  font: font,
+								  borderWidth: 1.0, borderColor: .clear, borderColorDisabled: .clear),
 
 			textField: .init(
 				titleColor: colorProvider.primary, font: .body,

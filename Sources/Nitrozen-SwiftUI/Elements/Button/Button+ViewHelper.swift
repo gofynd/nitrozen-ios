@@ -41,6 +41,8 @@ fileprivate extension View {
 			textColorDisabled: forAppearance.titleColorDisabled,
 			font: forAppearance.font,
 			borderWidth: forAppearance.borderWidth,
+			borderColor: forAppearance.borderColor,
+			borderColorDisabled: forAppearance.borderColorDisabled,
 			padding: .zero,
 			isLoading: false
 		)

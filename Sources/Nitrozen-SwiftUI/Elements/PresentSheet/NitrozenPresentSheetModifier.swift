@@ -36,11 +36,9 @@ public struct NitrozenPresentSheetModifier: ViewModifier {
 					outOfFocusArea
 					childContent
 						.edgesIgnoringSafeArea(.all)
-					
 				}
 			}
 		}
-		
 	}
 	var outOfFocusArea: some View {
 		Group {

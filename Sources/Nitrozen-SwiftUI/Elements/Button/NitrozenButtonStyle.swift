@@ -27,6 +27,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 
 	private let radius: CGFloat
 	private let borderWidth: CGFloat
+	private let borderColor: SystemColor
+	private let borderColorDisabled: SystemColor
 	
 	private var padding: ViewPadding
 	var isLoading: Bool
@@ -45,6 +47,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 
 		radius: CGFloat = 0.0,
 		borderWidth: CGFloat = 0.0,
+		borderColor: SystemColor,
+		borderColorDisabled: SystemColor,
 		padding: ViewPadding,
 		isLoading: Bool = false,
 		loaderSize: NitrozenElementLoaderSize = .defaultSize
@@ -58,6 +62,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 		self.font = font
 		self.radius = radius
 		self.borderWidth = borderWidth
+		self.borderColor = borderColor
+		self.borderColorDisabled = borderColorDisabled
 		self.padding = padding
 		self.isLoading = isLoading
 		self.loaderSize = loaderSize
@@ -87,12 +93,12 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 		.background(backgroundView(configuration: configuration))
 		.if(self.viewShape == .capsule, contentTransformer: { view in
 			view
-				.capsuleWithBorder(color: isEnabled ? textColor : textColorDisabled, lineWidth: borderWidth)
+				.capsuleWithBorder(color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
 			
 		})
 		.if(self.viewShape == .circle, contentTransformer: { view in
 			view
-				.circleWithBorder(color: isEnabled ? textColor : textColorDisabled, lineWidth: borderWidth)
+				.circleWithBorder(color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
 		})
 		.if(self.viewShape == .none, contentTransformer: { view in
 			view
