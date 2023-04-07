@@ -18,6 +18,7 @@
 		E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94429D46C5900AEE07E /* UIElementsList.swift */; };
 		FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76C0A129DAE0E9001FB759 /* RadioButton.swift */; };
 		E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */; };
+		E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6B29DEDE990012B473 /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E3CBE94429D46C5900AEE07E /* UIElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsList.swift; sourceTree = "<group>"; };
 		FA76C0A129DAE0E9001FB759 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkboxes.swift; sourceTree = "<group>"; };
+		E3F7CE6B29DEDE990012B473 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */,
 				E345E33429C484DC00B239FE /* Buttons.swift */,
 				E345E33629C5931D00B239FE /* TextLabels.swift */,
+				E3F7CE6B29DEDE990012B473 /* Alerts.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 			);
@@ -181,6 +184,7 @@
 			files = (
 				E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
+				E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */,
 				E376043029C45ACE000D28DC /* TextFields.swift in Sources */,
 				E376041E29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift in Sources */,
 				E345E33729C5931D00B239FE /* TextLabels.swift in Sources */,

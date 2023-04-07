@@ -41,6 +41,12 @@ struct UIElementsList: View {
 				} label: {
 					Text("CheckBoxes")
 				}
+				
+				NavigationLink {
+					Alerts()
+				} label: {
+					Text("Alerts")
+				}
                 
                 NavigationLink {
                     RadioButton()

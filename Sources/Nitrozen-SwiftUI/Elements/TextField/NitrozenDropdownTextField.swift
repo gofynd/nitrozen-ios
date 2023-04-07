@@ -41,7 +41,7 @@ public struct NitrozenDropdownTextField: View {
 			ZStack {
 				self.textFieldContainer.textField()
 					.disabled(true)
-					.contentShape(Rectangle())
+					.contentShape(Rectangle()) //for user interaction in all the area
 					.onTapGesture {
 						self.onTap()
 					}
