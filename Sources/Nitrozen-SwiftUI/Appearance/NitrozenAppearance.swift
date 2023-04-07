@@ -28,7 +28,8 @@ public class NitrozenAppearance {
 	
 	//check box
 	public var checkbox: NitrozenAppearance.Checkbox
-	
+	public var actionSheet: NitrozenAppearance.ActionSheet
+	public var presentSheet: NitrozenAppearance.PresentSheet
 	
 	init(
 		colorProvider: ColorProvider,
@@ -41,7 +42,10 @@ public class NitrozenAppearance {
 		textField: NitrozenAppearance.TextField,
 		dropDownTextField: NitrozenAppearance.TextField,
 		radioButton: NitrozenAppearance.RadioButton,
-		checkbox: NitrozenAppearance.Checkbox
+		checkbox: NitrozenAppearance.Checkbox,
+		actionSheet: NitrozenAppearance.ActionSheet,
+		presentSheet: NitrozenAppearance.PresentSheet
+		
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -53,6 +57,8 @@ public class NitrozenAppearance {
 		self.dropDownTextField = dropDownTextField
 		self.radioButton = radioButton
 		self.checkbox = checkbox
+		self.actionSheet = actionSheet
+		self.presentSheet = presentSheet
 	}
 }
 
@@ -131,7 +137,20 @@ public extension NitrozenAppearance {
 				selectedImage: AnyView(
 					Image(systemName: "checkmark.square.fill").resizable().scaledToFit()
 				)
-			)
+			),
+			
+			actionSheet: .init(
+				title: .init(
+					titleColor: colorProvider.primary,
+					font: .nitrozen(.body(size: .l, weight: .bold))
+				),
+				subTitle: .init(
+					titleColor: .gray,
+					font: .nitrozen(.body(size: .s, weight: .regular))
+				)
+			),
+			
+			presentSheet: .init(focusOpacity: 0.5)
 		)
 	}()
 }
@@ -148,7 +167,9 @@ public extension NitrozenAppearance {
 			textField: self.textField.copy,
 			dropDownTextField: self.dropDownTextField.copy,
 			radioButton: self.radioButton.copy,
-			checkbox: self.checkbox.copy
+			checkbox: self.checkbox.copy,
+			actionSheet: self.actionSheet.copy,
+			presentSheet: self.presentSheet.copy
 		)
 	}
 }

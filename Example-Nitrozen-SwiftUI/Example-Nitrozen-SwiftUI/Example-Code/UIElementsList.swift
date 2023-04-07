@@ -47,6 +47,19 @@ struct UIElementsList: View {
                 } label: {
                     Text("RadioButton")
                 }
+				
+				NavigationLink {
+					ActionSheet()
+				} label: {
+					Text("ActionSheet")
+				}
+				
+				NavigationLink {
+					PresentSheet()
+				} label: {
+					Text("PresentSheet")
+				}
+
 
 			}
 			.navigationTitle("Nitrozen Elements")
