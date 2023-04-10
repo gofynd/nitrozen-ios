@@ -16,11 +16,13 @@ struct Checkboxes: View {
 	var options2: [String] = ["O1", "O2", "O3"]
 	@State var selection2: Set<String> = []
 	
+	
 	var options3: [User] = User.users
 	@State var selection3: Set<User> = []
 	
-	var options4: [String] = ["Home", "Office", "Shop"]
+	var options4: [String] = ["Home", "Office", "Shop", "Market", "Godown", "Truck", "Rikshaw"]
 	@State var selection4: Set<String> = []
+	
 	
 	var body: some View {
 		List{
@@ -46,6 +48,33 @@ struct Checkboxes: View {
 			}
 			
 			Section {
+				Text("Collection layout Checkbox \n- Custom fonts, size, color \n- custom selection view")
+				
+				NitrozenCheckbox(
+					options: self.options4,
+					selection: $selection4,
+					layout: .collection,
+					appearance: NitrozenAppearance.shared
+						.checkbox.copy
+						.selectedTitle(.init(titleColor: .orange, font: .nitrozen(.body(size: .xs, weight: .bold))))
+						.deSelectedTitle(.init(titleColor: .orange, font: .nitrozen(.body(size: .xs, weight: .regular))))
+						.selectedBorderColor(.orange)
+						.deselectedBorderColor(.orange)
+						.size(.init(width: 16, height: 16))
+						.selectedImage(
+							AnyView(
+								Image(systemName: "pencil")
+									.resizable()
+									.foregroundColor(.white)
+									.padding(4)
+									.background(.orange)
+									.nitrozen.roundedCornerWithBorder(color: .orange, radius: 4)
+							)
+						)
+				)
+			}
+			
+			Section {
 				Text("Verticle Checkbox with custom Model and appearance")
 				
 				NitrozenCheckbox(
@@ -57,7 +86,7 @@ struct Checkboxes: View {
 						.selectedBorderColor(.purple)
 						.selectedTitle(NitrozenAppearance.shared.checkbox.selectedTitle.copy.titleColor(.purple))
 				)
-					.frame(maxWidth: .infinity, alignment: .leading)
+				.frame(maxWidth: .infinity, alignment: .leading)
 			}
 		}
 	}

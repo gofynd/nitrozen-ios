@@ -111,7 +111,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 		}
 		.padding()
 		.background(Color(.systemBackground))
-		.roundedCornerWithBorder(color: .clear, radius: 32, lineWidth: 0.0)
+		.nitrozen.roundedCornerWithBorder(color: .clear, radius: 32, lineWidth: 0.0)
 		.padding(.horizontal, 16)
 	}
 	

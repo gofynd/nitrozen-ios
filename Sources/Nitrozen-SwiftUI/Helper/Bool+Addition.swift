@@ -1,6 +1,6 @@
 //
 //  Bool+Addition.swift
-//  FyndPlatform
+//  Nitrozen-SwiftUI
 //
 //  Created by Hitendra Solanki on 30/11/22.
 //

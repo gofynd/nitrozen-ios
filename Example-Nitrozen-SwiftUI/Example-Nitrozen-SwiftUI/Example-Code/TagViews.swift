@@ -19,6 +19,10 @@ struct TagViews: View {
 	var options2: [String] = ["Home", "Office", "Shop"]
 	@State var selection2: Set<String> = []
 	
+	var options4: [String] = ["Home", "Office", "Shop", "Market", "Godown", "Truck", "Rikshaw", "Van", "Car"]
+	@State var selection4: Set<String> = []
+	
+	
 	var body: some View {
 		List{
 			

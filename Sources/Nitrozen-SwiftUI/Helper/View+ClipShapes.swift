@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-public extension View {
+public extension NitrozenViewBox {
 	
 	func roundedCornerWithBorder(color: Color, radius: CGFloat = 10, lineWidth: CGFloat = 0.0) -> some View {
-		self
+		self.value.nitrozen
 			.overlay(content: {
 				RoundedRectangle(cornerRadius: radius, style: .continuous)
 					.stroke(color, lineWidth: lineWidth)
@@ -21,7 +21,7 @@ public extension View {
 	}
 	
 	func capsuleWithBorder(color: Color, lineWidth: CGFloat = 0.0) -> some View {
-		self
+		self.value.nitrozen
 			.overlay(content: {
 				Capsule(style: .continuous)
 					.stroke(color, lineWidth: lineWidth)
@@ -32,7 +32,7 @@ public extension View {
 	}
 	
 	func circleWithBorder(color: Color, lineWidth: CGFloat = 0.0) -> some View {
-		self
+		self.value.nitrozen
 			.overlay(content: {
 				Circle()
 					.stroke(color, lineWidth: lineWidth)
@@ -43,18 +43,18 @@ public extension View {
 	}
 }
 
-public extension View {
+public extension NitrozenViewBox {
 	func background<T: View>(
 		alignment: Alignment = .center,
 		@ViewBuilder content: () -> T
 	) -> some View {
-		background(Group(content: content), alignment: alignment)
+		self.value.background(Group(content: content), alignment: alignment)
 	}
 
 	func overlay<T: View>(
 		alignment: Alignment = .center,
 		@ViewBuilder content: () -> T
 	) -> some View {
-		overlay(Group(content: content), alignment: alignment)
+		self.value.overlay(Group(content: content), alignment: alignment)
 	}
 }
