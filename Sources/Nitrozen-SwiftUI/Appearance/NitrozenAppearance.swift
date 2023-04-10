@@ -35,8 +35,10 @@ public class NitrozenAppearance {
 	public var alert: NitrozenAppearance.Alert
 	
 	//tagView
-	
 	public var tagView: NitrozenAppearance.TagView
+	
+	//pageControl
+	public var pageControl: NitrozenAppearance.PageControl
 
 	init(
 		colorProvider: ColorProvider,
@@ -54,7 +56,8 @@ public class NitrozenAppearance {
 		presentSheet: NitrozenAppearance.PresentSheet,
 		alert: NitrozenAppearance.Alert,
 		
-		tagView: NitrozenAppearance.TagView
+		tagView: NitrozenAppearance.TagView,
+		pageControl: NitrozenAppearance.PageControl
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -71,6 +74,7 @@ public class NitrozenAppearance {
 		self.alert = alert
 		
 		self.tagView = tagView
+		self.pageControl = pageControl
 	}
 }
 
@@ -174,15 +178,32 @@ public extension NitrozenAppearance {
 				closeButtonColor: colorProvider.primary
 			),
 			
-			tagView: .init(
-				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
-				deSelectedTitle: .init(titleColor: .gray, font: .title),
-				selectedBorderColor: colorProvider.primary, deselectedBorderColor: .gray,
-				selectedBorderWidth: 2, deselectedBorderWidth: 1,
-				padding: .systemDefault, clearButtonColor: colorProvider.primary
-			)
+			tagView: tagViewAppearance(color: colorProvider.primary, font: font),
+			
+			pageControl: pageControlAppearance(color: colorProvider.primary, font: font)
 		)
 	}()
+	
+	private static func tagViewAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.TagView {
+		.init(
+			selectedTitle: .init(titleColor: color, font: .title.weight(.bold)),
+			deSelectedTitle: .init(titleColor: .gray, font: .title),
+			selectedBorderColor: color, deselectedBorderColor: .gray,
+			selectedBorderWidth: 2, deselectedBorderWidth: 1,
+			padding: .systemDefault, clearButtonColor: color
+		)
+	}
+	
+	private static func pageControlAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.PageControl {
+		.init(
+			selectedColor: color, deselectedColor: .gray,
+			selectedSize: .init(width: 40, height: 10), deSelectedSize: .init(width: 10, height: 10),
+			selectedBorderColor: .clear, deselectedBorderColor: .clear,
+			selectedBorderWidth: 2.0, deselectedBorderWidth: 4.0,
+			selectedViewShape: .capsule, deselectedViewShape: .circle,
+			spacing: 8
+		)
+	}
 }
 
 //MARK: Copy Support
@@ -201,7 +222,7 @@ public extension NitrozenAppearance {
 			actionSheet: self.actionSheet.copy,
 			presentSheet: self.presentSheet.copy,
 			alert: self.alert.copy,
-			tagView: self.tagView.copy
+			tagView: self.tagView.copy, pageControl: self.pageControl.copy
 		)
 	}
 }
