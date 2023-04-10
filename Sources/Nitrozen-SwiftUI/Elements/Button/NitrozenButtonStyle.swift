@@ -91,18 +91,7 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 		.apply(padding: padding)
 		
 		.background(backgroundView(configuration: configuration))
-		.if(self.viewShape == .capsule, contentTransformer: { view in
-			view
-				.capsuleWithBorder(color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
-			
-		})
-		.if(self.viewShape == .circle, contentTransformer: { view in
-			view
-				.circleWithBorder(color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
-		})
-		.if(self.viewShape == .none, contentTransformer: { view in
-			view
-		})
+		.apply(shape: self.viewShape, color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
 		.contentShape(Rectangle()) //for user interaction in all the area
 		
 	}

@@ -6,64 +6,72 @@
 //
 
 import SwiftUI
+import Nitrozen_SwiftUI
 
 struct UIElementsList: View {
+	
+	@State var currentPage: Int = 4
 	
 	var body: some View {
 		NavigationStack {
 			List {
-				NavigationLink {
-					Buttons()
-				} label: {
-					Text("Buttons")
+				Group {
+					NavigationLink {
+						Buttons()
+					} label: {
+						Text("Buttons")
+					}
+					
+					NavigationLink {
+						TextFields()
+					} label: {
+						Text("Textfields")
+					}
+					
+					NavigationLink {
+						DropDownTextField()
+					} label: {
+						Text("DropDown TextField")
+					}
+					
+					NavigationLink {
+						TextLabels()
+					} label: {
+						Text("Fonts + Text Labels")
+					}
 				}
 				
-				NavigationLink {
-					TextFields()
-				} label: {
-					Text("Textfields")
-				}
 				
-				NavigationLink {
-					DropDownTextField()
-				} label: {
-					Text("DropDown TextField")
-				}
-				
-				NavigationLink {
-					TextLabels()
-				} label: {
-					Text("Fonts + Text Labels")
-				}
-				
-				NavigationLink {
-					Checkboxes()
-				} label: {
-					Text("CheckBoxes")
-				}
-				
-				NavigationLink {
-					Alerts()
-				} label: {
-					Text("Alerts")
-				}
-                
-                NavigationLink {
-                    RadioButton()
-                } label: {
-                    Text("RadioButton")
-                }
-				
-				NavigationLink {
-					ActionSheet()
-				} label: {
-					Text("ActionSheet")
-				}
-				
-				NavigationLink {
-					PresentSheet()
-				} label: {
-					Text("PresentSheet")
+				Group {
+					NavigationLink {
+						Checkboxes()
+					} label: {
+						Text("CheckBoxes")
+					}
+					
+					NavigationLink {
+						RadioButton()
+					} label: {
+						Text("RadioButton")
+					}
+					
+					NavigationLink {
+						Alerts()
+					} label: {
+						Text("Alerts")
+					}
+					
+					NavigationLink {
+						ActionSheet()
+					} label: {
+						Text("ActionSheet")
+					}
+					
+					NavigationLink {
+						PresentSheet()
+					} label: {
+						Text("PresentSheet")
+					}
 				}
 				
 				NavigationLink {
@@ -71,7 +79,12 @@ struct UIElementsList: View {
 				} label: {
 					Text("TagViews")
 				}
-
+				
+				NavigationLink {
+					PageControls()
+				} label: {
+					Text("Page Congrol")
+				}
 
 			}
 			.navigationTitle("Nitrozen Elements")
