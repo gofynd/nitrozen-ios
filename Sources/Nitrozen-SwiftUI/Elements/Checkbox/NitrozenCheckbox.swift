@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import CollectionStack_SwiftUI
 
 //MARK: NitrozenCheckbox
-public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStringSelectableStyle & Hashable {
+public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStringSelectableStyle & Hashable & Identifiable {
 	public enum Layout {
-		case horizontal, verticle
+		case horizontal, verticle, collection
 	}
 	
 	var options: Array<Element>
@@ -30,30 +31,37 @@ public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStri
 		switch self.layout {
 		case .horizontal:
 			HStack {
-				listView()
+				ForEach(self.options, id: \.hashValue) { item in
+					itemView(item: item, width: .infinity)
+				}
 			}
 		case .verticle:
 			VStack {
-				listView()
+				ForEach(self.options, id: \.hashValue) { item in
+					itemView(item: item, width: .infinity)
+				}
+			}
+		case .collection:
+			CollectionStack(self.options) { item in
+				itemView(item: item, width: .dynamic(itemSpacing: 8))
 			}
 		}
 	}
 	
 	@ViewBuilder
-	func listView() -> some View {
-		ForEach(self.options, id: \.hashValue) { item in
-			NitrozenCheckboxItem(
-				isSelected: selection.contains(item),
-				title: item.selectionTitle,
-				appearance: self.appearance
-			)
-			.onTapGesture {
-				withAnimation {
-					if self.selection.contains(item) {
-						self.selection.remove(item)
-					}else {
-						self.selection.insert(item)
-					}
+	func itemView(item: Element, width: NitrozenCheckboxItem.Width) -> some View {
+		NitrozenCheckboxItem(
+			isSelected: selection.contains(item),
+			title: item.selectionTitle,
+			width: width,
+			appearance: self.appearance
+		)
+		.onTapGesture {
+			withAnimation {
+				if self.selection.contains(item) {
+					self.selection.remove(item)
+				}else {
+					self.selection.insert(item)
 				}
 			}
 		}
@@ -63,17 +71,41 @@ public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStri
 //MARK: NitrozenCheckboxItem
 public struct NitrozenCheckboxItem: View {
 	
+	public enum Width: Hashable, Equatable {
+		case dynamic(itemSpacing: CGFloat), infinity
+		public func hash(into hasher: inout Hasher) {
+			switch self {
+			case .infinity: hasher.combine("infinity")
+			case .dynamic: hasher.combine("dynamic")
+			}
+		}
+		
+		public static func == (lhs: Self, rhs: Self) -> Bool {
+			lhs.hashValue == rhs.hashValue
+		}
+		
+		var itemSpacing: CGFloat {
+			switch self {
+			case .infinity: return 0;
+			case .dynamic(let itemSpacing): return itemSpacing
+			}
+		}
+	}
+	
 	var isSelected: Bool
 	var title: String?
+	var width: Width
 	var appearance: NitrozenAppearance.Checkbox
 	
 	public init(
 		isSelected: Bool,
 		title: String?,
+		width: Width = .infinity,
 		appearance: NitrozenAppearance.Checkbox? = nil
 	) {
 		self.isSelected = isSelected
 		self.title = title
+		self.width = width
 		self.appearance = appearance.or(NitrozenAppearance.shared.checkbox)
 	}
 	
@@ -85,6 +117,14 @@ public struct NitrozenCheckboxItem: View {
 				deSelectedView()
 			}
 		}
+		.if(self.width == .infinity, contentTransformer: { view in
+			view
+				.frame(maxWidth: .infinity, alignment: .leading)
+		}).if(self.width == .dynamic(itemSpacing: 0)) { view in
+			view
+				.padding(.trailing, self.width.itemSpacing)
+				.padding(.bottom, self.width.itemSpacing)
+		}
 		.contentShape(Rectangle()) //for user interaction in all the area
 	}
 	
@@ -92,13 +132,16 @@ public struct NitrozenCheckboxItem: View {
 	func selectedView() -> some View {
 		HStack {
 			ZStack {
-				RoundedRectangle(cornerRadius: 4, style: .continuous)
-					.stroke(style: .init(lineWidth: self.appearance.selectedBorderWidth))
-				
-				self.appearance.selectedImage
-					.foregroundColor(self.appearance.selectedBorderColor)
+				Group {
+					RoundedRectangle(cornerRadius: 4, style: .continuous)
+						.stroke(self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
+						.frame(width: self.appearance.size.width, height: self.appearance.size.height)
+					
+					self.appearance.selectedImage
+						.foregroundColor(self.appearance.selectedBorderColor)
+				}
+				.frame(width: self.appearance.size.width, height: self.appearance.size.height)
 			}
-			.frame(width: self.appearance.size.width, height: self.appearance.size.height)
 			
 			self.title.convertToView { title in
 				titleView(title: title, font: self.appearance.selectedTitle.font, color: self.appearance.selectedTitle.titleColor)
@@ -110,12 +153,15 @@ public struct NitrozenCheckboxItem: View {
 	@ViewBuilder
 	func deSelectedView() -> some View {
 		HStack {
-			RoundedRectangle(cornerRadius: 4, style: .continuous)
-				.stroke(style: .init(lineWidth: self.appearance.deselectedBorderWidth))
-				.frame(width: self.appearance.size.width, height: self.appearance.size.height)
+			Group {
+				RoundedRectangle(cornerRadius: 4, style: .continuous)
+					.stroke(self.appearance.deSelectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
+			}
+			.frame(width: self.appearance.size.width, height: self.appearance.size.height)
+			
 			
 			self.title.convertToView { title in
-				titleView(title: title, font: self.appearance.deSelectedTitle.font, color: self.appearance.deSelectedTitle.titleColor)
+				AnyView(titleView(title: title, font: self.appearance.deSelectedTitle.font, color: self.appearance.deSelectedTitle.titleColor))
 			}
 		}
 	}
@@ -125,6 +171,5 @@ public struct NitrozenCheckboxItem: View {
 		Text(title)
 			.font(font)
 			.foregroundColor(color)
-			.frame(maxWidth: .infinity, alignment: .leading)
 	}
 }

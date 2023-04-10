@@ -37,7 +37,6 @@ extension Modifiers.Element {
 
 
 extension View {
-	
 	func loading(isLoading: Binding<Bool>, style: NitrozenElementLoadingStyle) -> some View {
 		self.modifier(Modifiers.Element.Loading(isLoading: isLoading, elementStyle: style))
 	}

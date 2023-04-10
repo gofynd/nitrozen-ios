@@ -69,12 +69,12 @@ extension View {
 		self
 			.if(shape == .capsule, contentTransformer: { view in
 				view
-					.capsuleWithBorder(color: color, lineWidth: lineWidth)
+					.nitrozen.capsuleWithBorder(color: color, lineWidth: lineWidth)
 				
 			})
 				.if(shape == .circle, contentTransformer: { view in
 					view
-						.circleWithBorder(color: color, lineWidth: lineWidth)
+						.nitrozen.circleWithBorder(color: color, lineWidth: lineWidth)
 				})
 					.if(shape == .none, contentTransformer: { view in
 						view

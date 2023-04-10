@@ -37,44 +37,43 @@ public struct NitrozenTagView<Element>: View where Element: NitrozenElementStrin
 	}
 	
 	public var body: some View {
-		listView()
+		CollectionStack(self.options) { item in
+			itemView(item: item)
+		}
 	}
 	
 	@ViewBuilder
-	func listView() -> some View {
+	func itemView(item: Element) -> some View {
 		
-		CollectionStack(self.options) { item in
-			
-			let isSelected = self.selection.contains(item)
-			let titleView: NitrozenTagViewItem.CustomLabelView = self.itemBuilder
-				.convert { builder in
-					NitrozenTagViewItem.CustomLabelView.custom(view: AnyView(builder(item, isSelected)))
-				}.or(
-					NitrozenTagViewItem.CustomLabelView.nitrozen(text: item.selectionTitle)
-				)
-			
-			NitrozenTagViewItem(
-				isSelected: selection.contains(item),
-				titleView: titleView,
-				clearActionView: .nitrozen,
-				appearance: appearance
+		let isSelected = self.selection.contains(item)
+		let titleView: NitrozenTagViewItem.CustomLabelView = self.itemBuilder
+			.convert { builder in
+				NitrozenTagViewItem.CustomLabelView.custom(view: AnyView(builder(item, isSelected)))
+			}.or(
+				NitrozenTagViewItem.CustomLabelView.nitrozen(text: item.selectionTitle)
 			)
-			.onTapGesture {
-				withAnimation {
-					if self.selection.contains(item) {
-						self.selection.remove(item)
-					}else {
-						switch self.allowedSelection {
-						case .multiple: break
-						case .single: self.selection.removeAll(keepingCapacity: true)
-						}
-						self.selection.insert(item)
+		
+		NitrozenTagViewItem(
+			isSelected: selection.contains(item),
+			titleView: titleView,
+			clearActionView: .nitrozen,
+			appearance: appearance
+		)
+		.onTapGesture {
+			withAnimation {
+				if self.selection.contains(item) {
+					self.selection.remove(item)
+				}else {
+					switch self.allowedSelection {
+					case .multiple: break
+					case .single: self.selection.removeAll(keepingCapacity: true)
 					}
+					self.selection.insert(item)
 				}
 			}
-			.padding(.trailing, spacing)
-			.padding(.bottom, spacing)
 		}
+		.padding(.trailing, spacing)
+		.padding(.bottom, spacing)
 	}
 }
 
@@ -139,7 +138,7 @@ public struct NitrozenTagViewItem: View {
 		}
 		.apply(padding: self.appearance.padding)
 		.background(self.appearance.selectedBorderColor.opacity(0.1))
-		.capsuleWithBorder(color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
+		.nitrozen.capsuleWithBorder(color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
 	}
 	
 	@ViewBuilder
@@ -153,7 +152,7 @@ public struct NitrozenTagViewItem: View {
 			}
 		}
 		.apply(padding: self.appearance.padding)
-		.capsuleWithBorder(color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
+		.nitrozen.capsuleWithBorder(color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
 	}
 	
 	@ViewBuilder

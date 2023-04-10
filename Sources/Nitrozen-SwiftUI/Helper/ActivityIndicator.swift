@@ -1,6 +1,6 @@
 //
-//  File 2.swift
-//  
+//  ActivityIndicator.swift
+//  Nitrozen-SwiftUI
 //
 //  Created by Hitendra Solanki on 17/03/23.
 //
