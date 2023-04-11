@@ -137,7 +137,7 @@ public struct NitrozenTagViewItem: View {
 			clearIconView()
 		}
 		.apply(padding: self.appearance.padding)
-		.background(self.appearance.selectedBorderColor.opacity(0.1))
+		.background(self.appearance.selectedBackgroundColor)
 		.nitrozen.capsuleWithBorder(color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
 	}
 	
@@ -152,6 +152,7 @@ public struct NitrozenTagViewItem: View {
 			}
 		}
 		.apply(padding: self.appearance.padding)
+		.background(self.appearance.deSelectedBackgroundColor)
 		.nitrozen.capsuleWithBorder(color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
 	}
 	
