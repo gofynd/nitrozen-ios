@@ -17,33 +17,35 @@ public struct NitrozenCheckbox<Element>: View where Element: NitrozenElementStri
 	var options: Array<Element>
 	@Binding var selection: Set<Element>
 	var layout: Layout
+	var itemSpacing: CGFloat
 	var appearance: NitrozenAppearance.Checkbox
 	
 	public init(options: Array<Element>, selection: Binding<Set<Element>>,
-		 layout: Layout, appearance: NitrozenAppearance.Checkbox? = nil) {
+		 layout: Layout, itemSpacing: CGFloat = 8, appearance: NitrozenAppearance.Checkbox? = nil) {
 		self.options = options
 		self._selection = selection
 		self.layout = layout
+		self.itemSpacing = itemSpacing
 		self.appearance = appearance.or(NitrozenAppearance.shared.checkbox)
 	}
 	
 	public var body: some View {
 		switch self.layout {
 		case .horizontal:
-			HStack {
+			HStack(alignment: .top, spacing: self.itemSpacing) {
 				ForEach(self.options, id: \.hashValue) { item in
 					itemView(item: item, width: .infinity)
 				}
 			}
 		case .verticle:
-			VStack {
+			VStack(alignment: .leading, spacing: self.itemSpacing) {
 				ForEach(self.options, id: \.hashValue) { item in
 					itemView(item: item, width: .infinity)
 				}
 			}
 		case .collection:
 			CollectionStack(self.options) { item in
-				itemView(item: item, width: .dynamic(itemSpacing: 8))
+				itemView(item: item, width: .dynamic(itemSpacing: self.itemSpacing))
 			}
 		}
 	}

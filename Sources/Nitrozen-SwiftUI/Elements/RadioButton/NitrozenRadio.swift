@@ -19,24 +19,26 @@ public struct NitrozenRadio<Element>: View where Element: NitrozenElementRadioSt
     var options: Array<Element>
     @Binding var selection: Set<Element>
     var layout: Layout
+	var itemSpacing: CGFloat
     var appearance: NitrozenAppearance.RadioButton
     
     public init(options: Array<Element>, selection: Binding<Set<Element>>,
-                layout: Layout, appearance: NitrozenAppearance.RadioButton? = nil) {
+                layout: Layout, itemSpacing: CGFloat = 8, appearance: NitrozenAppearance.RadioButton? = nil) {
         self.options = options
         self._selection = selection
         self.layout = layout
+		self.itemSpacing = itemSpacing
         self.appearance = appearance.or(NitrozenAppearance.shared.radioButton)
     }
     
     public var body: some View {
         switch self.layout {
         case .horizontal:
-            HStack {
+            HStack(spacing: self.itemSpacing) {
                 listView()
             }
         case .verticle:
-            VStack {
+            VStack(spacing: self.itemSpacing) {
                 listView()
             }
         }
@@ -45,11 +47,10 @@ public struct NitrozenRadio<Element>: View where Element: NitrozenElementRadioSt
     @ViewBuilder
     func listView() -> some View {
         ForEach(self.options, id: \.hashValue) { item in
-            
             NitrozenRadioButtonItem(
                 isSelected: selection.contains(item),
                 title: item.selectionTitleText,
-                subTitle: item.selectionSubTitleText.or(""),
+                subTitle: item.selectionSubTitleText,
                 appearance:self.appearance
             )
             .onTapGesture {
@@ -87,7 +88,7 @@ public struct NitrozenRadioButtonItem: View {
     
     public var body: some View {
         
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center) {
                 radioButton()
                 titleLabel()

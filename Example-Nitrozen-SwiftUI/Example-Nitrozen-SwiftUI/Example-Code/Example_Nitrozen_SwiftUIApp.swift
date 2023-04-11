@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Nitrozen_SwiftUI
-import FloatingTextField_SwiftUI
 
 @main
 struct Example_Nitrozen_SwiftUIApp: App {
