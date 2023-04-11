@@ -39,6 +39,9 @@ public class NitrozenAppearance {
 	
 	//pageControl
 	public var pageControl: NitrozenAppearance.PageControl
+	
+	//
+	public var otpTextView: NitrozenAppearance.OTPTextView
 
 	init(
 		colorProvider: ColorProvider,
@@ -57,7 +60,9 @@ public class NitrozenAppearance {
 		alert: NitrozenAppearance.Alert,
 		
 		tagView: NitrozenAppearance.TagView,
-		pageControl: NitrozenAppearance.PageControl
+		pageControl: NitrozenAppearance.PageControl,
+		
+		otpTextView: NitrozenAppearance.OTPTextView
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
@@ -75,6 +80,8 @@ public class NitrozenAppearance {
 		
 		self.tagView = tagView
 		self.pageControl = pageControl
+		
+		self.otpTextView = otpTextView
 	}
 }
 
@@ -180,7 +187,9 @@ public extension NitrozenAppearance {
 			
 			tagView: tagViewAppearance(color: colorProvider.primary, font: font),
 			
-			pageControl: pageControlAppearance(color: colorProvider.primary, font: font)
+			pageControl: pageControlAppearance(color: colorProvider.primary, font: font),
+			
+			otpTextView: otpTextViewAppearance()
 		)
 	}()
 	
@@ -204,6 +213,10 @@ public extension NitrozenAppearance {
 			spacing: 8
 		)
 	}
+	
+	private static func otpTextViewAppearance() -> NitrozenAppearance.OTPTextView {
+		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), height: 48, borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black)
+	}
 }
 
 //MARK: Copy Support
@@ -222,7 +235,7 @@ public extension NitrozenAppearance {
 			actionSheet: self.actionSheet.copy,
 			presentSheet: self.presentSheet.copy,
 			alert: self.alert.copy,
-			tagView: self.tagView.copy, pageControl: self.pageControl.copy
+			tagView: self.tagView.copy, pageControl: self.pageControl.copy, otpTextView: self.otpTextView.copy
 		)
 	}
 }

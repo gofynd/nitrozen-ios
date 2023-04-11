@@ -83,7 +83,13 @@ struct UIElementsList: View {
 				NavigationLink {
 					PageControls()
 				} label: {
-					Text("Page Congrol")
+					Text("Page Control")
+				}
+				
+				NavigationLink {
+					OtpView()
+				} label: {
+					Text("OTP Textview")
 				}
 
 			}

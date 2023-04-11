@@ -67,5 +67,10 @@ struct Example_Nitrozen_SwiftUIApp: App {
 				.borderWidth(1.0)
 				.borderPadding(6)
 			)
+		
+		NitrozenAppearance.shared.otpTextView
+			.borderRadius(16)
+			.height(48)
+			.textStyle(NitrozenAppearance.TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))))
 	}
 }
