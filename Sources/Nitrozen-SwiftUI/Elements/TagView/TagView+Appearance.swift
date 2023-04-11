@@ -21,9 +21,13 @@ public extension NitrozenAppearance {
 		var padding: ViewPadding
 		var clearButtonColor: SystemColor
 		
+		var selectedBackgroundColor: SystemColor
+		var deSelectedBackgroundColor: SystemColor
+		
 		init(selectedTitle: NitrozenAppearance.TextLabel, deSelectedTitle: NitrozenAppearance.TextLabel,
 			 selectedBorderColor: SystemColor, deselectedBorderColor: SystemColor,
 			 selectedBorderWidth: CGFloat, deselectedBorderWidth: CGFloat,
+			 selectedBackgroundColor: SystemColor, deSelectedBackgroundColor: SystemColor,
 			 padding: ViewPadding, clearButtonColor: SystemColor
 		) {
 			self.selectedTitle = selectedTitle
@@ -34,6 +38,8 @@ public extension NitrozenAppearance {
 			self.deselectedBorderWidth = deselectedBorderWidth
 			self.padding = padding
 			self.clearButtonColor = clearButtonColor
+			self.selectedBackgroundColor = selectedBackgroundColor
+			self.deSelectedBackgroundColor = deSelectedBackgroundColor
 		}
 	}
 }
@@ -63,6 +69,12 @@ public extension NitrozenAppearance.TagView {
 	
 	@discardableResult
 	func clearButtonColor(_ clearButtonColor: SystemColor) -> Self { self.clearButtonColor = clearButtonColor; return self }
+	
+	@discardableResult
+	func selectedBackgroundColor(_ selectedBackgroundColor: SystemColor) -> Self { self.selectedBackgroundColor = selectedBackgroundColor; return self }
+	
+	@discardableResult
+	func deSelectedBackgroundColor(_ deSelectedBackgroundColor: SystemColor) -> Self { self.deSelectedBackgroundColor = deSelectedBackgroundColor; return self }
 }
 
 //MARK: Copy Support
@@ -75,6 +87,8 @@ public extension NitrozenAppearance.TagView {
 			deselectedBorderColor: self.deselectedBorderColor,
 			selectedBorderWidth: self.selectedBorderWidth,
 			deselectedBorderWidth: self.deselectedBorderWidth,
+			selectedBackgroundColor: self.selectedBackgroundColor,
+			deSelectedBackgroundColor: self.deSelectedBackgroundColor,
 			padding: self.padding,
 			clearButtonColor: self.clearButtonColor
 		)

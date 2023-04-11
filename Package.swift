@@ -19,9 +19,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/exyte/ActivityIndicatorView.git", from: .init(1, 1, 1)),
-		.package(url: "https://github.com/hitendradeveloper/FloatingTextField-SwiftUI", branch: "v1.3.3"),
 		.package(url: "https://github.com/hitendradeveloper/CollectionStack-SwiftUI", branch: "main")
-		
 	],
 	targets: [
 		// Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -30,7 +28,6 @@ let package = Package(
 			name: "Nitrozen-SwiftUI",
 			dependencies: [
 				.product(name: "ActivityIndicatorView", package: "ActivityIndicatorView"),
-				.product(name: "FloatingTextField-SwiftUI", package: "FloatingTextField-SwiftUI"),
 				.product(name: "CollectionStack-SwiftUI", package: "CollectionStack-SwiftUI")
 			],
 			resources: [

@@ -82,60 +82,40 @@ public extension NitrozenAppearance {
 	static var shared: NitrozenAppearance = {
 		let colorProvider = ColorProvider.shared
 		let fontProvider = FontProvider.shared
-
+		
 		let disableOpacity: Double = 0.3
-
-
+		
+		
 		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
-
+		
 		FontRegistar.registerJIOFonts()
-
-		return .init(
+		
+		return NitrozenAppearance.init(
 			colorProvider: ColorProvider.shared,
 			fontProvider: fontProvider,
-
+			
 			primaryButton: .init(styleUseCase: .primary,
 								 titleColor: .white, titleColorDisabled: .white.opacity(disableOpacity),
 								 backgroundColor: colorProvider.primary, backgroundColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								 font: font,
 								 borderWidth: 0.0, borderColor: .clear, borderColorDisabled: .clear),
-
+			
 			borderedButton: .init(styleUseCase: .bordered,
 								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .gray, borderColorDisabled: .gray),
-
+			
 			tertiaryButton: .init(styleUseCase: .tertiary,
 								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .clear, borderColorDisabled: .clear),
-
-			textField: .init(
-				titleColor: colorProvider.primary, font: .body,
-				topInfo: .init(titleColor: .gray, font: .caption),
-				sucessInfo: .init(titleColor: .green, font: .callout),
-				errorInfo: .init(titleColor: .red, font: .callout),
-
-				borderAppearance: .init()
-					.borderColor(.gray)
-					.borderWidth(1.0)
-					.borderPadding(6)
-			),
-
-			dropDownTextField: .init(
-				titleColor: colorProvider.primary, font: .body,
-				topInfo: .init(titleColor: .gray, font: .caption),
-				sucessInfo: .init(titleColor: .green, font: .callout),
-				errorInfo: .init(titleColor: .red, font: .callout),
-
-				borderAppearance: .init()
-					.borderColor(.purple)
-					.borderWidth(1.0)
-					.borderPadding(6)
-			),
-
+			
+			textField: textfieldAppearance(),
+			
+			dropDownTextField: textfieldAppearance(),
+			
 			radioButton: .init(
 				selectedBorderColor: .blue,
 				deSelectedBorderColor: .black,
@@ -157,7 +137,7 @@ public extension NitrozenAppearance {
 					Image(systemName: "checkmark.square.fill").resizable().scaledToFit()
 				)
 			),
-
+			
 			actionSheet: .init(
 				title: .init(
 					titleColor: colorProvider.primary,
@@ -169,9 +149,9 @@ public extension NitrozenAppearance {
 				)
 				,closeButtonColor: .blue
 			),
-
+			
 			presentSheet: .init(focusOpacity: 0.5),
-
+			
 			alert: .init(
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
@@ -184,12 +164,30 @@ public extension NitrozenAppearance {
 		)
 	}()
 	
+	private static func textfieldAppearance() -> NitrozenAppearance.TextField {
+		.init(
+			textFieldInternalTextLabel: .init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+			topInfo: .init(titleColor: .gray, font: .caption),
+			topInfoPadding: .custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 8, trailing: 0)),
+			sucessInfo: .init(titleColor: .green, font: .callout),
+			successInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+			errorInfo: .init(titleColor: .red, font: .callout),
+			errorInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+			borderColor: .gray,
+			borderWidth: 1,
+			borderPadding: .custom(paddingToAdd: .init(top: 10, leading: 10, bottom: 10, trailing: 10)),
+			borderRadius: 16,
+			backgroundColor: Color(UIColor.systemBackground)
+		)
+	}
+	
 	private static func tagViewAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.TagView {
 		.init(
 			selectedTitle: .init(titleColor: color, font: .title.weight(.bold)),
 			deSelectedTitle: .init(titleColor: .gray, font: .title),
 			selectedBorderColor: color, deselectedBorderColor: .gray,
 			selectedBorderWidth: 2, deselectedBorderWidth: 1,
+			selectedBackgroundColor: color.opacity(0.05), deSelectedBackgroundColor: .gray.opacity(0.05),
 			padding: .systemDefault, clearButtonColor: color
 		)
 	}

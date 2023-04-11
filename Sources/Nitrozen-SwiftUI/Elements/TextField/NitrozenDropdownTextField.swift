@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FloatingTextField_SwiftUI
 
 public struct NitrozenDropdownTextField: View {
 	
@@ -35,9 +34,9 @@ public struct NitrozenDropdownTextField: View {
 	}
 	
 	public var body: some View {
-		VStack {
+		VStack(spacing: 0) {
 			self.textFieldContainer.infoView()
-				.frame(maxWidth: .infinity, alignment: .leading)
+			
 			ZStack {
 				self.textFieldContainer.textField()
 					.disabled(true)
@@ -47,9 +46,7 @@ public struct NitrozenDropdownTextField: View {
 					}
 			}
 			self.textFieldContainer.errorView()
-				.frame(maxWidth: .infinity, alignment: .leading)
 			self.textFieldContainer.successView()
-				.frame(maxWidth: .infinity, alignment: .leading)
 		}
 	}
 	
