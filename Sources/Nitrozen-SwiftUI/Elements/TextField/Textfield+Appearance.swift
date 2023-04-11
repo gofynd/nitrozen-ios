@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FloatingTextField_SwiftUI
 
 public extension NitrozenAppearance {
 	//TODO: define protocol textApperancable for titleColor and font
