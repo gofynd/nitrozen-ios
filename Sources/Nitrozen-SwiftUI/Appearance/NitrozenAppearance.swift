@@ -183,8 +183,8 @@ public extension NitrozenAppearance {
 	
 	private static func tagViewAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.TagView {
 		.init(
-			selectedTitle: .init(titleColor: color, font: .title.weight(.bold)),
-			deSelectedTitle: .init(titleColor: .gray, font: .title),
+			selectedTitle: .init(titleColor: color, font: .nitrozen(.body(size: .l, weight: .bold))),
+			deSelectedTitle: .init(titleColor: .gray, font: .nitrozen(.body(size: .l, weight: .regular))),
 			selectedBorderColor: color, deselectedBorderColor: .gray,
 			selectedBorderWidth: 2, deselectedBorderWidth: 1,
 			selectedBackgroundColor: color.opacity(0.05), deSelectedBackgroundColor: .gray.opacity(0.05),

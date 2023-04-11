@@ -7,7 +7,33 @@
 
 import SwiftUI
 
-public enum ViewShape { case capsule, circle, none }
+public enum ViewShape { case capsule, circle, roundedRectangle(radius: CGFloat) ,none }
+
+public extension ViewShape {
+	var radius: CGFloat {
+		switch self {
+		case .capsule: return 0
+		case .circle: return 0
+		case .roundedRectangle(let radius): return radius
+		case .none: return 0
+		}
+	}
+}
+
+extension ViewShape: Hashable, Equatable {
+	public func hash(into hasher: inout Hasher) {
+		switch self {
+		case .capsule: hasher.combine("capsule")
+		case .circle: hasher.combine("circle")
+		case .roundedRectangle: hasher.combine("roundedRectangle")
+		case .none: hasher.combine("none")
+		}
+	}
+	
+	public static func == (lhs: Self, rhs: Self) -> Bool {
+		lhs.hashValue == rhs.hashValue
+	}
+}
 
 public enum ViewPadding {
 	
@@ -67,6 +93,10 @@ extension View {
 extension View {
 	func apply(shape: ViewShape, color: SystemColor, lineWidth: CGFloat) -> some View {
 		self
+			.if(shape == .roundedRectangle(radius: .zero)) { view in
+				view
+					.nitrozen.roundedCornerWithBorder(color: color, radius: shape.radius, lineWidth: lineWidth)
+			}
 			.if(shape == .capsule, contentTransformer: { view in
 				view
 					.nitrozen.capsuleWithBorder(color: color, lineWidth: lineWidth)
