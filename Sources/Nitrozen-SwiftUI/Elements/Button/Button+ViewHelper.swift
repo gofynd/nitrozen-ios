@@ -52,6 +52,8 @@ fileprivate extension View {
 		switch shape {
 		case .none:
 			return .zero
+		case .roundedRectangle:
+			return .sytemDefaultAddingCustom(paddingToAdd: .init(top: -6, leading: 6, bottom: -6, trailing: 6))
 		case .circle:
 			return .systemDefault
 		case .capsule:
