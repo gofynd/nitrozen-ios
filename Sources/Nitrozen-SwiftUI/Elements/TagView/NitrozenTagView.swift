@@ -57,6 +57,7 @@ public struct NitrozenTagView<Element>: View where Element: NitrozenElementStrin
 			isSelected: selection.contains(item),
 			titleView: titleView,
 			clearActionView: .nitrozen,
+			shape: .capsule,
 			appearance: appearance
 		)
 		.onTapGesture {
@@ -102,14 +103,17 @@ public struct NitrozenTagViewItem: View {
 	var clearActionView: CustomImageView
 	
 	var appearance: NitrozenAppearance.TagView
+	var shape: ViewShape
 	
-	init(isSelected: Bool,
-		 titleView: CustomLabelView, clearActionView: CustomImageView,
-		 appearance: NitrozenAppearance.TagView? = nil
+	public init(isSelected: Bool = false,
+				titleView: CustomLabelView, clearActionView: CustomImageView = .custom(view: AnyView(EmptyView())),
+				shape: ViewShape,
+				appearance: NitrozenAppearance.TagView? = nil
 	) {
 		self.isSelected = isSelected
 		self.titleView = titleView
 		self.clearActionView = clearActionView
+		self.shape = shape
 		self.appearance = appearance.or(NitrozenAppearance.shared.tagView)
 	}
 	
@@ -137,8 +141,8 @@ public struct NitrozenTagViewItem: View {
 			clearIconView()
 		}
 		.apply(padding: self.appearance.padding)
-		.background(self.appearance.selectedBorderColor.opacity(0.1))
-		.nitrozen.capsuleWithBorder(color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
+		.background(self.appearance.selectedBackgroundColor)
+		.apply(shape: self.shape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
 	}
 	
 	@ViewBuilder
@@ -152,7 +156,8 @@ public struct NitrozenTagViewItem: View {
 			}
 		}
 		.apply(padding: self.appearance.padding)
-		.nitrozen.capsuleWithBorder(color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
+		.background(self.appearance.deSelectedBackgroundColor)
+		.apply(shape: self.shape, color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
 	}
 	
 	@ViewBuilder

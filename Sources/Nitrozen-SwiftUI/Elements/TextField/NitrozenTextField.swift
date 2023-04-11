@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FloatingTextField_SwiftUI
 
 public struct NitrozenTextField: View {
 	
@@ -34,8 +33,7 @@ public struct NitrozenTextField: View {
 	var placeHolder: String
 	var infos: [Info] = []
 	
-	var borderedAppearance: FloatingTextField_SwiftUI.Modifiers.Rounded.Configuration
-	var textFieldAppearance: FloatingTextField_SwiftUI.Modifiers.Floating.Configuration
+	var apperance: NitrozenAppearance.TextField
 	
 	var leftView: AnyView? = nil
 	var rightView: AnyView? = nil
@@ -44,8 +42,7 @@ public struct NitrozenTextField: View {
 		binding: Binding<String>, placeHolder: String,
 		infos: [Info],
 		isSecure: Bool = false,
-		borderedAppearance: FloatingTextField_SwiftUI.Modifiers.Rounded.Configuration? = nil,
-		textFieldAppearance: FloatingTextField_SwiftUI.Modifiers.Floating.Configuration? = nil,
+		apperance: NitrozenAppearance.TextField? = nil,
 		leftView: AnyView? = nil, rightView: AnyView? = nil
 	) {
 		self.isSecure = isSecure
@@ -54,42 +51,45 @@ public struct NitrozenTextField: View {
 		self.infos = infos
 		self.leftView = leftView
 		self.rightView = rightView
-		self.borderedAppearance = borderedAppearance.or(NitrozenAppearance.shared.textField.borderAppearance)
-		self.textFieldAppearance = textFieldAppearance.or(
-			.init()
-				.textFieldFont(NitrozenAppearance.shared.textField.font)
-				.textFieldColor(NitrozenAppearance.shared.textField.titleColor)
-				.allowsFloatingPlaceholder(false)
-				.leftView(AnyView(self.leftView.convertToView{ $0 }))
-				.rightView(AnyView(self.rightView.convertToView{ $0 }))
-		)
+		self.apperance = apperance.or(NitrozenAppearance.shared.textField)
+			
+//			.init()
+//				.textFieldFont(NitrozenAppearance.shared.textField.font)
+//				.textFieldColor(NitrozenAppearance.shared.textField.titleColor)
+//				.allowsFloatingPlaceholder(false)
+//				.leftView(AnyView(self.leftView.convertToView{ $0 }))
+//				.rightView(AnyView(self.rightView.convertToView{ $0 }))
+		
 	}
 	
 	public var body: some View {
-		VStack(spacing: 4) {
+		VStack(spacing: 0) {
 			infoView()
-				.frame(maxWidth: .infinity, alignment: .leading)
 			textField()
-				
 			errorView()
-				.frame(maxWidth: .infinity, alignment: .leading)
 			successView()
-				.frame(maxWidth: .infinity, alignment: .leading)
 		}
 	}
 	
 	
 	@ViewBuilder
 	func textField() -> some View {
-		Group {
-			if self.isSecure {
-				SecureField(placeHolder, text: binding)
-			} else {
-				TextField(placeHolder, text: binding)
+		HStack {
+			leftView.convertToView { $0 }
+			Group {
+				if self.isSecure {
+					SecureField(placeHolder, text: binding)
+				} else {
+					TextField(placeHolder, text: binding)
+				}
 			}
+			rightView.convertToView { $0 }
 		}
-		.floatingRounded(self.borderedAppearance)
-		.floating(self.textFieldAppearance)
+		.apply(padding: self.apperance.borderPadding)
+		.foregroundColor(self.apperance.textFieldInternalTextLabel.titleColor)
+		.font(self.apperance.textFieldInternalTextLabel.font)
+		.background(self.apperance.backgroundColor)
+		.nitrozen.roundedCornerWithBorder(color: self.apperance.borderColor, radius: self.apperance.borderRadius, lineWidth: self.apperance.borderWidth)
 	}
 	
 	@ViewBuilder
@@ -104,6 +104,8 @@ public struct NitrozenTextField: View {
 							.font(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).font)
 						
 					}
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.apply(padding: self.apperance.topInfoPadding)
 				}
 			}
 	}
@@ -119,6 +121,8 @@ public struct NitrozenTextField: View {
 							.foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).titleColor)
 							.font(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).font)
 					}
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.apply(padding: self.apperance.errorInfoPadding)
 				}
 		}
 	}
@@ -135,6 +139,8 @@ public struct NitrozenTextField: View {
 							.font(info.appearance.or(NitrozenAppearance.shared.textField.sucessInfo).font)
 						
 					}
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.apply(padding: self.apperance.successInfoPadding)
 				}
 		}
 	}

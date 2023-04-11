@@ -21,6 +21,7 @@
 		E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6B29DEDE990012B473 /* Alerts.swift */; };
 		E3F7CE6E29E0AA940012B473 /* TagViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6D29E0AA940012B473 /* TagViews.swift */; };
 		E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6F29E3D5B90012B473 /* PageControl.swift */; };
+		E3F7CE7229E5C9FA0012B473 /* BadgeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */; };
 		FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA346EA329DEE36300A948F2 /* ActionSheet.swift */; };
 		FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76C0A129DAE0E9001FB759 /* RadioButton.swift */; };
 		FAEDCDEE29E0105600A38414 /* PresentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDCDED29E0105600A38414 /* PresentSheet.swift */; };
@@ -42,6 +43,7 @@
 		E3F7CE6B29DEDE990012B473 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		E3F7CE6D29E0AA940012B473 /* TagViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViews.swift; sourceTree = "<group>"; };
 		E3F7CE6F29E3D5B90012B473 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViews.swift; sourceTree = "<group>"; };
 		FA346EA329DEE36300A948F2 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		FA76C0A129DAE0E9001FB759 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		FAEDCDED29E0105600A38414 /* PresentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentSheet.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */,
 				FA76C0A129DAE0E9001FB759 /* RadioButton.swift */,
 				E3F7CE6D29E0AA940012B473 /* TagViews.swift */,
+				E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */,
 				E3F7CE6F29E3D5B90012B473 /* PageControl.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
@@ -202,6 +205,7 @@
 				FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
 				E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */,
+				E3F7CE7229E5C9FA0012B473 /* BadgeViews.swift in Sources */,
 				E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */,
 				E376043029C45ACE000D28DC /* TextFields.swift in Sources */,
 				E376041E29C459EA000D28DC /* Example_Nitrozen_SwiftUIApp.swift in Sources */,

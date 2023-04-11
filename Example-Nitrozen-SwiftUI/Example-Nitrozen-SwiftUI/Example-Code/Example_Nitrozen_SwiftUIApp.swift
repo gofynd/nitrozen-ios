@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Nitrozen_SwiftUI
-import FloatingTextField_SwiftUI
 
 @main
 struct Example_Nitrozen_SwiftUIApp: App {
@@ -57,16 +56,8 @@ struct Example_Nitrozen_SwiftUIApp: App {
 			.borderWidth(0.0)
 		
 		NitrozenAppearance.shared.textField
-			.titleColor(.black)
-			.font(.body)
-			.errorInfo(.init(titleColor: .red.opacity(0.85), font: .caption))
-			.sucessInfo(.init(titleColor: .green.opacity(0.85), font: .caption))
-			.borderAppearance(
-				.init()
-				.borderColor(.gray)
-				.borderWidth(1.0)
-				.borderPadding(6)
-			)
+				.errorInfo(.init(titleColor: .red.opacity(0.85), font: .caption))
+				.sucessInfo(.init(titleColor: .green.opacity(0.85), font: .caption))
 		
 		NitrozenAppearance.shared.otpTextView
 			.borderRadius(16)

@@ -70,7 +70,7 @@ public struct NitrozenFont {
 		case .body(let size, let weight):
 			let pointSize: CGFloat = {
 				switch size {
-				case .xl: assertionFailure("XL not possible with Body"); return 24
+				case .xl: assertionFailure("NitrozenStyle: XL not possible with Body"); return 24
 				case .l: return 24
 				case .m: return 18
 				case .s: return 16

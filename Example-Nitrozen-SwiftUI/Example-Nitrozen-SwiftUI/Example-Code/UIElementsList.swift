@@ -91,6 +91,13 @@ struct UIElementsList: View {
 				} label: {
 					Text("OTP Textview")
 				}
+				
+				
+				NavigationLink {
+					BadgeViews()
+				} label: {
+					Text("Badge Views")
+				}
 
 			}
 			.navigationTitle("Nitrozen Elements")

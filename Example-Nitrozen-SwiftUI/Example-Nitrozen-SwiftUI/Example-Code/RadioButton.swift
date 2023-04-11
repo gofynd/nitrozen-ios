@@ -32,10 +32,10 @@ struct RadioButton: View {
 			}
 			
 			Section(selection2.first ?? "") {
-				Text("Vetical RadioButton With Title")
+				Text("Vetical RadioButton With Title\n- custom spacing")
 				NitrozenRadio(
 					options: self.options2, selection: $selection2,
-					layout: .verticle)
+					layout: .verticle, itemSpacing: 2)
 				.frame(maxWidth: .infinity, alignment: .leading)
 			}
 			
