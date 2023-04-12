@@ -218,7 +218,7 @@ public extension NitrozenAppearance {
 	}
 	
 	private static func otpTextViewAppearance() -> NitrozenAppearance.OTPTextView {
-		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), height: 48, borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black)
+		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: .blue,errorColor: .red,successColor: .green)
 	}
 }
 

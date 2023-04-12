@@ -10,6 +10,7 @@ import Nitrozen_SwiftUI
 
 struct OtpView: View {
 	@State var otpcode6:String = ""
+	@State var otpcode7:String = ""
 	@State var otpcode4:String = ""
 	@State var otpcode5:String = ""
 	@State var otpcode3:String = ""
@@ -24,7 +25,18 @@ struct OtpView: View {
 				NitrozenOtpTextView(
 					otpCode: $otpcode6,
 					otpCodeLength: 6,
-					placeHolder: "0"
+					placeHolder: "0",
+					isErrorCode: true
+				)
+			}
+			
+			VStack {
+				Text("Nitrozen OTPField")
+				NitrozenOtpTextView(
+					otpCode: $otpcode7,
+					otpCodeLength: 6,
+					placeHolder: "0",
+					isSuccessCode: true
 				)
 			}
 			
@@ -38,7 +50,8 @@ struct OtpView: View {
 					appearance: NitrozenAppearance.shared.otpTextView.copy
 						.borderColor(.green)
 						.fillBorderColor(.blue)
-					
+						.size(CGSize.init(width: 60, height: 40))
+						.borderRadius(0)
 					
 				)
 			}
@@ -50,7 +63,7 @@ struct OtpView: View {
 					otpCodeLength: 5,
 					placeHolder: "0",
 					appearance: NitrozenAppearance.shared.otpTextView.copy
-						.height(60)
+						.size(CGSize.init(width: 60, height: 60))
 					
 				)
 			}
@@ -70,7 +83,7 @@ struct OtpView: View {
 					otpCodeLength: 10,
 					placeHolder: "0",
 					appearance: NitrozenAppearance.shared.otpTextView.copy
-						.height(20)
+						.size(CGSize.init(width: 20, height: 20))
 				)
 			}
 		}

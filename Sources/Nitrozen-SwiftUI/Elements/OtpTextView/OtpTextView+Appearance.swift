@@ -13,30 +13,39 @@ public extension NitrozenAppearance {
 		
 		var textStyle: NitrozenAppearance.TextLabel
 		var placeHolderStyle: NitrozenAppearance.TextLabel
-		var height: CGFloat
+		var size: CGSize
 		
 		var borderColor: SystemColor
 		var borderWidth: CGFloat
 		var borderRadius: CGFloat
 		var fillBorderColor: SystemColor
-		
+		var focusedBorderColor: SystemColor
+		var errorColor: SystemColor
+		var successColor: SystemColor
 		
 		init(
 			textStyle: NitrozenAppearance.TextLabel,
 			placeHolderStyle: NitrozenAppearance.TextLabel,
-			height: CGFloat,
+			size: CGSize,
 			borderColor: SystemColor,
 			borderWidth: CGFloat,
 			borderRadius: CGFloat,
-			fillBorderColor: SystemColor) {
+			fillBorderColor: SystemColor,
+			focusedBorderColor: SystemColor,
+			errorColor: SystemColor,
+			successColor: SystemColor) {
+				
 				self.textStyle = textStyle
 				self.placeHolderStyle = placeHolderStyle
-				self.height = height
+				self.size = size
 				
 				self.borderColor = borderColor
 				self.borderWidth = borderWidth
 				self.borderRadius = borderRadius
 				self.fillBorderColor = fillBorderColor
+				self.focusedBorderColor = focusedBorderColor
+				self.errorColor = errorColor
+				self.successColor = successColor
 			}
 		
 	}
@@ -52,7 +61,7 @@ public extension NitrozenAppearance.OTPTextView {
 	
 	
 	@discardableResult
-	func height(_ spacing: CGFloat) -> Self { self.height = spacing; return self }
+	func size(_ size: CGSize) -> Self { self.size = size; return self }
 	
 	
 	@discardableResult
@@ -67,6 +76,15 @@ public extension NitrozenAppearance.OTPTextView {
 	@discardableResult
 	func fillBorderColor(_ fillBorderColor: SystemColor) -> Self { self.fillBorderColor = fillBorderColor; return self }
 	
+	@discardableResult
+	func focusedBorderColor(_ focusedBorderColor: SystemColor) -> Self { self.focusedBorderColor = focusedBorderColor; return self }
+	
+	@discardableResult
+	func errorColor(_ errorColor: SystemColor) -> Self { self.errorColor = errorColor; return self }
+	
+	@discardableResult
+	func successColor(_ bordersuccessColorColor: SystemColor) -> Self { self.successColor = successColor; return self }
+	
 }
 
 //MARK: Copy Support
@@ -74,10 +92,13 @@ public extension NitrozenAppearance.OTPTextView {
 	var copy: NitrozenAppearance.OTPTextView {
 		.init(textStyle: self.textStyle,
 			  placeHolderStyle: self.placeHolderStyle,
-			  height: self.height,
+			  size: self.size,
 			  borderColor: self.borderColor,
 			  borderWidth: self.borderWidth,
 			  borderRadius: self.borderRadius,
-			  fillBorderColor: self.fillBorderColor)
+			  fillBorderColor: self.fillBorderColor,
+			  focusedBorderColor: self.focusedBorderColor,
+			  errorColor: self.errorColor,
+			  successColor: self.successColor)
 	}
 }

@@ -21,6 +21,8 @@ public struct NitrozenOtpTextView: View {
 	var otpCodeLength: Int
 	var placeHolder: String
 	var isSecureField: Bool
+	var isErrorCode: Bool?
+	var isSuccessCode: Bool?
 	var appearance: NitrozenAppearance.OTPTextView
 	
 	//MARK: Constructor
@@ -29,11 +31,15 @@ public struct NitrozenOtpTextView: View {
 		otpCodeLength: Int,
 		placeHolder: String,
 		isSecureField: Bool? = false,
+		isErrorCode: Bool? = nil,
+		isSuccessCode: Bool? = nil,
 		appearance: NitrozenAppearance.OTPTextView? = nil) {
 			self._otpCode = otpCode
 			self.otpCodeLength = otpCodeLength
 			self.placeHolder = placeHolder
 			self.isSecureField = isSecureField.or(false)
+			self.isErrorCode = isErrorCode
+			self.isSuccessCode = isSuccessCode
 			self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
 		}
 	
@@ -67,10 +73,10 @@ public struct NitrozenOtpTextView: View {
 							self.setPinAndPlaceholder(index)
 
 							RoundedRectangle(cornerRadius: appearance.borderRadius)
-								.stroke(getColorByStatus(index),
+								.stroke(getBorderColorByStatus(index),
 										lineWidth: appearance.borderWidth
 								)
-								.frame(width: appearance.height,height: appearance.height)
+								.frame(width: appearance.size.width,height: appearance.size.height)
 						}
 
 					}
@@ -94,7 +100,17 @@ public struct NitrozenOtpTextView: View {
 		}
 	}
 	
-	private func getColorByStatus(_ index: Int) -> SystemColor {
+	private func getBorderColorByStatus(_ index: Int) -> SystemColor {
+		if self.otpCode.count == otpCodeLength {
+			if self.isErrorCode.or(false) {
+				return appearance.errorColor
+			} else if self.isSuccessCode.or(false) {
+				return appearance.successColor
+			}
+		}
+		if self.otpCode.isEmpty.isFalse, self.otpCode.count == index {
+			return appearance.focusedBorderColor
+		}
 		return self.otpCode.count <= index ? appearance.borderColor : appearance.fillBorderColor
 	}
 	
