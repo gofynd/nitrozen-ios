@@ -29,7 +29,10 @@ public class NitrozenAppearance {
 	
 	public var tagView: NitrozenAppearance.TagView
 	public var pageControl: NitrozenAppearance.PageControl
+
+	public var otpTextView: NitrozenAppearance.OTPTextView
 	public var toggle: NitrozenAppearance.Toggle
+
 
 	init(
 		colorProvider: ColorProvider,
@@ -46,6 +49,7 @@ public class NitrozenAppearance {
 		alert: NitrozenAppearance.Alert,
 		tagView: NitrozenAppearance.TagView,
 		pageControl: NitrozenAppearance.PageControl,
+		otpTextView: NitrozenAppearance.OTPTextView,
 		toggle: NitrozenAppearance.Toggle
 	) {
 		self.colorProvider = colorProvider
@@ -62,6 +66,7 @@ public class NitrozenAppearance {
 		self.alert = alert
 		self.tagView = tagView
 		self.pageControl = pageControl
+		self.otpTextView = otpTextView
 		self.toggle = toggle
 	}
 }
@@ -148,6 +153,7 @@ public extension NitrozenAppearance {
 			
 			pageControl: pageControlAppearance(color: colorProvider.primary, font: font),
 			
+			otpTextView: otpTextViewAppearance(),
 			toggle: .init(
 				onState: .init(
 					backgroundColor: .blue,
@@ -210,6 +216,10 @@ public extension NitrozenAppearance {
 			spacing: 8
 		)
 	}
+	
+	private static func otpTextViewAppearance() -> NitrozenAppearance.OTPTextView {
+		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: .blue,errorColor: .red,successColor: .green)
+	}
 }
 
 //MARK: Copy Support
@@ -230,6 +240,7 @@ public extension NitrozenAppearance {
 			alert: self.alert.copy,
 			tagView: self.tagView.copy,
 			pageControl: self.pageControl.copy,
+			otpTextView: self.otpTextView.copy,
 			toggle: self.toggle.copy
 		)
 	}

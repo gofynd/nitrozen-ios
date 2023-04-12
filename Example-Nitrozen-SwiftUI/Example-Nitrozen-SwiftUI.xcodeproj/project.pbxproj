@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12E9668129E573A50025CE96 /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9668029E573A50025CE96 /* OtpView.swift */; };
 		E345E33329C483FB00B239FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E345E33229C483FB00B239FE /* Preview Assets.xcassets */; };
 		E345E33529C484DC00B239FE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33429C484DC00B239FE /* Buttons.swift */; };
 		E345E33729C5931D00B239FE /* TextLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33629C5931D00B239FE /* TextLabels.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12E9668029E573A50025CE96 /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
 		E345E33229C483FB00B239FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E345E33429C484DC00B239FE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		E345E33629C5931D00B239FE /* TextLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabels.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				E3F7CE7329E5E5B40012B473 /* Toggles.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
+				12E9668029E573A50025CE96 /* OtpView.swift */,
 			);
 			path = "Example-Code";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E9668129E573A50025CE96 /* OtpView.swift in Sources */,
 				E3F7CE7429E5E5B40012B473 /* Toggles.swift in Sources */,
 				E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */,
 				FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */,

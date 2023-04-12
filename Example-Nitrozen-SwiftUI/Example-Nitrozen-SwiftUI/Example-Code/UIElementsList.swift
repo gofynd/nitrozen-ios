@@ -73,6 +73,7 @@ struct UIElementsList: View {
 					}
 				}
 				
+
 				Group {
 					NavigationLink {
 						TagViews()
@@ -86,6 +87,11 @@ struct UIElementsList: View {
 						Text("Page Congrol")
 					}
 					
+					NavigationLink {
+						OtpView()
+					} label: {
+						Text("OTP Textview")
+					}
 					
 					NavigationLink {
 						BadgeViews()
