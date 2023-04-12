@@ -1,4 +1,5 @@
 # Nitrozen-SwiftUI
+## Highly customisable UILibrary, not designed for specific fonts, colors or specifi type of layouts.
 
 ## Elements
 ### 1. Button Previews
@@ -8,7 +9,7 @@
 | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons1.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons2.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons3.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons4.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons5.png" width="300"> |
 
 ### Button code snippets
-Setup one-time Primary button apperance, this will used for all primary buttons 
+Setup one-time Primary button apperance, this will used for all primary buttons.  
 ```swift
 	NitrozenAppearance.shared.primaryButton
 		.backgroundColor(primaryColor)
