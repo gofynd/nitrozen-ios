@@ -9,7 +9,7 @@
 
 ### Button code snippets
 Primary button
-```
+```swift
 	Button(action: {}) {
 		Text("Click me")
 			.frame(maxWidth: .infinity)
@@ -17,7 +17,7 @@ Primary button
 	.primaryButton()
 ```
 Primary Disable button
-```
+```swift
 	Button(action: {}) {
 		Text("Click me")
 			.frame(maxWidth: .infinity)
@@ -26,7 +26,7 @@ Primary Disable button
 	.primaryButton()
 ```
 Primary loading button
-```
+```swift
 	@State var isButtonLoading: Bool = false //declare state boolean at view level
 	
 	Button(action: {}) {
@@ -36,8 +36,8 @@ Primary loading button
 	.primaryButton(isLoading: $isButtonLoading)
 ```
 Primary button with custom appearance
-```
-		Button(action: {}) {
+```swift
+	Button(action: {}) {
 		HStack{
 			Text("Custom font")
 		}
@@ -52,14 +52,14 @@ Primary button with custom appearance
 	)
 ```
 Bordered button
-```
+```swift
 	Button(action: {}) {
 		Text("Click me")
 	}
 	.borderedButton()
 ```
 Tertiary button
-```
+```swift
 	Button(action: {}) {
 		Text("Click me")
 	}
