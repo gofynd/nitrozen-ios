@@ -12,45 +12,34 @@ public class NitrozenAppearance {
 	//Appearance.public properties
 	public var colorProvider: ColorProvider
 	public var fontProvider: FontProvider
-
-	//Appearance.Button
+	
 	public var primaryButton: NitrozenAppearance.Button
 	public var borderedButton: NitrozenAppearance.Button
 	public var tertiaryButton: NitrozenAppearance.Button
-
-	//Appearance.Textfield
+	
 	public var textField: NitrozenAppearance.TextField
-
-	//Appearance.DropDownTextfield
 	public var dropDownTextField: NitrozenAppearance.TextField
-
+	
 	public var radioButton: NitrozenAppearance.RadioButton
-
-	//check box
 	public var checkbox: NitrozenAppearance.Checkbox
+	
 	public var actionSheet: NitrozenAppearance.ActionSheet
 	public var presentSheet: NitrozenAppearance.PresentSheet
-
-	//alert
 	public var alert: NitrozenAppearance.Alert
 	
-	//tagView
 	public var tagView: NitrozenAppearance.TagView
-	
-	//pageControl
 	public var pageControl: NitrozenAppearance.PageControl
-	
-	//
+
 	public var otpTextView: NitrozenAppearance.OTPTextView
+	public var toggle: NitrozenAppearance.Toggle
+
 
 	init(
 		colorProvider: ColorProvider,
 		fontProvider: FontProvider,
-
 		primaryButton: NitrozenAppearance.Button,
 		borderedButton: NitrozenAppearance.Button,
 		tertiaryButton: NitrozenAppearance.Button,
-
 		textField: NitrozenAppearance.TextField,
 		dropDownTextField: NitrozenAppearance.TextField,
 		radioButton: NitrozenAppearance.RadioButton,
@@ -58,18 +47,16 @@ public class NitrozenAppearance {
 		actionSheet: NitrozenAppearance.ActionSheet,
 		presentSheet: NitrozenAppearance.PresentSheet,
 		alert: NitrozenAppearance.Alert,
-		
 		tagView: NitrozenAppearance.TagView,
 		pageControl: NitrozenAppearance.PageControl,
-		
-		otpTextView: NitrozenAppearance.OTPTextView
+		otpTextView: NitrozenAppearance.OTPTextView,
+		toggle: NitrozenAppearance.Toggle
 	) {
 		self.colorProvider = colorProvider
 		self.fontProvider = fontProvider
 		self.primaryButton = primaryButton
 		self.borderedButton = borderedButton
 		self.tertiaryButton = tertiaryButton
-
 		self.textField = textField
 		self.dropDownTextField = dropDownTextField
 		self.radioButton = radioButton
@@ -77,11 +64,10 @@ public class NitrozenAppearance {
 		self.actionSheet = actionSheet
 		self.presentSheet = presentSheet
 		self.alert = alert
-		
 		self.tagView = tagView
 		self.pageControl = pageControl
-		
 		self.otpTextView = otpTextView
+		self.toggle = toggle
 	}
 }
 
@@ -91,8 +77,6 @@ public extension NitrozenAppearance {
 		let fontProvider = FontProvider.shared
 		
 		let disableOpacity: Double = 0.3
-		
-		
 		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
 		
 		FontRegistar.registerJIOFonts()
@@ -169,7 +153,28 @@ public extension NitrozenAppearance {
 			
 			pageControl: pageControlAppearance(color: colorProvider.primary, font: font),
 			
-			otpTextView: otpTextViewAppearance()
+			otpTextView: otpTextViewAppearance(),
+			toggle: .init(
+				onState: .init(
+					backgroundColor: .blue,
+					borderColor: .clear,
+					borderWidth: 0.0,
+					thumbColor: .white,
+					thumbBorderColor: .clear,
+					thumbBorderWidth: 0.0
+				),
+				offState: .init(
+					backgroundColor: .clear,
+					borderColor: .gray,
+					borderWidth: 1.0,
+					thumbColor: .gray,
+					thumbBorderColor: .clear,
+					thumbBorderWidth: 0.0
+				),
+				size: .init(width: 44, height: 24),
+				thumbSize: .init(width: 16, height: 16),
+				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
+			)
 		)
 	}()
 	
@@ -233,7 +238,10 @@ public extension NitrozenAppearance {
 			actionSheet: self.actionSheet.copy,
 			presentSheet: self.presentSheet.copy,
 			alert: self.alert.copy,
-			tagView: self.tagView.copy, pageControl: self.pageControl.copy, otpTextView: self.otpTextView.copy
+			tagView: self.tagView.copy,
+			pageControl: self.pageControl.copy,
+			otpTextView: self.otpTextView.copy,
+			toggle: self.toggle.copy
 		)
 	}
 }

@@ -9,12 +9,11 @@ import SwiftUI
 import Nitrozen_SwiftUI
 
 struct UIElementsList: View {
-	
-	@State var currentPage: Int = 4
-	
+		
 	var body: some View {
 		NavigationStack {
 			List {
+				
 				Group {
 					NavigationLink {
 						Buttons()
@@ -74,31 +73,38 @@ struct UIElementsList: View {
 					}
 				}
 				
-				NavigationLink {
-					TagViews()
-				} label: {
-					Text("TagViews")
-				}
-				
-				NavigationLink {
-					PageControls()
-				} label: {
-					Text("Page Control")
-				}
-				
-				NavigationLink {
-					OtpView()
-				} label: {
-					Text("OTP Textview")
-				}
-				
-				
-				NavigationLink {
-					BadgeViews()
-				} label: {
-					Text("Badge Views")
-				}
 
+				Group {
+					NavigationLink {
+						TagViews()
+					} label: {
+						Text("TagViews")
+					}
+					
+					NavigationLink {
+						PageControls()
+					} label: {
+						Text("Page Congrol")
+					}
+					
+					NavigationLink {
+						OtpView()
+					} label: {
+						Text("OTP Textview")
+					}
+					
+					NavigationLink {
+						BadgeViews()
+					} label: {
+						Text("Badge Views")
+					}
+
+					NavigationLink {
+						Toggles()
+					} label: {
+						Text("Toggles/Switch")
+					}
+				}
 			}
 			.navigationTitle("Nitrozen Elements")
 		}
