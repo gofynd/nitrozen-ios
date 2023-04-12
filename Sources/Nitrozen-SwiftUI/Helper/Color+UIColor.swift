@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-extension Color {
+public extension Color {
  
 	func uiColor() -> UIColor {
 
@@ -34,5 +34,15 @@ extension Color {
 			a = CGFloat(hexNumber & 0x000000ff) / 255
 		}
 		return (r, g, b, a)
+	}
+	
+	init(colorHex: UInt, alpha: Double = 1) {
+		self.init(
+			.sRGB,
+			red: Double((colorHex >> 16) & 0xff) / 255,
+			green: Double((colorHex >> 08) & 0xff) / 255,
+			blue: Double((colorHex >> 00) & 0xff) / 255,
+			opacity: alpha
+		)
 	}
 }

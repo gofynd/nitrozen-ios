@@ -53,7 +53,7 @@ struct TextFields: View {
 					placeHolder: "Textfield 3",
 					infos: [
 						.init(position: .top, text: "This is textfield 3"),
-						.init(position: .error, text: "Success of textfield 3")
+						.init(position: .error, text: "Error of textfield 3")
 					])
 			}
 			
