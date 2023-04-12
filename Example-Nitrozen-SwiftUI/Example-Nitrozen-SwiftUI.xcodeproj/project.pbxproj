@@ -80,9 +80,9 @@
 				E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */,
 				E3F7CE6F29E3D5B90012B473 /* PageControl.swift */,
 				E3F7CE7329E5E5B40012B473 /* Toggles.swift */,
+				12E9668029E573A50025CE96 /* OtpView.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
-				12E9668029E573A50025CE96 /* OtpView.swift */,
 			);
 			path = "Example-Code";
 			sourceTree = "<group>";
