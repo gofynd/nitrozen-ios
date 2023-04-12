@@ -26,7 +26,7 @@ struct OtpView: View {
 					otpCode: $otpcode6,
 					otpCodeLength: 6,
 					placeHolder: "0",
-					isErrorCode: true
+					validationState: .error
 				)
 			}
 			
@@ -36,7 +36,8 @@ struct OtpView: View {
 					otpCode: $otpcode7,
 					otpCodeLength: 6,
 					placeHolder: "0",
-					isSuccessCode: true
+					validationState: .success,
+					spacing: 4
 				)
 			}
 			
