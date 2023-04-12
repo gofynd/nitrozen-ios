@@ -21,7 +21,7 @@ struct OtpView: View {
 			
 			VStack {
 				Text("Nitrozen OTPField")
-				OtpTextView(
+				NitrozenOtpTextView(
 					otpCode: $otpcode6,
 					otpCodeLength: 6,
 					placeHolder: "0"
@@ -30,7 +30,7 @@ struct OtpView: View {
 			
 			VStack {
 				Text("SecureField OTPField with custom border color")
-				OtpTextView(
+				NitrozenOtpTextView(
 					otpCode: $otpcode4,
 					otpCodeLength: 4,
 					placeHolder: "0",
@@ -45,7 +45,7 @@ struct OtpView: View {
 			
 			VStack {
 				Text("Custom Height OTPField")
-				OtpTextView(
+				NitrozenOtpTextView(
 					otpCode: $otpcode5,
 					otpCodeLength: 5,
 					placeHolder: "0",
@@ -57,7 +57,7 @@ struct OtpView: View {
 			
 			VStack {
 				Text("Custom PlaceHolder")
-				OtpTextView(
+				NitrozenOtpTextView(
 					otpCode: $otpcode3,
 					otpCodeLength: 3,
 					placeHolder: "\u{272A}"
@@ -65,7 +65,7 @@ struct OtpView: View {
 			}
 			
 			VStack {
-				OtpTextView(
+				NitrozenOtpTextView(
 					otpCode: $otpcode10,
 					otpCodeLength: 10,
 					placeHolder: "0",

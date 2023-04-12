@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 @available(iOS 15, *)
-public struct OtpTextView: View {
+public struct NitrozenOtpTextView: View {
 	
 	//MARK: Fields
 	enum FocusField: Hashable {
@@ -128,7 +128,7 @@ struct OtpTextView_Previews: PreviewProvider {
 	static var previews: some View {
 		var otpcode:String = ""
 		if #available(iOS 15, *) {
-			OtpTextView(
+			NitrozenOtpTextView(
 				otpCode: Binding(get: {
 					return otpcode
 				}, set: { value in
