@@ -1,5 +1,5 @@
 # Nitrozen-SwiftUI
-## Highly customisable UILibrary, not designed for specific fonts, colors or specifi type of layouts.
+## Nitrozen-UILibrary, not designed for specific fonts, colors or fixed-type of layouts. Fonts, colors and layouts are highly customisable.
 
 ## Elements
 ### 1. Button Previews
