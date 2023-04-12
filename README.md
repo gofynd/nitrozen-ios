@@ -8,6 +8,24 @@
 | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons1.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons2.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons3.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons4.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons5.png" width="300"> |
 
 ### Button code snippets
+Setup one-time Primary button apperance, this will used for all primary buttons 
+```swift
+	NitrozenAppearance.shared.primaryButton
+		.backgroundColor(primaryColor)
+		.backgroundColorDisabled(primaryColor.opacity(disabledButtonOpacity))
+		.titleColor(.white)
+		.titleColorDisabled(.white.opacity(disabledButtonOpacity))
+		.font(font)
+		.borderWidth(0.0)
+		.borderColor(primaryColor)
+		.borderColorDisabled(.gray)
+		
+	//similarly, NitrozenAppearance.shared.borderedButton available
+	//similarly, NitrozenAppearance.shared.tertiaryButton available
+	//and same consistent one-time apperance settings for all available UI-Elements, e.g. NitrozenAppearance.shared.textfield
+```
+		
+			
 Primary button
 ```swift
 	Button(action: {}) {
