@@ -7,11 +7,11 @@
 
 ## Elements
 ### 1. Button (will add code snippet here)
-![ButtonPreview1](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons1.png)
-![ButtonPreview2](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons2.png)
-![ButtonPreview3](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons3.png)
-![ButtonPreview4](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons4.png)
-![ButtonPreview5](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons5.png)
+![ButtonPreview1](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons1.png)
+![ButtonPreview2](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons2.png)
+![ButtonPreview3](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons3.png)
+![ButtonPreview4](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons4.png)
+![ButtonPreview5](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons5.png)
 
 ### 2. Text/Label (will add code snippet here)
 ![Text/Font/Label-Preview1](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/textLabelFont1.png)
