@@ -1,10 +1,5 @@
 # Nitrozen-SwiftUI
 
-## Example Preview
-![Preview](https://github.com/hitendra-gofynd/nitrozen-ios/blob/develop/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Example-Preview-1.gif)
-
-
-
 ## Elements
 ### 1. Button (will add code snippet here)
 ![ButtonPreview1](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/buttons1.png)
