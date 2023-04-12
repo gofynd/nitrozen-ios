@@ -23,10 +23,10 @@
 
 | Preview1 |
 | ---      |
-| ![checkboxPreview1](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/checkbox1.png | width=100) |
+| ![checkboxPreview1](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/checkbox1.png | width=x100) |
 
 ### 5. Radio (will add code snippet here)
 
 | Preview1 |
 | ---      |
-| ![radioPreview1](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/radio1.png | width=100) |
+| ![radioPreview1](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/radio1.png =x100) |
