@@ -76,7 +76,7 @@ struct OtpView: View {
 					otpCode: $otpcode3,
 					otpCodeLength: 3,
 					placeHolder: "\u{272A}",
-					isAutoFirstResponder: false
+					isAutoFirstResponder:  
 				)
 			}
 			
