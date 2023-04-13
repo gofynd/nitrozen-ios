@@ -26,6 +26,7 @@ public struct NitrozenOtpTextView: View {
 	var otpCodeLength: Int
 	var placeHolder: String
 	var isSecureField: Bool
+	var isAutoFirstResponder: Bool
 	var validationState: ValidationState
 	var appearance: NitrozenAppearance.OTPTextView
 	var spacing: CGFloat
@@ -37,12 +38,15 @@ public struct NitrozenOtpTextView: View {
 		placeHolder: String,
 		isSecureField: Bool? = false,
 		validationState: ValidationState = .none,
-		appearance: NitrozenAppearance.OTPTextView? = nil,
-		spacing: CGFloat = .infinity) {
+		isAutoFirstResponder: Bool = false,
+		spacing: CGFloat = .infinity,
+		appearance: NitrozenAppearance.OTPTextView? = nil
+	) {
 			self._otpCode = otpCode
 			self.otpCodeLength = otpCodeLength
 			self.placeHolder = placeHolder
 			self.isSecureField = isSecureField.or(false)
+			self.isAutoFirstResponder = isAutoFirstResponder
 			self.validationState = validationState
 			self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
 			self.spacing = spacing
@@ -54,8 +58,17 @@ public struct NitrozenOtpTextView: View {
 	public var body: some View {
 		bodyWithoutModifiers()
 			.onTapGesture {
-				self.focusedField = .field
+				self.becomeFirstResponder()
 			}
+			.onAppear {
+				if self.isAutoFirstResponder {
+					self.becomeFirstResponder()
+				}
+			}
+	}
+	
+	func becomeFirstResponder(){
+		self.focusedField = .field
 	}
 	
 	@ViewBuilder func bodyWithoutModifiers() -> some View {
@@ -145,29 +158,5 @@ public struct NitrozenOtpTextView: View {
 extension String {
 	subscript(idx: Int) -> String {
 		String(self[index(startIndex, offsetBy: idx)])
-	}
-}
-
-
-
-
-struct OtpTextView_Previews: PreviewProvider {
-	
-	static var previews: some View {
-		var otpcode:String = ""
-		if #available(iOS 15, *) {
-			NitrozenOtpTextView(
-				otpCode: Binding(get: {
-					return otpcode
-				}, set: { value in
-					otpcode = value
-				}),
-				otpCodeLength: 4,
-				placeHolder: "0"
-			)
-			.frame(height: 80)
-		} else {
-			// Fallback on earlier versions
-		}
 	}
 }
