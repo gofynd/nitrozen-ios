@@ -26,7 +26,8 @@ struct OtpView: View {
 					otpCode: $otpcode6,
 					otpCodeLength: 6,
 					placeHolder: "0",
-					isErrorCode: true
+					isErrorCode: true,
+					isFirstResponder: false
 				)
 			}
 			
@@ -47,6 +48,7 @@ struct OtpView: View {
 					otpCodeLength: 4,
 					placeHolder: "0",
 					isSecureField: true,
+					isFirstResponder: true,
 					appearance: NitrozenAppearance.shared.otpTextView.copy
 						.borderColor(.green)
 						.fillBorderColor(.blue)
@@ -73,7 +75,8 @@ struct OtpView: View {
 				NitrozenOtpTextView(
 					otpCode: $otpcode3,
 					otpCodeLength: 3,
-					placeHolder: "\u{272A}"
+					placeHolder: "\u{272A}",
+					isFirstResponder: false
 				)
 			}
 			

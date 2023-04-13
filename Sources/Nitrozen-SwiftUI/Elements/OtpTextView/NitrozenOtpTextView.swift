@@ -23,6 +23,7 @@ public struct NitrozenOtpTextView: View {
 	var isSecureField: Bool
 	var isErrorCode: Bool?
 	var isSuccessCode: Bool?
+	var isAutoFirstResponder: Bool
 	var appearance: NitrozenAppearance.OTPTextView
 	
 	//MARK: Constructor
@@ -33,6 +34,7 @@ public struct NitrozenOtpTextView: View {
 		isSecureField: Bool? = false,
 		isErrorCode: Bool? = nil,
 		isSuccessCode: Bool? = nil,
+		isAutoFirstResponder: Bool = false,
 		appearance: NitrozenAppearance.OTPTextView? = nil) {
 			self._otpCode = otpCode
 			self.otpCodeLength = otpCodeLength
@@ -40,6 +42,7 @@ public struct NitrozenOtpTextView: View {
 			self.isSecureField = isSecureField.or(false)
 			self.isErrorCode = isErrorCode
 			self.isSuccessCode = isSuccessCode
+			self.isAutoFirstResponder = isAutoFirstResponder
 			self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
 		}
 	
@@ -49,8 +52,17 @@ public struct NitrozenOtpTextView: View {
 	public var body: some View {
 		bodyWithoutModifiers()
 			.onTapGesture {
-				self.focusedField = .field
+				self.becomeFirstResponder()
 			}
+			.onAppear {
+				if self.isAutoFirstResponder {
+					self.becomeFirstResponder()
+				}
+			}
+	}
+	
+	func becomeFirstResponder(){
+		self.focusedField = .field
 	}
 	
 	@ViewBuilder func bodyWithoutModifiers() -> some View {
