@@ -15,16 +15,21 @@ public struct NitrozenOtpTextView: View {
 	enum FocusField: Hashable {
 		case field
 	}
+	
+	public enum ValidationState {
+		case error, success, none
+	}
+	
 	@FocusState private var focusedField: FocusField?
 	
 	@Binding var otpCode: String
 	var otpCodeLength: Int
 	var placeHolder: String
 	var isSecureField: Bool
-	var isErrorCode: Bool?
-	var isSuccessCode: Bool?
 	var isAutoFirstResponder: Bool
+	var validationState: ValidationState
 	var appearance: NitrozenAppearance.OTPTextView
+	var spacing: CGFloat
 	
 	//MARK: Constructor
 	public init(
@@ -32,18 +37,16 @@ public struct NitrozenOtpTextView: View {
 		otpCodeLength: Int,
 		placeHolder: String,
 		isSecureField: Bool? = false,
-		isErrorCode: Bool? = nil,
-		isSuccessCode: Bool? = nil,
 		isAutoFirstResponder: Bool = false,
-		appearance: NitrozenAppearance.OTPTextView? = nil) {
+		spacing: CGFloat = .infinity) {
 			self._otpCode = otpCode
 			self.otpCodeLength = otpCodeLength
 			self.placeHolder = placeHolder
 			self.isSecureField = isSecureField.or(false)
-			self.isErrorCode = isErrorCode
-			self.isSuccessCode = isSuccessCode
 			self.isAutoFirstResponder = isAutoFirstResponder
+			self.validationState = validationState
 			self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
+			self.spacing = spacing
 		}
 	
 	private var digitsIndices: [Int] { (0 ..< otpCodeLength).map { $0 } }
@@ -90,6 +93,10 @@ public struct NitrozenOtpTextView: View {
 								)
 								.frame(width: appearance.size.width,height: appearance.size.height)
 						}
+						if index != self.otpCodeLength - 1 {
+							Spacer()
+								.frame(maxWidth: self.spacing)
+						}
 
 					}
 				}
@@ -114,10 +121,13 @@ public struct NitrozenOtpTextView: View {
 	
 	private func getBorderColorByStatus(_ index: Int) -> SystemColor {
 		if self.otpCode.count == otpCodeLength {
-			if self.isErrorCode.or(false) {
+			switch self.validationState {
+			case .error:
 				return appearance.errorColor
-			} else if self.isSuccessCode.or(false) {
+			case .success:
 				return appearance.successColor
+			case .none:
+				return appearance.fillBorderColor
 			}
 		}
 		if self.otpCode.isEmpty.isFalse, self.otpCode.count == index {
