@@ -37,8 +37,11 @@ public struct NitrozenOtpTextView: View {
 		otpCodeLength: Int,
 		placeHolder: String,
 		isSecureField: Bool? = false,
+		validationState: ValidationState = .none,
 		isAutoFirstResponder: Bool = false,
-		spacing: CGFloat = .infinity) {
+		spacing: CGFloat = .infinity,
+		appearance: NitrozenAppearance.OTPTextView? = nil
+	) {
 			self._otpCode = otpCode
 			self.otpCodeLength = otpCodeLength
 			self.placeHolder = placeHolder
@@ -155,29 +158,5 @@ public struct NitrozenOtpTextView: View {
 extension String {
 	subscript(idx: Int) -> String {
 		String(self[index(startIndex, offsetBy: idx)])
-	}
-}
-
-
-
-
-struct OtpTextView_Previews: PreviewProvider {
-	
-	static var previews: some View {
-		var otpcode:String = ""
-		if #available(iOS 15, *) {
-			NitrozenOtpTextView(
-				otpCode: Binding(get: {
-					return otpcode
-				}, set: { value in
-					otpcode = value
-				}),
-				otpCodeLength: 4,
-				placeHolder: "0"
-			)
-			.frame(height: 80)
-		} else {
-			// Fallback on earlier versions
-		}
 	}
 }
