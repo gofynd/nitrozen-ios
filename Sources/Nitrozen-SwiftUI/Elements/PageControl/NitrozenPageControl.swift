@@ -18,11 +18,15 @@ public struct NitrozenPageControl: View {
 		case custom(view: AnyView) // whole customized view
 	}
 	
+    public enum ViewUseCase {
+        case pageControl, stapper
+    }
+    
 	var pageCount: Int
 	@Binding var currentPage: Int
 	var deselectedView: CustomImageView
 	var selectedView: CustomImageView
-	
+    var viewUseCase: ViewUseCase
 	var appearance: NitrozenAppearance.PageControl
 	
 	public init(
@@ -30,12 +34,14 @@ public struct NitrozenPageControl: View {
 		currentPage: Binding<Int>,
 		selectedView: CustomImageView,
 		deselectedView: CustomImageView,
+        viewUseCase: ViewUseCase,
 		appearance: NitrozenAppearance.PageControl? = nil
 	) {
 		self.pageCount = pageCount
 		self._currentPage = currentPage
 		self.deselectedView = deselectedView
 		self.selectedView = selectedView
+        self.viewUseCase = viewUseCase
 		self.appearance = appearance.or(NitrozenAppearance.shared.pageControl)
 	}
 	
@@ -44,32 +50,79 @@ public struct NitrozenPageControl: View {
 	}
 	
 	@ViewBuilder func pageControl() -> some View {
-		HStack(spacing: self.appearance.spacing) {
-			ForEach(0...pageCount, id: \.self) { i in
-				let isCurrent: Bool = i == self.currentPage
+		HStack(spacing: 0) {
+			ForEach(0..<pageCount, id: \.self) { i in
+                let isCurrent: Bool = i == self.currentPage - 1
 				
 				if isCurrent {
-					customSelectedView()
-						.frame(width: self.appearance.selectedSize.width)
-						.frame(height: self.appearance.selectedSize.height)
-						.foregroundColor(self.appearance.selectedColor)
-						.apply(shape: self.appearance.selectedViewShape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
-						.animation(.default.speed(50.0))
-						.zIndex(10)
-				} else {
-					customDeSelectedView()
-						.scaledToFill()
-						.frame(width: self.appearance.deSelectedSize.width)
-						.frame(height: self.appearance.deSelectedSize.height)
-						.foregroundColor(self.appearance.deselectedColor)
-						.apply(shape: self.appearance.deselectedViewShape, color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
-						.animation(.default.speed(50.0))
-						.transition(.move(edge: i < self.currentPage ? .trailing : .leading))
+					selectedViewWithModifier()
+                    
+                } else if self.viewUseCase == .stapper && i < self.currentPage{
+                    selectedViewWithModifier()
+                    
+                }  else {
+                    deSelectedViewWithModifier(index: i)
+                    
 				}
+                
+                if i < self.pageCount {
+                    Spacer()
+                        .if(self.appearance.spacing == .infinity, contentTransformer: { view in
+                                view.frame(maxWidth: self.appearance.spacing)
+                        })
+                            .if(self.appearance.spacing != .infinity, contentTransformer: { view in
+                                    view.frame(width: self.appearance.spacing)
+                            })
+                }
 			}
 		}
 	}
 	
+    @ViewBuilder
+    func selectedViewWithModifier() -> some View {
+        customSelectedView()
+            .if(self.appearance.selectedSize.width == .infinity, contentTransformer: { view in
+                    view.frame(maxWidth: self.appearance.selectedSize.width)
+            })
+                .if(self.appearance.selectedSize.width != .infinity, contentTransformer: { view in
+                        view.frame(width: self.appearance.selectedSize.width)
+                })
+                
+                    .if(self.appearance.selectedSize.height == .infinity, contentTransformer: { view in
+                            view.frame(maxHeight: self.appearance.selectedSize.height)
+                    })
+                        .if(self.appearance.selectedSize.height != .infinity, contentTransformer: { view in
+                                view.frame(height: self.appearance.selectedSize.height)
+                        })
+            .foregroundColor(self.appearance.selectedColor)
+            .apply(shape: self.appearance.selectedViewShape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
+            .animation(.default.speed(50.0))
+            .zIndex(10)
+    }
+    
+    @ViewBuilder
+    func deSelectedViewWithModifier(index: Int) -> some View {
+        customDeSelectedView()
+            .scaledToFill()
+            .if(self.appearance.deSelectedSize.width == .infinity, contentTransformer: { view in
+                    view.frame(maxWidth: self.appearance.deSelectedSize.width)
+            })
+                .if(self.appearance.deSelectedSize.width != .infinity, contentTransformer: { view in
+                        view.frame(width: self.appearance.deSelectedSize.width)
+                })
+                
+                    .if(self.appearance.deSelectedSize.height == .infinity, contentTransformer: { view in
+                            view.frame(maxHeight: self.appearance.deSelectedSize.height)
+                    })
+                        .if(self.appearance.deSelectedSize.height != .infinity, contentTransformer: { view in
+                                view.frame(height: self.appearance.deSelectedSize.height)
+                        })
+            .foregroundColor(self.appearance.deselectedColor)
+            .apply(shape: self.appearance.deselectedViewShape, color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
+            .animation(.default.speed(50.0))
+            .transition(.move(edge: index < self.currentPage ? .trailing : .leading))
+    }
+    
 	@ViewBuilder
 	func customSelectedView() -> some View {
 		switch self.selectedView {
