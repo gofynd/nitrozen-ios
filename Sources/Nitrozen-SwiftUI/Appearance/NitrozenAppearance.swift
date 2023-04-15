@@ -11,7 +11,6 @@ public class NitrozenAppearance {
 
 	//Appearance.public properties
 	public var colorProvider: ColorProvider
-	public var fontProvider: FontProvider
 	
 	public var primaryButton: NitrozenAppearance.Button
 	public var borderedButton: NitrozenAppearance.Button
@@ -36,7 +35,6 @@ public class NitrozenAppearance {
 
 	init(
 		colorProvider: ColorProvider,
-		fontProvider: FontProvider,
 		primaryButton: NitrozenAppearance.Button,
 		borderedButton: NitrozenAppearance.Button,
 		tertiaryButton: NitrozenAppearance.Button,
@@ -53,7 +51,6 @@ public class NitrozenAppearance {
 		toggle: NitrozenAppearance.Toggle
 	) {
 		self.colorProvider = colorProvider
-		self.fontProvider = fontProvider
 		self.primaryButton = primaryButton
 		self.borderedButton = borderedButton
 		self.tertiaryButton = tertiaryButton
@@ -74,7 +71,6 @@ public class NitrozenAppearance {
 public extension NitrozenAppearance {
 	static var shared: NitrozenAppearance = {
 		let colorProvider = ColorProvider.shared
-		let fontProvider = FontProvider.shared
 		
 		let disableOpacity: Double = 0.3
 		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
@@ -83,22 +79,21 @@ public extension NitrozenAppearance {
 		
 		return NitrozenAppearance.init(
 			colorProvider: ColorProvider.shared,
-			fontProvider: fontProvider,
 			
 			primaryButton: .init(styleUseCase: .primary,
 								 titleColor: .white, titleColorDisabled: .white.opacity(disableOpacity),
-								 backgroundColor: colorProvider.primary, backgroundColorDisabled: colorProvider.primary.opacity(disableOpacity),
+								 backgroundColor: colorProvider.primary50, backgroundColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								 font: font,
 								 borderWidth: 0.0, borderColor: .clear, borderColorDisabled: .clear),
 			
 			borderedButton: .init(styleUseCase: .bordered,
-								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
+								  titleColor: colorProvider.primary50, titleColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .gray, borderColorDisabled: .gray),
 			
 			tertiaryButton: .init(styleUseCase: .tertiary,
-								  titleColor: colorProvider.primary, titleColorDisabled: colorProvider.primary.opacity(disableOpacity),
+								  titleColor: colorProvider.primary50, titleColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .clear, borderColorDisabled: .clear),
@@ -108,7 +103,7 @@ public extension NitrozenAppearance {
 			dropDownTextField: textfieldAppearance(),
 			
 			radioButton: .init(
-				selectedBorderColor: .blue,
+				selectedBorderColor: colorProvider.primary50,
 				deSelectedBorderColor: .black,
 				selectedBorderWidth: 5.0,
 				deSelectedBorderWidth: 1.0,
@@ -119,9 +114,9 @@ public extension NitrozenAppearance {
 			),
 			
 			checkbox: .init(
-				selectedTitle: .init(titleColor: colorProvider.primary, font: .title.weight(.bold)),
+				selectedTitle: .init(titleColor: colorProvider.primary50, font: .title.weight(.bold)),
 				deSelectedTitle: .init(titleColor: .gray, font: .title),
-				selectedBorderColor: colorProvider.primary, deSelectedBorderColor: .gray.opacity(0.5),
+				selectedBorderColor: colorProvider.primary50, deSelectedBorderColor: .gray.opacity(0.5),
 				selectedBorderWidth: 0, deselectedBorderWidth: 1,
 				size: .init(width: 32, height: 32),
 				selectedImage: AnyView(
@@ -131,14 +126,14 @@ public extension NitrozenAppearance {
 			
 			actionSheet: .init(
 				title: .init(
-					titleColor: colorProvider.primary,
+					titleColor: colorProvider.primary50,
 					font: .nitrozen(.body(size: .l, weight: .bold))
 				),
 				subTitle: .init(
 					titleColor: .gray,
 					font: .nitrozen(.body(size: .s, weight: .regular))
 				)
-				,closeButtonColor: .blue
+				,closeButtonColor: colorProvider.primary50
 			),
 			
 			presentSheet: .init(focusOpacity: 0.5),
@@ -146,17 +141,17 @@ public extension NitrozenAppearance {
 			alert: .init(
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
-				closeButtonColor: colorProvider.primary
+				closeButtonColor: colorProvider.primary50
 			),
 			
-			tagView: tagViewAppearance(color: colorProvider.primary, font: font),
+			tagView: tagViewAppearance(color: colorProvider.primary50, font: font),
 			
-			pageControl: pageControlAppearance(color: colorProvider.primary, font: font),
+			pageControl: pageControlAppearance(color: colorProvider.primary50, font: font),
 			
-			otpTextView: otpTextViewAppearance(),
+			otpTextView: otpTextViewAppearance(colorProvider: colorProvider),
 			toggle: .init(
 				onState: .init(
-					backgroundColor: .blue,
+					backgroundColor: colorProvider.primary50,
 					borderColor: .clear,
 					borderWidth: 0.0,
 					thumbColor: .white,
@@ -217,8 +212,8 @@ public extension NitrozenAppearance {
 		)
 	}
 	
-	private static func otpTextViewAppearance() -> NitrozenAppearance.OTPTextView {
-		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: .blue,errorColor: .red,successColor: .green)
+	private static func otpTextViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.OTPTextView {
+		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: colorProvider.primary50 ,errorColor: colorProvider.error50, successColor: colorProvider.success50)
 	}
 }
 
@@ -227,7 +222,6 @@ public extension NitrozenAppearance {
 	var copy: NitrozenAppearance {
 		return .init(
 			colorProvider: self.colorProvider.copy,
-			fontProvider: self.fontProvider.copy,
 			primaryButton: self.primaryButton.copy,
 			borderedButton: self.borderedButton.copy,
 			tertiaryButton: self.tertiaryButton.copy,

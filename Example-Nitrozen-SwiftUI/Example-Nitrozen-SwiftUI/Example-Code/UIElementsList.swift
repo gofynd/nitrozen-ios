@@ -9,6 +9,8 @@ import SwiftUI
 import Nitrozen_SwiftUI
 
 struct UIElementsList: View {
+	
+	@State var canShowSettings: Bool = false
 		
 	var body: some View {
 		NavigationStack {
@@ -107,8 +109,29 @@ struct UIElementsList: View {
 				}
 			}
 			.navigationTitle("Nitrozen Elements")
+			.toolbar {
+				ToolbarItem(placement: .primaryAction) {
+					Button {
+						self.canShowSettings = true
+					} label: {
+						Text("Colors")
+					}
+				}
+			}
 		}
-
+		.nitrozenSheet(isPresented: $canShowSettings, postion: .center) {
+			NitrozenActionSheet(
+				title: "Theme customization",
+				isShowing:$canShowSettings,
+				closeView: NitrozenActionSheet.CustomView.nitrozen,
+				content: {
+					Settings()
+					
+				})
+			
+			
+		}
+		
 	}
 }
 
