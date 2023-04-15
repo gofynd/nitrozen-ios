@@ -12,7 +12,7 @@ Nitrozen-SwiftUI is a UILibrary, not designed for specific fonts, colors or fixe
 | --- | --- | --- | --- |
 | iOS 13.0+ | 5.0 | [Swift Package Manager](#swift-package-manager), [Manual](#manually) | Fully Tested |
 
-### How to install? -> Use - Swift Package Manager
+## How to install? - via Swift Package Manager
 
 The  [Swift Package Manager](https://swift.org/package-manager/)  is a tool for automating the distribution of Swift code and is integrated into the  `swift`  compiler.
 
