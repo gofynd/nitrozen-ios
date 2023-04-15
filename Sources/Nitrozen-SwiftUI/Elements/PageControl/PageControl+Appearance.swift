@@ -79,6 +79,9 @@ public extension NitrozenAppearance.PageControl {
 	
 	@discardableResult
 	func deselectedViewShape(_ deselectedViewShape: ViewShape) -> Self { self.deselectedViewShape = deselectedViewShape; return self }
+    
+    @discardableResult
+    func spacing(_ spacing: CGFloat) -> Self { self.spacing = spacing; return self }
 }
 
 //MARK: Copy Support

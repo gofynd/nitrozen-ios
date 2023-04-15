@@ -136,6 +136,7 @@ public struct NitrozenRadioButtonItem: View {
                 )
                 .font(isSelected ? self.appearance.selectedSubTitle.font : self.appearance.deSelectedSubTitle.font)
                 .multilineTextAlignment(.leading)
+                .apply(padding: self.appearance.viewPadding)
         })
         
     }

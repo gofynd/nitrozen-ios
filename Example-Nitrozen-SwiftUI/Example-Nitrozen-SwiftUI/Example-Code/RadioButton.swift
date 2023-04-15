@@ -35,7 +35,7 @@ struct RadioButton: View {
 				Text("Vetical RadioButton With Title\n- custom spacing")
 				NitrozenRadio(
 					options: self.options2, selection: $selection2,
-					layout: .verticle, itemSpacing: 2)
+					layout: .verticle, itemSpacing: 16)
 				.frame(maxWidth: .infinity, alignment: .leading)
 			}
 			
@@ -45,9 +45,9 @@ struct RadioButton: View {
 				NitrozenRadio(
 					options: self.options3,
 					selection: $selection3,
-					layout: .verticle
+					layout: .verticle,
+                    itemSpacing: 20
 				)
-				
 			}
 			
 			Section {
@@ -72,6 +72,6 @@ extension User: NitrozenElementRadioStringSelectableStyle  {
 
 extension String: NitrozenElementRadioStringSelectableStyle {
 	public var selectionTitleText: String { return self  }
-	public var selectionSubTitleText: String? { return ""  }
+	public var selectionSubTitleText: String? { return nil  }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12C2853429E959F7004681D1 /* StapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C2853329E959F7004681D1 /* StapperView.swift */; };
 		12E9668129E573A50025CE96 /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9668029E573A50025CE96 /* OtpView.swift */; };
 		E345E33329C483FB00B239FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E345E33229C483FB00B239FE /* Preview Assets.xcassets */; };
 		E345E33529C484DC00B239FE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33429C484DC00B239FE /* Buttons.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12C2853329E959F7004681D1 /* StapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StapperView.swift; sourceTree = "<group>"; };
 		12E9668029E573A50025CE96 /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
 		E345E33229C483FB00B239FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E345E33429C484DC00B239FE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				FA76C0A129DAE0E9001FB759 /* RadioButton.swift */,
 				E3F7CE6D29E0AA940012B473 /* TagViews.swift */,
 				E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */,
+				12C2853329E959F7004681D1 /* StapperView.swift */,
 				E3F7CE6F29E3D5B90012B473 /* PageControl.swift */,
 				E3F7CE7329E5E5B40012B473 /* Toggles.swift */,
 				12E9668029E573A50025CE96 /* OtpView.swift */,
@@ -210,6 +213,7 @@
 				E3F7CE7429E5E5B40012B473 /* Toggles.swift in Sources */,
 				E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */,
 				E38B212529E96196005BF84D /* Settings.swift in Sources */,
+				12C2853429E959F7004681D1 /* StapperView.swift in Sources */,
 				FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
 				E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */,

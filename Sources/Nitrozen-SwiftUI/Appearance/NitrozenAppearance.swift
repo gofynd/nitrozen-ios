@@ -32,6 +32,7 @@ public class NitrozenAppearance {
 	public var otpTextView: NitrozenAppearance.OTPTextView
 	public var toggle: NitrozenAppearance.Toggle
 
+    public var stapper: NitrozenAppearance.PageControl
 
 	init(
 		colorProvider: ColorProvider,
@@ -48,7 +49,8 @@ public class NitrozenAppearance {
 		tagView: NitrozenAppearance.TagView,
 		pageControl: NitrozenAppearance.PageControl,
 		otpTextView: NitrozenAppearance.OTPTextView,
-		toggle: NitrozenAppearance.Toggle
+		toggle: NitrozenAppearance.Toggle,
+        stapper: NitrozenAppearance.PageControl
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -65,6 +67,7 @@ public class NitrozenAppearance {
 		self.pageControl = pageControl
 		self.otpTextView = otpTextView
 		self.toggle = toggle
+        self.stapper = stapper
 	}
 }
 
@@ -110,7 +113,7 @@ public extension NitrozenAppearance {
 				selectedTitle: .init(titleColor: .black, font: .body),
 				deSelectedTitle: .init(titleColor: .gray, font: .body),
 				selectedSubTitle: .init(titleColor: .gray, font: .caption),
-				deSelectedSubTitle: .init(titleColor: .gray, font: .caption)
+                deSelectedSubTitle: .init(titleColor: .gray, font: .caption), viewPadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
 			),
 			
 			checkbox: .init(
@@ -169,7 +172,7 @@ public extension NitrozenAppearance {
 				size: .init(width: 44, height: 24),
 				thumbSize: .init(width: 16, height: 16),
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
-			)
+            ), stapper: pageControlAppearance(color: colorProvider.primary, font: font)
 		)
 	}()
 	
@@ -235,7 +238,8 @@ public extension NitrozenAppearance {
 			tagView: self.tagView.copy,
 			pageControl: self.pageControl.copy,
 			otpTextView: self.otpTextView.copy,
-			toggle: self.toggle.copy
+            toggle: self.toggle.copy,
+            stapper: self.stapper.copy
 		)
 	}
 }

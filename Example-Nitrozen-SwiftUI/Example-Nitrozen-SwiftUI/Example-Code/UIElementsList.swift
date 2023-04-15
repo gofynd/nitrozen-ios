@@ -106,6 +106,12 @@ struct UIElementsList: View {
 					} label: {
 						Text("Toggles/Switch")
 					}
+                    
+                    NavigationLink {
+                        StapperView()
+                    } label: {
+                        Text("Stapper")
+                    }
 				}
 			}
 			.navigationTitle("Nitrozen Elements")
