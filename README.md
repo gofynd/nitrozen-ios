@@ -561,10 +561,10 @@ extension User: NitrozenElementRadioStringSelectableStyle  {
 
 ## Contributors
 
-Hitendra Solanki - HS
-Rushang Prajapati - RP
-Keyur Patel - KP
-We are expecting more contributor, 
+1. Hitendra Solanki - HS
+2. Rushang Prajapati - RP
+3. Keyur Patel - KP
+4. your name here :) , We are expecting more contributor, 
 
 ## How to Contribute?
 
