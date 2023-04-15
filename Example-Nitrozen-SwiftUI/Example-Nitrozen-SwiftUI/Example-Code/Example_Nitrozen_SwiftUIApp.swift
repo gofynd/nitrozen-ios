@@ -24,12 +24,9 @@ struct Example_Nitrozen_SwiftUIApp: App {
 	
 	func setupNitrozenAppearance(){
 		
-		let primaryColor = SystemColor.init(colorHex: 0x3535F3)
+		let primaryColor = NitrozenAppearance.shared.colorProvider.primary50
 		let font: SystemFont = .nitrozen(.body(size: .m, weight: .bold))
 		let disabledButtonOpacity: Double = 0.3
-		
-		NitrozenAppearance.shared.colorProvider
-			.primary(primaryColor)
 		
 		NitrozenAppearance.shared.primaryButton
 			.backgroundColor(primaryColor)
@@ -50,8 +47,8 @@ struct Example_Nitrozen_SwiftUIApp: App {
 		NitrozenAppearance.shared.tertiaryButton
 			.backgroundColor(.clear)
 			.backgroundColorDisabled(.clear)
-			.titleColor(primaryColor)
-			.titleColorDisabled(primaryColor.opacity(disabledButtonOpacity))
+			.titleColor(NitrozenAppearance.shared.colorProvider.primary60)
+			.titleColorDisabled(NitrozenAppearance.shared.colorProvider.primary60.opacity(disabledButtonOpacity))
 			.font(font)
 			.borderWidth(0.0)
 		

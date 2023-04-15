@@ -30,14 +30,7 @@ struct StapperView: View {
                     pageCount: totalPages1,
                     currentPage: $currentPage1,
                     selectedView: .nitrozen, deselectedView: .nitrozen,
-                    viewUseCase: .stapper,
-                    appearance: NitrozenAppearance.shared.pageControl.copy
-                        .spacing(10)
-                        .selectedColor(.blue.opacity(0.5))
-                        .deselectedColor(.gray.opacity(0.5))
-                        .selectedViewShape(.capsule).deselectedViewShape(.capsule)
-                        .selectedSize(.init(width: Double(CGFloat.infinity), height: 8))
-                        .deSelectedSize(.init(width: Double(CGFloat.infinity), height: 8))
+                    viewUseCase: .stapper
                 )
                 Button("Previous") {
                     withAnimation {
@@ -53,7 +46,6 @@ struct StapperView: View {
 
 
             Section {
-
                 Text("Nitrozen style with wider current selection \n- custom colors for views and borders")
                 NitrozenPageControl(
                     pageCount: totalPages2,

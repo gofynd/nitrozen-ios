@@ -66,7 +66,6 @@ struct OtpView: View {
 					placeHolder: "0",
 					appearance: NitrozenAppearance.shared.otpTextView.copy
 						.size(CGSize.init(width: 60, height: 60))
-					
 				)
 			}
 			
@@ -76,7 +75,7 @@ struct OtpView: View {
 					otpCode: $otpcode3,
 					otpCodeLength: 3,
 					placeHolder: "\u{272A}",
-					isAutoFirstResponder: true
+					isAutoFirstResponder: false
 				)
 			}
 			

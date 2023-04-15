@@ -42,7 +42,17 @@ public struct NitrozenPageControl: View {
 		self.deselectedView = deselectedView
 		self.selectedView = selectedView
         self.viewUseCase = viewUseCase
-		self.appearance = appearance.or(NitrozenAppearance.shared.pageControl)
+		
+		if let appearance = appearance {
+			self.appearance = appearance
+		}else {
+			switch viewUseCase {
+			case .stapper:
+				self.appearance = NitrozenAppearance.shared.stapper
+			case .pageControl:
+				self.appearance = NitrozenAppearance.shared.pageControl
+			}
+		}
 	}
 	
 	public var body: some View {
