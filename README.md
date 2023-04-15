@@ -24,10 +24,6 @@ dependencies: [
 ]
 ```
 
-## License
-
-Nitrozen-SwiftUI is released under the MIT license.
-
 ## Elements
 ### 1. Button Previews
 
@@ -562,3 +558,21 @@ extension User: NitrozenElementRadioStringSelectableStyle  {
 	}
 }
 ```
+
+## Contributors
+
+Hitendra Solanki - HS
+Rushang Prajapati - RP
+Keyur Patel - KP
+We are expecting more contributor, 
+
+## How to Contribute?
+
+1. Fork Repo and Create PR. 
+2. We will review your PR, if PR will be merged successfully, we will add you to the contributors list. Happy coding :)
+
+## License
+
+Nitrozen-SwiftUI is released under the MIT license.
+
+
