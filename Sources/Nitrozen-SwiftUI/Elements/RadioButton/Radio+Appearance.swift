@@ -11,7 +11,7 @@ import SwiftUI
 public extension NitrozenAppearance {
     
     class RadioButton {
-        
+        //TODO: - Change deSelectedBorderColor to deSelectedBorderColor
         var selectedBorderColor:SystemColor
         var deSelectedBorderColor:SystemColor
         
@@ -23,8 +23,10 @@ public extension NitrozenAppearance {
 
         var selectedSubTitle:TextLabel
         var deSelectedSubTitle:TextLabel
+        
+        var viewPadding: ViewPadding
                 
-        init(selectedBorderColor: SystemColor, deSelectedBorderColor: SystemColor, selectedBorderWidth: CGFloat, deSelectedBorderWidth: CGFloat, selectedTitle: TextLabel, deSelectedTitle: TextLabel, selectedSubTitle: TextLabel, deSelectedSubTitle: TextLabel) {
+        init(selectedBorderColor: SystemColor, deSelectedBorderColor: SystemColor, selectedBorderWidth: CGFloat, deSelectedBorderWidth: CGFloat, selectedTitle: TextLabel, deSelectedTitle: TextLabel, selectedSubTitle: TextLabel, deSelectedSubTitle: TextLabel, viewPadding: ViewPadding = .zero) {
             self.selectedBorderColor = selectedBorderColor
             self.deSelectedBorderColor = deSelectedBorderColor
             self.selectedBorderWidth = selectedBorderWidth
@@ -33,6 +35,7 @@ public extension NitrozenAppearance {
             self.deSelectedTitle = deSelectedTitle
             self.selectedSubTitle = selectedSubTitle
             self.deSelectedSubTitle = deSelectedSubTitle
+            self.viewPadding = viewPadding
         }
         
     }
@@ -64,6 +67,9 @@ public extension NitrozenAppearance.RadioButton {
     @discardableResult
     func deSelectedSubTitle(_ deSelectedSubTitle: NitrozenAppearance.TextLabel) -> Self { self.deSelectedSubTitle = deSelectedSubTitle; return self }
     
+    @discardableResult
+    func viewPadding(_ viewPadding: ViewPadding) -> Self { self.viewPadding = viewPadding; return self }
+    
 }
 
 //MARK: Copy Support
@@ -77,7 +83,8 @@ public extension NitrozenAppearance.RadioButton {
             selectedTitle: self.selectedTitle,
             deSelectedTitle: self.deSelectedTitle,
             selectedSubTitle: self.selectedSubTitle,
-            deSelectedSubTitle: self.deSelectedSubTitle
+            deSelectedSubTitle: self.deSelectedSubTitle,
+            viewPadding: self.viewPadding
         )
     }
 }

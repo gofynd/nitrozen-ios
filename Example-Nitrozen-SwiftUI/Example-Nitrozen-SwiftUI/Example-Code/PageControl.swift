@@ -24,17 +24,21 @@ struct PageControls: View {
 	
 	let totalPages5 = 10
 	@State var currentPage5: Int = 6
+    
+    let totalPages6 = 3
+    @State var currentPage6: Int = 1
 	
 	var body: some View {
 		List{
 			
 			Section {
-				
+
 				Text("Nitrozen style with wider current selection \n- animated next/previous actions")
 				NitrozenPageControl(
 					pageCount: totalPages1,
 					currentPage: $currentPage1,
-					selectedView: .nitrozen, deselectedView: .nitrozen
+                    selectedView: .nitrozen, deselectedView: .nitrozen,
+                    viewUseCase: .pageControl
 				)
 				Button("Previous") {
 					withAnimation {
@@ -47,20 +51,49 @@ struct PageControls: View {
 					}
 				}
 			}
-			
+            
+            Section {
+                
+                Text("Nitrozen style with infinity width \n- animated next/previous actions")
+                NitrozenPageControl(
+                    pageCount: totalPages6,
+                    currentPage: $currentPage6,
+                    selectedView: .nitrozen, deselectedView: .nitrozen,
+                    viewUseCase: .pageControl,
+                    appearance: NitrozenAppearance.shared.pageControl.copy
+                        .spacing(10)
+                        .selectedColor(.blue.opacity(0.5))
+                        .deselectedColor(.gray.opacity(0.5))
+                        .selectedViewShape(.capsule).deselectedViewShape(.capsule)
+                        .selectedSize(.init(width: Double(CGFloat.infinity), height: 8))
+                        .deSelectedSize(.init(width: Double(CGFloat.infinity), height: 8))
+                )
+                Button("Previous") {
+                    withAnimation {
+                        self.currentPage6 -= 1
+                    }
+                }
+                Button("Next") {
+                    withAnimation {
+                        self.currentPage6 += 1
+                    }
+                }
+            }
+
 			Section {
-				
+
 				Text("Nitrozen style with wider current selection \n- custom colors for views and borders")
 				NitrozenPageControl(
 					pageCount: totalPages2,
 					currentPage: $currentPage2,
-					selectedView: .nitrozen, deselectedView: .nitrozen,
+                    selectedView: .nitrozen, deselectedView: .nitrozen,
+                    viewUseCase: .pageControl,
 					appearance: NitrozenAppearance.shared
 						.pageControl.copy
 						.selectedColor(.purple.opacity(0.5)).selectedBorderColor(.purple)
 						.deselectedColor(.purple.opacity(0.5)).deselectedBorderColor(.purple.opacity(0.25))
 						.selectedBorderWidth(2).deselectedBorderWidth(1)
-					
+
 				)
 				Button("Previous") {
 					self.currentPage2 -= 1
@@ -69,13 +102,14 @@ struct PageControls: View {
 					self.currentPage2 += 1
 				}
 			}
-			
+
 			Section {
 				Text("custom .circle style with current selection \n- custom colors for views\n- custom width for borders")
 				NitrozenPageControl(
 					pageCount: totalPages3,
 					currentPage: $currentPage3,
-					selectedView: .nitrozen, deselectedView: .nitrozen,
+                    selectedView: .nitrozen, deselectedView: .nitrozen,
+                    viewUseCase: .pageControl,
 					appearance: NitrozenAppearance.shared
 						.pageControl.copy
 						.selectedViewShape(.circle).deselectedViewShape(.circle)
@@ -83,7 +117,7 @@ struct PageControls: View {
 						.selectedColor(.purple)
 						.deselectedColor(.purple.opacity(0.5))
 						.selectedBorderWidth(2).deselectedBorderWidth(1)
-					
+
 				)
 				Button("Previous") {
 					self.currentPage3 -= 1
@@ -92,13 +126,14 @@ struct PageControls: View {
 					self.currentPage3 += 1
 				}
 			}
-			
+
 			Section {
 				Text("custom .circle style with current selection \n- custom size \n- custom colors for views")
 				NitrozenPageControl(
 					pageCount: totalPages4,
 					currentPage: $currentPage4,
-					selectedView: .nitrozen, deselectedView: .nitrozen,
+                    selectedView: .nitrozen, deselectedView: .nitrozen,
+                    viewUseCase: .pageControl,
 					appearance: NitrozenAppearance.shared
 						.pageControl.copy
 						.selectedViewShape(.circle).deselectedViewShape(.circle)
@@ -113,7 +148,7 @@ struct PageControls: View {
 					self.currentPage4 += 1
 				}
 			}
-			
+
 			Section {
 				Text("custom .circle style with current selection \n- custom view - custom size \n- custom colors for views")
 				NitrozenPageControl(
@@ -124,7 +159,8 @@ struct PageControls: View {
 					)),
 					deselectedView: .custom(view: AnyView(
 						Rectangle().cornerRadius(4)
-					)),
+                    )),
+                    viewUseCase: .pageControl,
 					appearance: NitrozenAppearance.shared
 						.pageControl.copy
 						.selectedViewShape(.none).deselectedViewShape(.none)
