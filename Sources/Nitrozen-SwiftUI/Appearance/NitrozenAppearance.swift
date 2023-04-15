@@ -172,7 +172,8 @@ public extension NitrozenAppearance {
 				size: .init(width: 44, height: 24),
 				thumbSize: .init(width: 16, height: 16),
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
-            ), stapper: pageControlAppearance(color: colorProvider.primary, font: font)
+            ),
+			stapper: stapperAppearance(color: colorProvider.primary50, font: font)
 		)
 	}()
 	
@@ -211,6 +212,17 @@ public extension NitrozenAppearance {
 			selectedBorderColor: .clear, deselectedBorderColor: .clear,
 			selectedBorderWidth: 2.0, deselectedBorderWidth: 4.0,
 			selectedViewShape: .capsule, deselectedViewShape: .circle,
+			spacing: 8
+		)
+	}
+	
+	private static func stapperAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.PageControl {
+		.init(
+			selectedColor: color, deselectedColor: .gray,
+			selectedSize: .init(width: Double(CGFloat.infinity), height: 10), deSelectedSize: .init(width: Double(CGFloat.infinity), height: 10),
+			selectedBorderColor: .clear, deselectedBorderColor: .clear,
+			selectedBorderWidth: 2.0, deselectedBorderWidth: 4.0,
+			selectedViewShape: .capsule, deselectedViewShape: .capsule,
 			spacing: 8
 		)
 	}
