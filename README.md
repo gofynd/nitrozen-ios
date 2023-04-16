@@ -237,7 +237,7 @@ struct TextLabels: View {
 ```
 
 
-### 3. TextField (will add code snippet here)
+### 3. TextField - NitrozenTextField
 | Preview1 | Preview2 |
 | ---      | ---       |
 | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/textfield1.png" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/textfield2.png" width="300"> |
@@ -340,7 +340,7 @@ struct TextFields: View {
 ```
 
 
-### 4. Checkbox (will add code snippet here)
+### 4. Checkbox - NitrozenCheckbox
 
 | Preview1 |
 | ---      |
@@ -463,7 +463,7 @@ extension User: NitrozenElementStringSelectableStyle {
 }
 ```
 
-### 5. Radio (will add code snippet here)
+### 5. Radio - NitrozenRadio
 
 | Preview1 |
 | ---      |
@@ -558,6 +558,13 @@ extension User: NitrozenElementRadioStringSelectableStyle  {
 	}
 }
 ```
+
+### 6. Color Pallets - ColorProvider (Available - preview and code snippet coming soon)
+### 7. DropDown TextField - NitrozenDropDownTextField (Available - preview and code snippet coming soon)  
+### 8. TagView/Chip - NitrozenTagView (Available - preview and code snippet coming soon)
+### 9. Badge View - NitrozenTagView (Available - preview and code snippet coming soon)
+### 10. Switch/Toggle  - NitrozenToggle (Available - preview and code snippet coming soon)
+### 11. Progress Stepper - NitrozenPageControl (Available - preview and code snippet coming soon)
 
 ## Contributors
 
