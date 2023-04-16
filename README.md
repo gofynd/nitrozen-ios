@@ -559,7 +559,7 @@ extension User: NitrozenElementRadioStringSelectableStyle  {
 }
 ```
 
-### 6. Color Pallets - ColorProvider (Available - preview and code snippet coming soon)
+### 6. Color Pallets - NitrozenAppearance.ColorProvider (Available - preview and code snippet coming soon)
 ### 7. DropDown TextField - NitrozenDropDownTextField (Available - preview and code snippet coming soon)  
 ### 8. TagView/Chip - NitrozenTagView (Available - preview and code snippet coming soon)
 ### 9. Badge View - NitrozenTagView (Available - preview and code snippet coming soon)
