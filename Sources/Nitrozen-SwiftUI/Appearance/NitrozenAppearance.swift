@@ -113,7 +113,10 @@ public extension NitrozenAppearance {
 				selectedTitle: .init(titleColor: .black, font: .body),
 				deSelectedTitle: .init(titleColor: .gray, font: .body),
 				selectedSubTitle: .init(titleColor: .gray, font: .caption),
-                deSelectedSubTitle: .init(titleColor: .gray, font: .caption), viewPadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
+                deSelectedSubTitle: .init(titleColor: .gray, font: .caption),
+                iconPadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 0, trailing: 0)),
+                titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 0, trailing: 0)),
+                subTitlePadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
 			),
 			
 			checkbox: .init(
