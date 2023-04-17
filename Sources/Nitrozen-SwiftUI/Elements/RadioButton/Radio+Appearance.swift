@@ -24,9 +24,12 @@ public extension NitrozenAppearance {
         var selectedSubTitle:TextLabel
         var deSelectedSubTitle:TextLabel
         
-        var viewPadding: ViewPadding
+        var iconPadding: ViewPadding
+        var titlePadding: ViewPadding
+        var subTitlePadding: ViewPadding
                 
-        init(selectedBorderColor: SystemColor, deSelectedBorderColor: SystemColor, selectedBorderWidth: CGFloat, deSelectedBorderWidth: CGFloat, selectedTitle: TextLabel, deSelectedTitle: TextLabel, selectedSubTitle: TextLabel, deSelectedSubTitle: TextLabel, viewPadding: ViewPadding = .zero) {
+        init(selectedBorderColor: SystemColor, deSelectedBorderColor: SystemColor, selectedBorderWidth: CGFloat, deSelectedBorderWidth: CGFloat, selectedTitle: TextLabel, deSelectedTitle: TextLabel, selectedSubTitle: TextLabel, deSelectedSubTitle: TextLabel, iconPadding: ViewPadding = .zero,titlePadding: ViewPadding = .zero, subTitlePadding: ViewPadding = .zero
+        ) {
             self.selectedBorderColor = selectedBorderColor
             self.deSelectedBorderColor = deSelectedBorderColor
             self.selectedBorderWidth = selectedBorderWidth
@@ -35,7 +38,9 @@ public extension NitrozenAppearance {
             self.deSelectedTitle = deSelectedTitle
             self.selectedSubTitle = selectedSubTitle
             self.deSelectedSubTitle = deSelectedSubTitle
-            self.viewPadding = viewPadding
+            self.iconPadding = iconPadding
+            self.titlePadding = titlePadding
+            self.subTitlePadding = subTitlePadding
         }
         
     }
@@ -68,7 +73,13 @@ public extension NitrozenAppearance.RadioButton {
     func deSelectedSubTitle(_ deSelectedSubTitle: NitrozenAppearance.TextLabel) -> Self { self.deSelectedSubTitle = deSelectedSubTitle; return self }
     
     @discardableResult
-    func viewPadding(_ viewPadding: ViewPadding) -> Self { self.viewPadding = viewPadding; return self }
+    func iconPadding(_ iconPadding: ViewPadding) -> Self { self.iconPadding = iconPadding; return self }
+    
+    @discardableResult
+    func titlePadding(_ titlePadding: ViewPadding) -> Self { self.titlePadding = titlePadding; return self }
+    
+    @discardableResult
+    func subTitlePadding(_ subTitlePadding: ViewPadding) -> Self { self.subTitlePadding = subTitlePadding; return self }
     
 }
 
@@ -84,7 +95,9 @@ public extension NitrozenAppearance.RadioButton {
             deSelectedTitle: self.deSelectedTitle,
             selectedSubTitle: self.selectedSubTitle,
             deSelectedSubTitle: self.deSelectedSubTitle,
-            viewPadding: self.viewPadding
+            iconPadding: self.iconPadding,
+            titlePadding: self.titlePadding,
+            subTitlePadding: self.subTitlePadding
         )
     }
 }

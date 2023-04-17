@@ -89,7 +89,7 @@ public struct NitrozenRadioButtonItem: View {
     public var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 0) {
                 radioButton()
                 titleLabel()
             }
@@ -111,6 +111,7 @@ public struct NitrozenRadioButtonItem: View {
                 )
         }
         .frame(width: 20, height: 20)
+        .apply(padding: self.appearance.iconPadding)
         
     }
     
@@ -123,6 +124,7 @@ public struct NitrozenRadioButtonItem: View {
                 )
                 .font(isSelected ? self.appearance.selectedTitle.font : self.appearance.deSelectedTitle.font)
                 .multilineTextAlignment(.leading)
+                .apply(padding: self.appearance.titlePadding)
             Spacer()
         })
     }
@@ -136,7 +138,7 @@ public struct NitrozenRadioButtonItem: View {
                 )
                 .font(isSelected ? self.appearance.selectedSubTitle.font : self.appearance.deSelectedSubTitle.font)
                 .multilineTextAlignment(.leading)
-                .apply(padding: self.appearance.viewPadding)
+                .apply(padding: self.appearance.subTitlePadding)
         })
         
     }
