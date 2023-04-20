@@ -21,6 +21,8 @@
 		E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */; };
 		E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94429D46C5900AEE07E /* UIElementsList.swift */; };
 		E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */; };
+		E3F715A929ED41650020F4E9 /* DeviderViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F715A829ED41650020F4E9 /* DeviderViews.swift */; };
+		E3F715AB29F134AF0020F4E9 /* SegmentControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F715AA29F134AF0020F4E9 /* SegmentControls.swift */; };
 		E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6B29DEDE990012B473 /* Alerts.swift */; };
 		E3F7CE6E29E0AA940012B473 /* TagViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6D29E0AA940012B473 /* TagViews.swift */; };
 		E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE6F29E3D5B90012B473 /* PageControl.swift */; };
@@ -47,6 +49,8 @@
 		E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		E3CBE94429D46C5900AEE07E /* UIElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsList.swift; sourceTree = "<group>"; };
 		E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkboxes.swift; sourceTree = "<group>"; };
+		E3F715A829ED41650020F4E9 /* DeviderViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviderViews.swift; sourceTree = "<group>"; };
+		E3F715AA29F134AF0020F4E9 /* SegmentControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControls.swift; sourceTree = "<group>"; };
 		E3F7CE6B29DEDE990012B473 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		E3F7CE6D29E0AA940012B473 /* TagViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViews.swift; sourceTree = "<group>"; };
 		E3F7CE6F29E3D5B90012B473 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				E3F7CE7329E5E5B40012B473 /* Toggles.swift */,
 				12E9668029E573A50025CE96 /* OtpView.swift */,
 				E38B212429E96196005BF84D /* Settings.swift */,
+				E3F715A829ED41650020F4E9 /* DeviderViews.swift */,
+				E3F715AA29F134AF0020F4E9 /* SegmentControls.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
@@ -216,8 +222,10 @@
 				E3F7CE7429E5E5B40012B473 /* Toggles.swift in Sources */,
 				E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */,
 				E38B212529E96196005BF84D /* Settings.swift in Sources */,
+				E3F715A929ED41650020F4E9 /* DeviderViews.swift in Sources */,
 				12C2853429E959F7004681D1 /* StapperView.swift in Sources */,
 				FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */,
+				E3F715AB29F134AF0020F4E9 /* SegmentControls.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
 				E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */,
 				12C4CE9829F0FBDD00995A93 /* AvatarView.swift in Sources */,

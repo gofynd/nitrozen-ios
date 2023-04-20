@@ -110,7 +110,7 @@ struct UIElementsList: View {
                     NavigationLink {
                         StapperView()
                     } label: {
-                        Text("Stapper")
+                        Text("Stappers")
                     }
                     
                     NavigationLink {
@@ -118,6 +118,19 @@ struct UIElementsList: View {
                     } label: {
                         Text("Avatar")
                     }
+					
+					NavigationLink {
+						DeviderViews()
+					} label: {
+						Text("Deviders")
+					}
+					
+					NavigationLink {
+						SegmentControlViews()
+					} label: {
+						Text("SegmentControlViews")
+					}
+					
 				}
 			}
 			.navigationTitle("Nitrozen Elements")

@@ -33,8 +33,10 @@ public class NitrozenAppearance {
 	public var toggle: NitrozenAppearance.Toggle
 
     public var stapper: NitrozenAppearance.PageControl
-    
     public var avatar: NitrozenAppearance.Avatar
+	public var divider: NitrozenAppearance.Divider
+	public var segment: NitrozenAppearance.Segment
+
 
 	init(
 		colorProvider: ColorProvider,
@@ -53,7 +55,9 @@ public class NitrozenAppearance {
 		otpTextView: NitrozenAppearance.OTPTextView,
 		toggle: NitrozenAppearance.Toggle,
         stapper: NitrozenAppearance.PageControl,
-        avatar: NitrozenAppearance.Avatar
+        avatar: NitrozenAppearance.Avatar,
+		divider: NitrozenAppearance.Divider,
+		segment: NitrozenAppearance.Segment
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -72,6 +76,8 @@ public class NitrozenAppearance {
 		self.toggle = toggle
         self.stapper = stapper
         self.avatar = avatar
+		self.divider = divider
+		self.segment = segment
 	}
 }
 
@@ -181,7 +187,28 @@ public extension NitrozenAppearance {
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
             ),
             stapper: stapperAppearance(color: colorProvider.primary50, font: font),
-            avatar: avatarViewAppearance(colorProvider: colorProvider)
+            avatar: avatarViewAppearance(colorProvider: colorProvider),
+			divider: .init(
+				color: colorProvider.gray20,
+				layout: .horizontal(height: 1),
+				shape: .capsule
+			),
+			
+			segment: .init(
+				backgroundColor: colorProvider.gray20,
+				borderColor: colorProvider.gray20,
+				borderWidth: 3,
+				viewShape: .capsule,
+				titleAppearance: .init(titleColor: colorProvider.primary60, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+				selectedBackgroundColor: colorProvider.primary50,
+				selectedBorderColor: .clear,
+				selectedBorderWidth: 0,
+				selectedTitleAppearance: .init(titleColor: colorProvider.primaryBackground, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+				itemSize: .init(width: 96, height: 40),
+				itemSpacing: .infinity,
+				selectedViewShape: .capsule,
+				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
+			)
 		)
 	}()
 	
@@ -272,7 +299,9 @@ public extension NitrozenAppearance {
 			otpTextView: self.otpTextView.copy,
             toggle: self.toggle.copy,
             stapper: self.stapper.copy,
-            avatar: self.avatar.copy
+            avatar: self.avatar.copy,
+			divider: self.divider.copy,
+			segment: self.segment.copy
 		)
 	}
 }
