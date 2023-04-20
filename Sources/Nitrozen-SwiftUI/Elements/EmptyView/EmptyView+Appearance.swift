@@ -57,8 +57,12 @@ extension NitrozenAppearance.EmptyView {
 public extension NitrozenAppearance.EmptyView {
     var copy: NitrozenAppearance.EmptyView {
         .init(
-            titleStyle: self.titleStyle, subTitleStyle: self.subTitleStyle
-            , titlePadding: self.titlePadding, subTitlePaddding: self.subTitlePaddding, buttonPadding: self.buttonPadding)
+            titleStyle: self.titleStyle,
+            subTitleStyle: self.subTitleStyle,
+            titlePadding: self.titlePadding,
+            subTitlePaddding: self.subTitlePaddding,
+            buttonPadding: self.buttonPadding
+        )
     }
 }
 
