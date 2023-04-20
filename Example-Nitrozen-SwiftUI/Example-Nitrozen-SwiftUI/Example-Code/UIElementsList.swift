@@ -118,6 +118,12 @@ struct UIElementsList: View {
                     } label: {
                         Text("Avatar")
                     }
+                    
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        Text("Empty View")
+                    }
 				}
 			}
 			.navigationTitle("Nitrozen Elements")

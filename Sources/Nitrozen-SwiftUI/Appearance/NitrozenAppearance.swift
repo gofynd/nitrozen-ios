@@ -35,6 +35,8 @@ public class NitrozenAppearance {
     public var stapper: NitrozenAppearance.PageControl
     
     public var avatar: NitrozenAppearance.Avatar
+    
+    public var emptyView: NitrozenAppearance.EmptyView
 
 	init(
 		colorProvider: ColorProvider,
@@ -53,7 +55,8 @@ public class NitrozenAppearance {
 		otpTextView: NitrozenAppearance.OTPTextView,
 		toggle: NitrozenAppearance.Toggle,
         stapper: NitrozenAppearance.PageControl,
-        avatar: NitrozenAppearance.Avatar
+        avatar: NitrozenAppearance.Avatar,
+        emptyView: NitrozenAppearance.EmptyView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -72,6 +75,7 @@ public class NitrozenAppearance {
 		self.toggle = toggle
         self.stapper = stapper
         self.avatar = avatar
+        self.emptyView = emptyView
 	}
 }
 
@@ -181,7 +185,8 @@ public extension NitrozenAppearance {
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
             ),
             stapper: stapperAppearance(color: colorProvider.primary50, font: font),
-            avatar: avatarViewAppearance(colorProvider: colorProvider)
+            avatar: avatarViewAppearance(colorProvider: colorProvider),
+            emptyView: emptyViewAppearance(colorProvider: colorProvider)
 		)
 	}()
 	
@@ -250,6 +255,16 @@ public extension NitrozenAppearance {
             size: CGSize.init(width: 60, height: 60)
         )
     }
+    
+    private static func emptyViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.EmptyView {
+        NitrozenAppearance.EmptyView(
+            titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
+            subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+            titlePadding: .systemDefault,
+            subTitlePaddding: .systemDefault,
+            buttonPadding: .systemDefault
+        )
+    }
 }
 
 //MARK: Copy Support
@@ -272,7 +287,8 @@ public extension NitrozenAppearance {
 			otpTextView: self.otpTextView.copy,
             toggle: self.toggle.copy,
             stapper: self.stapper.copy,
-            avatar: self.avatar.copy
+            avatar: self.avatar.copy,
+            emptyView: self.emptyView.copy
 		)
 	}
 }
