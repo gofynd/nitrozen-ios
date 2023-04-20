@@ -31,6 +31,8 @@ public struct NitrozenOtpTextView: View {
 	var appearance: NitrozenAppearance.OTPTextView
 	var spacing: CGFloat
 	
+    private var otpCharacter: [Character]
+    
 	//MARK: Constructor
 	public init(
 		otpCode: Binding<String>,
@@ -41,16 +43,17 @@ public struct NitrozenOtpTextView: View {
 		isAutoFirstResponder: Bool = false,
 		spacing: CGFloat = .infinity,
 		appearance: NitrozenAppearance.OTPTextView? = nil
-	) {
-			self._otpCode = otpCode
-			self.otpCodeLength = otpCodeLength
-			self.placeHolder = placeHolder
-			self.isSecureField = isSecureField.or(false)
-			self.isAutoFirstResponder = isAutoFirstResponder
-			self.validationState = validationState
-			self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
-			self.spacing = spacing
-		}
+    ) {
+        self._otpCode = otpCode
+        self.otpCodeLength = otpCodeLength
+        self.placeHolder = placeHolder
+        self.isSecureField = isSecureField.or(false)
+        self.isAutoFirstResponder = isAutoFirstResponder
+        self.validationState = validationState
+        self.appearance = appearance.or(NitrozenAppearance.shared.otpTextView)
+        self.spacing = spacing
+        self.otpCharacter = Array(otpCode.wrappedValue)
+    }
 	
 	private var digitsIndices: [Int] { (0 ..< otpCodeLength).map { $0 } }
 	

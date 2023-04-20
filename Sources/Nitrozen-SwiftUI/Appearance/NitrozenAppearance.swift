@@ -33,6 +33,8 @@ public class NitrozenAppearance {
 	public var toggle: NitrozenAppearance.Toggle
 
     public var stapper: NitrozenAppearance.PageControl
+    
+    public var avatar: NitrozenAppearance.Avatar
 
 	init(
 		colorProvider: ColorProvider,
@@ -50,7 +52,8 @@ public class NitrozenAppearance {
 		pageControl: NitrozenAppearance.PageControl,
 		otpTextView: NitrozenAppearance.OTPTextView,
 		toggle: NitrozenAppearance.Toggle,
-        stapper: NitrozenAppearance.PageControl
+        stapper: NitrozenAppearance.PageControl,
+        avatar: NitrozenAppearance.Avatar
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -68,6 +71,7 @@ public class NitrozenAppearance {
 		self.otpTextView = otpTextView
 		self.toggle = toggle
         self.stapper = stapper
+        self.avatar = avatar
 	}
 }
 
@@ -176,7 +180,8 @@ public extension NitrozenAppearance {
 				thumbSize: .init(width: 16, height: 16),
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
             ),
-			stapper: stapperAppearance(color: colorProvider.primary50, font: font)
+            stapper: stapperAppearance(color: colorProvider.primary50, font: font),
+            avatar: avatarViewAppearance(colorProvider: colorProvider)
 		)
 	}()
 	
@@ -233,6 +238,18 @@ public extension NitrozenAppearance {
 	private static func otpTextViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.OTPTextView {
 		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: colorProvider.primary50 ,errorColor: colorProvider.error50, successColor: colorProvider.success50)
 	}
+    
+    private static func avatarViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.Avatar {
+        NitrozenAppearance.Avatar(
+            borderWidth: 0,
+            borderColor: .clear,
+            backgroundColor: colorProvider.sparkle20,
+            textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
+            disableOpacity: 0.3,
+            viewShape: .circle,
+            size: CGSize.init(width: 60, height: 60)
+        )
+    }
 }
 
 //MARK: Copy Support
@@ -254,7 +271,8 @@ public extension NitrozenAppearance {
 			pageControl: self.pageControl.copy,
 			otpTextView: self.otpTextView.copy,
             toggle: self.toggle.copy,
-            stapper: self.stapper.copy
+            stapper: self.stapper.copy,
+            avatar: self.avatar.copy
 		)
 	}
 }

@@ -112,6 +112,12 @@ struct UIElementsList: View {
                     } label: {
                         Text("Stapper")
                     }
+                    
+                    NavigationLink {
+                        AvatarView()
+                    } label: {
+                        Text("Avatar")
+                    }
 				}
 			}
 			.navigationTitle("Nitrozen Elements")
