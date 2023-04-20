@@ -34,7 +34,7 @@ public extension NitrozenAppearance {
     
 }
 
-extension NitrozenAppearance.EmptyView {
+public extension NitrozenAppearance.EmptyView {
     
     @discardableResult
     func titleStyle(_ titleStyle: NitrozenAppearance.TextLabel) -> Self { self.titleStyle = titleStyle; return self }

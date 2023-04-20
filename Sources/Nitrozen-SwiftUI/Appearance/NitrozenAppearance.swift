@@ -260,9 +260,9 @@ public extension NitrozenAppearance {
         NitrozenAppearance.EmptyView(
             titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
             subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
-            titlePadding: .systemDefault,
-            subTitlePaddding: .systemDefault,
-            buttonPadding: .systemDefault
+            titlePadding: .custom(paddingToAdd: .init(top: 16, leading: 20, bottom: 0, trailing: 20)),
+            subTitlePaddding: .custom(paddingToAdd: .init(top: 4, leading: 20, bottom: 0, trailing: 20)),
+            buttonPadding: .custom(paddingToAdd: .init(top: 32, leading: 20, bottom: 20, trailing: 0))
         )
     }
 }
