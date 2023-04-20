@@ -23,13 +23,12 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 #### [3. TextField](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTextField.md)
 #### [4. Checkbox](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeCheckbox.md)
 #### [5. Radio](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeRadio.md)
-
-#### 6. Color Pallets - NitrozenAppearance.ColorProvider (Available - preview and code snippet coming soon)
-#### 7. DropDown TextField - NitrozenDropDownTextField (Available - preview and code snippet coming soon)  
-#### 8. TagView/Chip - NitrozenTagView (Available - preview and code snippet coming soon)
-#### 9. Badge View - NitrozenTagView (Available - preview and code snippet coming soon)
-#### 10. Switch/Toggle  - NitrozenToggle (Available - preview and code snippet coming soon)
-#### 11. Progress Stepper - NitrozenPageControl (Available - preview and code snippet coming soon)
+#### [6. Color Pallets](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeColors.md)
+#### [7. DropDown TextField](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeDropdownTextfield.md)
+#### [8. TagView](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTagView.md)
+#### [9. Badge View](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeBadge.md)
+#### [10. Switch/Toggle](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeToggle.md)
+#### [11. Progress Stepper](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeProgressStepper.md)
 
 
 ## Requirements
