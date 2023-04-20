@@ -25,7 +25,7 @@ dependencies: [
 ```
 
 ## Elements
-### [1. Button Previews](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeButton.md)
+### [1. Button Previews](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeButton.md)
 
 
 ### 2. Text/Label/Font (will add code snippet here)
