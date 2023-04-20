@@ -12,7 +12,7 @@ struct Checkboxes: View {
 	
 	var options1: [String] = ["Male", "Female", "Other"]
 	@State var selection1: Set<String> = ["Male"]
-	
+
 	var options2: [String] = ["O1", "O2", "O3"]
 	@State var selection2: Set<String> = []
 	
@@ -26,6 +26,7 @@ struct Checkboxes: View {
 	
 	var body: some View {
 		List{
+			
 			Section {
 				Text("Verticle Checkbox")
 				
