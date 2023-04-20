@@ -15,7 +15,6 @@ public extension NitrozenAppearance {
         var borderColor: SystemColor
         var backgroundColor: SystemColor
         var textStyle: TextLabel
-        var disableOpacity: CGFloat
         var viewShape: ViewShape
         var size: CGSize
         
@@ -23,7 +22,6 @@ public extension NitrozenAppearance {
                     borderColor: SystemColor,
                     backgroundColor: SystemColor,
                     textStyle: TextLabel,
-                    disableOpacity: CGFloat,
                     viewShape: ViewShape,
                     size: CGSize) {
             
@@ -31,7 +29,6 @@ public extension NitrozenAppearance {
             self.borderColor = borderColor
             self.backgroundColor = backgroundColor
             self.textStyle = textStyle
-            self.disableOpacity = disableOpacity
             self.viewShape = viewShape
             self.size = size
         }
@@ -56,9 +53,6 @@ public extension NitrozenAppearance.Avatar {
     func textStyle(_ textStyle: NitrozenAppearance.TextLabel) -> Self { self.textStyle = textStyle; return self }
     
     @discardableResult
-    func disableOpacity(_ disableOpacity: CGFloat) -> Self { self.disableOpacity = disableOpacity; return self }
-    
-    @discardableResult
     func viewShape(_ viewShape: ViewShape) -> Self { self.viewShape = viewShape; return self }
     
     @discardableResult
@@ -74,7 +68,6 @@ public extension NitrozenAppearance.Avatar {
             borderColor: self.borderColor,
             backgroundColor: self.backgroundColor,
             textStyle: self.textStyle,
-            disableOpacity: self.disableOpacity,
             viewShape: self.viewShape,
             size: self.size
         )

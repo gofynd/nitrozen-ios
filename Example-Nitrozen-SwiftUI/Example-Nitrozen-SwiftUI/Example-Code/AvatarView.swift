@@ -127,16 +127,6 @@ struct AvatarView: View {
                     )
                 }
             }
-            
-            Section {
-                Text("Avatar view in disable state")
-                HStack {
-                    NitrozenAvatar(
-                        mainView: .text("Abcd"),
-                        isDisable: true
-                    )
-                }
-            }
         }
     }
 }

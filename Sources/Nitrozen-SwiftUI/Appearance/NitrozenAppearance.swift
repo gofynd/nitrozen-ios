@@ -272,7 +272,6 @@ public extension NitrozenAppearance {
             borderColor: .clear,
             backgroundColor: colorProvider.sparkle20,
             textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
-            disableOpacity: 0.3,
             viewShape: .circle,
             size: CGSize.init(width: 60, height: 60)
         )
