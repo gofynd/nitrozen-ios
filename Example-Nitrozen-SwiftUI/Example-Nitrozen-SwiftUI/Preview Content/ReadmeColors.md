@@ -1,9 +1,9 @@
 
 ## Colors - NitrozenApperance.ColorProvider - Preview
 
-| Preview1 |
-| ---      |
-| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/colors1.png" width="300"> |
+| Preview1 | Preview2 |
+| ---      | ---      |
+| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/colors1.png" width="400"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/colors2.mp4" width="400"> |
 
 ## Colors code snippets
 
