@@ -32,6 +32,8 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 
 #### [12. Avatar ](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeAvatar.md)
 
+#### [13. EmptyView ](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeEmptyView.md)
+
 ## Requirements
 
 | Platform | Minimum Swift Version | Installation | Status |
