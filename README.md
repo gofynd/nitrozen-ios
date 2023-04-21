@@ -4,7 +4,32 @@
 [![Platforms](https://img.shields.io/badge/Platforms-iOS-orange)](https://img.shields.io/badge/Platforms-iOS-orange)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
-Nitrozen-SwiftUI is a UILibrary, not designed for specific fonts, colors or fixed-type of layouts. Fonts, colors and layouts are highly customisable.
+Nitrozen-SwiftUI is a UILibrary, includes a set of common UI elements such as buttons, text fields, checkbox, and radio, among others, but with a high degree of flexibility and modularity that allows developers to easily modify the components to meet their specific design needs. These customization options may include changing the colors, fonts, and styles of the components, as well as adjusting the layout and behavior of the user interface.
+
+## Basic Building blocks
+### a. Apperance
+Apperance provide the styling to UI element/control like colors, fonts, radius, shapes, padding, etc.
+[![Apperance](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Nitrozen-apperance-architecture.png)](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Nitrozen-apperance-architecture.png)
+
+
+### b. UI Elements/Controls
+That takes apperance as optional inputs for its styling, and other inputs as per its requirements. If optional apperance is not provided - it will use Appearance.shared.controlApperance for consistent styling.
+[![Apperance](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Nitrozen-apperance-builder-pattern.png)](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Nitrozen-apperance-builder-pattern.png)
+
+
+## Elements
+#### [1. Button](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeButton.md)
+#### [2. Text/Label/Font](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTextLabelFont.md)
+#### [3. TextField](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTextField.md)
+#### [4. Checkbox](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeCheckbox.md)
+#### [5. Radio](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeRadio.md)
+#### [6. Color Pallets](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeColors.md)
+#### [7. DropDown TextField](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeDropdownTextfield.md)
+#### [8. TagView](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTagView.md)
+#### [9. Badge View](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeBadge.md)
+#### [10. Switch/Toggle](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeToggle.md)
+#### [11. Progress Stepper](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeProgressStepper.md)
+
 
 ## Requirements
 
@@ -23,20 +48,6 @@ dependencies: [
     .package(url: "https://github.com/gofynd/nitrozen-ios.git", branch: "master")
 ]
 ```
-
-## Elements
-#### [1. Button](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeButton.md)
-#### [2. Text/Label/Font](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTextLabelFont.md)
-#### [3. TextField](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeTextField.md)
-#### [4. Checkbox](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeCheckbox.md)
-#### [5. Radio](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeRadio.md)
-
-#### 6. Color Pallets - NitrozenAppearance.ColorProvider (Available - preview and code snippet coming soon)
-#### 7. DropDown TextField - NitrozenDropDownTextField (Available - preview and code snippet coming soon)  
-#### 8. TagView/Chip - NitrozenTagView (Available - preview and code snippet coming soon)
-#### 9. Badge View - NitrozenTagView (Available - preview and code snippet coming soon)
-#### 10. Switch/Toggle  - NitrozenToggle (Available - preview and code snippet coming soon)
-#### 11. Progress Stepper - NitrozenPageControl (Available - preview and code snippet coming soon)
 
 ## Contributors
 
