@@ -31,6 +31,13 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 * [Progress Stepper](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeProgressStepper.md)
 
 
+## Contributors
+
+- [Hitendra Solanki](https://github.com/hitendradeveloper)
+- [Rushang Prajapati](https://github.com/Rushang08)
+- [Keyur Patel](https://github.com/KeyurPatel-1)
+
+
 ## Requirements
 
 | Platform | Minimum Swift Version | Installation | Status |
