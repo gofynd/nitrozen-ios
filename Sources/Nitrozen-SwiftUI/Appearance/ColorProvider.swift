@@ -148,32 +148,6 @@ public class ColorProvider {
 	public var warning80:  SystemColor { Color(self.warning50.uiColor().darker(percentage: 30)) }
 	//public var warning50: SystemColor
 	public var warning20:  SystemColor { Color(self.warning50.uiColor().lighter(percentage: 30)) }
-	
-	/*
-		 <color name="primary20">#E8E8FC</color>
-		 <color name="primary30">#9999FF</color>
-		 <color name="primary40">#6464FF</color>
-		 <color name="primary50">#3535F3</color>
-		 <color name="primary60">#000093</color>
-		 <color name="primary80">#FAFAFF</color>
-		 <color name="grey20">#F5F5F5</color>
-		 <color name="grey40">#E0E0E0</color>
-		 <color name="grey60">#B5B5B5</color>
-		 <color name="grey80">#A6000000</color>
-		 <color name="grey100">#141414</color>
-		 <color name="inverse">#FFFFFF</color>
-		 <color name="error50">#F50031</color>
-		 <color name="error80">#660014</color>
-		 <color name="success50">#25AB21</color>
-		 <color name="success80">#135610</color>
-		 <color name="background">#FFFFFF</color>
-		 <color name="pageBackground">#979797</color>
-		 <color name="warning20">#FEF0E7</color>
-		 <color name="warning50">#F06D0F</color>
-		 <color name="warning80">#7D2F08</color>
-		 <color name="sparkle20">#E8FAF7</color>
-		 <color name="sparkle60">#1E7B74</color>
-	 */
 }
 
 public extension ColorProvider {

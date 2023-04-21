@@ -33,10 +33,11 @@ public class NitrozenAppearance {
 	public var toggle: NitrozenAppearance.Toggle
 
     public var stapper: NitrozenAppearance.PageControl
-    
     public var avatar: NitrozenAppearance.Avatar
-    
+	public var divider: NitrozenAppearance.Divider
+	public var segment: NitrozenAppearance.Segment
     public var emptyView: NitrozenAppearance.EmptyView
+
 
 	init(
 		colorProvider: ColorProvider,
@@ -56,6 +57,8 @@ public class NitrozenAppearance {
 		toggle: NitrozenAppearance.Toggle,
         stapper: NitrozenAppearance.PageControl,
         avatar: NitrozenAppearance.Avatar,
+		divider: NitrozenAppearance.Divider,
+		segment: NitrozenAppearance.Segment,
         emptyView: NitrozenAppearance.EmptyView
 	) {
 		self.colorProvider = colorProvider
@@ -75,6 +78,8 @@ public class NitrozenAppearance {
 		self.toggle = toggle
         self.stapper = stapper
         self.avatar = avatar
+		self.divider = divider
+		self.segment = segment
         self.emptyView = emptyView
 	}
 }
@@ -186,24 +191,45 @@ public extension NitrozenAppearance {
             ),
             stapper: stapperAppearance(color: colorProvider.primary50, font: font),
             avatar: avatarViewAppearance(colorProvider: colorProvider),
+			divider: .init(
+				color: colorProvider.gray20,
+				layout: .horizontal(height: 1),
+				shape: .capsule
+			),
+			
+			segment: .init(
+				backgroundColor: colorProvider.gray20,
+				borderColor: colorProvider.gray20,
+				borderWidth: 3,
+				viewShape: .capsule,
+				titleAppearance: .init(titleColor: colorProvider.primary60, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+				selectedBackgroundColor: colorProvider.primary50,
+				selectedBorderColor: .clear,
+				selectedBorderWidth: 0,
+				selectedTitleAppearance: .init(titleColor: colorProvider.primaryBackground, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+				itemSize: .init(width: 96, height: 40),
+				itemSpacing: .infinity,
+				selectedViewShape: .capsule,
+				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
+			),
             emptyView: emptyViewAppearance(colorProvider: colorProvider)
 		)
 	}()
 	
 	private static func textfieldAppearance() -> NitrozenAppearance.TextField {
 		.init(
-			textFieldInternalTextLabel: .init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))),
-			topInfo: .init(titleColor: .gray, font: .caption),
+			textFieldInternalTextLabel: .init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+			topInfo: .init(titleColor: ColorProvider.shared.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
 			topInfoPadding: .custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 8, trailing: 0)),
-			sucessInfo: .init(titleColor: .green, font: .callout),
+			sucessInfo: .init(titleColor: ColorProvider.shared.success80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
 			successInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
-			errorInfo: .init(titleColor: .red, font: .callout),
+			errorInfo: .init(titleColor: ColorProvider.shared.error80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
 			errorInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
-			borderColor: .gray,
+			borderColor: ColorProvider.shared.gray40,
 			borderWidth: 1,
 			borderPadding: .custom(paddingToAdd: .init(top: 10, leading: 10, bottom: 10, trailing: 10)),
 			borderRadius: 16,
-			backgroundColor: Color(UIColor.systemBackground)
+			backgroundColor: ColorProvider.shared.primaryBackground
 		)
 	}
 	
@@ -250,7 +276,6 @@ public extension NitrozenAppearance {
             borderColor: .clear,
             backgroundColor: colorProvider.sparkle20,
             textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
-            disableOpacity: 0.3,
             viewShape: .circle,
             size: CGSize.init(width: 60, height: 60)
         )
@@ -288,6 +313,8 @@ public extension NitrozenAppearance {
             toggle: self.toggle.copy,
             stapper: self.stapper.copy,
             avatar: self.avatar.copy,
+			divider: self.divider.copy,
+			segment: self.segment.copy,
             emptyView: self.emptyView.copy
 		)
 	}

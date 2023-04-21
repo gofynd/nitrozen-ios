@@ -19,20 +19,16 @@ public struct NitrozenAvatar: View {
     }
     
     var mainView: CustomImageView
-    var isDisable: Bool
     var appearance: NitrozenAppearance.Avatar
     
-    private var maxCharacterCount: Int
+    private let initialsMaxCharacterCount: Int = 2
     
     public init(
         mainView: CustomImageView,
-         isDisable: Bool = false,
          appearance: NitrozenAppearance.Avatar? = nil
     ) {
         self.mainView = mainView
-        self.isDisable = isDisable
         self.appearance = appearance.or(NitrozenAppearance.shared.avatar)
-        self.maxCharacterCount = 2
     }
     
     public var body: some View {
@@ -61,7 +57,7 @@ public struct NitrozenAvatar: View {
                     .frame(width: self.appearance.size.width, height: self.appearance.size.height)
                 
             case .text(let title):
-                Text(self.getMaxTwoCharectorFromString(text: title))
+                Text(self.initalsText(from: title))
                     .foregroundColor(appearance.textStyle.titleColor)
                     .font(appearance.textStyle.font)
             }
@@ -69,21 +65,20 @@ public struct NitrozenAvatar: View {
         .frame(width: self.appearance.size.width, height: self.appearance.size.height)
         .background(self.appearance.backgroundColor)
         .apply(shape: self.appearance.viewShape, color: self.appearance.borderColor, lineWidth: self.appearance.borderWidth)
-        .opacity(self.isDisable ? self.appearance.disableOpacity : 1)
         
     }
     
-    func getMaxTwoCharectorFromString(text: String) -> String {
-        let words = text.components(separatedBy: .whitespacesAndNewlines)
+    func initalsText(from fullText: String) -> String {
+        let words = fullText.components(separatedBy: .whitespacesAndNewlines)
         
         if words.count == 1, let firstWord = words.first {
-            return String(firstWord.prefix(self.maxCharacterCount)).uppercased()
+            return String(firstWord.prefix(self.initialsMaxCharacterCount)).uppercased()
         }
         
         let initials = words.reduce(into: "") { (result, word) in
             if let firstCharacter = word.first {
                 result.append(firstCharacter)
-                if result.count == self.maxCharacterCount {
+                if result.count == self.initialsMaxCharacterCount {
                     return
                 }
                 
