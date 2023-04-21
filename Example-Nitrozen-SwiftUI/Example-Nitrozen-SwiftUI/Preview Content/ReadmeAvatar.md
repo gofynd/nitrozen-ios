@@ -3,10 +3,10 @@
 
 | Preview1 | Preview2 |
 | ---      | ---      |
-| <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/avatar1.png" width="400"> | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/avatar2.gif" width="400"> |
+| <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/avatar1.png" width="400"> | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/avatar2.png" width="400"> |
 
 ## Avatar code snippets
-All Avatar examples with styling
+All Avatar style with example
 ```swift
 struct AvatarView: View {
     
