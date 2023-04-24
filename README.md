@@ -30,6 +30,7 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 * [Switch/Toggle](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeToggle.md)
 * [Progress Stepper](https://github.com/hitendra-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeProgressStepper.md)
 * [Avatar](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeAvatar.md)
+* [EmptyView](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeEmptyView.md)
 
 
 ## Contributors
@@ -37,8 +38,6 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 - [Hitendra Solanki](https://github.com/hitendradeveloper)
 - [Rushang Prajapati](https://github.com/Rushang08)
 - [Keyur Patel](https://github.com/KeyurPatel-1)
-
-#### [13. EmptyView ](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeEmptyView.md)
 
 ## Requirements
 
