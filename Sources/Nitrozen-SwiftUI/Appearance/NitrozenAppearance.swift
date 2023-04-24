@@ -36,6 +36,7 @@ public class NitrozenAppearance {
     public var avatar: NitrozenAppearance.Avatar
 	public var divider: NitrozenAppearance.Divider
 	public var segment: NitrozenAppearance.Segment
+    public var emptyView: NitrozenAppearance.EmptyView
 
 
 	init(
@@ -57,7 +58,8 @@ public class NitrozenAppearance {
         stapper: NitrozenAppearance.PageControl,
         avatar: NitrozenAppearance.Avatar,
 		divider: NitrozenAppearance.Divider,
-		segment: NitrozenAppearance.Segment
+		segment: NitrozenAppearance.Segment,
+        emptyView: NitrozenAppearance.EmptyView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -78,6 +80,7 @@ public class NitrozenAppearance {
         self.avatar = avatar
 		self.divider = divider
 		self.segment = segment
+        self.emptyView = emptyView
 	}
 }
 
@@ -208,7 +211,8 @@ public extension NitrozenAppearance {
 				itemSpacing: .infinity,
 				selectedViewShape: .capsule,
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
-			)
+			),
+            emptyView: emptyViewAppearance(colorProvider: colorProvider)
 		)
 	}()
 	
@@ -276,6 +280,16 @@ public extension NitrozenAppearance {
             size: CGSize.init(width: 60, height: 60)
         )
     }
+    
+    private static func emptyViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.EmptyView {
+        NitrozenAppearance.EmptyView(
+            titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
+            subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+            titlePadding: .custom(paddingToAdd: .init(top: 16, leading: 20, bottom: 0, trailing: 20)),
+            subTitlePaddding: .custom(paddingToAdd: .init(top: 4, leading: 20, bottom: 0, trailing: 20)),
+            buttonPadding: .custom(paddingToAdd: .init(top: 32, leading: 20, bottom: 20, trailing: 0))
+        )
+    }
 }
 
 //MARK: Copy Support
@@ -300,7 +314,8 @@ public extension NitrozenAppearance {
             stapper: self.stapper.copy,
             avatar: self.avatar.copy,
 			divider: self.divider.copy,
-			segment: self.segment.copy
+			segment: self.segment.copy,
+            emptyView: self.emptyView.copy
 		)
 	}
 }
