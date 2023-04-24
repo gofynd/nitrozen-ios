@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12C2853429E959F7004681D1 /* StapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C2853329E959F7004681D1 /* StapperView.swift */; };
+		12C4CE9829F0FBDD00995A93 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C4CE9729F0FBDD00995A93 /* AvatarView.swift */; };
 		12E9668129E573A50025CE96 /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9668029E573A50025CE96 /* OtpView.swift */; };
 		E345E33329C483FB00B239FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E345E33229C483FB00B239FE /* Preview Assets.xcassets */; };
 		E345E33529C484DC00B239FE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33429C484DC00B239FE /* Buttons.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		12C2853329E959F7004681D1 /* StapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StapperView.swift; sourceTree = "<group>"; };
+		12C4CE9729F0FBDD00995A93 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		12E9668029E573A50025CE96 /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
 		E345E33229C483FB00B239FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E345E33429C484DC00B239FE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				E3F715AA29F134AF0020F4E9 /* SegmentControls.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
+				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
 			);
 			path = "Example-Code";
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				E3F715AB29F134AF0020F4E9 /* SegmentControls.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,
 				E3F7CE7029E3D5B90012B473 /* PageControl.swift in Sources */,
+				12C4CE9829F0FBDD00995A93 /* AvatarView.swift in Sources */,
 				E3F7CE7229E5C9FA0012B473 /* BadgeViews.swift in Sources */,
 				E3F7CE6C29DEDE990012B473 /* Alerts.swift in Sources */,
 				E376043029C45ACE000D28DC /* TextFields.swift in Sources */,

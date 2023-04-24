@@ -112,6 +112,12 @@ struct UIElementsList: View {
                     } label: {
                         Text("Stappers")
                     }
+                    
+                    NavigationLink {
+                        AvatarView()
+                    } label: {
+                        Text("Avatar")
+                    }
 					
 					NavigationLink {
 						DeviderViews()
@@ -124,7 +130,6 @@ struct UIElementsList: View {
 					} label: {
 						Text("SegmentControlViews")
 					}
-					
 					
 				}
 			}

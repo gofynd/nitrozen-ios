@@ -104,9 +104,9 @@ struct User: Hashable {
 	var age: Int
 	
 	static var users: [User] = [
-		.init(name: "Rushang", age: 28),
-		.init(name: "Hitendra", age: 30),
-		.init(name: "Keyur", age: 28)
+		.init(name: "Rushang Prajapati", age: 28),
+		.init(name: "Hitendra Solanki", age: 30),
+		.init(name: "Keyur Patel", age: 26)
 	]
 	
 	func hash(into hasher: inout Hasher) {
