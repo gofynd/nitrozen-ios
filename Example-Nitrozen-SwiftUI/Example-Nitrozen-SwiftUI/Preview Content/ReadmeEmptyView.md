@@ -1,7 +1,7 @@
 ## EmptyView - Preview
 
 | Preview1 | Preview2 | Preview3 | Preview4 |
-| ---      | ---      |
+| ---      | ---      | ---      | ---      |
 | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/emptyview1.png" width="400"> | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/emptyview2.png" width="400"> | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/emptyview3.png" width="400"> | <img src="https://raw.githubusercontent.com/keyur-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/emptyview4.png" width="400"> |
 
 ## EmptyView code snippets
