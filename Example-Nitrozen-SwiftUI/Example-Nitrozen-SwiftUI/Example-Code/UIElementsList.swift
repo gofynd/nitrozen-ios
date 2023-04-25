@@ -118,7 +118,7 @@ struct UIElementsList: View {
                     } label: {
                         Text("Avatar")
                     }
-					
+	
 					NavigationLink {
 						DeviderViews()
 					} label: {
@@ -131,6 +131,13 @@ struct UIElementsList: View {
 						Text("SegmentControlViews")
 					}
 					
+                    
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        Text("Empty View")
+                    }
+                    
 				}
 			}
 			.navigationTitle("Nitrozen Elements")

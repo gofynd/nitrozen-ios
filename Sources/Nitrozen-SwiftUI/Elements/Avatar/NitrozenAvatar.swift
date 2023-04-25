@@ -42,7 +42,9 @@ public struct NitrozenAvatar: View {
             switch self.mainView {
             case .systemImage(let imageName):
                 Image(systemName: imageName)
-                    
+                    .resizable()
+                    .position()
+                    .frame(width: self.appearance.size.width / 2, height: self.appearance.size.height / 2)
 
             case .assetImage(let imageName):
                 Image(imageName)
