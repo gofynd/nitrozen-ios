@@ -110,13 +110,13 @@ extension NitrozenEmptyView where Actions == Text {
         topView: CustomImageView? = nil,
         title: S,
         subTitle: String? = nil,
-        buttonTitle: String? = nil,
+        ctaButtonTitle: String? = nil,
         appearance: NitrozenAppearance.EmptyView? = nil,
         onMainButtonClick: ElementTap? = nil) {
             self.topView = topView
             self.title = (title as? String).or("")
             self.subTitle = subTitle
-            self.ctaButtonTitle = buttonTitle
+            self.ctaButtonTitle = ctaButtonTitle
             self.appearance = appearance.or(NitrozenAppearance.shared.emptyView)
             self.onMainButtonClick = onMainButtonClick
             self.actionsBuilder = nil

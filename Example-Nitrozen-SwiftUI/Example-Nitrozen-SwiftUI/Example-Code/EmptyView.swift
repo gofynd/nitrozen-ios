@@ -47,8 +47,9 @@ struct EmptyViewOption1: View{
             )),
             title: "You don’t have any notifications",
             subTitle: "Notifications let you quickly catch up on any updates",
-            buttonTitle: "Go To Homepage") {
+            ctaButtonTitle: "Go To Homepage") {
                 
+                print("actionButtonDidTap")
             }
         
     }
@@ -81,11 +82,11 @@ struct EmptyViewOption3: View{
             )),
             title: "You’ve not generated a manifest yet",
             subTitle: "Click on generate manifest to process",
-            buttonTitle: "Generate Manifest",
+            ctaButtonTitle: "Generate Manifest",
             appearance: NitrozenAppearance.shared.emptyView.copy
                 .buttonPadding(.custom(paddingToAdd: .init(top: 50, leading: 20, bottom: 20, trailing: 20)))
         ) {
-            
+            print("actionButtonDidTap")
         }
         
         .frame(maxWidth: .infinity)
@@ -109,7 +110,7 @@ struct EmptyViewOption4: View{
                     .padding()
                 
                 Button {
-                    
+                    print("actionButtonDidTap")
                 } label: {
                     Text("Add Product")
                 }
