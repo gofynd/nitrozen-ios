@@ -7,40 +7,68 @@
 
 import SwiftUI
 
-public struct NitrozenEmptyView: View {
+public struct NitrozenEmptyView<Actions>: View where Actions: View {
+    public typealias ActionsBuilder = () -> Actions
     
-    var topView: AnyView?
+    public enum CustomImageView {
+        case nitrozen //default view
+        case systemImage(name: String) //customized image from SFSymbol
+        case assetImage(name: String) //customized image from .xcassets
+        case custom(view: AnyView) // whole customized view
+    }
+    
+    var topView: CustomImageView?
     var title: String
     var subTitle: String?
-    var buttonTitle: String?
+    var ctaButtonTitle: String?
     var appearance: NitrozenAppearance.EmptyView
     var onMainButtonClick: ElementTap?
-    
+    var actionsBuilder: ActionsBuilder?
+
     public init(
-        topView: AnyView? = nil,
+        topView: CustomImageView? = nil,
         title: String,
         subTitle: String? = nil,
-        buttonTitle: String? = nil,
         appearance: NitrozenAppearance.EmptyView? = nil,
-        onMainButtonClick: ElementTap? = nil) {
+        @ViewBuilder actions: @escaping ActionsBuilder) {
             self.topView = topView
             self.title = title
             self.subTitle = subTitle
-            self.buttonTitle = buttonTitle
             self.appearance = appearance.or(NitrozenAppearance.shared.emptyView)
-            self.onMainButtonClick = onMainButtonClick
+            self.actionsBuilder = actions
         }
     
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            self.topView.convertToView {
-                $0
+            self.topIconView()
+            self.titleView()
+            self.subTitleView()
+            self.actionButtonView()
+            self.actionsBuilder.convertToView {
+                $0()
             }
-            titleView()
-            subTitleView()
-            actionButtonView()
         }
     }
+    
+    @ViewBuilder
+    func topIconView() -> some View {
+        self.topView.convertToView { topView in
+            switch topView {
+            case .systemImage(let imageName):
+                Image(systemName: imageName)
+                
+            case .assetImage(let imageName):
+                Image(imageName)
+                
+            case .custom(let customView):
+                customView
+                
+            case .nitrozen:
+                EmptyView()
+            }
+        }
+    }
+    
     
     @ViewBuilder func titleView() -> some View {
         Text(self.title)
@@ -63,7 +91,7 @@ public struct NitrozenEmptyView: View {
     }
     
     @ViewBuilder func actionButtonView() -> some View {
-        self.buttonTitle.convertToView { buttonTitle in
+        self.ctaButtonTitle.convertToView { buttonTitle in
             Button {
                 self.onMainButtonClick?()
             } label: {
@@ -73,5 +101,25 @@ public struct NitrozenEmptyView: View {
             .apply(padding: appearance.buttonPadding)
         }
     }
+    
+}
+
+extension NitrozenEmptyView where Actions == Text {
+    
+    public init<S: StringProtocol>(
+        topView: CustomImageView? = nil,
+        title: S,
+        subTitle: String? = nil,
+        buttonTitle: String? = nil,
+        appearance: NitrozenAppearance.EmptyView? = nil,
+        onMainButtonClick: ElementTap? = nil) {
+            self.topView = topView
+            self.title = (title as? String).or("")
+            self.subTitle = subTitle
+            self.ctaButtonTitle = buttonTitle
+            self.appearance = appearance.or(NitrozenAppearance.shared.emptyView)
+            self.onMainButtonClick = onMainButtonClick
+            self.actionsBuilder = nil
+        }
     
 }
