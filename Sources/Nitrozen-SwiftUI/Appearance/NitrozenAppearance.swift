@@ -36,6 +36,7 @@ public class NitrozenAppearance {
     public var avatar: NitrozenAppearance.Avatar
 	public var divider: NitrozenAppearance.Divider
 	public var segment: NitrozenAppearance.Segment
+    public var stepperView: NitrozenAppearance.StepperView
 
 
 	init(
@@ -57,7 +58,8 @@ public class NitrozenAppearance {
         stapper: NitrozenAppearance.PageControl,
         avatar: NitrozenAppearance.Avatar,
 		divider: NitrozenAppearance.Divider,
-		segment: NitrozenAppearance.Segment
+        segment: NitrozenAppearance.Segment,
+        stepperView: NitrozenAppearance.StepperView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -78,6 +80,7 @@ public class NitrozenAppearance {
         self.avatar = avatar
 		self.divider = divider
 		self.segment = segment
+        self.stepperView = stepperView
 	}
 }
 
@@ -208,7 +211,42 @@ public extension NitrozenAppearance {
 				itemSpacing: .infinity,
 				selectedViewShape: .capsule,
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
-			)
+            ),
+            
+            stepperView: .init(
+                inputTitle: .init(
+                titleColor: .red,
+                font: .nitrozen(.body(size: .s, weight: .bold))),
+                actionButton: .init(
+                    styleUseCase: .bordered,
+                    titleColor: ColorProvider.shared.primary60,
+                    titleColorDisabled: .gray,
+                    backgroundColor: .white,
+                    backgroundColorDisabled: .white,
+                    font: .nitrozen(.body(size: .s, weight: .bold)),
+                    borderWidth: 2.0,
+                    borderColor: ColorProvider.shared.gray100,
+                    borderColorDisabled: ColorProvider.shared.gray60
+                ),
+                inputFieldSize: CGSize(width: 60, height: 32),
+                actionButtonSize: CGSize(width: 60, height: 32),
+                decrementButton: .systemImage(name: "minus"),
+                incrementButton: .systemImage(name: "plus"),
+                inputField: .init(
+                    textFieldInternalTextLabel: .init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+                    topInfo: .init(titleColor: ColorProvider.shared.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+                    topInfoPadding: .custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 8, trailing: 0)),
+                    sucessInfo: .init(titleColor: ColorProvider.shared.success80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
+                    successInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+                    errorInfo: .init(titleColor: ColorProvider.shared.error80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
+                    errorInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+                    borderColor: ColorProvider.shared.gray40,
+                    borderWidth: 2.0,
+                    borderPadding: .custom(paddingToAdd: .init(top: 0, leading: 16, bottom: 0, trailing: 16)),
+                    borderRadius: 8,
+                    backgroundColor: ColorProvider.shared.primaryBackground
+                )
+            )
 		)
 	}()
 	
@@ -300,7 +338,8 @@ public extension NitrozenAppearance {
             stapper: self.stapper.copy,
             avatar: self.avatar.copy,
 			divider: self.divider.copy,
-			segment: self.segment.copy
+            segment: self.segment.copy,
+            stepperView: self.stepperView.copy
 		)
 	}
 }

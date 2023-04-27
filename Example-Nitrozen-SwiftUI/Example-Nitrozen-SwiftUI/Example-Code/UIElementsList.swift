@@ -16,6 +16,12 @@ struct UIElementsList: View {
 		NavigationStack {
 			List {
 				
+                NavigationLink {
+                    Stepper()
+                } label: {
+                    Text("Stepper View")
+                }
+
 				Group {
 					NavigationLink {
 						Buttons()
@@ -118,20 +124,28 @@ struct UIElementsList: View {
                     } label: {
                         Text("Avatar")
                     }
-					
 					NavigationLink {
 						DeviderViews()
 					} label: {
-						Text("Deviders")
-					}
-					
-					NavigationLink {
-						SegmentControlViews()
-					} label: {
-						Text("SegmentControlViews")
+						Text("Dividers")
 					}
 					
 				}
+                
+                Group {
+                    NavigationLink {
+                        DeviderViews()
+                    } label: {
+                        Text("Deviders")
+                    }
+                    
+                    NavigationLink {
+                        SegmentControlViews()
+                    } label: {
+                        Text("SegmentControlViews")
+                    }
+                    
+                }
 			}
 			.navigationTitle("Nitrozen Elements")
 			.toolbar {

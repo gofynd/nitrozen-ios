@@ -27,7 +27,7 @@ public extension NitrozenAppearance {
 		
 		var backgroundColor: SystemColor
 		
-		init(
+		public init(
 			textFieldInternalTextLabel: TextLabel,
 			topInfo: TextLabel, topInfoPadding: ViewPadding,
 			sucessInfo: TextLabel, successInfoPadding: ViewPadding,
