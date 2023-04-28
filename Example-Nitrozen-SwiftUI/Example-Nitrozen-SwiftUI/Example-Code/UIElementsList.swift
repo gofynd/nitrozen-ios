@@ -122,7 +122,7 @@ struct UIElementsList: View {
 					NavigationLink {
 						DeviderViews()
 					} label: {
-						Text("Deviders")
+						Text("Dividers")
 					}
 					
 					NavigationLink {

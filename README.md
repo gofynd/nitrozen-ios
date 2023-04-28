@@ -32,6 +32,18 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 * [Avatar](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeAvatar.md)
 * [EmptyView](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeEmptyView.md)
 
+* [OTPView](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeOTPView.md)
+
+* [DividerView](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeDividerView.md)
+
+* [Action Sheet](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeActionSheet.md)
+
+* [Alert](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeAlert.md)
+
+* [Segment Control](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeSegmentControl.md)
+
+* [Page Control](https://github.com/keyur-gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmePageControl.md)
+
 
 ## Contributors
 
