@@ -3,7 +3,7 @@
 
 | Preview1 |
 | ---      |
-| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/tagview1.png" width="300"> |
+| <img src="https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/StepperView_Example.png" width="300"> |
 
 ## TagViews code snippets
 All TagView examples with custom model and string data
