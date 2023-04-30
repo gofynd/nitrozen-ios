@@ -1,77 +1,93 @@
 
-## TagView - NitrozenTagView - Preview
+## TagView - NitrozenStepperView - Preview
 
 | Preview1 |
 | ---      |
 | <img src="https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/StepperView_Example.png" width="300"> |
 
-## TagViews code snippets
+## StepperView code snippets
 All TagView examples with custom model and string data
 ```swift
-struct TagViews: View {
-	
-	var options1: [String] = ["Male", "Female", "Other"]
-	@State var selection1: Set<String> = ["Male"]
-	
-	var options3: [User] = User.users
-	@State var selection3: Set<User> = []
-	
-	var options2: [String] = ["Home", "Office", "Shop"]
-	@State var selection2: Set<String> = []
-	
-	var options4: [String] = ["Home", "Office", "Shop", "Market", "Godown", "Truck", "Rikshaw", "Van", "Car"]
-	@State var selection4: Set<String> = []
-	
-	
-	var body: some View {
-		List{
-			
-			Section {
-				Text("Single tag selection")
-				
-				NitrozenTagView(
-					options: options1, selection: $selection1,
-					spacing: 8, allowedSelection: .single
-				)
-			}
-			
-			Section {
-				Text("Multi tag selection with custom view")
-				
-				NitrozenTagView(
-					options: options3, selection: $selection3,
-					spacing: 8, allowedSelection: .multiple) { option, isSelected in
-						
-						HStack {
-							VStack {
-								HStack {
-									Image(systemName: "person")
-										.resizable()
-										.aspectRatio(contentMode: .fit)
-										.frame(width: 20, height: 20)
-									Text(option.name)
-								}
-								HStack {
-									Image(systemName: "person.2.wave.2")
-										.resizable()
-										.aspectRatio(contentMode: .fit)
-										.frame(width: 20, height: 20)
-									Text("Age: " + "\(option.age)")
-								}
-							}
-							.foregroundColor(isSelected ? .blue : .black)
-						}
-						.padding(.horizontal)
-					}
-			}
-		}
-	}
-}
-
-extension String: Identifiable {
-	public var id: String { return self }
-}
-
-extension User: Identifiable {}
-
-```
+struct Stepper: View {
+    
+    @State var countText:String = "0"
+    @State var countText2:String = "0"
+    @State var countText3:String = "0"
+    @State var countText4:String = "0"
+    @State var countText5:String = "0"
+    @State var countText6:String = "0"
+    
+    var body: some View {
+        ScrollView(showsIndicators: false){
+            VStack(alignment: .leading, spacing: 16){
+                Group {
+                    Section("Stepper with circle button with 20 Limit\nCurrent count \(countText)"){
+                        NitrozenStepperView(
+                            totalQuntity: $countText,
+                            maxNumber: 20,
+                            itemSpacing: 8
+                        )
+                    }
+                    
+                    Divider()
+                    
+                    Section("Stepper with square button 200000 Limit\nCurrent count \(countText2)"){
+                        NitrozenStepperView(
+                            totalQuntity: $countText2,
+                            appearance: NitrozenAppearance.shared.stepperView.copy
+                                .viewShpae(.roundedRectangle(radius: 1))
+                                .inputFieldSize(.init(width: 40, height: 32)),
+                            maxNumber: 200000,
+                            itemSpacing: 8
+                        )
+                    }
+                    
+                    Divider()
+                    
+                }
+                
+                Section("Custom height width for steper with 10 Limit\nCurrent count \(countText3)"){
+                    NitrozenStepperView(
+                        totalQuntity: $countText3,
+                        appearance: NitrozenAppearance.shared.stepperView.copy
+                            .inputFieldSize(.init(width: 80, height: 50))
+                            .decrementButton(.systemImage(name: "minus"))
+                            .incrementButton(.systemImage(name: "plus"))
+                        ,
+                        maxNumber: 10,
+                        itemSpacing: 8
+                    )
+                }
+                
+                Divider()
+                
+                Section("Custom button for steper 10 Limit\ncurrent count \(countText5)"){
+                    NitrozenStepperView(
+                        totalQuntity: $countText5,
+                        appearance: NitrozenAppearance.shared.stepperView.copy
+                            .inputTitle(NitrozenAppearance.TextLabel.init(titleColor: .red, font: .nitrozen(.body(size: .s, weight: .regular))))
+                            .actionButton(NitrozenAppearance.Button.init(
+                                styleUseCase: NitrozenAppearance.Button.StyleUseCase.bordered,
+                                titleColor: .red,
+                                titleColorDisabled: .gray,
+                                backgroundColor: .green,
+                                backgroundColorDisabled: .gray,
+                                font: .nitrozen(.body(size: .s, weight: .regular)),
+                                borderWidth: 1.9, borderColor: .blue, borderColorDisabled: .blue))
+                            .inputFieldSize(.init(width: 40, height: 30))
+                            .decrementButton(.systemImage(name: "minus"))
+                            .incrementButton(.systemImage(name: "plus"))
+                        ,
+                        maxNumber: 10,
+                        itemSpacing: 8
+                    )
+                }
+                
+                Spacer()
+            }
+        }
+        .padding(.horizontal)
+        
+    }
+    
+}```
