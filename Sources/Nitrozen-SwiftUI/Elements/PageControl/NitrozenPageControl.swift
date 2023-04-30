@@ -62,7 +62,7 @@ public struct NitrozenPageControl: View {
 	@ViewBuilder func pageControl() -> some View {
 		HStack(spacing: 0) {
 			ForEach(0..<pageCount, id: \.self) { i in
-                let isCurrent: Bool = i == self.currentPage - 1
+                let isCurrent: Bool = i == self.currentPage
 				
 				if isCurrent {
 					selectedViewWithModifier()
@@ -106,7 +106,7 @@ public struct NitrozenPageControl: View {
                         })
             .foregroundColor(self.appearance.selectedColor)
             .apply(shape: self.appearance.selectedViewShape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
-            .animation(.default.speed(50.0))
+			.animation(.easeInOut(duration: 0.16))
             .zIndex(10)
     }
     
@@ -129,7 +129,7 @@ public struct NitrozenPageControl: View {
                         })
             .foregroundColor(self.appearance.deselectedColor)
             .apply(shape: self.appearance.deselectedViewShape, color: self.appearance.deselectedBorderColor, lineWidth: self.appearance.deselectedBorderWidth)
-            .animation(.default.speed(50.0))
+            .animation(nil)
             .transition(.move(edge: index < self.currentPage ? .trailing : .leading))
     }
     

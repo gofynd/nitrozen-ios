@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12C2853429E959F7004681D1 /* StapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C2853329E959F7004681D1 /* StapperView.swift */; };
 		12C4CE9829F0FBDD00995A93 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C4CE9729F0FBDD00995A93 /* AvatarView.swift */; };
+		12C4CE9A29F13E3300995A93 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C4CE9929F13E3300995A93 /* EmptyView.swift */; };
 		12E9668129E573A50025CE96 /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9668029E573A50025CE96 /* OtpView.swift */; };
 		E345E33329C483FB00B239FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E345E33229C483FB00B239FE /* Preview Assets.xcassets */; };
 		E345E33529C484DC00B239FE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345E33429C484DC00B239FE /* Buttons.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		12C2853329E959F7004681D1 /* StapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StapperView.swift; sourceTree = "<group>"; };
 		12C4CE9729F0FBDD00995A93 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		12C4CE9929F13E3300995A93 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		12E9668029E573A50025CE96 /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
 		E345E33229C483FB00B239FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E345E33429C484DC00B239FE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
+				12C4CE9929F13E3300995A93 /* EmptyView.swift */,
 				FA8A58A029F6BB730031F517 /* Stepper.swift */,
 			);
 			path = "Example-Code";
@@ -239,6 +242,7 @@
 				FAEDCDEE29E0105600A38414 /* PresentSheet.swift in Sources */,
 				E3F7CE6E29E0AA940012B473 /* TagViews.swift in Sources */,
 				E345E33729C5931D00B239FE /* TextLabels.swift in Sources */,
+				12C4CE9A29F13E3300995A93 /* EmptyView.swift in Sources */,
 				E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */,
 				FA8A58A129F6BB730031F517 /* Stepper.swift in Sources */,
 				FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */,

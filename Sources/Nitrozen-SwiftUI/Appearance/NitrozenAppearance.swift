@@ -11,21 +11,21 @@ public class NitrozenAppearance {
 
 	//Appearance.public properties
 	public var colorProvider: ColorProvider
-	
+
 	public var primaryButton: NitrozenAppearance.Button
 	public var borderedButton: NitrozenAppearance.Button
 	public var tertiaryButton: NitrozenAppearance.Button
-	
+
 	public var textField: NitrozenAppearance.TextField
 	public var dropDownTextField: NitrozenAppearance.TextField
-	
+
 	public var radioButton: NitrozenAppearance.RadioButton
 	public var checkbox: NitrozenAppearance.Checkbox
-	
+
 	public var actionSheet: NitrozenAppearance.ActionSheet
 	public var presentSheet: NitrozenAppearance.PresentSheet
 	public var alert: NitrozenAppearance.Alert
-	
+
 	public var tagView: NitrozenAppearance.TagView
 	public var pageControl: NitrozenAppearance.PageControl
 
@@ -37,6 +37,7 @@ public class NitrozenAppearance {
 	public var divider: NitrozenAppearance.Divider
 	public var segment: NitrozenAppearance.Segment
     public var stepperView: NitrozenAppearance.StepperView
+    public var emptyView: NitrozenAppearance.EmptyView
 
 
 	init(
@@ -59,7 +60,8 @@ public class NitrozenAppearance {
         avatar: NitrozenAppearance.Avatar,
 		divider: NitrozenAppearance.Divider,
         segment: NitrozenAppearance.Segment,
-        stepperView: NitrozenAppearance.StepperView
+        stepperView: NitrozenAppearance.StepperView,
+        emptyView: NitrozenAppearance.EmptyView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -81,43 +83,44 @@ public class NitrozenAppearance {
 		self.divider = divider
 		self.segment = segment
         self.stepperView = stepperView
+        self.emptyView = emptyView
 	}
 }
 
 public extension NitrozenAppearance {
 	static var shared: NitrozenAppearance = {
 		let colorProvider = ColorProvider.shared
-		
+
 		let disableOpacity: Double = 0.3
 		let font: SystemFont = .nitrozen(.body(size: .l, weight: .bold))
-		
+
 		FontRegistar.registerJIOFonts()
-		
+
 		return NitrozenAppearance.init(
 			colorProvider: ColorProvider.shared,
-			
+
 			primaryButton: .init(styleUseCase: .primary,
 								 titleColor: .white, titleColorDisabled: .white.opacity(disableOpacity),
 								 backgroundColor: colorProvider.primary50, backgroundColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								 font: font,
 								 borderWidth: 0.0, borderColor: .clear, borderColorDisabled: .clear),
-			
+
 			borderedButton: .init(styleUseCase: .bordered,
 								  titleColor: colorProvider.primary50, titleColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .gray, borderColorDisabled: .gray),
-			
+
 			tertiaryButton: .init(styleUseCase: .tertiary,
 								  titleColor: colorProvider.primary50, titleColorDisabled: colorProvider.primary50.opacity(disableOpacity),
 								  backgroundColor: .clear, backgroundColorDisabled: .clear,
 								  font: font,
 								  borderWidth: 1.0, borderColor: .clear, borderColorDisabled: .clear),
-			
+
 			textField: textfieldAppearance(),
-			
+
 			dropDownTextField: textfieldAppearance(),
-			
+
 			radioButton: .init(
 				selectedBorderColor: colorProvider.primary50,
 				deSelectedBorderColor: .black,
@@ -131,7 +134,7 @@ public extension NitrozenAppearance {
                 titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 0, trailing: 0)),
                 subTitlePadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
 			),
-			
+
 			checkbox: .init(
 				selectedTitle: .init(titleColor: colorProvider.primary50, font: .title.weight(.bold)),
 				deSelectedTitle: .init(titleColor: .gray, font: .title),
@@ -142,7 +145,7 @@ public extension NitrozenAppearance {
 					Image(systemName: "checkmark.square.fill").resizable().scaledToFit()
 				)
 			),
-			
+
 			actionSheet: .init(
 				title: .init(
 					titleColor: colorProvider.primary50,
@@ -154,19 +157,19 @@ public extension NitrozenAppearance {
 				)
 				,closeButtonColor: colorProvider.primary50
 			),
-			
+
 			presentSheet: .init(focusOpacity: 0.5),
-			
+
 			alert: .init(
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
 				closeButtonColor: colorProvider.primary50
 			),
-			
+
 			tagView: tagViewAppearance(color: colorProvider.primary50, font: font),
-			
+
 			pageControl: pageControlAppearance(color: colorProvider.primary50, font: font),
-			
+
 			otpTextView: otpTextViewAppearance(colorProvider: colorProvider),
 			toggle: .init(
 				onState: .init(
@@ -196,7 +199,7 @@ public extension NitrozenAppearance {
 				layout: .horizontal(height: 1),
 				shape: .capsule
 			),
-			
+
 			segment: .init(
 				backgroundColor: colorProvider.gray20,
 				borderColor: colorProvider.gray20,
@@ -212,7 +215,7 @@ public extension NitrozenAppearance {
 				selectedViewShape: .capsule,
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
             ),
-            
+
             stepperView: .init(
                 inputTitle: .init(
                 titleColor: .red,
@@ -246,10 +249,12 @@ public extension NitrozenAppearance {
                     borderRadius: 8,
                     backgroundColor: ColorProvider.shared.primaryBackground
                 )
-            )
+            ),
+            
+            emptyView: emptyViewAppearance(colorProvider: colorProvider)
 		)
 	}()
-	
+
 	private static func textfieldAppearance() -> NitrozenAppearance.TextField {
 		.init(
 			textFieldInternalTextLabel: .init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))),
@@ -266,7 +271,7 @@ public extension NitrozenAppearance {
 			backgroundColor: ColorProvider.shared.primaryBackground
 		)
 	}
-	
+
 	private static func tagViewAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.TagView {
 		.init(
 			selectedTitle: .init(titleColor: color, font: .nitrozen(.body(size: .l, weight: .bold))),
@@ -277,7 +282,7 @@ public extension NitrozenAppearance {
 			padding: .systemDefault, clearButtonColor: color
 		)
 	}
-	
+
 	private static func pageControlAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.PageControl {
 		.init(
 			selectedColor: color, deselectedColor: .gray,
@@ -288,7 +293,7 @@ public extension NitrozenAppearance {
 			spacing: 8
 		)
 	}
-	
+
 	private static func stapperAppearance(color: SystemColor, font: SystemFont) -> NitrozenAppearance.PageControl {
 		.init(
 			selectedColor: color, deselectedColor: .gray,
@@ -299,11 +304,11 @@ public extension NitrozenAppearance {
 			spacing: 8
 		)
 	}
-	
+
 	private static func otpTextViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.OTPTextView {
 		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: colorProvider.primary50 ,errorColor: colorProvider.error50, successColor: colorProvider.success50)
 	}
-    
+
     private static func avatarViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.Avatar {
         NitrozenAppearance.Avatar(
             borderWidth: 0,
@@ -312,6 +317,16 @@ public extension NitrozenAppearance {
             textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
             viewShape: .circle,
             size: CGSize.init(width: 60, height: 60)
+        )
+    }
+
+    private static func emptyViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.EmptyView {
+        NitrozenAppearance.EmptyView(
+            titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
+            subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+            titlePadding: .custom(paddingToAdd: .init(top: 16, leading: 20, bottom: 0, trailing: 20)),
+            subTitlePaddding: .custom(paddingToAdd: .init(top: 4, leading: 20, bottom: 0, trailing: 20)),
+            buttonPadding: .custom(paddingToAdd: .init(top: 32, leading: 20, bottom: 20, trailing: 0))
         )
     }
 }
@@ -339,7 +354,8 @@ public extension NitrozenAppearance {
             avatar: self.avatar.copy,
 			divider: self.divider.copy,
             segment: self.segment.copy,
-            stepperView: self.stepperView.copy
+            stepperView: self.stepperView.copy,
+            emptyView: self.emptyView.copy
 		)
 	}
 }

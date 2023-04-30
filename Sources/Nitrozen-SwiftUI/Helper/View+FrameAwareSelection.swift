@@ -39,15 +39,13 @@ struct CGRectSelectionPreferenceKeyAwareView: View {
 	}
 }
 
-struct CGRectSelectionAwareViewModifier: ViewModifier {
+struct CGRectAwareViewModifier: ViewModifier {
 	let viewID: Int
-	@Binding var selectedViewID: Int
 	@Binding var allViewRects: [Int: CGRect]
 	let coordinateSpaceName: String
 
-	init(viewID: Int, selectedViewID: Binding<Int>, allViewRects: Binding<[Int: CGRect]>, coordinateSpaceName: String) {
+	init(viewID: Int, allViewRects: Binding<[Int: CGRect]>, coordinateSpaceName: String) {
 		self.viewID = viewID
-		self._selectedViewID = selectedViewID
 		self._allViewRects = allViewRects
 		self.coordinateSpaceName = coordinateSpaceName
 	}
@@ -63,8 +61,9 @@ struct CGRectSelectionAwareViewModifier: ViewModifier {
 	}
 }
 
-extension NitrozenViewBox {
-	func frameAwareSelectionView(viewID: Int, selectedViewID: Binding<Int>, allViewRects: Binding<[Int: CGRect]>, coordinateSpaceName: String) -> some View {
-		self.value.modifier(CGRectSelectionAwareViewModifier(viewID: viewID, selectedViewID: selectedViewID, allViewRects: allViewRects, coordinateSpaceName: coordinateSpaceName))
+public extension NitrozenViewBox {
+	
+	func frameAwareView(viewID: Int, allViewRects: Binding<[Int: CGRect]>, coordinateSpaceName: String) -> some View {
+		self.value.modifier(CGRectAwareViewModifier(viewID: viewID, allViewRects: allViewRects, coordinateSpaceName: coordinateSpaceName))
 	}
 }

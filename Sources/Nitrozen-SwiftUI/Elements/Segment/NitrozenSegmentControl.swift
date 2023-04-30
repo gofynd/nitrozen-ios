@@ -53,7 +53,7 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 					let item = self.options[i]
 					
 					itemView(item: item, isSelected: item == self.selection)
-						.nitrozen.frameAwareSelectionView(viewID: i, selectedViewID: $currentSelectedIndex, allViewRects: $allSegmentItemRectDataWithIndex, coordinateSpaceName: "parentZStack")
+						.nitrozen.frameAwareView(viewID: i, allViewRects: $allSegmentItemRectDataWithIndex, coordinateSpaceName: "parentZStack")
 						.frame(width: self.appearance.itemSize.width, height: self.appearance.itemSize.height)
 						.onTapGesture {
 							withAnimation {
