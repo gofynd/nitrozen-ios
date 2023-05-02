@@ -12,19 +12,26 @@ public struct NitrozenStepperView: View {
     
     @Binding var inputValue:String
     var appearance: NitrozenAppearance.StepperView
-    var maxNumber:Int
+    var range: Range<Int>
+    var step:Int
     var itemSpacing: CGFloat
+    var maxInputValue:Int
+    var minInputValue:Int
     
     public init(
-        totalQuntity: Binding<String>,
+        inputValue: Binding<String>,
         appearance: NitrozenAppearance.StepperView? = nil,
-        maxNumber:Int,
+        range:Range<Int>,
+        step:Int,
         itemSpacing:CGFloat
     ) {
-        self._inputValue = totalQuntity
+        self._inputValue = inputValue
         self.appearance = appearance.or(NitrozenAppearance.shared.stepperView)
-        self.maxNumber = maxNumber
+        self.range = range
+        self.step = step
         self.itemSpacing = itemSpacing
+        self.maxInputValue = self.range.upperBound - 1
+        self.minInputValue = self.range.lowerBound
     }
     
     public var body: some View {
@@ -53,10 +60,12 @@ public struct NitrozenStepperView: View {
             )
             .keyboardType(.numberPad)
             .onReceive(inputValue.publisher) { text in
-                if Int(inputValue).or(0) > maxNumber{
+                if Int(inputValue).or(0) > maxInputValue{
                     inputValue.remove(at: inputValue.index(before: inputValue.endIndex))
                 }
             }
+        
+        
     }
     
     @ViewBuilder
@@ -71,8 +80,16 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func incremenButton(imageType:NitrozenAppearance.StepperView.CustomView) -> some View{
-        let borderColor = (maxNumber == Int(inputValue).or(0)) ?
+        let isButtonDisable = (maxInputValue == Int(inputValue).or(0))
+        
+        let borderColor = isButtonDisable ?
         appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor
+                
+        let titleColor = isButtonDisable ?
+        appearance.actionButton.titleColorDisabled : appearance.actionButton.titleColor
+
+        let backGroundColor = isButtonDisable ?
+        appearance.actionButton.backgroundColorDisabled : appearance.actionButton.backgroundColor
         
         Button(action: {
             increment()
@@ -90,9 +107,9 @@ public struct NitrozenStepperView: View {
                 height: appearance.actionButtonSize.height
             )
         }
-        .foregroundColor(appearance.actionButton.titleColor)
-        .disabled(maxNumber == Int(inputValue).or(0))
-        .background(appearance.actionButton.backgroundColor)
+        .foregroundColor(titleColor)
+        .disabled(isButtonDisable)
+        .background(backGroundColor)
         .apply(
             shape: appearance.viewShpae,
             color:borderColor,
@@ -113,8 +130,16 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func decrementButton(imageType:NitrozenAppearance.StepperView.CustomView) -> some View{
-        let borderColor = (0 == Int(inputValue).or(0)) ?
+        let isButtonDisable = minInputValue == Int(inputValue).or(0)
+
+        let borderColor = isButtonDisable ?
         appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor
+        
+        let titleColor = isButtonDisable ?
+        appearance.actionButton.titleColorDisabled : appearance.actionButton.titleColor
+
+        let backGroundColor = isButtonDisable ?
+        appearance.actionButton.backgroundColorDisabled : appearance.actionButton.backgroundColor
         
         Button(action: {
             decrement()
@@ -132,9 +157,9 @@ public struct NitrozenStepperView: View {
                 height: appearance.actionButtonSize.height
             )
         }
-        .foregroundColor(appearance.actionButton.titleColor)
-        .background(appearance.actionButton.backgroundColor)
-        .disabled(0 == Int(inputValue).or(0))
+        .foregroundColor(titleColor)
+        .background(backGroundColor)
+        .disabled(isButtonDisable)
         .apply(
             shape: appearance.viewShpae,
             color:borderColor,
@@ -143,21 +168,29 @@ public struct NitrozenStepperView: View {
     }
     
     func increment(){
-        if Int(inputValue).or(0) < maxNumber{
+        if Int(inputValue).or(0) < maxInputValue{
             var value = Int(inputValue).or(0)
-            value += 1
-            inputValue = "\(value)"
+            value += step
+            if value > self.maxInputValue {
+                inputValue = min(value, self.maxInputValue).description
+            }
+            else{
+                inputValue = "\(value)"
+            }
+            
         }
         
     }
     
     func decrement(){
-        if 0 < Int(inputValue).or(0){
+        if minInputValue < Int(inputValue).or(0){
             var value = Int(inputValue).or(0)
-            value -= 1
+            value -= step
             inputValue = "\(value)"
+            if Int(inputValue) ?? 00 < self.minInputValue {
+                inputValue = max(Int(inputValue) ?? 00, self.minInputValue).description
+            }
         }
-        
     }
     
 }
