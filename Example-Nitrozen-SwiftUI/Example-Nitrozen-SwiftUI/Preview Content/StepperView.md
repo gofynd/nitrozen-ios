@@ -6,7 +6,7 @@
 | <img src="https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/StepperView_Example.png" width="300"> |
 
 ## StepperView code snippets
-All TagView examples with custom model and string data
+All StepperView examples with custom model and string data
 ```swift
 struct Stepper: View {
     
