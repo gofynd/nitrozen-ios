@@ -3,7 +3,7 @@
 
 | Preview1 |
 | ---      |
-| <img src="https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/stepperView.png" width="300"> |
+| <img src="https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/stepperView1.png" width="300"> |
 
 ## StepperView code snippets
 All StepperView examples with custom model and string data
