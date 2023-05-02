@@ -33,6 +33,8 @@ That takes apperance as optional inputs for its styling, and other inputs as per
 * [Progress Stepper](https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeProgressStepper.md)
 * [Radio](https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeRadio.md)
 * [Segment Control 🆕](https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/ReadmeSegmentControl.md)
+* [StepperView 🆕](https://github.com/gofynd/nitrozen-ios/blob/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/StepperView.md)
+
 
 ## Contributors
 
@@ -60,11 +62,9 @@ dependencies: [
 
 ## How to Contribute?
 
-1. Fork Repo and Create PR. 
+1. Fork Repo and Create PR.
 2. We will review your PR, if PR will be merged successfully, your name will visible under the contributors list. Happy coding :)
 
 ## License
 
 Nitrozen-SwiftUI is released under the MIT license.
-
-

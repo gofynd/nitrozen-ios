@@ -9,7 +9,7 @@ import Foundation
 
 public extension NitrozenAppearance {
 	class Button {
-		enum StyleUseCase { case primary, bordered, tertiary, custom }
+		public enum StyleUseCase { case primary, bordered, tertiary, custom }
 		
 		var styleUseCase: StyleUseCase
 		
@@ -22,7 +22,7 @@ public extension NitrozenAppearance {
 		var borderColor: SystemColor
 		var borderColorDisabled: SystemColor
 		
-		init(styleUseCase: StyleUseCase,
+        public init(styleUseCase: StyleUseCase,
 			 titleColor: SystemColor, titleColorDisabled: SystemColor,
 			 backgroundColor: SystemColor, backgroundColorDisabled: SystemColor,
 			 font: SystemFont,
