@@ -17,13 +17,17 @@ public struct NitrozenStepperView: View {
     var itemSpacing: CGFloat
     var maxInputValue:Int
     var minInputValue:Int
+    var intInputValue:Int {
+        return Int($inputValue.wrappedValue) ?? 0
+    }
     
     public init(
         inputValue: Binding<String>,
-        appearance: NitrozenAppearance.StepperView? = nil,
         range:Range<Int>,
         step:Int,
-        itemSpacing:CGFloat
+        itemSpacing:CGFloat,
+        appearance: NitrozenAppearance.StepperView? = nil
+
     ) {
         self._inputValue = inputValue
         self.appearance = appearance.or(NitrozenAppearance.shared.stepperView)
@@ -60,7 +64,7 @@ public struct NitrozenStepperView: View {
             )
             .keyboardType(.numberPad)
             .onReceive(inputValue.publisher) { text in
-                if Int(inputValue).or(0) > maxInputValue{
+                if intInputValue > maxInputValue{
                     inputValue.remove(at: inputValue.index(before: inputValue.endIndex))
                 }
             }
@@ -80,7 +84,7 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func incremenButton(imageType:NitrozenAppearance.StepperView.CustomView) -> some View{
-        let isButtonDisable = (maxInputValue == Int(inputValue).or(0))
+        let isButtonDisable = (maxInputValue == intInputValue)
         
         let borderColor = isButtonDisable ?
         appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor
@@ -130,7 +134,7 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func decrementButton(imageType:NitrozenAppearance.StepperView.CustomView) -> some View{
-        let isButtonDisable = minInputValue == Int(inputValue).or(0)
+        let isButtonDisable = (minInputValue == intInputValue)
 
         let borderColor = isButtonDisable ?
         appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor
@@ -168,28 +172,22 @@ public struct NitrozenStepperView: View {
     }
     
     func increment(){
-        if Int(inputValue).or(0) < maxInputValue{
-            var value = Int(inputValue).or(0)
+        if intInputValue < maxInputValue{
+            var value = intInputValue
             value += step
-            if value > self.maxInputValue {
-                inputValue = min(value, self.maxInputValue).description
-            }
-            else{
-                inputValue = "\(value)"
-            }
-            
+            inputValue = min(value, self.maxInputValue).description
         }
         
     }
     
     func decrement(){
-        if minInputValue < Int(inputValue).or(0){
-            var value = Int(inputValue).or(0)
+        if minInputValue < intInputValue{
+            var value = intInputValue
             value -= step
-            inputValue = "\(value)"
-            if Int(inputValue) ?? 00 < self.minInputValue {
-                inputValue = max(Int(inputValue) ?? 00, self.minInputValue).description
-            }
+            inputValue = max(value, self.minInputValue).description
+        }
+        else{
+            inputValue = max(Int(inputValue) ?? 00, self.minInputValue).description
         }
     }
     

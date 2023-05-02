@@ -36,12 +36,12 @@ struct Stepper: View {
                     Section("Stepper with square button 2000 Limit and 100 step\nCurrent count \(countText2)"){
                         NitrozenStepperView(
                             inputValue: $countText2,
-                            appearance: NitrozenAppearance.shared.stepperView.copy
-                                .viewShpae(.roundedRectangle(radius: 1))
-                                .inputFieldSize(.init(width: 40, height: 32)),
                             range: Range(1000...2000),
                             step: 100,
-                            itemSpacing: 8
+                            itemSpacing: 8,
+                            appearance: NitrozenAppearance.shared.stepperView.copy
+                                .viewShpae(.roundedRectangle(radius: 1))
+                                .inputFieldSize(.init(width: 40, height: 32))
                         )
                     }
 
@@ -52,14 +52,14 @@ struct Stepper: View {
                 Section("Custom height width for steper with 10 and 2 step Limit\nCurrent count \(countText3)"){
                     NitrozenStepperView(
                         inputValue: $countText3,
+                        range: Range(0...10),
+                        step: 2,
+                        itemSpacing: 8,
                         appearance: NitrozenAppearance.shared.stepperView.copy
                             .inputFieldSize(.init(width: 80, height: 50))
                             .decrementButton(.systemImage(name: "minus"))
                             .incrementButton(.systemImage(name: "plus"))
-                        ,
-                        range: Range(0...10),
-                        step: 2,
-                        itemSpacing: 8
+
                     )
                 }
                 
@@ -68,6 +68,9 @@ struct Stepper: View {
                 Section("Custom button for steper 10 Limit\ncurrent count \(countText5)"){
                     NitrozenStepperView(
                         inputValue: $countText5,
+                        range: Range(0...10),
+                        step: 1,
+                        itemSpacing: 8,
                         appearance: NitrozenAppearance.shared.stepperView.copy
                             .inputTitle(NitrozenAppearance.TextLabel.init(titleColor: .red, font: .nitrozen(.body(size: .s, weight: .regular))))
                             .actionButton(NitrozenAppearance.Button.init(
@@ -84,10 +87,7 @@ struct Stepper: View {
                             .inputFieldSize(.init(width: 40, height: 30))
                             .decrementButton(.systemImage(name: "minus"))
                             .incrementButton(.systemImage(name: "plus"))
-                        ,
-                        range: Range(0...10),
-                        step: 1,
-                        itemSpacing: 8
+
                     )
                 }
                 
