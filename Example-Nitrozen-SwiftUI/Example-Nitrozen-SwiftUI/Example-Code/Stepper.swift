@@ -12,7 +12,7 @@ import Nitrozen_SwiftUI
 struct Stepper: View {
     
     @State var countText1:String = "0"
-    @State var countText2:String = "1000"
+    @State var countText2:String = "0"
     @State var countText3:String = "0"
     @State var countText4:String = "0"
     @State var countText5:String = "0"
@@ -22,7 +22,7 @@ struct Stepper: View {
         ScrollView(showsIndicators: false){
             VStack(alignment: .leading, spacing: 16){
                 Group {
-                    Section("Stepper with circle button with 20 Limit\nCurrent count \(countText1)"){
+                    Section("Range = [0-20] Step = 1\nCurrent count \(countText1)"){
                         NitrozenStepperView(
                             inputValue: $countText1,
                             range: Range(0...20),
@@ -33,11 +33,11 @@ struct Stepper: View {
                     
                     Divider()
                     
-                    Section("Stepper with square button 2000 Limit and 100 step\nCurrent count \(countText2)"){
+					Section("Range = [0-20] Step = 2\nCurrent count \(countText2)\nLeft Button Disable"){
                         NitrozenStepperView(
                             inputValue: $countText2,
-                            range: Range(1000...2000),
-                            step: 100,
+                            range: Range(0...20),
+                            step: 2,
                             itemSpacing: 8,
                             appearance: NitrozenAppearance.shared.stepperView.copy
                                 .viewShpae(.roundedRectangle(radius: 1))
@@ -48,9 +48,9 @@ struct Stepper: View {
                     Divider()
                     
                 }
-                
-                Section("Custom height width for steper with 10 and 2 step Limit\nCurrent count \(countText3)"){
-                    NitrozenStepperView(
+				
+				Section("Range = [0-10] Step = 2 \nCurrent count \(countText3)\nLeft Button Disable\nCustom height width"){
+				NitrozenStepperView(
                         inputValue: $countText3,
                         range: Range(0...10),
                         step: 2,
@@ -65,7 +65,7 @@ struct Stepper: View {
                 
                 Divider()
                 
-                Section("Custom button for steper 10 Limit\ncurrent count \(countText5)"){
+				Section("Range = [0-10] Step = 1\nCurrent count \(countText3)\nLeft Button Disable\nCustom button"){
                     NitrozenStepperView(
                         inputValue: $countText5,
                         range: Range(0...10),
