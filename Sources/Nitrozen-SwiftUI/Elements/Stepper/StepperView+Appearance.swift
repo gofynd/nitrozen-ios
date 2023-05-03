@@ -15,7 +15,6 @@ public extension NitrozenAppearance {
             case assetImage(name: String) //customized image from .xcassets
         }
 
-        public var inputTitle: NitrozenAppearance.TextLabel
         public var actionButton: NitrozenAppearance.Button
         public var inputField: NitrozenAppearance.TextField
         var inputFieldSize: CGSize
@@ -25,7 +24,6 @@ public extension NitrozenAppearance {
         var viewShpae:ViewShape
 
         init(
-            inputTitle: NitrozenAppearance.TextLabel,
             actionButton:NitrozenAppearance.Button,
             inputFieldSize:CGSize,
             actionButtonSize: CGSize,
@@ -35,7 +33,6 @@ public extension NitrozenAppearance {
             inputField: NitrozenAppearance.TextField
             
         ) {
-            self.inputTitle = inputTitle
             self.actionButton = actionButton
             self.inputFieldSize = inputFieldSize
             self.actionButtonSize = actionButtonSize
@@ -49,9 +46,6 @@ public extension NitrozenAppearance {
 }
 
 public extension NitrozenAppearance.StepperView {
-    @discardableResult
-    func inputTitle(_ inputTitle: NitrozenAppearance.TextLabel) -> Self { self.inputTitle = inputTitle; return self }
-    
     @discardableResult
     func actionButton(_ actionButton: NitrozenAppearance.Button) -> Self { self.actionButton = actionButton; return self }
 
@@ -80,7 +74,6 @@ public extension NitrozenAppearance.StepperView {
 public extension NitrozenAppearance.StepperView {
     var copy: NitrozenAppearance.StepperView {
         .init(
-            inputTitle: self.inputTitle.copy,
             actionButton: self.actionButton.copy,
             inputFieldSize: self.inputFieldSize,
             actionButtonSize: self.actionButtonSize,

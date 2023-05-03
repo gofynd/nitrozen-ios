@@ -216,9 +216,6 @@ public extension NitrozenAppearance {
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
 			),
 			stepperView: .init(
-				inputTitle: .init(
-					titleColor: .red,
-					font: .nitrozen(.body(size: .s, weight: .bold))),
 				actionButton: .init(
 					styleUseCase: .bordered,
 					titleColor: ColorProvider.shared.primary60,

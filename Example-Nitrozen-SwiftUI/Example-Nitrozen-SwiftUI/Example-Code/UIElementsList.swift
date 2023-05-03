@@ -110,7 +110,7 @@ struct UIElementsList: View {
 					NavigationLink {
 						StapperView()
 					} label: {
-						Text("Stappers")
+						Text("Progress Stepper")
 					}
 					
 					NavigationLink {

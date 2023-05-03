@@ -16,12 +16,10 @@ struct OtpView: View {
 	@State var otpcode3:String = ""
 	@State var otpcode10:String = ""
 	
-    var body: some View {
+	var body: some View {
 		
-		VStack(spacing: 40) {
-			
-			VStack {
-				Text("Nitrozen OTPField")
+		List {
+			Section("Nitrozen OTPField") {
 				NitrozenOtpTextView(
 					otpCode: $otpcode6,
 					otpCodeLength: 6,
@@ -30,8 +28,7 @@ struct OtpView: View {
 				)
 			}
 			
-			VStack {
-				Text("Nitrozen OTPField")
+			Section("Nitrozen OTPField") {
 				NitrozenOtpTextView(
 					otpCode: $otpcode7,
 					otpCodeLength: 6,
@@ -41,8 +38,7 @@ struct OtpView: View {
 				)
 			}
 			
-			VStack {
-				Text("SecureField OTPField with custom border color")
+			Section("SecureField OTPField with custom border color") {
 				NitrozenOtpTextView(
 					otpCode: $otpcode4,
 					otpCodeLength: 4,
@@ -58,8 +54,7 @@ struct OtpView: View {
 				)
 			}
 			
-			VStack {
-				Text("Custom Height OTPField")
+			Section("Custom Height OTPField") {
 				NitrozenOtpTextView(
 					otpCode: $otpcode5,
 					otpCodeLength: 5,
@@ -69,8 +64,7 @@ struct OtpView: View {
 				)
 			}
 			
-			VStack {
-				Text("Custom PlaceHolder")
+			Section("Custom PlaceHolder") {
 				NitrozenOtpTextView(
 					otpCode: $otpcode3,
 					otpCodeLength: 3,
@@ -79,7 +73,7 @@ struct OtpView: View {
 				)
 			}
 			
-			VStack {
+			Section {
 				NitrozenOtpTextView(
 					otpCode: $otpcode10,
 					otpCodeLength: 10,
@@ -88,13 +82,13 @@ struct OtpView: View {
 						.size(CGSize.init(width: 20, height: 20))
 				)
 			}
+			
 		}
-		Spacer()
-    }
+	}
 }
 
 struct OtpView_Previews: PreviewProvider {
-    static var previews: some View {
-        OtpView()
-    }
+	static var previews: some View {
+		OtpView()
+	}
 }
