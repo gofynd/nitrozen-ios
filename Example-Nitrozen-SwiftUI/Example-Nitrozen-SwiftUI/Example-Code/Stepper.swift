@@ -72,7 +72,6 @@ struct Stepper: View {
                         step: 1,
                         itemSpacing: 8,
                         appearance: NitrozenAppearance.shared.stepperView.copy
-                            .inputTitle(NitrozenAppearance.TextLabel.init(titleColor: .red, font: .nitrozen(.body(size: .s, weight: .regular))))
                             .actionButton(NitrozenAppearance.Button.init(
                                 styleUseCase: NitrozenAppearance.Button.StyleUseCase.bordered,
                                 titleColor: .red,

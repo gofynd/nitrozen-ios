@@ -49,13 +49,15 @@ public struct NitrozenStepperView: View {
     @ViewBuilder
     func inputTextfield() -> some View{
         TextField("", text: $inputValue)
-            .background(appearance.inputField.backgroundColor)
+			.font(self.appearance.inputField.textFieldInternalTextLabel.font)
+			.foregroundColor(self.appearance.inputField.textFieldInternalTextLabel.titleColor)
             .multilineTextAlignment(.center)
             .apply(padding: appearance.inputField.borderPadding)
             .frame(
                 minWidth:self.appearance.inputFieldSize.width,
                 minHeight: self.appearance.inputFieldSize.height
             )
+			.background(appearance.inputField.backgroundColor)
             .fixedSize(horizontal:true, vertical: false)
             .nitrozen.roundedCornerWithBorder(
                 color: self.appearance.inputField.borderColor,
