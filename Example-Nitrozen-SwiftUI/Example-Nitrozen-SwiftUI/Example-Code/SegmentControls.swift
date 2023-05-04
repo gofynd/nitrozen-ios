@@ -40,44 +40,21 @@ struct SegmentControlViews: View {
 					.padding(.bottom, 32)
 			}
 			
-			Section("Scrollable Segment Control with custom apperance\n- Scrollable dynamic width - Custom fixed height\n- item dynamic width - fix item spacing") {
+			Section("Scrollable Segment Control with default Underline apperance\n- Scrollable dynamic width - Custom fixed height\n- item dynamic width - fix item spacing") {
 				NitrozenSegmentControl(
 					options: self.options8,
 					selection: $selection8,
 					selectionStyle: .underline,
-					isScrollableEnabled: true,
-					appearance: NitrozenAppearance.shared
-						.segment.copy
-						.titleAppearance(.init(titleColor: ColorProvider.shared.gray60, font: .nitrozen(.body(size: .s, weight: .useDefault))))
-						.selectedTitleAppearance(.init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))))
-						.backgroundColor(.clear)
-						.selectedBackgroundColor(ColorProvider.shared.primary50)
-						.viewShape(.none)
-						.itemSize(.init(width: CGFloat.infinity, height: 42))
-						.itemSpacing(16)
-						.backgroundPadding(.zero)
-						.viewShape(.roundedRectangle(radius: 0))
-						.borderWidth(0)
+					isScrollableEnabled: true
 				)
 				.padding(.bottom, 32)
 			}
 			
-			Section("Segment Control with custom apperance\n- full width - Custom fixed height\n- item infinity width - fix item spacing ") {
+			Section("Segment Control with default Underline apperance\n- full width - Custom fixed height\n- item infinity width - fix item spacing ") {
 				NitrozenSegmentControl(
 					options: self.options7,
 					selection: $selection7,
-					selectionStyle: .underline,
-					appearance: NitrozenAppearance.shared
-						.segment.copy
-						.titleAppearance(.init(titleColor: ColorProvider.shared.gray60, font: .nitrozen(.body(size: .s, weight: .useDefault))))
-						.selectedTitleAppearance(.init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))))
-						.backgroundColor(.clear)
-						.selectedBackgroundColor(ColorProvider.shared.primary50)
-						.itemSize(.init(width: CGFloat.infinity, height: 42))
-						.itemSpacing(8)
-						.backgroundPadding(.zero)
-						.viewShape(.roundedRectangle(radius: 0))
-						.borderWidth(0)
+					selectionStyle: .underline
 				)
 				.padding(.bottom, 32)
 			}
@@ -87,7 +64,7 @@ struct SegmentControlViews: View {
 					options: self.options2,
 					selection: $selection2,
 					appearance: NitrozenAppearance.shared
-						.segment.copy
+						.capsuleSegment.copy
 						.itemSize(.init(width: CGFloat.infinity, height: 30))
 						.itemSpacing(8)
 				)
@@ -106,12 +83,12 @@ struct SegmentControlViews: View {
 								Text(item)
 							}.if(isSelected) { group in
 								group
-									.font(NitrozenAppearance.shared.segment.selectedTitleAppearance.font)
-									.foregroundColor(NitrozenAppearance.shared.segment.selectedTitleAppearance.titleColor)
+									.font(NitrozenAppearance.shared.capsuleSegment.selectedTitleAppearance.font)
+									.foregroundColor(NitrozenAppearance.shared.capsuleSegment.selectedTitleAppearance.titleColor)
 							}.if(isSelected == false) { group in
 								group
-									.font(NitrozenAppearance.shared.segment.titleAppearance.font)
-									.foregroundColor(NitrozenAppearance.shared.segment.titleAppearance.titleColor)
+									.font(NitrozenAppearance.shared.capsuleSegment.titleAppearance.font)
+									.foregroundColor(NitrozenAppearance.shared.capsuleSegment.titleAppearance.titleColor)
 							}
 							
 						}
@@ -135,17 +112,17 @@ struct SegmentControlViews: View {
 								Text(item)
 							}.if(isSelected) { group in
 								group
-									.font(NitrozenAppearance.shared.segment.selectedTitleAppearance.font)
-									.foregroundColor(NitrozenAppearance.shared.segment.selectedTitleAppearance.titleColor)
+									.font(NitrozenAppearance.shared.capsuleSegment.selectedTitleAppearance.font)
+									.foregroundColor(NitrozenAppearance.shared.capsuleSegment.selectedTitleAppearance.titleColor)
 							}.if(isSelected == false) { group in
 								group
-									.font(NitrozenAppearance.shared.segment.titleAppearance.font)
-									.foregroundColor(NitrozenAppearance.shared.segment.titleAppearance.titleColor)
+									.font(NitrozenAppearance.shared.capsuleSegment.titleAppearance.font)
+									.foregroundColor(NitrozenAppearance.shared.capsuleSegment.titleAppearance.titleColor)
 							}
 						}
 					},
 					appearance: NitrozenAppearance.shared
-						.segment.copy
+						.capsuleSegment.copy
 						.itemSize(.init(width: 90, height: 60))
 						.itemSpacing(8)
 				)

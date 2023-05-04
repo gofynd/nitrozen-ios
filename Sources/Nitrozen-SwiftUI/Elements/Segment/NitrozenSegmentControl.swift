@@ -47,7 +47,19 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 		self._selection = selection
 		self.selectionStyle = selectionStyle
 		self.isScrollableEnabled = isScrollableEnabled
-		self.appearance = appearance.or(NitrozenAppearance.shared.segment)
+		
+		self.appearance = appearance.or(block: {
+			switch selectionStyle {
+			case .backgroundCapsule:
+				return NitrozenAppearance.shared.capsuleSegment
+			case .underline:
+				return NitrozenAppearance.shared.underlineSegment
+				
+			}
+		})
+		
+		
+		
 		self.itemBuilder = itemBuilder
 	}
 	

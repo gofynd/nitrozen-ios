@@ -99,11 +99,11 @@
 				E38B212429E96196005BF84D /* Settings.swift */,
 				E3F715A829ED41650020F4E9 /* DeviderViews.swift */,
 				E3F715AA29F134AF0020F4E9 /* SegmentControls.swift */,
-				E376042129C459EB000D28DC /* Assets.xcassets */,
-				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
 				12C4CE9929F13E3300995A93 /* EmptyView.swift */,
 				FA8A58A029F6BB730031F517 /* Stepper.swift */,
+				E376042129C459EB000D28DC /* Assets.xcassets */,
+				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 			);
 			path = "Example-Code";
 			sourceTree = "<group>";
