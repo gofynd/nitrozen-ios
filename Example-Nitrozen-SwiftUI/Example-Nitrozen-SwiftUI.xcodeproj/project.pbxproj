@@ -31,6 +31,7 @@
 		E3F7CE7429E5E5B40012B473 /* Toggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7CE7329E5E5B40012B473 /* Toggles.swift */; };
 		FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA346EA329DEE36300A948F2 /* ActionSheet.swift */; };
 		FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76C0A129DAE0E9001FB759 /* RadioButton.swift */; };
+		FA8A58A129F6BB730031F517 /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A58A029F6BB730031F517 /* Stepper.swift */; };
 		FAEDCDEE29E0105600A38414 /* PresentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDCDED29E0105600A38414 /* PresentSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		E3F7CE7329E5E5B40012B473 /* Toggles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggles.swift; sourceTree = "<group>"; };
 		FA346EA329DEE36300A948F2 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		FA76C0A129DAE0E9001FB759 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		FA8A58A029F6BB730031F517 /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
 		FAEDCDED29E0105600A38414 /* PresentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
 				12C4CE9929F13E3300995A93 /* EmptyView.swift */,
+				FA8A58A029F6BB730031F517 /* Stepper.swift */,
 			);
 			path = "Example-Code";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				E345E33729C5931D00B239FE /* TextLabels.swift in Sources */,
 				12C4CE9A29F13E3300995A93 /* EmptyView.swift in Sources */,
 				E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */,
+				FA8A58A129F6BB730031F517 /* Stepper.swift in Sources */,
 				FA76C0A229DAE0E9001FB759 /* RadioButton.swift in Sources */,
 				E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */,
 			);

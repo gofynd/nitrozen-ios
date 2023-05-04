@@ -8,7 +8,7 @@
 import SwiftUI
 
 public class NitrozenAppearance {
-
+	
 	//Appearance.public properties
 	public var colorProvider: ColorProvider
 	
@@ -28,17 +28,18 @@ public class NitrozenAppearance {
 	
 	public var tagView: NitrozenAppearance.TagView
 	public var pageControl: NitrozenAppearance.PageControl
-
+	
 	public var otpTextView: NitrozenAppearance.OTPTextView
 	public var toggle: NitrozenAppearance.Toggle
-
-    public var stapper: NitrozenAppearance.PageControl
-    public var avatar: NitrozenAppearance.Avatar
+	
+	public var stapper: NitrozenAppearance.PageControl
+	public var avatar: NitrozenAppearance.Avatar
 	public var divider: NitrozenAppearance.Divider
 	public var segment: NitrozenAppearance.Segment
-    public var emptyView: NitrozenAppearance.EmptyView
-
-
+	public var stepperView: NitrozenAppearance.StepperView
+	public var emptyView: NitrozenAppearance.EmptyView
+	
+	
 	init(
 		colorProvider: ColorProvider,
 		primaryButton: NitrozenAppearance.Button,
@@ -55,11 +56,12 @@ public class NitrozenAppearance {
 		pageControl: NitrozenAppearance.PageControl,
 		otpTextView: NitrozenAppearance.OTPTextView,
 		toggle: NitrozenAppearance.Toggle,
-        stapper: NitrozenAppearance.PageControl,
-        avatar: NitrozenAppearance.Avatar,
+		stapper: NitrozenAppearance.PageControl,
+		avatar: NitrozenAppearance.Avatar,
 		divider: NitrozenAppearance.Divider,
 		segment: NitrozenAppearance.Segment,
-        emptyView: NitrozenAppearance.EmptyView
+		stepperView: NitrozenAppearance.StepperView,
+		emptyView: NitrozenAppearance.EmptyView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -76,11 +78,12 @@ public class NitrozenAppearance {
 		self.pageControl = pageControl
 		self.otpTextView = otpTextView
 		self.toggle = toggle
-        self.stapper = stapper
-        self.avatar = avatar
+		self.stapper = stapper
+		self.avatar = avatar
 		self.divider = divider
 		self.segment = segment
-        self.emptyView = emptyView
+		self.stepperView = stepperView
+		self.emptyView = emptyView
 	}
 }
 
@@ -126,10 +129,10 @@ public extension NitrozenAppearance {
 				selectedTitle: .init(titleColor: .black, font: .body),
 				deSelectedTitle: .init(titleColor: .gray, font: .body),
 				selectedSubTitle: .init(titleColor: .gray, font: .caption),
-                deSelectedSubTitle: .init(titleColor: .gray, font: .caption),
-                iconPadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 0, trailing: 0)),
-                titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 0, trailing: 0)),
-                subTitlePadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
+				deSelectedSubTitle: .init(titleColor: .gray, font: .caption),
+				iconPadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 0, trailing: 0)),
+				titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 0, trailing: 0)),
+				subTitlePadding: ViewPadding.custom(paddingToAdd: .init(top: 16, leading: 0, bottom: 0, trailing: 0))
 			),
 			
 			checkbox: .init(
@@ -188,9 +191,9 @@ public extension NitrozenAppearance {
 				size: .init(width: 44, height: 24),
 				thumbSize: .init(width: 16, height: 16),
 				thumbPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
-            ),
-            stapper: stapperAppearance(color: colorProvider.primary50, font: font),
-            avatar: avatarViewAppearance(colorProvider: colorProvider),
+			),
+			stapper: stapperAppearance(color: colorProvider.primary50, font: font),
+			avatar: avatarViewAppearance(colorProvider: colorProvider),
 			divider: .init(
 				color: colorProvider.gray20,
 				layout: .horizontal(height: 1),
@@ -212,7 +215,38 @@ public extension NitrozenAppearance {
 				selectedViewShape: .capsule,
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
 			),
-            emptyView: emptyViewAppearance(colorProvider: colorProvider)
+			stepperView: .init(
+				actionButton: .init(
+					styleUseCase: .bordered,
+					titleColor: ColorProvider.shared.primary60,
+					titleColorDisabled: .gray,
+					backgroundColor: .white,
+					backgroundColorDisabled: .white,
+					font: .nitrozen(.body(size: .s, weight: .bold)),
+					borderWidth: 2.0,
+					borderColor: ColorProvider.shared.gray100,
+					borderColorDisabled: ColorProvider.shared.gray60
+				),
+				inputFieldSize: CGSize(width: 60, height: 32),
+				actionButtonSize: CGSize(width: 60, height: 32),
+				decrementButton: .systemImage(name: "minus"),
+				incrementButton: .systemImage(name: "plus"),
+				inputField: .init(
+					textFieldInternalTextLabel: .init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+					topInfo: .init(titleColor: ColorProvider.shared.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+					topInfoPadding: .custom(paddingToAdd: .init(top: 0, leading: 8, bottom: 8, trailing: 0)),
+					sucessInfo: .init(titleColor: ColorProvider.shared.success80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
+					successInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+					errorInfo: .init(titleColor: ColorProvider.shared.error80, font: .nitrozen(.body(size: .xxs, weight: .regular))),
+					errorInfoPadding: .custom(paddingToAdd: .init(top: 8, leading: 8, bottom: 0, trailing: 0)),
+					borderColor: ColorProvider.shared.gray40,
+					borderWidth: 2.0,
+					borderPadding: .custom(paddingToAdd: .init(top: 0, leading: 16, bottom: 0, trailing: 16)),
+					borderRadius: 8,
+					backgroundColor: ColorProvider.shared.primaryBackground
+				)
+			),
+			emptyView: emptyViewAppearance(colorProvider: colorProvider)
 		)
 	}()
 	
@@ -269,27 +303,27 @@ public extension NitrozenAppearance {
 	private static func otpTextViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.OTPTextView {
 		NitrozenAppearance.OTPTextView.init(textStyle: TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))), placeHolderStyle: .init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .useDefault))), size: CGSize.init(width: 48, height: 48), borderColor: .gray, borderWidth: 1, borderRadius: 16,fillBorderColor: .black, focusedBorderColor: colorProvider.primary50 ,errorColor: colorProvider.error50, successColor: colorProvider.success50)
 	}
-    
-    private static func avatarViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.Avatar {
-        NitrozenAppearance.Avatar(
-            borderWidth: 0,
-            borderColor: .clear,
-            backgroundColor: colorProvider.sparkle20,
-            textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
-            viewShape: .circle,
-            size: CGSize.init(width: 60, height: 60)
-        )
-    }
-    
-    private static func emptyViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.EmptyView {
-        NitrozenAppearance.EmptyView(
-            titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
-            subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
-            titlePadding: .custom(paddingToAdd: .init(top: 16, leading: 20, bottom: 0, trailing: 20)),
-            subTitlePaddding: .custom(paddingToAdd: .init(top: 4, leading: 20, bottom: 0, trailing: 20)),
-            buttonPadding: .custom(paddingToAdd: .init(top: 32, leading: 20, bottom: 20, trailing: 0))
-        )
-    }
+	
+	private static func avatarViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.Avatar {
+		NitrozenAppearance.Avatar(
+			borderWidth: 0,
+			borderColor: .clear,
+			backgroundColor: colorProvider.sparkle20,
+			textStyle: TextLabel.init(titleColor: colorProvider.sparkle60, font: .nitrozen(.body(size: .l, weight: .useDefault))),
+			viewShape: .circle,
+			size: CGSize.init(width: 60, height: 60)
+		)
+	}
+	
+	private static func emptyViewAppearance(colorProvider: ColorProvider) -> NitrozenAppearance.EmptyView {
+		NitrozenAppearance.EmptyView(
+			titleStyle: TextLabel.init(titleColor: colorProvider.gray100, font: .nitrozen(.heading(size: .xxs))),
+			subTitleStyle: TextLabel.init(titleColor: colorProvider.gray80, font: .nitrozen(.body(size: .s, weight: .useDefault))),
+			titlePadding: .custom(paddingToAdd: .init(top: 16, leading: 20, bottom: 0, trailing: 20)),
+			subTitlePaddding: .custom(paddingToAdd: .init(top: 4, leading: 20, bottom: 0, trailing: 20)),
+			buttonPadding: .custom(paddingToAdd: .init(top: 32, leading: 20, bottom: 20, trailing: 0))
+		)
+	}
 }
 
 //MARK: Copy Support
@@ -310,12 +344,14 @@ public extension NitrozenAppearance {
 			tagView: self.tagView.copy,
 			pageControl: self.pageControl.copy,
 			otpTextView: self.otpTextView.copy,
-            toggle: self.toggle.copy,
-            stapper: self.stapper.copy,
-            avatar: self.avatar.copy,
+			toggle: self.toggle.copy,
+			stapper: self.stapper.copy,
+			avatar: self.avatar.copy,
 			divider: self.divider.copy,
 			segment: self.segment.copy,
-            emptyView: self.emptyView.copy
+			stepperView: self.stepperView.copy,
+			emptyView: self.emptyView.copy
 		)
 	}
 }
+

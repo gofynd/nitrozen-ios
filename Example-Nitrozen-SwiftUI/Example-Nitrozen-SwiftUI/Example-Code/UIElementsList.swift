@@ -11,7 +11,7 @@ import Nitrozen_SwiftUI
 struct UIElementsList: View {
 	
 	@State var canShowSettings: Bool = false
-		
+	
 	var body: some View {
 		NavigationStack {
 			List {
@@ -75,7 +75,7 @@ struct UIElementsList: View {
 					}
 				}
 				
-
+				
 				Group {
 					NavigationLink {
 						TagViews()
@@ -100,25 +100,25 @@ struct UIElementsList: View {
 					} label: {
 						Text("Badge Views")
 					}
-
+					
 					NavigationLink {
 						Toggles()
 					} label: {
 						Text("Toggles/Switch")
 					}
-                    
-                    NavigationLink {
-                        StapperView()
-                    } label: {
-                        Text("Stappers")
-                    }
-                    
-                    NavigationLink {
-                        AvatarView()
-                    } label: {
-                        Text("Avatar")
-                    }
-	
+					
+					NavigationLink {
+						StapperView()
+					} label: {
+						Text("Progress Stepper")
+					}
+					
+					NavigationLink {
+						AvatarView()
+					} label: {
+						Text("Avatar")
+					}
+					
 					NavigationLink {
 						DeviderViews()
 					} label: {
@@ -131,13 +131,19 @@ struct UIElementsList: View {
 						Text("SegmentControlViews")
 					}
 					
-                    
-                    NavigationLink {
-                        EmptyView()
-                    } label: {
-                        Text("Empty View")
-                    }
-                    
+					Group{
+						NavigationLink {
+							EmptyView()
+						} label: {
+							Text("Empty View")
+						}
+						
+						NavigationLink {
+							Stepper()
+						} label: {
+							Text("Stepper View")
+						}
+					}
 				}
 			}
 			.navigationTitle("Nitrozen Elements")
