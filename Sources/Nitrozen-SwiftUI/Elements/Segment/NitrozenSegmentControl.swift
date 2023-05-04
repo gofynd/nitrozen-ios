@@ -12,7 +12,14 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 	
 	public enum SegmentSelectionStyle {
 		case backgroundCapsule
-		case underline
+		case underline(height: CGFloat)
+		
+		var underlineHeight: CGFloat {
+			switch self {
+			case .backgroundCapsule: return 0
+			case .underline(let height): return height
+			}
+		}
 	}
 	
 	//TODO: Hitendra - combine this common usage and change scope to align with Alert and actionSheet in future once other MR merged
@@ -194,7 +201,7 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 			Rectangle()
 				.fill(self.appearance.selectedBackgroundColor)
 				.apply(shape: self.appearance.selectedViewShape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
-				.frame(width: selectionViewWidth, height: 2)
+				.frame(width: selectionViewWidth, height: self.selectionStyle.underlineHeight)
 				.offset(x: self.currentSelectedItemRect.origin.x, y: 0)
 //				.position(self.currentSelectedItemRect.origin)
 				.animation(Animation.easeInOut(duration: 0.16))

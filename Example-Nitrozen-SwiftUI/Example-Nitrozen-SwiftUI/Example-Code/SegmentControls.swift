@@ -44,7 +44,7 @@ struct SegmentControlViews: View {
 				NitrozenSegmentControl(
 					options: self.options8,
 					selection: $selection8,
-					selectionStyle: .underline,
+					selectionStyle: .underline(height: 2),
 					isScrollableEnabled: true
 				)
 				.padding(.bottom, 32)
@@ -54,7 +54,7 @@ struct SegmentControlViews: View {
 				NitrozenSegmentControl(
 					options: self.options7,
 					selection: $selection7,
-					selectionStyle: .underline
+					selectionStyle: .underline(height: 2)
 				)
 				.padding(.bottom, 32)
 			}
