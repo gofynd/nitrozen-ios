@@ -13,8 +13,8 @@ struct Checkboxes: View {
 	var options1: [String] = ["Male", "Female", "Other"]
 	@State var selection1: Set<String> = ["Male"]
 
-	var options2: [String] = ["O1", "O2", "O3"]
-	@State var selection2: Set<String> = []
+	var options2: [String] =  ["Status (2)", "Email & SMS (2)", "Call (2)", "Status1 (2)", "Email & SMS1 (2)", "Call1 (2)"]
+	@State var selection2: Set<String> = ["Status (2)"]
 	
 	
 	var options3: [User] = User.users
