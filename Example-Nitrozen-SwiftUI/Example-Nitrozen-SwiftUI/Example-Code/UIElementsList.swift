@@ -13,6 +13,8 @@ struct UIElementsList: View {
 	@State var canShowSettings: Bool = false
 	
 	var body: some View {
+		
+		
 		NavigationStack {
 			List {
 				
@@ -142,6 +144,12 @@ struct UIElementsList: View {
 							Stepper()
 						} label: {
 							Text("Stepper View")
+						}
+						
+						NavigationLink {
+							ProgressViews()
+						} label: {
+							Text("ProgressViews")
 						}
 					}
 				}

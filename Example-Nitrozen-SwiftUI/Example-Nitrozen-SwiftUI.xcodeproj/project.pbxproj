@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12C2853429E959F7004681D1 /* StapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C2853329E959F7004681D1 /* StapperView.swift */; };
+		12C2853429E959F7004681D1 /* ProgressStapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C2853329E959F7004681D1 /* ProgressStapperView.swift */; };
 		12C4CE9829F0FBDD00995A93 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C4CE9729F0FBDD00995A93 /* AvatarView.swift */; };
 		12C4CE9A29F13E3300995A93 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C4CE9929F13E3300995A93 /* EmptyView.swift */; };
 		12E9668129E573A50025CE96 /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9668029E573A50025CE96 /* OtpView.swift */; };
@@ -19,6 +19,7 @@
 		E376043029C45ACE000D28DC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376042F29C45ACE000D28DC /* TextFields.swift */; };
 		E38B212529E96196005BF84D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B212429E96196005BF84D /* Settings.swift */; };
 		E3C240C829C468E40090F59A /* Nitrozen-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E3C240C729C468E40090F59A /* Nitrozen-SwiftUI */; };
+		E3C63F0D2A0AF657000ACFA3 /* ProgressViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C63F0C2A0AF657000ACFA3 /* ProgressViews.swift */; };
 		E3CBE94329D45E3C00AEE07E /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */; };
 		E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94429D46C5900AEE07E /* UIElementsList.swift */; };
 		E3CBE94729DD95BA00AEE07E /* Checkboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */; };
@@ -36,7 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12C2853329E959F7004681D1 /* StapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StapperView.swift; sourceTree = "<group>"; };
+		12C2853329E959F7004681D1 /* ProgressStapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStapperView.swift; sourceTree = "<group>"; };
 		12C4CE9729F0FBDD00995A93 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		12C4CE9929F13E3300995A93 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		12E9668029E573A50025CE96 /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		E376042F29C45ACE000D28DC /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		E376043329C460DF000D28DC /* Nitrozen-SwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Nitrozen-SwiftUI"; path = ../..; sourceTree = "<group>"; };
 		E38B212429E96196005BF84D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		E3C63F0C2A0AF657000ACFA3 /* ProgressViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViews.swift; sourceTree = "<group>"; };
 		E3CBE94229D45E3C00AEE07E /* DropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		E3CBE94429D46C5900AEE07E /* UIElementsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsList.swift; sourceTree = "<group>"; };
 		E3CBE94629DD95BA00AEE07E /* Checkboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkboxes.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 				FA76C0A129DAE0E9001FB759 /* RadioButton.swift */,
 				E3F7CE6D29E0AA940012B473 /* TagViews.swift */,
 				E3F7CE7129E5C9FA0012B473 /* BadgeViews.swift */,
-				12C2853329E959F7004681D1 /* StapperView.swift */,
+				12C2853329E959F7004681D1 /* ProgressStapperView.swift */,
 				E3F7CE6F29E3D5B90012B473 /* PageControl.swift */,
 				E3F7CE7329E5E5B40012B473 /* Toggles.swift */,
 				12E9668029E573A50025CE96 /* OtpView.swift */,
@@ -102,6 +104,7 @@
 				12C4CE9729F0FBDD00995A93 /* AvatarView.swift */,
 				12C4CE9929F13E3300995A93 /* EmptyView.swift */,
 				FA8A58A029F6BB730031F517 /* Stepper.swift */,
+				E3C63F0C2A0AF657000ACFA3 /* ProgressViews.swift */,
 				E376042129C459EB000D28DC /* Assets.xcassets */,
 				E3CBE94429D46C5900AEE07E /* UIElementsList.swift */,
 			);
@@ -229,7 +232,8 @@
 				E3CBE94529D46C5900AEE07E /* UIElementsList.swift in Sources */,
 				E38B212529E96196005BF84D /* Settings.swift in Sources */,
 				E3F715A929ED41650020F4E9 /* DeviderViews.swift in Sources */,
-				12C2853429E959F7004681D1 /* StapperView.swift in Sources */,
+				E3C63F0D2A0AF657000ACFA3 /* ProgressViews.swift in Sources */,
+				12C2853429E959F7004681D1 /* ProgressStapperView.swift in Sources */,
 				FA346EA429DEE36300A948F2 /* ActionSheet.swift in Sources */,
 				E3F715AB29F134AF0020F4E9 /* SegmentControls.swift in Sources */,
 				E345E33529C484DC00B239FE /* Buttons.swift in Sources */,

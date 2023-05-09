@@ -65,5 +65,11 @@ struct Example_Nitrozen_SwiftUIApp: App {
 			.selectedTitle(.init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .xs, weight: .useDefault))))
 			.deSelectedTitle(.init(titleColor: ColorProvider.shared.gray60, font: .nitrozen(.body(size: .xs, weight: .useDefault))))
 			.size(.init(width: 16, height: 16))
+		
+		NitrozenAppearance.shared.progressView
+			.color(ColorProvider.shared.primary50)
+			.width(6.0)
+			.backgrounRingcolor(ColorProvider.shared.gray20)
+			
 	}
 }
