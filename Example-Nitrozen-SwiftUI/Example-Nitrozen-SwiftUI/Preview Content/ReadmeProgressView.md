@@ -1,14 +1,18 @@
 
 ## ProgressView Preview
 
+
+
+
+
 | Preview1 | Preview2 |
 | ---      | ---       |
-| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.gif" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" alt="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" width="300"> |
+| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.gif" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" alt="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" width="300"> |
 
 ## ProgressView code snippets
-- All ProgressView examples with iOS13 and iOS14+ support
-- iOS14 - have NitrozenProgressViewStyle that can be used directly appllied on ProgressView as swiftui native style
+- iOS14 - have NitrozenProgressViewStyle that can be used directly and should be appllied on ProgressView as swiftui native style
 - iOS13 - have NitrozenProgressView support that can be directly used as regular View
+- All ProgressView examples with iOS13 and iOS14+ support
  
 ```swift
 	struct ProgressViews: View {
