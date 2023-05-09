@@ -101,10 +101,4 @@ struct StapperView: View {
         }
     }
 }
-
-struct StapperView_Previews: PreviewProvider {
-    static var previews: some View {
-        StapperView()
-    }
-}
 ```

@@ -39,6 +39,8 @@ public class NitrozenAppearance {
 	public var stepperView: NitrozenAppearance.StepperView
 	public var emptyView: NitrozenAppearance.EmptyView
 	
+	public var progressView: NitrozenAppearance.ProgressView
+	
 	
 	init(
 		colorProvider: ColorProvider,
@@ -62,7 +64,8 @@ public class NitrozenAppearance {
 		capsuleSegment: NitrozenAppearance.Segment,
 		underlineSegment: NitrozenAppearance.Segment,
 		stepperView: NitrozenAppearance.StepperView,
-		emptyView: NitrozenAppearance.EmptyView
+		emptyView: NitrozenAppearance.EmptyView,
+		progressView: NitrozenAppearance.ProgressView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -86,6 +89,7 @@ public class NitrozenAppearance {
 		self.underlineSegment = underlineSegment
 		self.stepperView = stepperView
 		self.emptyView = emptyView
+		self.progressView = progressView
 	}
 }
 
@@ -263,7 +267,9 @@ public extension NitrozenAppearance {
 					backgroundColor: ColorProvider.shared.primaryBackground
 				)
 			),
-			emptyView: emptyViewAppearance(colorProvider: colorProvider)
+			emptyView: emptyViewAppearance(colorProvider: colorProvider),
+			
+			progressView: .init(color: colorProvider.primary50, width: 6, backgrounRingcolor: colorProvider.gray20)
 		)
 	}()
 	
@@ -368,7 +374,8 @@ public extension NitrozenAppearance {
 			capsuleSegment: self.capsuleSegment.copy,
 			underlineSegment: self.underlineSegment.copy,
 			stepperView: self.stepperView.copy,
-			emptyView: self.emptyView.copy
+			emptyView: self.emptyView.copy,
+			progressView: self.progressView.copy
 		)
 	}
 }
