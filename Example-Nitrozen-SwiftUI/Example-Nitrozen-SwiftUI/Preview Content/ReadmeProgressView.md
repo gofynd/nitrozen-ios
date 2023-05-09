@@ -7,7 +7,7 @@
 
 | Preview1 | Preview2 |
 | ---      | ---       |
-| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.gif" width="300"> | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" alt="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4" width="300"> |
+| <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.gif" width="300"> | ![Video](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4) |
 
 ## ProgressView code snippets
 - iOS14 - have NitrozenProgressViewStyle that can be used directly and should be appllied on ProgressView as swiftui native style
