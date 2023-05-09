@@ -1,10 +1,6 @@
 
 ## ProgressView Preview
 
-
-
-
-
 | Preview1 | Preview2 |
 | ---      | ---       |
 | <img src="https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.gif" width="300"> | ![Video](https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/release1.2.0/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/progressView1.mp4) |
