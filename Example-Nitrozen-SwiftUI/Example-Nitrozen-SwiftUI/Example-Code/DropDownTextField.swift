@@ -34,16 +34,16 @@ struct DropDownTextField: View {
 			}
 			
 			Section {
-				Text("DropDown Textfields with Success info | Disable Field")
-				
+				Text("DropDown Textfields with Success info")
+
 				NitrozenDropdownTextField(
 					binding: $textField2,
-					placeHolder: "Select item of Textfield 2", infos: [
+					placeHolder: "Select item of Textfield 2",
+					infos: [
 						.init(position: .top, text: "This is textfield 2"),
 						.init(position: .success, text: "Success of textfield 2")
-					],
-					appearance: NitrozenAppearance.shared.textField.copy.backgroundColor(.gray)) {
-						
+					]) {
+						print("DropDown TextField  did tap")
 					}
 			}
 			
@@ -71,6 +71,9 @@ struct DropDownTextField: View {
 					infos: [
 						.init(position: .top, text: "This is textfield 5")
 					],
+					onTap: {
+						print("DropDown TextField  did tap")
+					},
 					rightView: AnyView(
 						HStack {
 							Divider()
@@ -80,9 +83,7 @@ struct DropDownTextField: View {
 							.onTapGesture {
 								print("Tap on custom view")
 							}
-					), onTap: {
-						print("DropDown TextField  did tap")
-					}
+					)
 				)
 			}
 		}
