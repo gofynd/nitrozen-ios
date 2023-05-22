@@ -55,8 +55,6 @@ public struct NitrozenOtpTextView: View {
         self.otpCharacter = Array(otpCode.wrappedValue)
     }
 	
-	private var digitsIndices: [Int] { (0 ..< otpCodeLength).map { $0 } }
-	
 	//MARK: Body
 	public var body: some View {
 		bodyWithoutModifiers()
@@ -75,43 +73,40 @@ public struct NitrozenOtpTextView: View {
 	}
 	
 	@ViewBuilder func bodyWithoutModifiers() -> some View {
-		HStack {
-			ZStack(alignment: .center) {
-				TextField("", text: $otpCode)
-					.frame(maxWidth: .infinity)
-					.font(Font.system(size: 0))
-					.accentColor(.clear)
-					.foregroundColor(.clear)
-					.multilineTextAlignment(.center)
-					.keyboardType(.numberPad)
-					.onReceive(Just(otpCode)) { _ in limitText(otpCodeLength) }
-					.focused($focusedField, equals: .field)
-					.padding()
-				HStack {
-					ForEach(digitsIndices, id: \.self) { index in
-						ZStack {
-							
-							self.setPinAndPlaceholder(index)
+		ZStack {
+			TextField("", text: $otpCode)
+				.font(Font.system(size: 0))
+				.accentColor(.clear)
+				.foregroundColor(.clear)
+				.keyboardType(.numberPad)
+				.onReceive(Just(otpCode)) { _ in limitText(otpCodeLength) }
+				.focused($focusedField, equals: .field)
+				.padding()
+			
+			HStack {
+				ForEach(0 ..< otpCodeLength, id: \.self) { index in
+					ZStack {
+						
+						self.currentPinDigitORPlaceholderView(index)
 
-							RoundedRectangle(cornerRadius: appearance.borderRadius)
-								.stroke(getBorderColorByStatus(index),
-										lineWidth: appearance.borderWidth
-								)
-								.frame(width: appearance.size.width,height: appearance.size.height)
-						}
-						if index != self.otpCodeLength - 1 {
-							Spacer()
-								.frame(maxWidth: self.spacing)
-						}
-
+						RoundedRectangle(cornerRadius: appearance.borderRadius)
+							.stroke(getBorderColorByStatus(index),
+									lineWidth: appearance.borderWidth
+							)
+							.frame(width: appearance.size.width, height: appearance.size.height)
 					}
+					if index != self.otpCodeLength - 1 {
+						Spacer()
+							.frame(maxWidth: self.spacing)
+					}
+
 				}
 			}
 		}
 	}
 	
 	@ViewBuilder
-	private func setPinAndPlaceholder(_ index: Int) -> some View {
+	private func currentPinDigitORPlaceholderView(_ index: Int) -> some View {
 		if self.otpCode.count <= index {
 			let placeHolderText = self.isSecureField ? "\u{25CF}" : self.placeHolder
 			Text(placeHolderText)
