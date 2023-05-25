@@ -17,19 +17,23 @@ public struct NitrozenDropdownTextField: View {
 	var leftView: AnyView? = nil
 	var rightView: AnyView? = nil
 	
+	var appearance: NitrozenAppearance.TextField
+
 	var onTap: ElementTap
 	
 	public init(
 		binding: Binding<String>, placeHolder: String,
 		infos: [NitrozenTextField.Info],
-		onTap: @escaping ElementTap,
-		leftView: AnyView? = nil, rightView: AnyView? = nil
+		leftView: AnyView? = nil, rightView: AnyView? = nil,
+		appearance: NitrozenAppearance.TextField? = nil,
+		onTap: @escaping ElementTap
 	) {
 		self.binding = binding
 		self.placeHolder = placeHolder
 		self.infos = infos
 		self.leftView = leftView
 		self.rightView = rightView
+		self.appearance = appearance.or(NitrozenAppearance.shared.textField)
 		self.onTap = onTap
 	}
 	
@@ -61,6 +65,7 @@ public struct NitrozenDropdownTextField: View {
 		NitrozenTextField(
 			binding: self.binding, placeHolder: self.placeHolder, infos: self.infos,
 			isSecure: false,
+			apperance: self.appearance,
 			leftView: self.leftView,
 			rightView: self.rightView.or(dropDownIconView()))
 	}
