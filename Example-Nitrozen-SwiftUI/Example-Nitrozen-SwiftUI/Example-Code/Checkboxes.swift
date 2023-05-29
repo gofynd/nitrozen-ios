@@ -94,7 +94,7 @@ struct Checkboxes: View {
 }
 
 extension String: NitrozenElementStringSelectableStyle {
-	public var selectionTitle: String { return self  }
+	public var selectionTitle: String { return self }
 }
 
 
