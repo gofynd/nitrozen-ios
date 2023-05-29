@@ -15,7 +15,6 @@ struct Example_Nitrozen_SwiftUIApp: App {
 		self.setupNitrozenAppearance()
 	}
 	
-	
     var body: some Scene {
         WindowGroup {
 			UIElementsList()
@@ -70,6 +69,5 @@ struct Example_Nitrozen_SwiftUIApp: App {
 			.color(ColorProvider.shared.primary50)
 			.width(6.0)
 			.backgrounRingcolor(ColorProvider.shared.gray20)
-			
 	}
 }

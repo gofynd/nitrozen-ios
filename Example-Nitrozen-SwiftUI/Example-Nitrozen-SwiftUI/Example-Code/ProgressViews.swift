@@ -15,6 +15,7 @@ struct ProgressViews: View {
 			Section("- iOS14 supported \n- deterministic progress type") {
 				HStack(spacing: 20) {
 					Group {
+												
 						ProgressView(value: 0.35, total: 1)
 							.nitrozenProgress()
 						
