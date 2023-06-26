@@ -12,22 +12,22 @@ public extension NitrozenViewBox {
 	func roundedCornerWithBorder(color: Color, radius: CGFloat = 10, lineWidth: CGFloat = 0.0) -> some View {
 		self.value.nitrozen
 			.overlay(content: {
-				RoundedRectangle(cornerRadius: radius, style: .continuous)
-					.stroke(color, lineWidth: lineWidth)
+				RoundedRectangle(cornerRadius: radius, style: .circular)
+					.strokeBorder(color, lineWidth: lineWidth)
 			})
 			.clipShape(
-				RoundedRectangle(cornerRadius: radius, style: .continuous)
+				RoundedRectangle(cornerRadius: radius, style: .circular)
 			)
 	}
 	
 	func capsuleWithBorder(color: Color, lineWidth: CGFloat = 0.0) -> some View {
 		self.value.nitrozen
 			.overlay(content: {
-				Capsule(style: .continuous)
-					.stroke(color, lineWidth: lineWidth)
+				Capsule(style: .circular)
+					.strokeBorder(color, lineWidth: lineWidth)
 			})
 			.clipShape(
-				Capsule(style: .continuous)
+                Capsule(style: .circular)
 			)
 	}
 	
@@ -35,7 +35,7 @@ public extension NitrozenViewBox {
 		self.value.nitrozen
 			.overlay(content: {
 				Circle()
-					.stroke(color, lineWidth: lineWidth)
+					.strokeBorder(color, lineWidth: lineWidth)
 			})
 			.clipShape(
 				Circle()
