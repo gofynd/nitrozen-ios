@@ -13,8 +13,7 @@ struct UIElementsList: View {
 	@State var canShowSettings: Bool = false
 	
 	var body: some View {
-		
-		
+
 		NavigationStack {
 			List {
 				

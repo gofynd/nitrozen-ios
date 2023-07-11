@@ -38,7 +38,25 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 	var appearance: NitrozenAppearance.Segment
 	var itemBuilder: ((Element, Bool) -> any View)?
 	
-	var isScrollableEnabled: Bool
+    public enum UserInteractionBehaviour {
+        case scrollable(padding: ViewPadding)
+        case fixedSizeNoScrollable
+        
+        var isScrollableEnabled: Bool {
+            switch self {
+            case .fixedSizeNoScrollable: return false
+            case .scrollable: return true
+            }
+        }
+        
+        var viewPadding: ViewPadding {
+            switch self {
+            case .fixedSizeNoScrollable: return .zero
+            case .scrollable(let padding): return padding
+            }
+        }
+    }
+	var userInteractionBehaviour: UserInteractionBehaviour
 	
 	@State private var currentSelectedIndex: Int = 0
 	@State private var allSegmentItemRectDataWithIndex: [Int: CGRect] = [:]
@@ -47,13 +65,13 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 		options: Array<Element>, selection: Binding<Element>,
 		itemBuilder: ((Element, Bool) -> any View)? = nil,
 		selectionStyle: SegmentSelectionStyle = .backgroundCapsule,
-		isScrollableEnabled: Bool = false,
+        userInteractionBehaviour: UserInteractionBehaviour = .fixedSizeNoScrollable,
 		appearance: NitrozenAppearance.Segment? = nil
 	) {
 		self.options = options
 		self._selection = selection
 		self.selectionStyle = selectionStyle
-		self.isScrollableEnabled = isScrollableEnabled
+		self.userInteractionBehaviour = userInteractionBehaviour
 		
 		self.appearance = appearance.or(block: {
 			switch selectionStyle {
@@ -87,46 +105,63 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 	}
 	var model: Model = .init(contentViewSize: .zero)
 	
-	public var body: some View {
-		GeometryReader { geometry in
-			let _ = self.model.contentViewSize = geometry.size //save main content size
-			
-			// Align the ZStack to the leading edge to make calculating offset on activeSegmentView easier
-			ZStack(alignment: self.zStackAlignment) {
-				// activeSegmentView indicates the current selection
-				self.currentSelectedItemBackgroundView()
-				
-				
-				if isScrollableEnabled {
-					if #available(iOS 14.0, *) {
-						ScrollViewReader { scrollViewReader in
-							ScrollView(.horizontal, showsIndicators: false) {
-								itemList(scrollViewReader: scrollViewReader)
-							}
-						}
-					} else { // Fallback on earlier versions
-						ScrollView(.horizontal, showsIndicators: false) {
-							itemList()
-						}
-					}
-				} else {
-					itemList()
-				}
-			}
-			.coordinateSpace(name: "parentZStack")
-			.apply(padding: self.appearance.backgroundPadding)
-			.background(self.appearance.backgroundColor)
-			.apply(shape: self.appearance.viewShape, color: self.appearance.borderColor, lineWidth: self.appearance.borderWidth)
-			.onAppear {
-				self.currentSelectedIndex = self.selectionIndex
-			}
-		}
-	}
+    public var body: some View {
+        bodyWithoutModifieres()
+            .onChangeObserver(of: selection.hashValue, perform: { newValue in
+                self.updateCurrentSelectedIndex()
+            })
+            .onAppear {
+                self.updateCurrentSelectedIndex()
+            }
+    }
+    
+    func updateCurrentSelectedIndex(){
+        self.currentSelectedIndex = self.selectionIndex
+    }
+    
+    @ViewBuilder func bodyWithoutModifieres() -> some View {
+        GeometryReader { geometry in
+            let _ = self.model.contentViewSize = geometry.size //save main content size
+            
+            // Align the ZStack to the leading edge to make calculating offset on activeSegmentView easier
+            ZStack(alignment: self.zStackAlignment) {
+                // activeSegmentView indicates the current selection
+                self.currentSelectedItemBackgroundView()
+                
+                
+                if self.userInteractionBehaviour.isScrollableEnabled {
+                    if #available(iOS 14.0, *) {
+                        ScrollViewReader { scrollViewReader in
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                itemList(scrollViewReader: scrollViewReader)
+                                    .apply(padding: self.userInteractionBehaviour.viewPadding)
+                            }
+                        }
+                    } else { // Fallback on earlier versions
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            itemList()
+                                .apply(padding: self.userInteractionBehaviour.viewPadding)
+                        }
+                    }
+                    
+                } else {
+                    itemList()
+                }
+            }
+            .coordinateSpace(name: "parentZStack")
+            .apply(padding: self.appearance.backgroundPadding)
+            .background(self.appearance.backgroundColor)
+            .apply(shape: self.appearance.viewShape, color: self.appearance.borderColor, lineWidth: self.appearance.borderWidth)
+        }
+        .onAppear {
+            self.currentSelectedIndex = self.selectionIndex
+        }
+    }
 	
 	@ViewBuilder
 	func itemView(item: Element, isSelected: Bool) -> some View {
 		
-		let isSelected = self.selection == item
+        let isSelected = self.selection.hashValue == item.hashValue
 		let titleView: CustomLabelView = self.itemBuilder
 			.convert { builder in
 				NitrozenSegmentControl.CustomLabelView.custom(view: AnyView(builder(item, isSelected)))
@@ -173,10 +208,11 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 	}
 	
 	var currentSelectedItemRect: CGRect {
-		self.allSegmentItemRectDataWithIndex[self.currentSelectedIndex].or(.zero)
+        return self.allSegmentItemRectDataWithIndex[self.currentSelectedIndex].or(.zero)
 	}
+    
 	var selectionViewWidth: CGFloat {
-		if self.isScrollableEnabled.isFalse {
+        if self.userInteractionBehaviour.isScrollableEnabled.isFalse {
 			if self.appearance.itemSize.width ==  CGFloat.infinity {
 				return ( self.model.contentViewSize.width - (CGFloat(self.options.count) * self.appearance.itemSpacing) ) / CGFloat(self.options.count)
 			} else {
@@ -195,7 +231,7 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 				.fill(self.appearance.selectedBackgroundColor)
 				.frame(width: selectionViewWidth, height: self.appearance.itemSize.height)
 				.apply(shape: self.appearance.selectedViewShape, color: self.appearance.selectedBorderColor, lineWidth: self.appearance.selectedBorderWidth)
-				.offset(x: (allSegmentItemRectDataWithIndex[currentSelectedIndex]?.origin.x).or(0), y: 0)
+                .offset(x: self.currentSelectedItemRect.origin.x, y: 0)
 				.animation(Animation.easeInOut(duration: 0.16))
 		case .underline:
 			Rectangle()

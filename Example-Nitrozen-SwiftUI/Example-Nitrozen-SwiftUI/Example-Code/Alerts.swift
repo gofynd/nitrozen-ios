@@ -124,7 +124,10 @@ struct Alerts: View {
 				.padding(.horizontal, 8)
 				.padding(.bottom, 48)
 				
-			})
+            },appearance: NitrozenAppearance.shared.alert.copy
+                .titlePadding(.custom(paddingToAdd: .init(top: 20, leading: 20, bottom: 20, trailing: 20)))
+                .subTitlePaddding(.custom(paddingToAdd: .init(top: 50, leading: 20, bottom: 50, trailing: 20)))
+            )
 		}
 	}
 }
