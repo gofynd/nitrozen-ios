@@ -94,9 +94,9 @@ public struct NitrozenTextField: View {
     
     func getBorderColor() -> Color {
         if self.infos.contains(where: {$0.position == .success }) {
-            return self.apperance.sucessInfo.titleColor
+            return Color(self.apperance.sucessInfo.titleColor.uiColor().lighter(percentage: 30))
         } else if self.infos.contains(where: {$0.position == .error }) {
-            return self.apperance.errorInfo.titleColor
+            return Color(self.apperance.errorInfo.titleColor.uiColor().lighter(percentage: 30))
         } else {
             return self.apperance.borderColor
         }
