@@ -107,12 +107,16 @@ public struct NitrozenOtpTextView: View {
 	
 	@ViewBuilder
 	private func currentPinDigitORPlaceholderView(_ index: Int) -> some View {
-		if self.otpCode.count <= index {
+        if self.otpCode.count == index, self.focusedField == .field {
+            Text("|")
+                .font(appearance.placeHolderStyle.font)
+                .foregroundColor(appearance.textStyle.titleColor)
+        } else if self.otpCode.count <= index {
 			let placeHolderText = self.isSecureField ? "\u{25CF}" : self.placeHolder
 			Text(placeHolderText)
 				.font(appearance.placeHolderStyle.font)
 				.foregroundColor(appearance.placeHolderStyle.titleColor)
-		} else {
+        } else {
 			let pinText = self.isSecureField ? "\u{25CF}" : self.getPin(at: index)
 			Text(pinText)
 				.font(appearance.textStyle.font)
@@ -133,7 +137,9 @@ public struct NitrozenOtpTextView: View {
 		}
 		if self.otpCode.isEmpty.isFalse, self.otpCode.count == index {
 			return appearance.focusedBorderColor
-		}
+        } else if self.otpCode.isEmpty, self.focusedField == .field, index == 0 {
+            return appearance.focusedBorderColor
+        }
 		return self.otpCode.count <= index ? appearance.borderColor : appearance.fillBorderColor
 	}
 	

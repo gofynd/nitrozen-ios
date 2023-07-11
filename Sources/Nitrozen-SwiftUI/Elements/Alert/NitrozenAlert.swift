@@ -84,8 +84,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 
 			self.topView.convertToView { topView in
 				topView
-					.padding(.top, 20)
-					.padding(.bottom, 12)
+                    .apply(padding: appearance.topImagePadding)
 			}
 			
 			Group {
@@ -93,13 +92,13 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 					Text(title)
 						.foregroundColor(self.appearance.title.titleColor)
 						.font(self.appearance.title.font)
-						.padding(.bottom, 12)
+                        .apply(padding: appearance.titlePadding)
 				}
 				self.subtitle.convertToView { subtitle in
 					Text(subtitle)
 						.foregroundColor(NitrozenAppearance.shared.alert.subtitle.titleColor)
 						.font(NitrozenAppearance.shared.alert.subtitle.font)
-						.padding(.bottom, 32)
+                        .apply(padding: appearance.subTitlePaddding)
 				}
 			}
 			.lineLimit(nil)

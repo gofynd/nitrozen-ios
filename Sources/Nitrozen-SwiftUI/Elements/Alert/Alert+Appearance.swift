@@ -12,15 +12,24 @@ public extension NitrozenAppearance {
 		public var title: NitrozenAppearance.TextLabel
 		public var subtitle: NitrozenAppearance.TextLabel
 		public var closeButtonColor: SystemColor
+        var topImagePadding: ViewPadding
+        var titlePadding: ViewPadding
+        var subTitlePaddding: ViewPadding
 		
 		init(
 			title: NitrozenAppearance.TextLabel,
 			subtitle: NitrozenAppearance.TextLabel,
-			closeButtonColor: SystemColor
+			closeButtonColor: SystemColor,
+            topImagePadding: ViewPadding,
+            titlePadding: ViewPadding,
+            subTitlePaddding: ViewPadding
 		) {
 			self.title = title
 			self.subtitle = subtitle
 			self.closeButtonColor = closeButtonColor
+            self.topImagePadding = topImagePadding
+            self.titlePadding = titlePadding
+            self.subTitlePaddding = subTitlePaddding
 		}
 	}
 }
@@ -34,6 +43,16 @@ public extension NitrozenAppearance.Alert {
 	
 	@discardableResult
 	func closeButtonColor(_ closeButtonColor: SystemColor) -> Self { self.closeButtonColor = closeButtonColor; return self }
+    
+    @discardableResult
+    func titlePadding(_ titlePadding: ViewPadding) -> Self { self.titlePadding = titlePadding; return self }
+    
+    @discardableResult
+    func subTitlePaddding(_ subTitlePaddding: ViewPadding) -> Self { self.subTitlePaddding = subTitlePaddding; return self }
+    
+    @discardableResult
+    func topImagePadding(_ topImagePadding: ViewPadding) -> Self { self.topImagePadding = topImagePadding; return self }
+    
 }
 
 //MARK: Copy Support
@@ -42,7 +61,10 @@ public extension NitrozenAppearance.Alert {
 		.init(
 			title: self.title.copy,
 			subtitle: self.subtitle.copy,
-			closeButtonColor: self.closeButtonColor
+			closeButtonColor: self.closeButtonColor,
+            topImagePadding: self.topImagePadding,
+            titlePadding: self.titlePadding,
+            subTitlePaddding: self.subTitlePaddding
 		)
 	}
 }

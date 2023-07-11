@@ -89,8 +89,18 @@ public struct NitrozenTextField: View {
 		.foregroundColor(self.apperance.textFieldInternalTextLabel.titleColor)
 		.font(self.apperance.textFieldInternalTextLabel.font)
 		.background(self.apperance.backgroundColor)
-		.nitrozen.roundedCornerWithBorder(color: self.apperance.borderColor, radius: self.apperance.borderRadius, lineWidth: self.apperance.borderWidth)
+		.nitrozen.roundedCornerWithBorder(color: getBorderColor(), radius: self.apperance.borderRadius, lineWidth: self.apperance.borderWidth)
 	}
+    
+    func getBorderColor() -> Color {
+        if self.infos.contains(where: {$0.position == .success }) {
+            return self.apperance.sucessInfo.titleColor
+        } else if self.infos.contains(where: {$0.position == .error }) {
+            return self.apperance.errorInfo.titleColor
+        } else {
+            return self.apperance.borderColor
+        }
+    }
 	
 	@ViewBuilder
 	func infoView() -> some View {

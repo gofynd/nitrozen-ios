@@ -39,16 +39,23 @@ struct SegmentControlViews: View {
 				NitrozenSegmentControl(options: self.options1, selection: $selection1)
 					.padding(.bottom, 32)
 			}
+            .onTapGesture {
+                self.selection1 = options1[Int.random(in: 0...2)]
+            }
 			
 			Section("Scrollable Segment Control with default Underline apperance\n- Scrollable dynamic width - Custom fixed height\n- item dynamic width - fix item spacing") {
 				NitrozenSegmentControl(
 					options: self.options8,
 					selection: $selection8,
 					selectionStyle: .underline(height: 2),
-					isScrollableEnabled: true
+                    userInteractionBehaviour: .scrollable(padding: .custom(paddingToAdd: .zero))
 				)
 				.padding(.bottom, 32)
-			}
+                .padding(.horizontal, 0)
+            }
+            .onTapGesture {
+                self.selection8 = options8[Int.random(in: 0...6)]
+            }
 			
 			Section("Segment Control with default Underline apperance\n- full width - Custom fixed height\n- item infinity width - fix item spacing ") {
 				NitrozenSegmentControl(

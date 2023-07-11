@@ -169,7 +169,10 @@ public extension NitrozenAppearance {
 			alert: .init(
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
-				closeButtonColor: colorProvider.primary50
+				closeButtonColor: colorProvider.primary50,
+                topImagePadding: ViewPadding.custom(paddingToAdd: .init(top: 20, leading: 0, bottom: 12, trailing: 0)),
+                titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 12, trailing: 0)),
+                subTitlePaddding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 32, trailing: 0))
 			),
 			
 			tagView: tagViewAppearance(color: colorProvider.primary50, font: font),
