@@ -39,7 +39,7 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
 	var itemBuilder: ((Element, Bool) -> any View)?
 	
     public enum UserInteractionBehaviour {
-        case scrollable(padding: ViewPadding)
+        case scrollable(padding: EdgeInsets)
         case fixedSizeNoScrollable
         
         var isScrollableEnabled: Bool {
@@ -49,9 +49,9 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
             }
         }
         
-        var viewPadding: ViewPadding {
+        var viewPadding: EdgeInsets {
             switch self {
-            case .fixedSizeNoScrollable: return .zero
+            case .fixedSizeNoScrollable: return .init()
             case .scrollable(let padding): return padding
             }
         }
@@ -134,13 +134,14 @@ public struct NitrozenSegmentControl<Element>: View where Element: NitrozenEleme
                         ScrollViewReader { scrollViewReader in
                             ScrollView(.horizontal, showsIndicators: false) {
                                 itemList(scrollViewReader: scrollViewReader)
-                                    .apply(padding: self.userInteractionBehaviour.viewPadding)
+                                    .padding(self.userInteractionBehaviour.viewPadding)
                             }
+                            
                         }
                     } else { // Fallback on earlier versions
                         ScrollView(.horizontal, showsIndicators: false) {
                             itemList()
-                                .apply(padding: self.userInteractionBehaviour.viewPadding)
+                                .padding(self.userInteractionBehaviour.viewPadding)
                         }
                     }
                     
