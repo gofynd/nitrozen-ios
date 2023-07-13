@@ -48,7 +48,7 @@ struct SegmentControlViews: View {
 					options: self.options8,
 					selection: $selection8,
 					selectionStyle: .underline(height: 2),
-                    userInteractionBehaviour: .scrollable(padding: .custom(paddingToAdd: .zero))
+                    userInteractionBehaviour: .scrollable(padding: .init(top: 0, leading: 16, bottom: 0, trailing: 16))
 				)
 				.padding(.bottom, 32)
                 .padding(.horizontal, 0)
