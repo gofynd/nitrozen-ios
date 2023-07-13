@@ -78,14 +78,10 @@ public struct NitrozenAvatar: View {
         let initials = words.reduce(into: "") { (result, word) in
             if let firstCharacter = word.first {
                 result.append(firstCharacter)
-                if result.count == self.initialsMaxCharacterCount {
-                    return
-                }
-                
             }
         }
 
-        return initials.uppercased()
+        return String(initials.prefix(self.initialsMaxCharacterCount)).uppercased()
     }
 
 }
