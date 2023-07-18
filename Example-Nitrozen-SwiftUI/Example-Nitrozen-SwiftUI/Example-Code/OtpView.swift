@@ -29,13 +29,30 @@ struct OtpView: View {
 			}
 			
 			Section("Nitrozen OTPField") {
-				NitrozenOtpTextView(
-					otpCode: $otpcode7,
-					otpCodeLength: 6,
-					placeHolder: "0",
-					validationState: .success,
-					spacing: 4
-				)
+				HStack {
+					NitrozenOtpTextView(
+						otpCode: $otpcode7,
+						otpCodeLength: 6,
+						placeHolder: "0",
+						validationState: .success,
+						spacing: 8
+					)
+				}
+				
+			}
+			
+			Section("Nitrozen OTPField - leading") {
+				HStack {
+					NitrozenOtpTextView(
+						otpCode: $otpcode7,
+						otpCodeLength: 6,
+						placeHolder: "0",
+						validationState: .success,
+						spacing: 8
+					)
+					Spacer().frame(maxWidth: .infinity)
+				}
+				
 			}
 			
 			Section("SecureField OTPField with custom border color") {

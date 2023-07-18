@@ -20,11 +20,13 @@ public struct NitrozenStepperView: View {
     var intInputValue:Int {
         return Int($inputValue.wrappedValue) ?? 0
     }
+    var disableStepButton: (min: Bool, max: Bool)
     
     public init(
         inputValue: Binding<String>,
         range:Range<Int>,
         step:Int,
+        disableStepButton: (min: Bool, max: Bool) = (min: false, max: false),
         itemSpacing:CGFloat,
         appearance: NitrozenAppearance.StepperView? = nil
 
@@ -33,6 +35,7 @@ public struct NitrozenStepperView: View {
         self.appearance = appearance.or(NitrozenAppearance.shared.stepperView)
         self.range = range
         self.step = step
+        self.disableStepButton = disableStepButton
         self.itemSpacing = itemSpacing
         self.maxInputValue = self.range.upperBound - 1
         self.minInputValue = self.range.lowerBound
@@ -76,7 +79,7 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func incrementActionButton() -> some View{
-		let isButtonDisable = (maxInputValue == intInputValue)
+        let isButtonDisable = (maxInputValue == intInputValue) || self.disableStepButton.max
 		
 		let borderColor = isButtonDisable ?
 		appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor
@@ -116,7 +119,7 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
 	func decrementActionButton() -> some View{
-		let isButtonDisable = (minInputValue == intInputValue)
+		let isButtonDisable = (minInputValue == intInputValue)  || self.disableStepButton.min
 		
 		let borderColor = isButtonDisable ?
 		appearance.actionButton.borderColorDisabled : appearance.actionButton.borderColor

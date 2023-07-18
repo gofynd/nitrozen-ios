@@ -57,7 +57,7 @@ public extension NitrozenAppearance.Segment {
 	func borderWidth(_ borderWidth: CGFloat) -> Self { self.borderWidth = borderWidth; return self }
 	
 	@discardableResult
-	func viewShape(_ selectedViewShape: ViewShape) -> Self { self.selectedViewShape = viewShape; return self }
+	func viewShape(_ viewShape: ViewShape) -> Self { self.viewShape = viewShape; return self }
 	
 	@discardableResult
 	func titleAppearance(_ titleAppearance: NitrozenAppearance.TextLabel) -> Self { self.titleAppearance = titleAppearance; return self }

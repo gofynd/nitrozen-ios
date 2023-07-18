@@ -15,7 +15,6 @@ struct Example_Nitrozen_SwiftUIApp: App {
 		self.setupNitrozenAppearance()
 	}
 	
-	
     var body: some Scene {
         WindowGroup {
 			UIElementsList()
@@ -60,5 +59,15 @@ struct Example_Nitrozen_SwiftUIApp: App {
 			.borderRadius(16)
 			.size(CGSize.init(width: 48, height: 48))
 			.textStyle(NitrozenAppearance.TextLabel.init(titleColor: .black, font: .nitrozen(.body(size: .s, weight: .useDefault))))
+		
+		NitrozenAppearance.shared.checkbox
+			.selectedTitle(.init(titleColor: ColorProvider.shared.gray100, font: .nitrozen(.body(size: .xs, weight: .useDefault))))
+			.deSelectedTitle(.init(titleColor: ColorProvider.shared.gray60, font: .nitrozen(.body(size: .xs, weight: .useDefault))))
+			.size(.init(width: 16, height: 16))
+		
+		NitrozenAppearance.shared.progressView
+			.color(ColorProvider.shared.primary50)
+			.width(6.0)
+			.backgrounRingcolor(ColorProvider.shared.gray20)
 	}
 }

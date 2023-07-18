@@ -75,21 +75,26 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 			if self.isLoading {
 				ZStack {
 					configuration.label
+						.apply(padding: padding)
 						.opacity(0.01)
 					
-					/// This is not final loading indicator
-					/// -- we will replace this With Nitrozen loader later, once we will have loader component ready
-					LoadingIndicatorView(isLoading: self.isLoading, color: forgroundColor)
-						.frame(width: 40, height: 16)
+					NitrozenProgressView(
+						style: .indeterministic,
+						appearance: NitrozenAppearance.shared.progressView
+							.copy
+							.color(textColor)
+							.width(4)
+							.backgrounRingcolor(textColor.opacity(0.25))
+					)
+					.frame(width: 32, height: 32)
 				}
 			} else {
 				configuration.label
+					.apply(padding: padding)
 			}
 		}
 		.font(font)
 		.foregroundColor(forgroundColor)
-		.apply(padding: padding)
-		
 		.background(backgroundView(configuration: configuration))
 		.apply(shape: self.viewShape, color: isEnabled ? borderColor : borderColorDisabled, lineWidth: borderWidth)
 		.contentShape(Rectangle()) //for user interaction in all the area

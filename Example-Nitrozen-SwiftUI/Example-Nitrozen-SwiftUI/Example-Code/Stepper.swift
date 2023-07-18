@@ -27,6 +27,7 @@ struct Stepper: View {
                             inputValue: $countText1,
                             range: Range(0...20),
                             step: 1,
+                            disableStepButton: (min: countText1 == "1", max: countText1 == "8"),
                             itemSpacing: 8
                         )
                     }

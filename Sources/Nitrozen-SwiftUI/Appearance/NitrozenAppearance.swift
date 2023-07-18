@@ -31,13 +31,15 @@ public class NitrozenAppearance {
 	
 	public var otpTextView: NitrozenAppearance.OTPTextView
 	public var toggle: NitrozenAppearance.Toggle
-	
 	public var stapper: NitrozenAppearance.PageControl
 	public var avatar: NitrozenAppearance.Avatar
 	public var divider: NitrozenAppearance.Divider
-	public var segment: NitrozenAppearance.Segment
+	public var capsuleSegment: NitrozenAppearance.Segment
+	public var underlineSegment: NitrozenAppearance.Segment
 	public var stepperView: NitrozenAppearance.StepperView
 	public var emptyView: NitrozenAppearance.EmptyView
+	
+	public var progressView: NitrozenAppearance.ProgressView
 	
 	
 	init(
@@ -59,9 +61,11 @@ public class NitrozenAppearance {
 		stapper: NitrozenAppearance.PageControl,
 		avatar: NitrozenAppearance.Avatar,
 		divider: NitrozenAppearance.Divider,
-		segment: NitrozenAppearance.Segment,
+		capsuleSegment: NitrozenAppearance.Segment,
+		underlineSegment: NitrozenAppearance.Segment,
 		stepperView: NitrozenAppearance.StepperView,
-		emptyView: NitrozenAppearance.EmptyView
+		emptyView: NitrozenAppearance.EmptyView,
+		progressView: NitrozenAppearance.ProgressView
 	) {
 		self.colorProvider = colorProvider
 		self.primaryButton = primaryButton
@@ -81,9 +85,11 @@ public class NitrozenAppearance {
 		self.stapper = stapper
 		self.avatar = avatar
 		self.divider = divider
-		self.segment = segment
+		self.capsuleSegment = capsuleSegment
+		self.underlineSegment = underlineSegment
 		self.stepperView = stepperView
 		self.emptyView = emptyView
+		self.progressView = progressView
 	}
 }
 
@@ -163,7 +169,10 @@ public extension NitrozenAppearance {
 			alert: .init(
 				title: .init(titleColor: .black, font: .nitrozen(.heading(size: .xs))),
 				subtitle: .init(titleColor: .black.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .useDefault))),
-				closeButtonColor: colorProvider.primary50
+				closeButtonColor: colorProvider.primary50,
+                topImagePadding: ViewPadding.custom(paddingToAdd: .init(top: 20, leading: 0, bottom: 12, trailing: 0)),
+                titlePadding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 12, trailing: 0)),
+                subTitlePaddding: ViewPadding.custom(paddingToAdd: .init(top: 0, leading: 0, bottom: 32, trailing: 0))
 			),
 			
 			tagView: tagViewAppearance(color: colorProvider.primary50, font: font),
@@ -200,7 +209,7 @@ public extension NitrozenAppearance {
 				shape: .capsule
 			),
 			
-			segment: .init(
+			capsuleSegment: .init(
 				backgroundColor: colorProvider.gray20,
 				borderColor: colorProvider.gray20,
 				borderWidth: 3,
@@ -214,6 +223,21 @@ public extension NitrozenAppearance {
 				itemSpacing: .infinity,
 				selectedViewShape: .capsule,
 				backgroundPadding: .custom(paddingToAdd: .init(top: 4, leading: 4, bottom: 4, trailing: 4))
+			),
+			underlineSegment: .init(
+				backgroundColor: .clear,
+				borderColor: .clear,
+				borderWidth: 0,
+				viewShape: .roundedRectangle(radius: 0),
+				titleAppearance: .init(titleColor: colorProvider.gray60, font: .nitrozen(.body(size: .s, weight: .regular))),
+				selectedBackgroundColor: colorProvider.primary50,
+				selectedBorderColor: .clear,
+				selectedBorderWidth: 0,
+				selectedTitleAppearance: .init(titleColor: colorProvider.gray100, font: .nitrozen(.body(size: .s, weight: .bold))),
+				itemSize: .init(width: CGFloat.infinity, height: 40),
+				itemSpacing: 8,
+				selectedViewShape: .capsule,
+				backgroundPadding: .zero
 			),
 			stepperView: .init(
 				actionButton: .init(
@@ -246,7 +270,9 @@ public extension NitrozenAppearance {
 					backgroundColor: ColorProvider.shared.primaryBackground
 				)
 			),
-			emptyView: emptyViewAppearance(colorProvider: colorProvider)
+			emptyView: emptyViewAppearance(colorProvider: colorProvider),
+			
+			progressView: .init(color: colorProvider.primary50, width: 6, backgrounRingcolor: colorProvider.gray20)
 		)
 	}()
 	
@@ -348,9 +374,11 @@ public extension NitrozenAppearance {
 			stapper: self.stapper.copy,
 			avatar: self.avatar.copy,
 			divider: self.divider.copy,
-			segment: self.segment.copy,
+			capsuleSegment: self.capsuleSegment.copy,
+			underlineSegment: self.underlineSegment.copy,
 			stepperView: self.stepperView.copy,
-			emptyView: self.emptyView.copy
+			emptyView: self.emptyView.copy,
+			progressView: self.progressView.copy
 		)
 	}
 }
