@@ -10,12 +10,21 @@ import SwiftUI
 public struct NitrozenTextField: View {
 	
 	public struct Info {
+		
+		public enum ToolTipView {
+			case notShow
+			case nitrozen //default view
+			case systemImage(name: String) //customized image from SFSymbol
+			case assetImage(name: String) //customized image from .xcassets
+		}
+		
 		public enum Position: Hashable {  case top, error, success }
 		
 		var position: Position
 		var text: String
 		var canShow: Bool
-		
+		var toolTipIcon:ToolTipView?
+		var onTapToolTip: ElementTap?
 		var appearance: NitrozenAppearance.TextLabel?
 		
 		public init(position: Position, text: String, canShow: Bool = true, appearance: NitrozenAppearance.TextLabel? = nil) {
@@ -23,7 +32,26 @@ public struct NitrozenTextField: View {
 			self.text = text
 			self.canShow = canShow
 			self.appearance = appearance
+			self.toolTipIcon = .notShow
+			
 		}
+		
+		public init(
+			position: Position,
+			text: String,
+			canShow: Bool = true,
+			appearance: NitrozenAppearance.TextLabel? = nil,
+			toolTipIcon:ToolTipView,
+			onTapToolTip: @escaping ElementTap) {
+				
+			self.position = position
+			self.text = text
+			self.canShow = canShow
+			self.toolTipIcon = toolTipIcon
+			self.appearance = appearance
+			self.onTapToolTip = onTapToolTip
+		}
+
 	}
 	
 	var isSecure: Bool = false
@@ -99,9 +127,35 @@ public struct NitrozenTextField: View {
 				if info.canShow {
 					HStack {
 						Spacer().frame(width: 6)
-						Text(info.text)
-							.foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
-							.font(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).font)
+						
+						HStack{
+							Text(info.text)
+								.foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
+								.font(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).font)
+
+							Button {
+								info.onTapToolTip.or {
+									
+								}()
+								
+							} label: {
+								switch info.toolTipIcon {
+								case .notShow:
+									EmptyView()
+								case .systemImage(let imageName):
+									Image(systemName: imageName)
+								case .assetImage(let imageName):
+									Image(imageName)
+								case .nitrozen:
+									Image("ic_toolTip")
+								case .none:
+									Image("ic_toolTip")
+								}
+
+							}
+
+						}
+						
 						
 					}
 					.frame(maxWidth: .infinity, alignment: .leading)
