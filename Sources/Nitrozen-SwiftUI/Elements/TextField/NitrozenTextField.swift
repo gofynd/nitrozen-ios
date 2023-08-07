@@ -37,6 +37,8 @@ public struct NitrozenTextField: View {
 	
 	var leftView: AnyView? = nil
 	var rightView: AnyView? = nil
+    
+    @State private var isEditing = false
 	
 	public init(
 		binding: Binding<String>, placeHolder: String,
@@ -80,7 +82,9 @@ public struct NitrozenTextField: View {
 				if self.isSecure {
 					SecureField(placeHolder, text: binding)
 				} else {
-					TextField(placeHolder, text: binding)
+					TextField(placeHolder, text: binding) { isEditing in
+                        self.isEditing = isEditing
+                    }
 				}
 			}
 			rightView.convertToView { $0 }
@@ -97,6 +101,8 @@ public struct NitrozenTextField: View {
             return Color(self.apperance.sucessInfo.titleColor.uiColor().lighter(percentage: 30))
         } else if self.infos.contains(where: {$0.position == .error }) {
             return Color(self.apperance.errorInfo.titleColor.uiColor().lighter(percentage: 30))
+        } else if self.isEditing {
+            return ColorProvider.shared.primary50
         } else {
             return self.apperance.borderColor
         }
