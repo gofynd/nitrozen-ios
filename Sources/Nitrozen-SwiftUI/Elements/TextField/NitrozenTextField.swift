@@ -31,7 +31,6 @@ public struct NitrozenTextField: View {
 			self.text = text
 			self.canShow = canShow
 			self.appearance = appearance
-            self.toolTipIcon = .nitrozen
 			
 		}
 		
@@ -157,8 +156,7 @@ public struct NitrozenTextField: View {
 									Image(systemName: "info.circle")
                                         .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
 								case .none:
-                                    Image(systemName: "info.circle")
-                                        .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
+                                     EmptyView()
 								}
 
 							}
