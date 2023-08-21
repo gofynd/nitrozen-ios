@@ -32,7 +32,7 @@ struct TextFields: View {
 					placeHolder: "Textfield 1",
 					infos: [
 						.init(position: .top, text: "This is textfield 1", toolTipIcon: .nitrozen, onTapToolTip: {
-							//tooltip1 = true
+							tooltip1 = true
 						})
 				
 					],
