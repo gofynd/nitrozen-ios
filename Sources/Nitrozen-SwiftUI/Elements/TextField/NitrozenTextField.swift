@@ -154,9 +154,11 @@ public struct NitrozenTextField: View {
 								case .assetImage(let imageName):
 									Image(imageName)
 								case .nitrozen:
-									Image("ic_toolTip")
+									Image(systemName: "info.circle")
+                                        .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
 								case .none:
-									Image("ic_toolTip")
+                                    Image(systemName: "info.circle")
+                                        .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
 								}
 
 							}
