@@ -12,7 +12,6 @@ public struct NitrozenTextField: View {
 	public struct Info {
 		
 		public enum ToolTipView {
-			case notShow
 			case nitrozen //default view
 			case systemImage(name: String) //customized image from SFSymbol
 			case assetImage(name: String) //customized image from .xcassets
@@ -32,7 +31,7 @@ public struct NitrozenTextField: View {
 			self.text = text
 			self.canShow = canShow
 			self.appearance = appearance
-			self.toolTipIcon = .notShow
+            self.toolTipIcon = .nitrozen
 			
 		}
 		
@@ -150,8 +149,6 @@ public struct NitrozenTextField: View {
 								
 							} label: {
 								switch info.toolTipIcon {
-								case .notShow:
-									EmptyView()
 								case .systemImage(let imageName):
 									Image(systemName: imageName)
 								case .assetImage(let imageName):
