@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUITooltip
 
 public struct NitrozenTextField: View {
 	
@@ -22,7 +23,7 @@ public struct NitrozenTextField: View {
 		var position: Position
 		var text: String
 		var canShow: Bool
-		var toolTipIcon:ToolTipView?
+        var toolTipIconView: AnyView?
 		var onTapToolTip: ElementTap?
 		var appearance: NitrozenAppearance.TextLabel?
 		
@@ -39,13 +40,13 @@ public struct NitrozenTextField: View {
 			text: String,
 			canShow: Bool = true,
 			appearance: NitrozenAppearance.TextLabel? = nil,
-			toolTipIcon:ToolTipView,
+            toolTipIconView:AnyView,
 			onTapToolTip: @escaping ElementTap) {
 				
 			self.position = position
 			self.text = text
+            self.toolTipIconView = toolTipIconView
 			self.canShow = canShow
-			self.toolTipIcon = toolTipIcon
 			self.appearance = appearance
 			self.onTapToolTip = onTapToolTip
 		}
@@ -147,18 +148,7 @@ public struct NitrozenTextField: View {
 								}()
 								
 							} label: {
-								switch info.toolTipIcon {
-								case .systemImage(let imageName):
-									Image(systemName: imageName)
-								case .assetImage(let imageName):
-									Image(imageName)
-								case .nitrozen:
-									Image(systemName: "info.circle")
-                                        .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.topInfo).titleColor)
-								case .none:
-                                     EmptyView()
-								}
-
+                                info.toolTipIconView
 							}
 
 						}

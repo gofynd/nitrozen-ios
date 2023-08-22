@@ -17,6 +17,15 @@
         "branch" : "main",
         "revision" : "d4c9a91fce3755d051af9e4cbe7ccb8c4ebd1bd8"
       }
+    },
+    {
+      "identity" : "swiftui-tooltip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/quassum/SwiftUI-Tooltip",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3bef9a21e2bcf1d0f078ddf6731c3c8996f32c3e"
+      }
     }
   ],
   "version" : 2

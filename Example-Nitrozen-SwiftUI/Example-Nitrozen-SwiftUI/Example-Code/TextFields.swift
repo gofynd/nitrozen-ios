@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Nitrozen_SwiftUI
+import SwiftUITooltip
 
 struct TextFields: View {
 
@@ -16,39 +17,56 @@ struct TextFields: View {
 	@State var textField4: String = "lorem ipsum text by user"
 	@State var textField5: String = "lorem ipsum text by user"
 	@State var textField6: String = "lorem ipsum text by user"
+    
+    var testConfig = DefaultTooltipConfig()
+    
+    init() {
+        self.testConfig.backgroundColor = .black
+        self.testConfig.margin = 12
+        
+    }
 	
 	@State var tooltip1 = false
 	@State var tooltip2 = false
 
 	
 	var body: some View {
-		List{
-			
-			Section {
-				Text("Textfields with Top info with tooltip default image")
+        
+        VStack(alignment: .leading){
+            Section {
+                Text("Textfields with Top info with tooltip default image")
+                
+                Divider()
+                
+                NitrozenTextField(
+                    binding: $textField1,
+                    placeHolder: "Textfield 1",
+                    infos: [
+                        .init(position: .top, text: "This is textfield 1", toolTipIconView: AnyView(Image(systemName: "plus")
+                            .tooltip(tooltip1,side: .top, config: testConfig) {
+                                Text("Hello, Have a fun with this feature!!")
+                                    .body(size: .s, weight: .regular, color: .white)
+                            }), onTapToolTip: {
+                                tooltip1.toggle()
+                            })
+                        
+                    ],
+                    leftView: nil, rightView: nil)
+                
+            }
 
-				NitrozenTextField(
-					binding: $textField1,
-					placeHolder: "Textfield 1",
-					infos: [
-						.init(position: .top, text: "This is textfield 1", toolTipIcon: .nitrozen, onTapToolTip: {
-							tooltip1 = true
-						})
-				
-					],
-					leftView: nil, rightView: nil)
-				
-			}
-			
+        }
+        .background(.clear)
+        .padding()
+        
+		List{
+            
 			Section {
 				Text("Textfields with Success info tooltip custom image")
 				NitrozenTextField(
 					binding: $textField2,
 					placeHolder: "Textfield 2",
 					infos: [
-						.init(position: .top, text: "This is textfield 2", toolTipIcon: .systemImage(name: "info.circle.fill"), onTapToolTip: {
-							tooltip1 = true
-						}),
 						.init(position: .success, text: "Success of textfield 2")
 					],
 					leftView: nil, rightView: nil)
@@ -108,17 +126,6 @@ struct TextFields: View {
 				)
 			}
 		}
-		.nitrozenSheet(isPresented: $tooltip1, postion: .center, content: {
-			NitrozenActionSheet(
-				title: "Inforamation",
-				isShowing: $tooltip1,
-				closeView: NitrozenActionSheet.CustomView.nitrozen,
-				content: {
-					Text("Its not good to ask gender but it would be great if you provide us!! Its not good to ask gender but it would be great if you provide us!! Its not good to ask gender but it would be great if you provide us!! Its not good to ask gender but it would be great if you provide us!! ")
-						.padding(.top, 12)
-				})
-			
-		})
 
 	}
 }
