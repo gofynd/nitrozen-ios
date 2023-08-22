@@ -57,7 +57,7 @@ fileprivate extension View {
 		case .circle:
 			return .systemDefault
 		case .capsule:
-			return .sytemDefaultAddingCustom(paddingToAdd: .init(top: -2, leading: 33, bottom: -2, trailing: 33))
+			return .sytemDefaultAddingCustom(paddingToAdd: .init(top: -2, leading: 8, bottom: -2, trailing: 8))
 		}
 	}
 }
