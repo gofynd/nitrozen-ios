@@ -26,7 +26,7 @@ struct Buttons: View {
 					Text("Click me")
 						.frame(maxWidth: .infinity)
 				}
-				.borderedButton()
+				.primaryButton()
 			}
 			
 			VStack{
