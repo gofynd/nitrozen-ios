@@ -19,7 +19,9 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/exyte/ActivityIndicatorView.git", from: .init(1, 1, 1)),
-		.package(url: "https://github.com/hitendradeveloper/CollectionStack-SwiftUI", branch: "main")
+		.package(url: "https://github.com/hitendradeveloper/CollectionStack-SwiftUI", branch: "main"),
+        .package(url: "https://github.com/quassum/SwiftUI-Tooltip", branch: "main")
+
 	],
 	targets: [
 		// Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,7 +30,8 @@ let package = Package(
 			name: "Nitrozen-SwiftUI",
 			dependencies: [
 				.product(name: "ActivityIndicatorView", package: "ActivityIndicatorView"),
-				.product(name: "CollectionStack-SwiftUI", package: "CollectionStack-SwiftUI")
+				.product(name: "CollectionStack-SwiftUI", package: "CollectionStack-SwiftUI"),
+                .product(name: "SwiftUITooltip", package: "SwiftUI-Tooltip")
 			],
 			resources: [
 					.copy("Resources/Fonts/jio_type_black.ttf"),
