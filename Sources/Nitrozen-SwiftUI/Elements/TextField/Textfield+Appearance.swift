@@ -6,14 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
 
 public extension NitrozenAppearance {
 	//TODO: define protocol textApperancable for titleColor and font
+    
+    enum CustomImageView {
+        case systemImage(name: String) //customized image from SFSymbol
+        case assetImage(name: String) //customized image from .xcassets
+        case custom(view: AnyView) // whole customized view
+    }
+
+    
 	class TextField {
 		var topInfo: TextLabel
 		var sucessInfo: TextLabel
 		var errorInfo: TextLabel
 		
+        var sucessInfoImage: CustomImageView
+        var errorInfoImage: CustomImageView
+
 		var textFieldInternalTextLabel: TextLabel
 		
 		var borderColor: SystemColor
@@ -29,9 +41,14 @@ public extension NitrozenAppearance {
 		
 		public init(
 			textFieldInternalTextLabel: TextLabel,
-			topInfo: TextLabel, topInfoPadding: ViewPadding,
-			sucessInfo: TextLabel, successInfoPadding: ViewPadding,
-			errorInfo: TextLabel, errorInfoPadding: ViewPadding,
+			topInfo: TextLabel,
+            topInfoPadding: ViewPadding,
+			sucessInfo: TextLabel,
+            sucessInfoImage: CustomImageView,
+            successInfoPadding: ViewPadding,
+			errorInfo: TextLabel,
+            errorInfoPadding: ViewPadding,
+            errorInfoImage: CustomImageView,
 			borderColor: SystemColor,
 			borderWidth: CGFloat,
 			borderPadding: ViewPadding,
@@ -48,12 +65,16 @@ public extension NitrozenAppearance {
 			self.topInfoPadding = topInfoPadding
 			
 			self.sucessInfo = sucessInfo
+            self.sucessInfoImage = sucessInfoImage
 			self.successInfoPadding = successInfoPadding
 			
 			self.errorInfo = errorInfo
+            self.errorInfoImage = errorInfoImage
 			self.errorInfoPadding = errorInfoPadding
 			
 			self.backgroundColor = backgroundColor
+            
+            
 		}
 	}
 }
@@ -71,6 +92,9 @@ public extension NitrozenAppearance.TextField {
 	
 	@discardableResult
 	func sucessInfo(_ sucessInfo: NitrozenAppearance.TextLabel) -> Self { self.sucessInfo = sucessInfo; return self }
+    
+    @discardableResult
+    func sucessInfoImage(_ sucessInfoImage: NitrozenAppearance.CustomImageView) -> Self { self.sucessInfoImage = sucessInfoImage; return self }
 	
 	@discardableResult
 	func successInfoPadding(_ successInfoPadding: ViewPadding) -> Self { self.successInfoPadding = successInfoPadding; return self }
@@ -78,6 +102,9 @@ public extension NitrozenAppearance.TextField {
 	@discardableResult
 	func errorInfo(_ errorInfo: NitrozenAppearance.TextLabel) -> Self { self.errorInfo = errorInfo; return self }
 	
+    @discardableResult
+    func errorInfoImage(_ errorInfoImage: NitrozenAppearance.CustomImageView) -> Self { self.errorInfoImage = errorInfoImage; return self }
+
 	@discardableResult
 	func errorInfoPadding(_ errorInfoPadding: ViewPadding) -> Self { self.errorInfoPadding = errorInfoPadding; return self }
 	
@@ -103,13 +130,14 @@ public extension NitrozenAppearance.TextField {
 		.init(
 			textFieldInternalTextLabel: self.textFieldInternalTextLabel.copy,
 			topInfo: self.topInfo.copy, topInfoPadding: self.topInfoPadding,
-			sucessInfo: self.sucessInfo.copy, successInfoPadding: self.successInfoPadding,
-			errorInfo: self.errorInfo.copy, errorInfoPadding: self.errorInfoPadding,
-			borderColor: self.borderColor,
-			borderWidth: self.borderWidth,
-			borderPadding: self.borderPadding,
-			borderRadius: self.borderRadius,
-			backgroundColor: self.backgroundColor
+            sucessInfo: self.sucessInfo.copy, sucessInfoImage: self.sucessInfoImage, successInfoPadding: self.successInfoPadding,
+            errorInfo: self.errorInfo.copy, errorInfoPadding: self.errorInfoPadding,
+            errorInfoImage: self.errorInfoImage, borderColor: self.borderColor,
+            borderWidth: self.borderWidth,
+            borderPadding: self.borderPadding,
+            borderRadius: self.borderRadius,
+            backgroundColor: self.backgroundColor
+
 		)
 	}
 }
