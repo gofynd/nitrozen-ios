@@ -167,7 +167,21 @@ public struct NitrozenTextField: View {
             .first.convertToView { info in
                 if info.canShow {
                     HStack {
-                        Spacer().frame(width: 6)
+                        switch NitrozenAppearance.shared.textField.errorInfoImage{
+                            
+                        case .assetImage(let imageName):
+                            Image(imageName)
+                            
+                        case .systemImage(let imageName):
+                            Image(systemName: imageName)
+                            
+                        case .custom(let customView):
+                            customView
+                            
+                        }
+
+                        Spacer().frame(width: 10)
+                        
                         Text(info.text)
                             .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).titleColor)
                             .font(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).font)
@@ -184,7 +198,21 @@ public struct NitrozenTextField: View {
             .first.convertToView { info in
                 if info.canShow {
                     HStack {
-                        Spacer().frame(width: 6)
+                        
+                        switch NitrozenAppearance.shared.textField.sucessInfoImage{
+                            
+                        case .assetImage(let imageName):
+                            Image(imageName)
+                            
+                        case .systemImage(let imageName):
+                            Image(systemName: imageName)
+                            
+                        case .custom(let customView):
+                            customView
+                            
+                        }
+                        
+                        Spacer().frame(width: 10)
                         Text(info.text)
                             .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.sucessInfo).titleColor)
                             .font(info.appearance.or(NitrozenAppearance.shared.textField.sucessInfo).font)
