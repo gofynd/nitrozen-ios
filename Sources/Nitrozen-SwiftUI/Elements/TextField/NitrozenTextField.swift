@@ -167,6 +167,9 @@ public struct NitrozenTextField: View {
             .first.convertToView { info in
                 if info.canShow {
                     HStack {
+                        
+                        Spacer().frame(width: 2)
+
                         switch NitrozenAppearance.shared.textField.errorInfoImage{
                             
                         case .assetImage(let imageName):
@@ -181,7 +184,7 @@ public struct NitrozenTextField: View {
                             
                         }
 
-                        Spacer().frame(width: 10)
+                        Spacer().frame(width: 6)
                         
                         Text(info.text)
                             .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).titleColor)
@@ -200,6 +203,8 @@ public struct NitrozenTextField: View {
                 if info.canShow {
                     HStack {
                         
+                        Spacer().frame(width: 2)
+
                         switch NitrozenAppearance.shared.textField.sucessInfoImage{
                             
                         case .assetImage(let imageName):
@@ -215,7 +220,8 @@ public struct NitrozenTextField: View {
                             
                         }
                         
-                        Spacer().frame(width: 10)
+                        Spacer().frame(width: 6)
+                        
                         Text(info.text)
                             .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.sucessInfo).titleColor)
                             .font(info.appearance.or(NitrozenAppearance.shared.textField.sucessInfo).font)
