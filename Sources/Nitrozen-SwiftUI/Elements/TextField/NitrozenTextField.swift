@@ -174,6 +174,7 @@ public struct NitrozenTextField: View {
                             
                         case .systemImage(let imageName):
                             Image(systemName: imageName)
+                                .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).titleColor)
                             
                         case .custom(let customView):
                             customView
@@ -206,6 +207,8 @@ public struct NitrozenTextField: View {
                             
                         case .systemImage(let imageName):
                             Image(systemName: imageName)
+                                .foregroundColor(info.appearance.or(NitrozenAppearance.shared.textField.errorInfo).titleColor)
+
                             
                         case .custom(let customView):
                             customView
