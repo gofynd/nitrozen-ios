@@ -31,7 +31,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	public init(
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
-		topView: AnyView?, closeView: CustomImageView? = nil,
+		topView: AnyView? = nil, closeView: CustomImageView? = nil,
 		@ViewBuilder actions: @escaping () -> Actions,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
