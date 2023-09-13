@@ -13,19 +13,19 @@ public extension View {
 	func primaryButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule, appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.primaryButton, viewPadding: ViewPadding? = nil) -> some View {
 		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: shape)
 		style.padding(viewPadding.or(self.buttonPadding(shape: shape)))
-		return self.loading(isLoading: isLoading, style: style)
+        return self.loading(isLoading: isLoading, style: style).disabled(isLoading.wrappedValue)
 	}
 	
 	func borderedButton(isLoading: Binding<Bool> = .constant(false), shape: ViewShape = .capsule, appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.borderedButton, viewPadding: ViewPadding? = nil) -> some View {
 		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: shape)
 		style.padding(viewPadding.or(self.buttonPadding(shape: shape)))
-		return self.loading(isLoading: isLoading, style: style)
+		return self.loading(isLoading: isLoading, style: style).disabled(isLoading.wrappedValue)
 	}
 	
 	func tertiaryButton(isLoading: Binding<Bool> = .constant(false), appearance: NitrozenAppearance.Button = NitrozenAppearance.shared.tertiaryButton, viewPadding: ViewPadding? = nil) -> some View {
 		var style = nitrozenButtonStyle(forAppearance: appearance, withShape: .none)
 		style.padding(viewPadding.or(self.buttonPadding(shape: .none)))
-		return self.loading(isLoading: isLoading, style: style)
+		return self.loading(isLoading: isLoading, style: style).disabled(isLoading.wrappedValue)
 	}
 }
 
