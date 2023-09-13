@@ -23,7 +23,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	var subtitle: String?
 	
 	var topView: AnyView?
-	var closeView: CustomImageView
+	var closeView: CustomImageView?
 	var actionsBuilder: () -> Actions
 	
 	var appearance: NitrozenAppearance.Alert
@@ -31,7 +31,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	public init(
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
-		topView: AnyView?, closeView: CustomImageView,
+		topView: AnyView?, closeView: CustomImageView? = nil,
 		@ViewBuilder actions: @escaping () -> Actions,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
@@ -59,28 +59,31 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	@ViewBuilder
 	func alertView() -> some View {
 		VStack(spacing: 0) {
-			HStack {
-				Spacer()
-				switch self.closeView {
-				case .systemImage(let imageName):
-					systemImageButton(imageName: imageName)
-					
-				case .assetImage(let imageName):
-					Button {
-						self.closeAlert()
-					} label: {
-						Image(imageName)
-					}
-					.tertiaryButton()
-					.padding([.top, .trailing])
-					
-				case .custom(let customView):
-					customView
-					
-				case .nitrozen:
-					systemImageButton(imageName: "xmark")
-				}
-			}
+            self.closeView.convertToView { closeView in
+                HStack {
+                    Spacer()
+                    
+                    switch closeView {
+                    case .systemImage(let imageName):
+                        systemImageButton(imageName: imageName)
+                        
+                    case .assetImage(let imageName):
+                        Button {
+                            self.closeAlert()
+                        } label: {
+                            Image(imageName)
+                        }
+                        .tertiaryButton()
+                        .padding([.top, .trailing])
+                        
+                    case .custom(let customView):
+                        customView
+                        
+                    case .nitrozen:
+                        systemImageButton(imageName: "xmark")
+                    }
+                }
+            }
 
 			self.topView.convertToView { topView in
 				topView
