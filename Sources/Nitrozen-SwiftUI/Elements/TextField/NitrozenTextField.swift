@@ -123,7 +123,7 @@ public struct NitrozenTextField: View {
         } else if self.infos.contains(where: {$0.position == .error }) {
             return Color(self.apperance.errorInfo.titleColor.uiColor().lighter(percentage: 30))
         } else if self.isEditing {
-            return ColorProvider.shared.primary50
+            return self.apperance.focusBorderColor
         } else {
             return self.apperance.borderColor
         }

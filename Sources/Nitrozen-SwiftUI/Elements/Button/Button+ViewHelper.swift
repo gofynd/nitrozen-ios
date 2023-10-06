@@ -34,7 +34,9 @@ fileprivate extension View {
 		//padding and loading -> will be decided based on shape and modified later
 		return NitrozenButtonStyle(
 			styleUseCase: forAppearance.styleUseCase,
-			shapeUseCase: withShape,
+            shapeUseCase: withShape, 
+            progressViewSize: forAppearance.progressViewSize.or(.init(width: 32, height: 32)),
+            progressViewColor: forAppearance.progressViewColor.or(forAppearance.titleColor),
 			backgroundColor: forAppearance.backgroundColor,
 			backgroundColorDisabled: forAppearance.backgroundColorDisabled,
 			textColor: forAppearance.titleColor,

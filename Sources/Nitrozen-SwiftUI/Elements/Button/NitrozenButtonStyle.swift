@@ -22,7 +22,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 	private let backgroundColorDisabled: Color
 	private let textColor: Color
 	private let textColorDisabled: Color
-
+    private let progressViewSize:CGSize
+    private let progressViewColor:Color
 	private let font: Font
 
 	private let radius: CGFloat
@@ -37,7 +38,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 	init(
 		styleUseCase: NitrozenAppearance.Button.StyleUseCase,
 		shapeUseCase: ViewShape,
-		
+        progressViewSize:CGSize,
+        progressViewColor:Color,
 		backgroundColor: Color,
 		backgroundColorDisabled: Color,
 		textColor: Color,
@@ -54,6 +56,8 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 		loaderSize: NitrozenElementLoaderSize = .defaultSize
 	) {
 		self.styleUseCase = styleUseCase
+        self.progressViewSize = progressViewSize
+        self.progressViewColor = progressViewColor
 		self.viewShape = shapeUseCase
 		self.backgroundColor = backgroundColor
 		self.backgroundColorDisabled = backgroundColorDisabled
@@ -82,11 +86,12 @@ struct NitrozenButtonStyle: ButtonStyle, NitrozenElementStyle, NitrozenElementLo
 						style: .indeterministic,
 						appearance: NitrozenAppearance.shared.progressView
 							.copy
-							.color(textColor)
+							.color(self.progressViewColor)
 							.width(4)
-							.backgrounRingcolor(textColor.opacity(0.25))
+							.backgrounRingcolor(self.progressViewColor.opacity(0.25))
 					)
-					.frame(width: 32, height: 32)
+                    .frame(width: progressViewSize.width, height: progressViewSize.height)
+                    
 				}
 			} else {
 				configuration.label

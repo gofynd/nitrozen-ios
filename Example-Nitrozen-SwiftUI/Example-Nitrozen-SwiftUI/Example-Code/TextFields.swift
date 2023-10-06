@@ -18,6 +18,7 @@ struct TextFields: View {
 	@State var textField5: String = "lorem ipsum text by user"
 	@State var textField6: String = "lorem ipsum text by user"
     @State var textField7: String = ""
+    @State var textField8: String = ""
     
     var testConfig = DefaultTooltipConfig()
     
@@ -67,7 +68,18 @@ struct TextFields: View {
                     
                 }
                 
-                
+                Section {
+                    Text("Textfields with custom focus color")
+                    NitrozenTextField(
+                        binding: $textField8,
+                        placeHolder: "Textfield ",
+                        infos: [
+                            .init(position: .top, text: "Custom Focus Color")
+                        ],
+                        apperance: NitrozenAppearance.shared.textField.copy.focusBorderColor(.red), leftView: nil, rightView: nil)
+                    
+                }
+
                 
                 Section {
                     Text("Textfields with Success info tooltip custom image")

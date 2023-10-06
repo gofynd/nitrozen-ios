@@ -29,6 +29,7 @@ public extension NitrozenAppearance {
 		var textFieldInternalTextLabel: TextLabel
 		
 		var borderColor: SystemColor
+        var focusBorderColor: SystemColor
 		var borderWidth: CGFloat
 		var borderPadding: ViewPadding
 		var borderRadius: CGFloat
@@ -50,6 +51,7 @@ public extension NitrozenAppearance {
             errorInfoPadding: ViewPadding,
             errorInfoImage: CustomImageView,
 			borderColor: SystemColor,
+            focusBorderColor: SystemColor? = nil,
 			borderWidth: CGFloat,
 			borderPadding: ViewPadding,
 			borderRadius: CGFloat,
@@ -57,6 +59,7 @@ public extension NitrozenAppearance {
 		) {
 			self.textFieldInternalTextLabel = textFieldInternalTextLabel
 			self.borderColor = borderColor
+            self.focusBorderColor = focusBorderColor.or(ColorProvider.shared.primary50)
 			self.borderWidth = borderWidth
 			self.borderPadding = borderPadding
 			self.borderRadius = borderRadius
@@ -110,7 +113,10 @@ public extension NitrozenAppearance.TextField {
 	
 	@discardableResult
 	func borderColor(_ borderColor: SystemColor) -> Self { self.borderColor = borderColor; return self }
-	
+    
+    @discardableResult
+    func focusBorderColor(_ focusBorderColor: SystemColor) -> Self { self.focusBorderColor = focusBorderColor; return self }
+
 	@discardableResult
 	func borderWidth(_ borderWidth: CGFloat) -> Self { self.borderWidth = borderWidth; return self }
 	
@@ -132,7 +138,8 @@ public extension NitrozenAppearance.TextField {
 			topInfo: self.topInfo.copy, topInfoPadding: self.topInfoPadding,
             sucessInfo: self.sucessInfo.copy, sucessInfoImage: self.sucessInfoImage, successInfoPadding: self.successInfoPadding,
             errorInfo: self.errorInfo.copy, errorInfoPadding: self.errorInfoPadding,
-            errorInfoImage: self.errorInfoImage, borderColor: self.borderColor,
+            errorInfoImage: self.errorInfoImage, borderColor: self.borderColor, 
+            focusBorderColor: self.focusBorderColor,
             borderWidth: self.borderWidth,
             borderPadding: self.borderPadding,
             borderRadius: self.borderRadius,

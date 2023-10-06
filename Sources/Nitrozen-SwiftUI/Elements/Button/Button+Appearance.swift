@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 public extension NitrozenAppearance {
 	class Button {
@@ -19,18 +20,27 @@ public extension NitrozenAppearance {
 		var backgroundColorDisabled: SystemColor
 		var font: SystemFont
 		var borderWidth: Double
+        var progressViewSize: CGSize?
+        var progressViewColor: SystemColor?
 		var borderColor: SystemColor
 		var borderColorDisabled: SystemColor
 		
         public init(styleUseCase: StyleUseCase,
-			 titleColor: SystemColor, titleColorDisabled: SystemColor,
-			 backgroundColor: SystemColor, backgroundColorDisabled: SystemColor,
-			 font: SystemFont,
-			 borderWidth: Double, borderColor: SystemColor, borderColorDisabled: SystemColor
-		) {
+                    titleColor: SystemColor,
+                    titleColorDisabled: SystemColor,
+                    backgroundColor: SystemColor, 
+                    backgroundColorDisabled: SystemColor,
+                    font: SystemFont,
+                    progressViewSize: CGSize? = .init(width: 32, height: 32),
+                    progressViewColor:SystemColor? = nil,
+                    borderWidth: Double,
+                    borderColor: SystemColor,
+                    borderColorDisabled: SystemColor) {
 			
+            self.titleColor = titleColor
 			self.styleUseCase = styleUseCase
-			self.titleColor = titleColor
+            self.progressViewSize = progressViewSize
+            self.progressViewColor = progressViewColor.or(self.titleColor)
 			self.titleColorDisabled = titleColorDisabled
 			self.backgroundColor = backgroundColor
 			self.backgroundColorDisabled = backgroundColorDisabled
@@ -67,6 +77,14 @@ public extension NitrozenAppearance.Button {
 	
 	@discardableResult
 	func borderColorDisabled(_ borderColorDisabled: SystemColor) -> Self { self.borderColorDisabled = borderColorDisabled; return self }
+    
+    @discardableResult
+    func progressViewSize(_ progressViewSize: CGSize) -> Self { self.progressViewSize = progressViewSize; return self }
+    
+    @discardableResult
+    func progressViewColor(_ progressViewColor: SystemColor) -> Self { self.progressViewColor = progressViewColor; return self }
+
+
 }
 
 //MARK: Copy Support
@@ -77,7 +95,9 @@ public extension NitrozenAppearance.Button {
 			  titleColorDisabled: self.titleColorDisabled,
 			  backgroundColor: self.backgroundColor,
 			  backgroundColorDisabled: self.backgroundColorDisabled,
-			  font: self.font,
+              font: self.font,
+              progressViewSize: self.progressViewSize,
+              progressViewColor: self.progressViewColor,
 			  borderWidth: self.borderWidth,
 			  borderColor: self.borderColor,
 			  borderColorDisabled: self.borderColorDisabled

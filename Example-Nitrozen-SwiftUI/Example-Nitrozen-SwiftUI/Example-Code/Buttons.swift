@@ -14,6 +14,8 @@ struct Buttons: View {
 	
 	@State var isButtonEnabled: Bool = false
 	@State var isButtonLoading: Bool = false
+    @State var isButtonLoading2: Bool = false
+    @State var isButtonLoading3: Bool = false
 	
 	@ViewBuilder func primaryButtons() -> some View {
 		Section {
@@ -71,6 +73,42 @@ struct Buttons: View {
 				.primaryButton(isLoading: $isButtonLoading)
 				
 			}
+            
+            VStack {
+                HStack{
+                    Text("Loading with custom progressView size")
+                    Toggle("", isOn: $isButtonLoading2)
+                }
+                
+                Button(action: {}) {
+                    Text("Click me")
+                        .frame(maxWidth: .infinity)
+                }
+                .primaryButton(
+                    isLoading: $isButtonLoading2,
+                    appearance: NitrozenAppearance.shared.primaryButton.copy.progressViewSize(.init(width: 10, height: 10))
+                )
+                
+            }
+            
+            VStack {
+                HStack{
+                    Text("Loading with custom progressView color")
+                    Toggle("", isOn: $isButtonLoading3)
+                }
+                
+                Button(action: {}) {
+                    Text("Click me")
+                        .frame(maxWidth: .infinity)
+                }
+                .primaryButton(
+                    isLoading: $isButtonLoading3,
+                    appearance: NitrozenAppearance.shared.primaryButton.copy.progressViewColor(.green)
+                )
+                
+            }
+
+
 			
 		}
 		
