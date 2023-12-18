@@ -29,17 +29,38 @@ public struct NitrozenPresentSheetModifier: ViewModifier {
 	
 	@ViewBuilder
 	public func body(content: Content) -> some View {
-		ZStack{
-			content
-			if self.isPresented.wrappedValue{
-				ZStack(alignment: postion) {
-					outOfFocusArea
-					childContent
-						.edgesIgnoringSafeArea(.all)
-				}
-			}
-		}
-	}
+        ZStack {
+            content
+            ZStack(alignment: .bottom) {
+                if (isPresented.wrappedValue) {
+                    Color.black
+                        .opacity(0.65)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            isPresented.wrappedValue.toggle()
+                        }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .edgesIgnoringSafeArea(.all)
+            .animation(.easeInOut, value: isPresented.wrappedValue)
+            
+            ZStack {
+                if isPresented.wrappedValue {
+                    childContent
+                        .transition(.move(edge: .bottom))
+                        .background(
+                            Color.white
+                        )
+                        .clipShape(RoundedCorner(radius: 24, corners: [.topLeft, .topRight]))
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .edgesIgnoringSafeArea(.all)
+            .animation(.easeInOut, value: isPresented.wrappedValue)
+            .zIndex(1)
+        }
+    }
 	var outOfFocusArea: some View {
 		Group {
 			Rectangle()

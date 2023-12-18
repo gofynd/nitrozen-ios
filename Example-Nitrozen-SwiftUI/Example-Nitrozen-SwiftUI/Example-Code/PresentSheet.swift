@@ -57,18 +57,20 @@ struct PresentSheet: View {
 				content: {
 					VStack(alignment: .leading, spacing: 12){
 						ForEach(options) { option in
-							HStack(alignment: .top) {
-								Image(systemName: option.icon)
-								Text(option.name)
-									.body(size: .s, weight: .regular)
-									.foregroundColor(.gray)
-								Spacer()
-							}
-							.frame(height: 30.0)
-							.padding(0)
-							.onTapGesture {
-								self.showingActionSheet.toggle()
-							}
+                            Button(action: {
+                                self.showingActionSheet.toggle()
+                            }, label: {
+                                HStack(alignment: .top) {
+                                    Image(systemName: option.icon)
+                                        .foregroundColor(.black)
+                                    Text(option.name)
+                                        .body(size: .s, weight: .regular)
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                                .frame(height: 30.0)
+                                .padding(0)
+                            })
 						}
 						
 					}

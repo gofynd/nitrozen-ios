@@ -49,7 +49,6 @@ public struct NitrozenActionSheet<Content: View>: View {
 	
 	public var sheetView: some View {
 		VStack{
-			Spacer()
 			VStack(alignment: .leading, spacing: 0){
 				VStack(alignment: .leading){
 					titleView
@@ -60,7 +59,7 @@ public struct NitrozenActionSheet<Content: View>: View {
 				}
 			}
 			.background(Color.white)
-			.cornerRadius(20, corners: [.topLeft, .topRight])
+			.cornerRadius(24, corners: [.topLeft, .topRight])
 		}
 	}
 	
@@ -114,6 +113,10 @@ public struct NitrozenActionSheet<Content: View>: View {
 			self.closeAlert()
 		} label: {
 			Image(systemName: imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 18, height: 18)
+                .font(Font.system(size: 18, weight: .medium))
 		}
 		.foregroundColor(self.appearance.closeButtonColor)
 	}
