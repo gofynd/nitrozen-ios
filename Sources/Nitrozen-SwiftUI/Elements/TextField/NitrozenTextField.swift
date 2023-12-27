@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftUITooltip
 
-@available(iOS 15.0, *)
 public struct NitrozenTextField: View {
     
     public struct Info {
@@ -59,7 +58,7 @@ public struct NitrozenTextField: View {
     
     var leftView: AnyView? = nil
     var rightView: AnyView? = nil
-    @FocusState var focused: Bool
+    @State private var isEditing = false
 
     
     public init(
@@ -103,10 +102,10 @@ public struct NitrozenTextField: View {
             Group {
                 if self.isSecure {
                     SecureField(placeHolder, text: binding)
-                        .focused($focused)
                 } else {
-                    TextField(placeHolder, text: binding)
-                        .focused($focused)
+                    TextField(placeHolder, text: binding) { isEditing in
+                        self.isEditing = isEditing
+                    }
                 }
             }
             rightView.convertToView { $0 }
@@ -123,7 +122,7 @@ public struct NitrozenTextField: View {
             return Color(self.apperance.sucessInfo.titleColor.uiColor().lighter(percentage: 30))
         } else if self.infos.contains(where: {$0.position == .error }) {
             return Color(self.apperance.errorInfo.titleColor.uiColor().lighter(percentage: 30))
-        } else if self.focused {
+        } else if self.isEditing {
             return self.apperance.focusBorderColor
         } else {
             return self.apperance.borderColor
