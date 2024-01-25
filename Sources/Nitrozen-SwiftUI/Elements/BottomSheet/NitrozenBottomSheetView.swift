@@ -11,7 +11,7 @@ public struct NitrozenBottomSheetView: View {
     var title: String
     var subTitle: String?
     @Binding var isPresented: Bool
-    var appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet
+    var appearance: NitrozenAppearance.ActionSheet
     let closeView: CustomView
     var content: () -> any View
     
@@ -22,15 +22,15 @@ public struct NitrozenBottomSheetView: View {
         case custom(view: AnyView) // whole customized view
     }
     
-    public init(title: String, subTitle: String? = nil, isPresented: Binding<Bool>, content: @escaping () -> any View, appearance: NitrozenAppearance.ActionSheet, closeView: CustomView) {
+    public init(title: String, subTitle: String? = nil, isPresented: Binding<Bool>, appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet, closeView: CustomView, content: @escaping () -> any View) {
         self.title = title
         self.subTitle = subTitle
         self._isPresented = isPresented
-        self.content = content
         self.appearance = appearance
         self.closeView = closeView
+        self.content = content
     }
-
+    
     public var body: some View {
         ZStack(alignment: .bottom) {
             if (isPresented) {
@@ -54,13 +54,11 @@ public struct NitrozenBottomSheetView: View {
                     AnyView(content())
                 }
                 .padding(16)
-                .padding(.top, 4)
-                    .transition(.move(edge: .bottom))
-                    .background(
-                        Color.white
-                    )
-                    .cornerRadius(24)
-                    .edgesIgnoringSafeArea(.all)
+                .padding(.top, 6)
+                .transition(.move(edge: .bottom))
+                .background(Color.white)
+                .cornerRadius(24)
+                .edgesIgnoringSafeArea(.all)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -92,7 +90,7 @@ public struct NitrozenBottomSheetView: View {
             case .nitrozen:
                 systemImageButton(imageName: "xmark")
             }
-
+            
         }
     }
     
@@ -105,7 +103,7 @@ public struct NitrozenBottomSheetView: View {
         }
         
     }
-
+    
     @ViewBuilder
     func systemImageButton(imageName: String) -> some View {
         Button {
