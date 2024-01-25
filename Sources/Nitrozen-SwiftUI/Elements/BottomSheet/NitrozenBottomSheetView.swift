@@ -94,9 +94,6 @@ public struct NitrozenBottomSheetView: View {
             }
 
         }
-        .padding(.top, 20)
-        .padding(.horizontal, 16)
-        
     }
     
     public var subTitleLabel: some View {
