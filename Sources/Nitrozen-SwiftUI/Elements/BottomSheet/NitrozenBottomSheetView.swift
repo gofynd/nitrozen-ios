@@ -11,9 +11,9 @@ public struct NitrozenBottomSheetView: View {
     var title: String
     var subTitle: String?
     @Binding var isPresented: Bool
-    var content: () -> any View
     var appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet
     let closeView: CustomView
+    var content: () -> any View
     
     public enum CustomView {
         case nitrozen //default view
