@@ -21,6 +21,15 @@ public struct NitrozenBottomSheetView: View {
         case assetImage(name: String) //customized image from .xcassets
         case custom(view: AnyView) // whole customized view
     }
+    
+    public init(title: String, subTitle: String? = nil, isPresented: Binding<Bool>, content: @escaping () -> any View, appearance: NitrozenAppearance.ActionSheet, closeView: CustomView) {
+        self.title = title
+        self.subTitle = subTitle
+        self._isPresented = isPresented
+        self.content = content
+        self.appearance = appearance
+        self.closeView = closeView
+    }
 
     public var body: some View {
         ZStack(alignment: .bottom) {
