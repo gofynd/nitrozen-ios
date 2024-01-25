@@ -1,13 +1,13 @@
 //
-//  SwiftUIView.swift
-//  
+//  NitrozenBottomSheetView.swift
+//
 //
 //  Created by Shadhiq on 25/01/24.
 //
 
 import SwiftUI
 
-struct NitrozenBottomSheetView: View {
+public struct NitrozenBottomSheetView: View {
     var title: String
     var subTitle: String?
     @Binding var isPresented: Bool
@@ -22,7 +22,7 @@ struct NitrozenBottomSheetView: View {
         case custom(view: AnyView) // whole customized view
     }
 
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .bottom) {
             if (isPresented) {
                 Color.black
