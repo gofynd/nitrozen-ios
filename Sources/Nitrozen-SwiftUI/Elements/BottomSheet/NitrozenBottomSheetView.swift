@@ -52,6 +52,8 @@ public struct NitrozenBottomSheetView: View {
                     titleView
                     subTitleLabel
                     AnyView(content())
+                        .padding(.bottom, 16)
+                        .padding(.top, 4)
                 }
                 .padding(16)
                 .padding(.top, 6)
