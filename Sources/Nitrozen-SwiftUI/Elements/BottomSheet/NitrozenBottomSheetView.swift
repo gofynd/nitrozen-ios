@@ -48,9 +48,11 @@ public struct NitrozenBottomSheetView: View {
         
         ZStack {
             if isPresented {
-                VStack(alignment: .leading, spacing: 24) {
-                    titleView
-                    subTitleLabel
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        titleView
+                        subTitleLabel
+                    }
                     AnyView(content())
                         .padding(.bottom, 16)
                         .padding(.top, 4)
