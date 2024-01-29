@@ -49,13 +49,12 @@ public struct NitrozenBottomSheetView: View {
         ZStack {
             if isPresented {
                 VStack(alignment: .leading, spacing: 20) {
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 3) {
                         titleView
                         subTitleLabel
                     }
                     AnyView(content())
                         .padding(.bottom, 16)
-                        .padding(.top, 4)
                 }
                 .padding(16)
                 .padding(.top, 6)
@@ -104,6 +103,7 @@ public struct NitrozenBottomSheetView: View {
                 .font(self.appearance.subTitle.font)
                 .foregroundColor(self.appearance.subTitle.titleColor)
                 .padding(.horizontal, 16)
+                .multilineTextAlignment(.leading)
         }
         
     }
