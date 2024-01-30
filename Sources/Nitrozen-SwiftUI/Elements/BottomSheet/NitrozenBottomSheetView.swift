@@ -97,15 +97,14 @@ public struct NitrozenBottomSheetView: View {
         }
     }
     
+    @ViewBuilder
     public var subTitleLabel: some View {
-        self.subTitle.convertToView { text in
-            Text(text)
+        if let subTitle {
+            Text(subTitle)
                 .font(self.appearance.subTitle.font)
                 .foregroundColor(self.appearance.subTitle.titleColor)
-                .padding(.horizontal, 16)
                 .multilineTextAlignment(.leading)
         }
-        
     }
     
     @ViewBuilder
