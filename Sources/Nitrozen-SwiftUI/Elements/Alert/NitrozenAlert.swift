@@ -22,7 +22,7 @@ public struct NitrozenAlert: View {
 	var title: String?
 	var subtitle: String?
 	
-	var topView: AnyView?
+	var topView: (any View)?
 	var closeView: CustomImageView?
 	var actionsBuilder: () -> any View
 	
@@ -31,7 +31,7 @@ public struct NitrozenAlert: View {
 	public init(
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
-		topView: AnyView? = nil, closeView: CustomImageView? = nil,
+		topView: (any View)? = nil, closeView: CustomImageView? = nil,
 		@ViewBuilder actions: @escaping () -> any View,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
@@ -104,7 +104,7 @@ public struct NitrozenAlert: View {
             }
 
 			self.topView.convertToView { topView in
-				topView
+				AnyView(topView)
                     .apply(padding: appearance.topImagePadding)
 			}
 			
