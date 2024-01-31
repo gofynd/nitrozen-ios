@@ -8,7 +8,7 @@
 import SwiftUI
 
 //MARK: NitrozenAlert
-public struct NitrozenAlert<Actions>: View where Actions: View{
+public struct NitrozenAlert: View {
 	
 	//TODO: Hitendra - combine this common usage and change scope to align with Alert and actionSheet in future once other MR merged
 	public enum CustomImageView {
@@ -24,7 +24,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	
 	var topView: AnyView?
 	var closeView: CustomImageView?
-	var actionsBuilder: () -> Actions
+	var actionsBuilder: () -> any View
 	
 	var appearance: NitrozenAppearance.Alert
 	
@@ -32,7 +32,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
 		topView: AnyView? = nil, closeView: CustomImageView? = nil,
-		@ViewBuilder actions: @escaping () -> Actions,
+		@ViewBuilder actions: @escaping () -> any View,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
 		self._isPresented = isPresented
@@ -47,9 +47,27 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	}
 	
 	public var body: some View {
-		if self.isPresented {
-			alertView()
-		}
+        ZStack(alignment: .center) {
+            if (isPresented) {
+                Color.black
+                    .opacity(0.65)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isPresented.toggle()
+                    }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .edgesIgnoringSafeArea(.all)
+//        .animation(.bouncy, value: isPresented)
+        
+        ZStack(alignment: .center) {
+            if self.isPresented {
+                alertView()
+            }
+        }
+//        .animation(.bouncy, value: isPresented)
+        .zIndex(1)
 	}
 	
 	func closeAlert(){
@@ -109,7 +127,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 			.fixedSize(horizontal: false, vertical: true)
 			.frame(maxWidth: .infinity, alignment: .center)
 			
-			self.actionsBuilder()
+			AnyView(self.actionsBuilder())
 		}
 		.padding()
 		.background(Color(.systemBackground))
