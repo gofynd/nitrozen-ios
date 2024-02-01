@@ -59,14 +59,13 @@ public struct NitrozenAlert: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .edgesIgnoringSafeArea(.all)
-//        .animation(.bouncy, value: isPresented)
+        .animation(.easeInOut, value: isPresented)
         
         ZStack(alignment: .center) {
-            if self.isPresented {
-                alertView()
-            }
+            alertView()
         }
-//        .animation(.bouncy, value: isPresented)
+        .offset(y: isPresented ? 0 : UIScreen.main.bounds.height)
+        .animation(.easeInOut, value: isPresented)
         .zIndex(1)
 	}
 	
