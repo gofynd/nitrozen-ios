@@ -8,7 +8,7 @@
 import SwiftUI
 
 //MARK: NitrozenAlert
-public struct NitrozenAlert<Actions>: View where Actions: View{
+public struct NitrozenAlert: View {
 	
 	//TODO: Hitendra - combine this common usage and change scope to align with Alert and actionSheet in future once other MR merged
 	public enum CustomImageView {
@@ -22,17 +22,17 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	var title: String?
 	var subtitle: String?
 	
-	var topView: AnyView?
+	var topView: (any View)?
 	var closeView: CustomImageView?
-	var actionsBuilder: () -> Actions
+	var actionsBuilder: () -> any View
 	
 	var appearance: NitrozenAppearance.Alert
 	
 	public init(
 		isPresented: Binding<Bool>,
 		title: String? = nil, subtitle: String? = nil,
-		topView: AnyView? = nil, closeView: CustomImageView? = nil,
-		@ViewBuilder actions: @escaping () -> Actions,
+		topView: (any View)? = nil, closeView: CustomImageView? = nil,
+		@ViewBuilder actions: @escaping () -> any View,
 		appearance: NitrozenAppearance.Alert? = nil
 	) {
 		self._isPresented = isPresented
@@ -47,9 +47,26 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 	}
 	
 	public var body: some View {
-		if self.isPresented {
-			alertView()
-		}
+        ZStack(alignment: .center) {
+            if (isPresented) {
+                Color.black
+                    .opacity(0.65)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isPresented.toggle()
+                    }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .edgesIgnoringSafeArea(.all)
+//        .animation(.easeInOut, value: isPresented)
+        
+        ZStack(alignment: .center) {
+            alertView()
+        }
+        .offset(y: isPresented ? 0 : UIScreen.main.bounds.height)
+//        .animation(.easeInOut, value: isPresented)
+        .zIndex(1)
 	}
 	
 	func closeAlert(){
@@ -86,7 +103,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
             }
 
 			self.topView.convertToView { topView in
-				topView
+				AnyView(topView)
                     .apply(padding: appearance.topImagePadding)
 			}
 			
@@ -109,7 +126,7 @@ public struct NitrozenAlert<Actions>: View where Actions: View{
 			.fixedSize(horizontal: false, vertical: true)
 			.frame(maxWidth: .infinity, alignment: .center)
 			
-			self.actionsBuilder()
+			AnyView(self.actionsBuilder())
 		}
 		.padding()
 		.background(Color(.systemBackground))
