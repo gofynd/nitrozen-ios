@@ -90,6 +90,7 @@ public struct NitrozenTextField: View {
         VStack(spacing: 0) {
             infoView()
             textField()
+                .focused($focused)
             errorView()
             successView()
         }
@@ -103,10 +104,8 @@ public struct NitrozenTextField: View {
             Group {
                 if self.isSecure {
                     SecureField(placeHolder, text: binding)
-                        .focused($focused)
                 } else {
                     TextField(placeHolder, text: binding)
-                        .focused($focused)
                 }
             }
             rightView.convertToView { $0 }
