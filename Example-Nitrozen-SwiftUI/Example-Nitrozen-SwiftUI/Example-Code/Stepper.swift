@@ -11,12 +11,12 @@ import Nitrozen_SwiftUI
 
 struct Stepper: View {
     
-    @State var countText1:String = "0"
-    @State var countText2:String = "0"
-    @State var countText3:String = "0"
-    @State var countText4:String = "0"
-    @State var countText5:String = "0"
-    @State var countText6:String = "0"
+    @State var countText1:String = ""
+    @State var countText2:String = ""
+    @State var countText3:String = ""
+    @State var countText4:String = ""
+    @State var countText5:String = ""
+    @State var countText6:String = ""
     
     var body: some View {
         ScrollView(showsIndicators: false){

@@ -51,7 +51,7 @@ public struct NitrozenStepperView: View {
     
     @ViewBuilder
     func inputTextfield() -> some View{
-        TextField("", text: $inputValue)
+        TextField("0", text: $inputValue)
 			.font(self.appearance.inputField.textFieldInternalTextLabel.font)
 			.foregroundColor(self.appearance.inputField.textFieldInternalTextLabel.titleColor)
             .multilineTextAlignment(.center)
