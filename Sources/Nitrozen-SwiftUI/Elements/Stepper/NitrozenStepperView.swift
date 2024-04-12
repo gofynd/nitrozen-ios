@@ -69,8 +69,12 @@ public struct NitrozenStepperView: View {
             )
             .keyboardType(.numberPad)
             .onReceive(inputValue.publisher) { text in
-                if intInputValue > maxInputValue{
-                    inputValue.remove(at: inputValue.index(before: inputValue.endIndex))
+                if inputValue == "0" {
+                    inputValue = ""
+                } else {
+                    if intInputValue > maxInputValue {
+                        inputValue.remove(at: inputValue.index(before: inputValue.endIndex))
+                    }
                 }
             }
         
