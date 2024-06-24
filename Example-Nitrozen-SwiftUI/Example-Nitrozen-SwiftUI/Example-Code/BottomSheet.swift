@@ -67,6 +67,7 @@ struct BottomSheet: View {
             .overlay(content: {
                 NitrozenBottomSheetView(
                     title: "Select Profile Picture",
+                    restrictBackgroundInteraction: true,
                     isPresented: $showingActionSheet,
                     closeView: NitrozenBottomSheetView.CustomView.nitrozen) {
                         VStack(alignment: .leading, spacing: 12){
@@ -171,6 +172,7 @@ struct BottomSheet: View {
             .overlay(content: {
                 NitrozenBottomSheetView(
                     title: "Select Tshirt Size - from child view level 2",
+                    restrictBackgroundInteraction: true,
                     isPresented:$nitrozenSheetTriggerDataForChild2.isShowing,
                     closeView: NitrozenBottomSheetView.CustomView.nitrozen,
                     content: {
