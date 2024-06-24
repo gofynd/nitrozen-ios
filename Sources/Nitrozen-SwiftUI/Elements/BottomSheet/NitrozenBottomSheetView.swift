@@ -10,6 +10,7 @@ import SwiftUI
 public struct NitrozenBottomSheetView: View {
     var title: String
     var subTitle: String?
+    var restrictBackgroundInteraction: Bool
     @Binding var isPresented: Bool
     var appearance: NitrozenAppearance.ActionSheet
     let closeView: CustomView
@@ -22,9 +23,10 @@ public struct NitrozenBottomSheetView: View {
         case custom(view: AnyView) // whole customized view
     }
     
-    public init(title: String, subTitle: String? = nil, isPresented: Binding<Bool>, appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet, closeView: CustomView, content: @escaping () -> any View) {
+    public init(title: String, subTitle: String? = nil, restrictBackgroundInteraction: Bool = false, isPresented: Binding<Bool>, appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet, closeView: CustomView, content: @escaping () -> any View) {
         self.title = title
         self.subTitle = subTitle
+        self.restrictBackgroundInteraction = restrictBackgroundInteraction
         self._isPresented = isPresented
         self.appearance = appearance
         self.closeView = closeView
@@ -38,7 +40,9 @@ public struct NitrozenBottomSheetView: View {
                     .opacity(0.65)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
-                        isPresented.toggle()
+                        if !restrictBackgroundInteraction {
+                            isPresented.toggle()
+                        }
                     }
             }
         }
