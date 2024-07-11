@@ -95,6 +95,7 @@ struct BottomSheet: View {
                 NitrozenBottomSheetView(
                     title: "Select Gender",
                     subTitle: "Its not good to ask gender but it would be great if you provide us!! ",
+                    showBackButton: true,
                     isPresented: $showingRadioButton,
                     closeView: NitrozenBottomSheetView.CustomView.nitrozen,
                     content: {

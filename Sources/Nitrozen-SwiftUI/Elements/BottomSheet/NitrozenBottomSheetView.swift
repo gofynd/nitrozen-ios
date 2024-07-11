@@ -11,6 +11,7 @@ public struct NitrozenBottomSheetView: View {
     var title: String
     var subTitle: String?
     var restrictBackgroundInteraction: Bool
+    var showBackButton: Bool
     @Binding var isPresented: Bool
     var appearance: NitrozenAppearance.ActionSheet
     let closeView: CustomView
@@ -23,10 +24,11 @@ public struct NitrozenBottomSheetView: View {
         case custom(view: AnyView) // whole customized view
     }
     
-    public init(title: String, subTitle: String? = nil, restrictBackgroundInteraction: Bool = false, isPresented: Binding<Bool>, appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet, closeView: CustomView, content: @escaping () -> any View) {
+    public init(title: String, subTitle: String? = nil, restrictBackgroundInteraction: Bool = false, showBackButton: Bool = false, isPresented: Binding<Bool>, appearance: NitrozenAppearance.ActionSheet = NitrozenAppearance.shared.actionSheet, closeView: CustomView, content: @escaping () -> any View) {
         self.title = title
         self.subTitle = subTitle
         self.restrictBackgroundInteraction = restrictBackgroundInteraction
+        self.showBackButton = showBackButton
         self._isPresented = isPresented
         self.appearance = appearance
         self.closeView = closeView
@@ -75,29 +77,40 @@ public struct NitrozenBottomSheetView: View {
     }
     
     public var titleView: some View {
-        HStack(alignment: .center){
+        HStack(alignment: .center, spacing: 12) {
+            if showBackButton.isTrue {
+                Button {
+                    self.isPresented = false
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.init(.system(size: 20, weight: .medium)))
+                        .foregroundColor(self.appearance.backButtonColor)
+                        .frame(width: 24, height: 24)
+                }
+            }
             Text(title)
                 .font(self.appearance.title.font)
                 .foregroundColor(self.appearance.title.titleColor)
             
             Spacer()
-            switch self.closeView {
-            case .systemImage(let imageName):
-                systemImageButton(imageName: imageName)
-            case .assetImage(let imageName):
-                Button {
-                    self.isPresented.toggle()
-                } label: {
-                    Image(imageName)
+            if showBackButton.isFalse {
+                switch self.closeView {
+                case .systemImage(let imageName):
+                    systemImageButton(imageName: imageName)
+                case .assetImage(let imageName):
+                    Button {
+                        self.isPresented.toggle()
+                    } label: {
+                        Image(imageName)
+                    }
+                    .foregroundColor(self.appearance.closeButtonColor)
+                case .custom(let customView):
+                    customView
+                    
+                case .nitrozen:
+                    systemImageButton(imageName: "xmark")
                 }
-                .foregroundColor(self.appearance.closeButtonColor)
-            case .custom(let customView):
-                customView
-                
-            case .nitrozen:
-                systemImageButton(imageName: "xmark")
             }
-            
         }
     }
     

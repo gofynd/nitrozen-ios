@@ -22,6 +22,8 @@ struct Checkboxes: View {
 	
 	var options4: [String] = ["Home", "Office", "Shop", "Market", "Godown", "Truck", "Rikshaw"]
 	@State var selection4: Set<String> = []
+    
+    @State var isSelected: Bool = false
 	
 	
 	var body: some View {
@@ -89,6 +91,24 @@ struct Checkboxes: View {
 				)
 				.frame(maxWidth: .infinity, alignment: .leading)
 			}
+            
+            Section {
+                HStack {
+                    NitrozenCheckboxItem(
+                        isSelected: isSelected,
+                        title: "This is a sample title text",
+                        subTitle: "",
+                        appearance: NitrozenAppearance.shared.checkbox
+                            .selectedTitle(.init(titleColor: .gray, font: .nitrozen(.body(size: .s, weight: .regular))))
+                            .deSelectedTitle(.init(titleColor: .gray.opacity(0.8), font: .nitrozen(.body(size: .s, weight: .regular))))
+                            .size(.init(width: 24, height: 24)))
+                    .padding(.top, 0.5)
+                    .padding(.leading, 0.5)
+                    .multilineTextAlignment(.leading)
+                    
+                    Spacer()
+                }
+            }
 		}
 	}
 }

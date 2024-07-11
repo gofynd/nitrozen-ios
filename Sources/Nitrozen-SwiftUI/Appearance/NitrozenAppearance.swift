@@ -154,14 +154,15 @@ public extension NitrozenAppearance {
 			
 			actionSheet: .init(
 				title: .init(
-					titleColor: colorProvider.primary50,
+					titleColor: colorProvider.gray100,
 					font: .nitrozen(.body(size: .l, weight: .bold))
 				),
 				subTitle: .init(
 					titleColor: .gray,
 					font: .nitrozen(.body(size: .s, weight: .regular))
 				)
-				,closeButtonColor: colorProvider.primary50
+                ,closeButtonColor: colorProvider.primary50
+                ,backButtonColor: colorProvider.primary60
 			),
 			
 			presentSheet: .init(focusOpacity: 0.5),
